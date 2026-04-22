@@ -738,15 +738,16 @@ footer{background:var(--navy);padding:56px 24px 40px;text-align:center}
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
+<script src="/js/config.js"></script>
+<script src="/js/config.js"></script>
 <script>
 // ── Reveal ──
 const obs = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}}),{threshold:.08});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 
 // ── Prices ──
-const DP_DEF = {1:280,2:490,3:720,4:840,5:1000,6:1140,7:1260,8:1360,9:1440,10:1500,11:1540,12:1580,13:1620,14:1680};
-function getCfg(){ try{return JSON.parse(localStorage.getItem('voilier_config')||'{}')}catch(e){return {}} }
-function getPrice(d){ const c=getCfg(),k='pd_'+d; return(c[k]!==undefined&&c[k]>0)?parseInt(c[k]):(DP_DEF[d]||DP_DEF[14]); }
+function getCfg(){ return window.VOILIER_CONFIG || { prices_per_days: {}, options: [], blocked_dates: [] }; }
+function getPrice(d){ const c=getCfg(); return c.prices_per_days && c.prices_per_days[d] ? c.prices_per_days[d] : (c.prices_per_days[14] || 1400); }
 
 function loadPrices(){
   // Update price grid
@@ -764,13 +765,13 @@ function loadPrices(){
     if(el&&c.caution) el.textContent=c.caution;
   });
   // Options grid in tarifs section
-  if(c.opts&&c.opts.length){
+  if(c.options&&c.options.length){
     var icons={paddle:'🏄',nettoyage:'🧹',briefing:'🧭',caution:'🛡️',barbecue:'🍖',gilet:'🦺','apéro':'🥂',gps:'🗺️',photo:'📸','vélo':'🚲'};
     function gi(n){ var k=n.toLowerCase(); for(var x in icons){if(k.includes(x)) return icons[x]} return '✦'; }
     var tg=document.getElementById('opts-tarifs');
     if(tg){
       tg.innerHTML='';
-      c.opts.forEach(o=>{
+      c.options.forEach(o=>{
         var pl=o.per==='jour'?'/j':o.per==='forfait'?'':'/'+o.per;
         tg.innerHTML+=`<div class="opt-card"><div class="opt-card-name">${gi(o.name)} ${o.name}</div><div class="opt-card-price">+${o.price} CHF${pl}</div></div>`;
       });
@@ -781,7 +782,7 @@ function loadPrices(){
     var ro=document.getElementById('resa-options');
     if(ro){
       ro.innerHTML='';
-      c.opts.filter(o=>!o.name.toLowerCase().includes('linge')).forEach(o=>{
+      c.options.filter(o=>!o.name.toLowerCase().includes('linge')).forEach(o=>{
         var pl=o.per==='jour'?'/j':o.per==='forfait'?'':'/'+o.per;
         ro.innerHTML+=`<label class="opt-check"><input type="checkbox" data-price="${o.price}" data-per="${o.per}" onchange="updateTotal()"><span class="oci"><span class="ocn">${gi(o.name)} ${o.name}</span><span class="ocp">+${o.price} CHF${pl}</span></span></label>`;
       });
