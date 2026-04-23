@@ -1159,13 +1159,35 @@
         grid-template-columns: 1fr !important;
       }
     }
+  
+    /* MOBILE VERTICAL PRICE GRID */
+    @media(max-width:900px) {
+      .tarifs-sec .ct, .tarifs-sec .rv { overflow-x: visible !important; padding-bottom: 0 !important; }
+      .price-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr 1fr !important;
+        grid-template-rows: repeat(7, auto) !important;
+        grid-auto-flow: column !important;
+        min-width: unset !important;
+        gap: 0 !important;
+        border: 1px solid rgba(255,255,255,.1) !important;
+      }
+      .pg-head { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,.07) !important; display:flex !important; align-items:center !important; justify-content:flex-start !important; padding: 12px 16px !important; text-align: left !important; }
+      .pg-cell { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,.07) !important; border-top:none !important; display:flex !important; align-items:center !important; flex-direction:column !important; justify-content:center !important; padding: 12px 8px !important; }
+      .pg-ppd { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,.07) !important; border-top:none !important; padding: 12px 8px !important; display:flex !important; align-items:center !important; justify-content:center !important; }
+      .pg-head span { margin-left: 6px; }
+      
+      /* Option Grid Mobile */
+      .opts-grid { grid-template-columns: 1fr !important; }
+    }
   </style>
+
 </head>
 
 <body>
 
   <nav>
-    <a href="#accueil" class="logo">Sailboat <span>Lake of Neuchâtel</span></a>
+    <a href="#accueil" class="logo">Sailing <span>Lake of Neuchâtel</span></a>
     <ul>
       <li><a href="#bateau">The Boat</a></li>
       <li><a href="#tarifs">Rates</a></li>
@@ -1235,7 +1257,7 @@
         <p class="sec-p">The Maxus 21 is a liveaboard sailboat de 6.5 m, conçu par l'architecte naval Jacek Daszkiewicz
           et produit par le chantier polonais Northman. Gréé en sloop fractionné avec génois sur enrouleur, grand-voile
           lattée avec lazy-jack et gennaker, il offre un excellent compromis entre performance et facilité de manœuvre.
-          Sa quille relevable (tirant d'eau de 0.35 à 1.45 m) permet d'accéder aux zones peu profondes et aux plages du
+          Sa lifting keel (tirant d'eau de 0.35 à 1.45 m) permet d'accéder aux zones peu profondes et aux plages du
           Lake of Neuchâtel. Le cockpit spacieux accueille confortablement 4 personnes, et la cabine équipée — frigo 12V,
           réchaud gaz, vaisselle, 2 lits doubles — permet de séjourner plusieurs nuits à bord en autonomie complète.
           Idéal pour les débutants avec permis comme pour les skippers expérimentés, en solo, en couple ou en famille.
@@ -1262,19 +1284,19 @@
               <div class="spec-v">6.5 m</div>
             </div>
             <div class="spec">
-              <div class="spec-l">Largeur</div>
+              <div class="spec-l">Beam</div>
               <div class="spec-v">2.48 m</div>
             </div>
             <div class="spec">
-              <div class="spec-l">Tirant d'eau</div>
+              <div class="spec-l">Draft</div>
               <div class="spec-v">0.35 – 1.45 m</div>
             </div>
             <div class="spec">
-              <div class="spec-l">Moteur</div>
+              <div class="spec-l">Engine</div>
               <div class="spec-v">6 cv hors-bord</div>
             </div>
             <div class="spec">
-              <div class="spec-l">Capacité</div>
+              <div class="spec-l">Capacity</div>
               <div class="spec-v">4 personnes</div>
             </div>
             <div class="spec">
@@ -1340,7 +1362,7 @@
         <p class="sec-p" style="color:rgba(255,255,255,.5)">Prix dégressifs selon la durée · ⛽ Carburant inclus · 🌙
           Nuitées au port gratuites</p>
       </div>
-      <!-- Grille tarifaire 1-7 jours (liée au backoffice) -->
+      <!-- Pricing 1-7 jours (liée au backoffice) -->
       <div class="rv" style="margin-top:48px;">
         <div class="price-grid" id="price-grid-outer">
           <!-- headers -->
@@ -1413,12 +1435,12 @@
             <div class="opt-card-price">+25 CHF/j</div>
           </div>
           <div class="opt-card">
-            <div class="opt-card-name">🛡️ Caution</div>
+            <div class="opt-card-name">🛡️ Deposit</div>
             <div class="opt-card-price"><span id="caution-display">500</span> CHF</div>
           </div>
         </div>
       </div>
-      <div class="caution-bar rv">🛡️ <strong>Caution de <span id="caution-display2">500</span> CHF</strong> bloquée par
+      <div class="caution-bar rv">🛡️ <strong>Deposit de <span id="caution-display2">500</span> CHF</strong> bloquée par
         empreinte de carte — libérée automatiquement au retour si pas de dommage.</div>
     </div>
   </section>
@@ -1469,7 +1491,7 @@
             </li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
               <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
-              <span>Carburant inclus · Briefing inclus · Nuitées port de Cheyres gratuites</span>
+              <span>Carburant inclus · Briefing inclus · Nights at Cheyres harbour gratuites</span>
             </li>
           </ul>
           <a href="#reservation" onclick="selectPassSkipper()"
@@ -1532,7 +1554,7 @@
 
             <div
               style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:12px 16px;font-size:12px;color:rgba(255,255,255,.5);line-height:1.6;text-align:left;">
-              ⏰ Jours de semaine uniquement (hors jours fériés suisses) · Réservation selon disponibilité
+              ⏰ Weekdays only (excluding Swiss public holidays) · Booking subject to availability
             </div>
           </div>
         </div>
@@ -1546,40 +1568,40 @@
     <div class="ct">
       <div class="rv">
         <p class="sec-ey">Practical Information</p>
-        <h2 class="sec-h">Tout ce qu'il faut <em>savoir</em></h2>
+        <h2 class="sec-h">Everything you need to <em>know</em></h2>
       </div>
       <div class="infos-grid rv">
         <div class="info-card">
           <div class="info-icon">⚓</div>
-          <div class="info-title">Prise en main</div>
-          <div class="info-text">Briefing inclus avant chaque départ.</div>
+          <div class="info-title">Handover</div>
+          <div class="info-text">Briefing included before each departure.</div>
         </div>
         <div class="info-card">
           <div class="info-icon">📋</div>
-          <div class="info-title">Permis requis</div>
-          <div class="info-text">Le permis lac Suisse ou international reconnu est obligatoire.</div>
+          <div class="info-title">Permit required</div>
+          <div class="info-text">Swiss or recognized international lake permit is required.</div>
         </div>
         <div class="info-card">
           <div class="info-icon">🛡️</div>
-          <div class="info-title">Caution</div>
-          <div class="info-text">Caution bloquée par empreinte de carte. Libérée automatiquement au retour sans dommage.
+          <div class="info-title">Deposit</div>
+          <div class="info-text">Deposit bloquée par empreinte de carte. Libérée automatiquement au retour sans dommage.
           </div>
         </div>
         <div class="info-card">
           <div class="info-icon">🚗</div>
-          <div class="info-title">Accès</div>
+          <div class="info-title">Access</div>
           <div class="info-text">Port de Cheyres. Parking payant sur place. Gare de Cheyres-Châbles (ligne
             Lausanne–Berne).</div>
         </div>
         <div class="info-card">
           <div class="info-icon">🌤️</div>
-          <div class="info-title">Météo & annulation</div>
-          <div class="info-text">Remboursement intégral si météo défavorable.</div>
+          <div class="info-title">Weather & cancellation</div>
+          <div class="info-text">Full refund in case of bad weather.</div>
         </div>
         <div class="info-card">
           <div class="info-icon">🌙</div>
-          <div class="info-title">Nuitées port de Cheyres</div>
-          <div class="info-text">Nuitées au port de Cheyres gratuites. Restaurant, douches et plage à proximité.</div>
+          <div class="info-title">Nights at Cheyres harbour</div>
+          <div class="info-text">Free nights at Cheyres harbour. Restaurant, showers and beach nearby.</div>
         </div>
       </div>
     </div>
@@ -1591,14 +1613,14 @@
       <div class="rv" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px;">
         <div>
           <p class="sec-ey">Reviews clients</p>
-          <h2 class="sec-h">Ce que disent <em>nos locataires</em></h2>
+          <h2 class="sec-h">What our <em>renters say</em></h2>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding-bottom:16px;">
           <span
             style="font-size:44px;font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--navy)">4.9</span>
           <div>
             <div style="color:var(--gold2);font-size:16px;letter-spacing:2px">★★★★★</div>
-            <div style="font-size:12px;color:var(--muted);margin-top:4px">5 avis vérifiés</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:4px">5 verified reviews</div>
           </div>
         </div>
       </div>
@@ -1612,7 +1634,7 @@
             </div>
           </div>
           <div class="av-stars">★★★★★</div>
-          <div class="av-text">Très bonne expérience sur le bateau ! Nous avons fait une super sortie à refaire !</div>
+          <div class="av-text">Great experience on the boat! We had a wonderful trip, will do it again!</div>
         </div>
         <div class="av-card">
           <div class="av-top">
@@ -1666,7 +1688,7 @@
           style="background:var(--sand);border-color:var(--sand2);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px;">
           <div style="font-size:40px;font-family:'Cormorant Garamond',serif;color:var(--navy)">4.9/5</div>
           <div style="color:var(--gold2);font-size:18px;letter-spacing:3px">★★★★★</div>
-          <div style="font-size:13px;color:var(--muted)">Note parfaite sur toutes les catégories</div>
+          <div style="font-size:13px;color:var(--muted)">Perfect rating in all categories</div>
 
         </div>
       </div>
@@ -1677,23 +1699,23 @@
   <section id="localisation" class="map-sec">
     <div class="ct">
       <div class="rv" style="text-align:center;margin-bottom:40px;">
-        <p class="sec-ey">Localisation</p>
+        <p class="sec-ey">Map</p>
         <h2 class="sec-h">Le Lake of Neuchâtel, <em>votre terrain de jeu</em></h2>
         <p class="sec-p" style="margin:0 auto">Le plus grand lac entièrement suisse — 38 km de long, eaux turquoises,
           Alpes en toile de fond. Réputé pour ses belles brises régulières, c'est l'un des plans d'eau les plus
           agréables pour la voile en Suisse. The Boat est amarré au port de Cheyres.</p>
       </div>
       <div class="map-wrap rv">
-        <div class="map-head"><strong>Port de Cheyres — accès & parking</strong>
+        <div class="map-head"><strong>Cheyres Harbour — access & parking</strong>
           <p>Route du Port, 1468 Cheyres-Châbles, Suisse</p>
         </div>
         <iframe src="https://maps.google.com/maps?q=Port+de+Cheyres,Cheyres,Switzerland&z=11&output=embed&hl=fr"
           width="100%" height="440" style="border:0;display:block;" allowfullscreen="" loading="lazy"
           referrerpolicy="no-referrer-when-downgrade" title="Port de Cheyres sur Google Maps"></iframe>
         <div class="map-foot">
-          <span>🚗 45 min depuis Lausanne · 30 min depuis Fribourg · 40 min depuis Berne</span>
-          <span>🅿️ Parking payant à proximité du port</span>
-          <span>🚂 Gare de Cheyres-Châbles (ligne Lausanne–Berne)</span>
+          <span>🚗 45 min from Lausanne · 30 min from Fribourg · 40 min from Bern</span>
+          <span>🅿️ Paid parking near the harbour</span>
+          <span>🚂 Cheyres-Châbles train station (Lausanne–Bern line)</span>
         </div>
       </div>
     </div>
@@ -1703,7 +1725,7 @@
   <section id="reservation" class="resa-sec">
     <div class="ct">
       <div class="rv" style="text-align:center">
-        <p class="sec-ey">Réservation directe</p>
+        <p class="sec-ey">Direct Booking</p>
         <h2 class="sec-h" style="max-width:500px;margin:0 auto 16px">Reserve & <em>pay online</em></h2>
         <p class="sec-p" style="margin:0 auto">Fuel included · Free nights at Cheyres harbour</p>
       </div>
@@ -1759,11 +1781,11 @@
               <div style="text-align:right;">
                 <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold2);font-weight:400;">
                   800</div>
-                <div style="font-size:11px;color:rgba(255,255,255,.4);">CHF · paiement intégral</div>
+                <div style="font-size:11px;color:rgba(255,255,255,.4);">CHF · full payment</div>
               </div>
             </div>
             <div style="height:1px;background:rgba(255,255,255,.1);margin-bottom:12px;"></div>
-            <p style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.7;">Le paiement intégral de 800 CHF est
+            <p style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.7;">Le full payment de 800 CHF est
               demandé à la souscription. Vous pouvez ensuite réserver vos 5 jours tout au long de l'année selon
               disponibilité (jours de semaine hors jours fériés).</p>
           </div>
@@ -1864,7 +1886,7 @@
             </div>
             <div
               style="font-size:11px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;">
-              5 avis vérifiés</div>
+              5 verified reviews</div>
           </div>
         </div>
 
@@ -1910,7 +1932,7 @@
         if (vEl) vEl.textContent = total.toLocaleString('fr-CH');
         if (pEl) pEl.textContent = Math.round(total / d) + '/j';
       }
-      // Caution
+      // Deposit
       var c = getCfg();
       ['caution-display', 'caution-display2'].forEach(id => {
         var el = document.getElementById(id);
@@ -1928,7 +1950,7 @@
             tg.innerHTML += `<div class="opt-card"><div class="opt-card-name">${gi(o.name)} ${o.name}</div><div class="opt-card-price">+${o.price} CHF${pl}</div></div>`;
           });
           // Add caution card
-          tg.innerHTML += `<div class="opt-card"><div class="opt-card-name">🛡️ Caution</div><div class="opt-card-price">${c.caution || 500} CHF</div></div>`;
+          tg.innerHTML += `<div class="opt-card"><div class="opt-card-name">🛡️ Deposit</div><div class="opt-card-price">${c.caution || 500} CHF</div></div>`;
         }
         // Update form checkboxes
         var ro = document.getElementById('resa-options');
