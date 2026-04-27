@@ -17,12 +17,12 @@ window.VOILIER_CONFIG = {
   },
 
   // Montant de la caution (en CHF)
-  caution: 500,
+  caution: 1000,
 
   // Dates bloquées dans le calendrier (format "YYYY-MM-DD")
   // Exemple: ["2026-05-01", "2026-05-02"]
   blocked_dates: [
-    
+
   ],
 
   // Modules d'options supplémentaires
@@ -33,8 +33,8 @@ window.VOILIER_CONFIG = {
   // - required: true (obligatoire, la case sera cochée et bloquée), false (facultatif)
   options: [
     { name: "Briefing navigation", price: 50, per: "forfait", required: false },
-    { name: "Nettoyage final", price: 60, per: "forfait", required: false },
-    { name: "Gennaker", price: 40, per: "jour", required: false },
-    { name: "Paddle", price: 25, per: "jour", required: false }
+    { name: "Nettoyage final", price: 60, per: "forfait", required: true },
+    { name: "Gennaker", price: 30, per: "jour", required: false },
+    { name: "Paddle", price: 20, per: "jour", required: false }
   ]
 };
