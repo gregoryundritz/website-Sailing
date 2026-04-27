@@ -673,6 +673,8 @@ footer{background:var(--navy);padding:56px 24px 40px;text-align:center}
         </div>
         <input type="hidden" name="type_reservation" id="resa-type-hidden" value="Location standard">
         <input type="hidden" name="total" id="resa-total-hidden" value="">
+        <input type="hidden" name="options_choisies" id="resa-options-hidden" value="">
+        <input type="hidden" name="duree_jours" id="resa-duree-hidden" value="">
         <div class="fg"><label>Message (optionnel)</label><textarea name="message" placeholder="Votre niveau en voile, questions…"></textarea></div>
         <div id="total-bar-wrap"><div class="total-bar">
           <span>Estimation totale</span>
@@ -859,10 +861,29 @@ function updateTotal(){
   // Optimization: Update hidden fields for Netlify
   var hTotal = document.getElementById('resa-total-hidden');
   var hType = document.getElementById('resa-type-hidden');
+  var hOptions = document.getElementById('resa-options-hidden');
+  var hDuree = document.getElementById('resa-duree-hidden');
+  
   if(hTotal) hTotal.value = total + ' CHF';
   if(hType) {
     var isPass = (typeof currentTab !== 'undefined' && currentTab === 'pass');
     hType.value = isPass ? 'Pass Skipper' : 'Location standard';
+  }
+  if(hDuree && typeof days !== 'undefined') {
+    hDuree.value = days ? days + ' jours' : '';
+  }
+  
+  var selectedOptions = [];
+  document.querySelectorAll('#resa-options input:checked').forEach(function(cb){
+    var nameSpan = cb.nextElementSibling.querySelector('.ocn');
+    if(nameSpan) {
+        // Strip emojis to make it cleaner in email
+        var cleanName = nameSpan.textContent.replace(/[^\w\sÀ-ÿ-]/g, '').strip || nameSpan.textContent.trim();
+        selectedOptions.push(cleanName.trim());
+    }
+  });
+  if(hOptions) {
+    hOptions.value = selectedOptions.length ? selectedOptions.join(', ') : 'Aucune option';
   }
 }
 
