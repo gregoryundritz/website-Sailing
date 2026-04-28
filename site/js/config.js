@@ -21,7 +21,7 @@ window.VOILIER_CONFIG = {
 
   // Dates bloquées dans le calendrier (format "YYYY-MM-DD")
   // Exemple: ["2026-05-01", "2026-05-02"]
-  blocked_dates: ["2026-08-20"
+  blocked_dates: ["
 
   ],
 
