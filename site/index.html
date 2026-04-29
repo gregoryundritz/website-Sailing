@@ -812,7 +812,8 @@ function loadPrices(){
       ro.innerHTML='';
       c.options.filter(o=>!o.name.toLowerCase().includes('linge')).forEach(o=>{
         var pl=o.per==='jour'?'/j':o.per==='forfait'?'':'/'+o.per;
-        ro.innerHTML+=`<label class="opt-check"><input type="checkbox" data-price="${o.price}" data-per="${o.per}" onchange="updateTotal()"><span class="oci"><span class="ocn">${gi(o.name)} ${o.name}</span><span class="ocp">+${o.price} CHF${pl}</span></span></label>`;
+        var req = o.required ? 'checked onclick="return false;" style="pointer-events:none;opacity:0.8;"' : '';
+        ro.innerHTML+=`<label class="opt-check"><input type="checkbox" data-price="${o.price}" data-per="${o.per}" onchange="updateTotal()" ${req}><span class="oci"><span class="ocn">${gi(o.name)} ${o.name}</span><span class="ocp">+${o.price} CHF${pl}</span></span></label>`;
       });
     }
   }
