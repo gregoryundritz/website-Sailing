@@ -7,12 +7,12 @@ window.VOILIER_CONFIG = {
   // Grille des prix (en CHF) selon le nombre de jours
   prices_per_days: {
     1: 275,
-    2: 530,
-    3: 785,
-    4: 1040,
-    5: 1295,
-    6: 1550,
-    7: 1805,
+    2: 510,
+    3: 750,
+    4: 980,
+    5: 1200,
+    6: 1410,
+    7: 1610,
   },
 
   // Montant de la caution (en CHF)
