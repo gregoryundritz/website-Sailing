@@ -8,7 +8,7 @@ window.VOILIER_CONFIG = {
   prices_per_days: {
     1: 275,
     2: 530,
-    3: 725,
+    3: 785,
     4: 1040,
     5: 1295,
     6: 1550,
