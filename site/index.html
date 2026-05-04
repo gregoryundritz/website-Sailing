@@ -1795,8 +1795,7 @@
         </a>
       </div>
       <div class="rv" style="text-align:center;">
-        <p style="font-size:14px;color:var(--muted);margin-bottom:20px;">Vous avez déjà une date en tête ? Utilisez directement notre formulaire de demande.</p>
-        <a href="#reservation" style="display:inline-block;padding:12px 28px;border-radius:var(--r);border:1.5px solid var(--navy);color:var(--navy);font-size:13px;font-weight:500;text-decoration:none;font-family:'DM Sans',sans-serif;transition:background .2s,color .2s;" onmouseover="this.style.background='var(--navy)';this.style.color='var(--white)'" onmouseout="this.style.background='transparent';this.style.color='var(--navy)'">Accéder au formulaire →</a>
+        <a href="#reservation" style="display:inline-block;padding:12px 28px;border-radius:var(--r);border:1.5px solid var(--navy);color:var(--navy);font-size:13px;font-weight:500;text-decoration:none;font-family:'DM Sans',sans-serif;transition:background .2s,color .2s;" onmouseover="this.style.background='var(--navy)';this.style.color='var(--white)'" onmouseout="this.style.background='transparent';this.style.color='var(--navy)'">Passer directement à la réservation →</a>
       </div>
     </div>
   </section>
@@ -1811,7 +1810,7 @@
       </div>
 
       <div class="rv"
-        style="text-align:center; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">
+        style="text-align:center; margin-bottom: 40px; max-width: 800px; width: 100%; margin-left: auto; margin-right: auto;">
         <h3
           style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--navy);margin-bottom:16px;">
           Consultez nos <em>disponibilités</em></h3>
@@ -1885,12 +1884,15 @@
 
           <div class="fg" style="margin-bottom:14px;"><label>Options</label>
             <div class="opts-checks" id="resa-options">
-              <label class="opt-check"><input type="checkbox" data-price="50" data-per="forfait"
-                  onchange="updateTotal()"><span class="oci"><span class="ocn">🧭 Briefing navigation</span><span
-                    class="ocp">+50 CHF</span></span></label>
               <label class="opt-check"><input type="checkbox" data-price="60" data-per="forfait"
-                  onchange="updateTotal()"><span class="oci"><span class="ocn">🧹 Nettoyage final
+                  onchange="updateTotal()" checked onclick="return false;" style="pointer-events:none;opacity:0.8;"><span class="oci"><span class="ocn">🧹 Nettoyage final
                     (obligatoire)</span><span class="ocp">+60 CHF</span></span></label>
+              <label class="opt-check"><input type="checkbox" data-price="50" data-per="forfait"
+                  onchange="updateTotal()"><span class="oci"><span class="ocn">🤝 Rencontre personnelle</span><span
+                    class="ocp">+50 CHF</span></span></label>
+              <label class="opt-check"><input type="checkbox" data-price="20" data-per="jour"
+                  onchange="updateTotal()"><span class="oci"><span class="ocn">🤖 Autopilote</span><span class="ocp">+20
+                    CHF/j</span></span></label>
               <label class="opt-check"><input type="checkbox" data-price="40" data-per="jour"
                   onchange="updateTotal()"><span class="oci"><span class="ocn">🎏 Gennaker</span><span class="ocp">+40
                     CHF/j</span></span></label>
