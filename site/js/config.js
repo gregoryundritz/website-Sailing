@@ -28,9 +28,7 @@ window.VOILIER_CONFIG = {
   // - per: "forfait" (paiement unique) ou "jour" (paiement par jour)
   // - required: true (obligatoire, la case sera cochée et bloquée), false (facultatif)
   options: [
-    { name: "Nettoyage final", price: 60, per: "forfait", required: true },
-    { name: "Rencontre personnelle", price: 50, per: "forfait", required: false },
-    { name: "Autopilote", price: 20, per: "jour", required: false },
+    { name: "Nettoyage final (obligatoire)", price: 60, per: "forfait", required: true },
     { name: "Gennaker", price: 30, per: "jour", required: false },
     { name: "Paddle", price: 20, per: "jour", required: false }
   ]
