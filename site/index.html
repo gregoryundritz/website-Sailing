@@ -502,7 +502,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      background: var(--sand);
+      background: var(--white);
       border: 1px solid var(--sand2);
       padding: 9px 12px;
       border-radius: var(--r);
@@ -806,7 +806,7 @@
 
     .map-foot {
       padding: 14px 20px;
-      background: var(--sand);
+      background: var(--white);
       display: flex;
       flex-direction: column;
       gap: 6px;
@@ -877,7 +877,7 @@
       font-family: 'DM Sans', sans-serif;
       font-size: 14px;
       color: var(--text);
-      background: var(--sand);
+      background: var(--white);
       border: 1px solid var(--sand2);
       padding: 11px 13px;
       border-radius: var(--r);
@@ -899,7 +899,7 @@
     }
 
     .duration-display {
-      background: var(--sand);
+      background: var(--white);
       border: 1px solid var(--sand2);
       border-radius: var(--r);
       padding: 10px 14px;
@@ -930,7 +930,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 10px 14px;
-      background: var(--sand);
+      background: var(--white);
       border: 1.5px solid var(--sand2);
       border-radius: var(--r);
       transition: all .15s;
@@ -1399,99 +1399,6 @@
     </div>
   </div>
 
-  <!-- TARIFS -->
-  <section id="tarifs" class="tarifs-sec">
-    <div class="ct">
-      <div class="rv">
-        <p class="sec-ey" style="color:var(--gold2)">Tarifs</p>
-        <h2 class="sec-h">Tarifs de <em style="color:var(--lake)">location</em></h2>
-        <p class="sec-p" style="color:rgba(255,255,255,.5)">Prix dégressifs selon la durée · ⛽ Carburant inclus · 🌙
-          Nuitées au port de Cheyres gratuites</p>
-      </div>
-      <!-- Grille tarifaire 1-7 jours (liée au backoffice) -->
-      <div class="rv" style="margin-top:48px;">
-        <div class="price-grid" id="price-grid-outer">
-          <!-- headers -->
-          <div class="pg-head"><span>1 jour</span></div>
-          <div class="pg-head"><span>2 jours</span></div>
-          <div class="pg-head"><span>3 jours</span></div>
-          <div class="pg-head"><span>4 jours</span></div>
-          <div class="pg-head"><span>5 jours</span></div>
-          <div class="pg-head"><span>6 jours</span></div>
-          <div class="pg-head"><span>7 jours</span></div>
-          <!-- price cells (filled by JS) -->
-          <div class="pg-cell" id="pgc1">
-            <div class="pg-val" data-day="1">280</div>
-            <div class="pg-chf">CHF</div>
-          </div>
-          <div class="pg-cell" id="pgc2">
-            <div class="pg-val" data-day="2">490</div>
-            <div class="pg-chf">CHF</div>
-          </div>
-          <div class="pg-cell" id="pgc3">
-            <div class="pg-val" data-day="3">720</div>
-            <div class="pg-chf">CHF</div>
-          </div>
-          <div class="pg-cell" id="pgc4">
-            <div class="pg-val" data-day="4">840</div>
-            <div class="pg-chf">CHF</div>
-          </div>
-          <div class="pg-cell" id="pgc5">
-            <div class="pg-val" data-day="5">1000</div>
-            <div class="pg-chf">CHF</div>
-          </div>
-          <div class="pg-cell" id="pgc6">
-            <div class="pg-val" data-day="6">1140</div>
-            <div class="pg-chf">CHF</div>
-          </div>
-          <div class="pg-cell" id="pgc7">
-            <div class="pg-val" data-day="7">1260</div>
-            <div class="pg-chf">CHF</div>
-          </div>
-          <!-- per-day row -->
-          <div class="pg-ppd"><span data-day-ppd="1">280/j</span></div>
-          <div class="pg-ppd"><span data-day-ppd="2">245/j</span></div>
-          <div class="pg-ppd"><span data-day-ppd="3">240/j</span></div>
-          <div class="pg-ppd"><span data-day-ppd="4">210/j</span></div>
-          <div class="pg-ppd"><span data-day-ppd="5">200/j</span></div>
-          <div class="pg-ppd"><span data-day-ppd="6">190/j</span></div>
-          <div class="pg-ppd"><span data-day-ppd="7">180/j</span></div>
-        </div>
-      </div>
-      <!-- Options -->
-      <div class="rv" style="margin-top:36px;">
-        <p
-          style="font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:14px;">
-          Options disponibles</p>
-        <div class="opts-grid" id="opts-tarifs">
-          <div class="opt-card">
-            <div class="opt-card-name">🧭 Briefing navigation</div>
-            <div class="opt-card-price">+50 CHF</div>
-          </div>
-          <div class="opt-card">
-            <div class="opt-card-name">🧹 Nettoyage final (obligatoire)</div>
-            <div class="opt-card-price">+60 CHF</div>
-          </div>
-          <div class="opt-card">
-            <div class="opt-card-name">🎏 Gennaker</div>
-            <div class="opt-card-price">+40 CHF/j</div>
-          </div>
-          <div class="opt-card">
-            <div class="opt-card-name">🏄 Paddle</div>
-            <div class="opt-card-price">+25 CHF/j</div>
-          </div>
-          <div class="opt-card">
-            <div class="opt-card-name">🛡️ Caution</div>
-            <div class="opt-card-price"><span id="caution-display">500</span> CHF</div>
-          </div>
-        </div>
-      </div>
-      <div class="caution-bar rv">🛡️ <strong>Caution de <span id="caution-display2">500</span> CHF</strong> bloquée par
-        empreinte de carte — libérée automatiquement au retour si pas de dommage.</div>
-    </div>
-  </section>
-
-
   <!-- PASS SKIPPER -->
   <section id="pass-skipper" style="background:var(--navy);padding:0;">
     <div style="max-width:1100px;margin:0 auto;padding:80px 24px;">
@@ -1769,6 +1676,99 @@
       </div>
     </div>
   </section>
+
+  <!-- TARIFS -->
+  <section id="tarifs" class="tarifs-sec">
+    <div class="ct">
+      <div class="rv">
+        <p class="sec-ey" style="color:var(--gold2)">Tarifs</p>
+        <h2 class="sec-h">Tarifs de <em style="color:var(--lake)">location</em></h2>
+        <p class="sec-p" style="color:rgba(255,255,255,.5)">Prix dégressifs selon la durée · ⛽ Carburant inclus · 🌙
+          Nuitées au port de Cheyres gratuites</p>
+      </div>
+      <!-- Grille tarifaire 1-7 jours (liée au backoffice) -->
+      <div class="rv" style="margin-top:48px;">
+        <div class="price-grid" id="price-grid-outer">
+          <!-- headers -->
+          <div class="pg-head"><span>1 jour</span></div>
+          <div class="pg-head"><span>2 jours</span></div>
+          <div class="pg-head"><span>3 jours</span></div>
+          <div class="pg-head"><span>4 jours</span></div>
+          <div class="pg-head"><span>5 jours</span></div>
+          <div class="pg-head"><span>6 jours</span></div>
+          <div class="pg-head"><span>7 jours</span></div>
+          <!-- price cells (filled by JS) -->
+          <div class="pg-cell" id="pgc1">
+            <div class="pg-val" data-day="1">280</div>
+            <div class="pg-chf">CHF</div>
+          </div>
+          <div class="pg-cell" id="pgc2">
+            <div class="pg-val" data-day="2">490</div>
+            <div class="pg-chf">CHF</div>
+          </div>
+          <div class="pg-cell" id="pgc3">
+            <div class="pg-val" data-day="3">720</div>
+            <div class="pg-chf">CHF</div>
+          </div>
+          <div class="pg-cell" id="pgc4">
+            <div class="pg-val" data-day="4">840</div>
+            <div class="pg-chf">CHF</div>
+          </div>
+          <div class="pg-cell" id="pgc5">
+            <div class="pg-val" data-day="5">1000</div>
+            <div class="pg-chf">CHF</div>
+          </div>
+          <div class="pg-cell" id="pgc6">
+            <div class="pg-val" data-day="6">1140</div>
+            <div class="pg-chf">CHF</div>
+          </div>
+          <div class="pg-cell" id="pgc7">
+            <div class="pg-val" data-day="7">1260</div>
+            <div class="pg-chf">CHF</div>
+          </div>
+          <!-- per-day row -->
+          <div class="pg-ppd"><span data-day-ppd="1">280/j</span></div>
+          <div class="pg-ppd"><span data-day-ppd="2">245/j</span></div>
+          <div class="pg-ppd"><span data-day-ppd="3">240/j</span></div>
+          <div class="pg-ppd"><span data-day-ppd="4">210/j</span></div>
+          <div class="pg-ppd"><span data-day-ppd="5">200/j</span></div>
+          <div class="pg-ppd"><span data-day-ppd="6">190/j</span></div>
+          <div class="pg-ppd"><span data-day-ppd="7">180/j</span></div>
+        </div>
+      </div>
+      <!-- Options -->
+      <div class="rv" style="margin-top:36px;">
+        <p
+          style="font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:14px;">
+          Options disponibles</p>
+        <div class="opts-grid" id="opts-tarifs">
+          <div class="opt-card">
+            <div class="opt-card-name">🧭 Briefing navigation</div>
+            <div class="opt-card-price">+50 CHF</div>
+          </div>
+          <div class="opt-card">
+            <div class="opt-card-name">🧹 Nettoyage final (obligatoire)</div>
+            <div class="opt-card-price">+60 CHF</div>
+          </div>
+          <div class="opt-card">
+            <div class="opt-card-name">🎏 Gennaker</div>
+            <div class="opt-card-price">+40 CHF/j</div>
+          </div>
+          <div class="opt-card">
+            <div class="opt-card-name">🏄 Paddle</div>
+            <div class="opt-card-price">+25 CHF/j</div>
+          </div>
+          <div class="opt-card">
+            <div class="opt-card-name">🛡️ Caution</div>
+            <div class="opt-card-price"><span id="caution-display">500</span> CHF</div>
+          </div>
+        </div>
+      </div>
+      <div class="caution-bar rv">🛡️ <strong>Caution de <span id="caution-display2">500</span> CHF</strong> bloquée par
+        empreinte de carte — libérée automatiquement au retour si pas de dommage.</div>
+    </div>
+  </section>
+
 
   <!-- CONTACT -->
   <section id="contact" style="background:var(--white);padding:80px 24px;">
