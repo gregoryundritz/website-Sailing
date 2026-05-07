@@ -28,8 +28,6 @@ window.VOILIER_CONFIG = {
   // - per: "forfait" (paiement unique) ou "jour" (paiement par jour)
   // - required: true (obligatoire, la case sera cochée et bloquée), false (facultatif)
   options: [
-    { name: "Carburant", price: 0, per: "forfait", required: true },
-    { name: "Nuitées au port de Cheyres", price: 0, per: "forfait", required: true },
     { name: "Nettoyage final (obligatoire)", price: 60, per: "forfait", required: true },
     { name: "Paddle", price: 15, per: "jour", required: false },
     { name: "Gennaker", price: 15, per: "jour", required: false }
