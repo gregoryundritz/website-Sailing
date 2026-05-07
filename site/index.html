@@ -1859,12 +1859,12 @@
             <div class="fg"><label>Email *</label><input type="email" name="email" placeholder="marie@example.com"
                 required></div>
           </div>
+          <div class="fg" style="margin-bottom:14px;"><label>Adresse</label><input type="text" name="adresse"
+              placeholder="Rue, Ville, CP"></div>
           <div class="fr">
             <div class="fg"><label>Téléphone</label><input type="tel" name="telephone" placeholder="+41 .."></div>
             <div class="fg"><label>Pays</label><input type="text" name="pays" placeholder="Suisse, France.."></div>
           </div>
-          <div class="fg" style="margin-bottom:14px;"><label>Adresse</label><input type="text" name="adresse"
-              placeholder="Rue, Ville, CP"></div>
           <div class="fg" style="margin-bottom:14px;">
             <label>Type de réservation</label>
             <div id="resa-type-tabs" style="display:flex;gap:8px;margin-bottom:14px;">
@@ -1936,6 +1936,12 @@
               <span class="total-val" id="resa-total">— CHF</span>
             </div>
           </div><!-- /total-bar-wrap -->
+          <div style="margin: 24px 0 20px;">
+            <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 14px; color: var(--muted); line-height: 1.5;">
+              <input type="checkbox" name="accept_cg" required style="width: 18px; height: 18px; margin-top: 1px; cursor: pointer; flex-shrink: 0;">
+              <span>J'ai lu et j'accepte les <a href="/conditions-generales.html" target="_blank" style="color: var(--teal); text-decoration: underline; font-weight: 500;">Conditions Générales de Location</a> *</span>
+            </label>
+          </div>
 
           <button type="submit" class="f-sub" id="resa-submit-btn">Envoyer ma demande</button>
           <p class="f-note" id="resa-note">Aucun paiement maintenant — le lien de paiement vous sera envoyé après
@@ -2014,6 +2020,7 @@
       <a href="#apropos">À propos</a>
       <a href="#contact">Nous contacter</a>
       <a href="#reservation">Réserver</a>
+      <a href="/conditions-generales.html">Conditions Générales</a>
     </div>
     <div class="fdiv"></div>
     <p class="fcopy">© 2026 · Lac de Neuchâtel Voilier · Tous droits réservés</p>
@@ -2066,8 +2073,9 @@
           ro.innerHTML = '';
           c.options.filter(o => !o.name.toLowerCase().includes('linge')).forEach(o => {
             var pl = o.per === 'jour' ? '/j' : o.per === 'forfait' ? '' : '/' + o.per;
-            var req = o.required ? 'checked onclick="return false;" style="pointer-events:none;opacity:0.8;"' : '';
-            ro.innerHTML += `<label class="opt-check"><input type="checkbox" data-price="${o.price}" data-per="${o.per}" onchange="updateTotal()" ${req}><span class="oci"><span class="ocn">${gi(o.name)} ${o.name}</span><span class="ocp">+${o.price} CHF${pl}</span></span></label>`;
+            var reqAttr = o.required ? 'checked onclick="return false;"' : '';
+            var labelStyle = o.required ? 'style="pointer-events:none;opacity:0.8;"' : '';
+            ro.innerHTML += `<label class="opt-check" ${labelStyle}><input type="checkbox" data-price="${o.price}" data-per="${o.per}" onchange="updateTotal()" ${reqAttr}><span class="oci"><span class="ocn">${gi(o.name)} ${o.name}</span><span class="ocp">+${o.price} CHF${pl}</span></span></label>`;
           });
         }
       }
