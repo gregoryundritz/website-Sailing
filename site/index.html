@@ -912,7 +912,7 @@
 
     .opts-checks {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 8px;
       margin-bottom: 14px
     }
@@ -1379,7 +1379,7 @@
           <div class="permis-note">⚠️ <strong>Permis lac Suisse ou international reconnu</strong> pour naviguer.</div>
           <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:16px;font-weight:300;">Amarré au port
             de Cheyres avec restaurant, douches chaudes, plage et toilettes à proximité. <strong
-              style="color:var(--navy)">Nuitées au port gratuites.</strong></p>
+              style="color:var(--navy)">Nuitées au port de Cheyres gratuites.</strong></p>
         </div>
       </div>
     </div>
@@ -1567,7 +1567,8 @@
       <div class="rv">
         <p class="sec-ey" style="color:var(--gold2)">Tarifs</p>
         <h2 class="sec-h">Tarifs de <em style="color:var(--lake)">location</em></h2>
-        <p class="sec-p" style="color:rgba(255,255,255,.5)">Prix dégressifs selon la durée · ⛽ Carburant inclus · 🌙
+        <p class="sec-p" style="color:rgba(255,255,255,.5); max-width: 800px;">Prix dégressifs selon la durée · ⛽
+          Carburant inclus · 🌙
           Nuitées au port de Cheyres gratuites</p>
       </div>
       <!-- Grille tarifaire 1-7 jours (liée au backoffice) -->
@@ -1622,9 +1623,7 @@
       </div>
       <!-- Options -->
       <div class="rv" style="margin-top:36px;">
-        <p
-          style="font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:14px;">
-          Options disponibles</p>
+
         <div class="opts-grid" id="opts-tarifs">
           <div class="opt-card">
             <div class="opt-card-name">🧭 Briefing navigation</div>
@@ -1816,7 +1815,8 @@
         <a href="#resa-form"
           style="display:inline-block;padding:12px 28px;border-radius:var(--r);border:1.5px solid var(--navy);color:var(--navy);font-size:13px;font-weight:500;text-decoration:none;font-family:'DM Sans',sans-serif;transition:background .2s,color .2s;"
           onmouseover="this.style.background='var(--navy)';this.style.color='var(--white)'"
-          onmouseout="this.style.background='transparent';this.style.color='var(--navy)'">Passer directement à la réservation →</a>
+          onmouseout="this.style.background='transparent';this.style.color='var(--navy)'">Passer directement à la
+          réservation →</a>
       </div>
     </div>
   </section>
@@ -1834,11 +1834,15 @@
         </div>
         <div class="resa-body">
           <div style="margin-bottom: 32px;">
-            <h4 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--navy);margin-bottom:12px;text-align:center;">Consultez les <em>disponibilités</em></h4>
-            <div style="border-radius:var(--r);overflow:hidden;border:1.5px solid var(--sand2);background:var(--white);">
+            <h4
+              style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--navy);margin-bottom:12px;text-align:center;">
+              Consultez les <em>disponibilités</em></h4>
+            <div
+              style="border-radius:var(--r);overflow:hidden;border:1.5px solid var(--sand2);background:var(--white);">
               <iframe
                 src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FZurich&showPrint=0&showTabs=0&showCalendars=0&showTitle=0&src=MzUyYTIzZjE3MGQ0YjhhMGQ0MGIxODMzMDNiYjEyZWE0MDM1MGZjMmU0MjBiMTJkYWM2NDg2OTVkYjhhNDA5NUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%234285f4"
-                style="border-width:0; display:block;" width="100%" height="400" frameborder="0" scrolling="no"></iframe>
+                style="border-width:0; display:block;" width="100%" height="400" frameborder="0"
+                scrolling="no"></iframe>
             </div>
           </div>
 
@@ -1855,6 +1859,12 @@
             <div class="fg"><label>Email *</label><input type="email" name="email" placeholder="marie@example.com"
                 required></div>
           </div>
+          <div class="fr">
+            <div class="fg"><label>Téléphone</label><input type="tel" name="telephone" placeholder="+41 .."></div>
+            <div class="fg"><label>Pays</label><input type="text" name="pays" placeholder="Suisse, France.."></div>
+          </div>
+          <div class="fg" style="margin-bottom:14px;"><label>Adresse</label><input type="text" name="adresse"
+              placeholder="Rue, Ville, CP"></div>
           <div class="fg" style="margin-bottom:14px;">
             <label>Type de réservation</label>
             <div id="resa-type-tabs" style="display:flex;gap:8px;margin-bottom:14px;">
@@ -1915,8 +1925,10 @@
           <div class="fg"><label>Message</label><textarea name="message"
               placeholder="Votre niveau en voile, questions…"></textarea></div>
 
-          <div class="caution-bar-light rv" style="background:#f1f5f9; border:1px solid #e2e8f0; border-radius:var(--r); padding:16px 20px; margin-bottom:20px; font-size:14px; color:#475569; line-height:1.7;">
-            🛡️ <strong style="color:var(--navy);">Caution de <span id="caution-display2">1000</span> CHF</strong> bloquée par empreinte de carte — libérée automatiquement au retour si pas de dommage.
+          <div class="caution-bar-light rv"
+            style="background:#f1f5f9; border:1px solid #e2e8f0; border-radius:var(--r); padding:16px 20px; margin-bottom:20px; font-size:14px; color:#475569; line-height:1.7;">
+            🛡️ <strong style="color:var(--navy);">Caution de <span id="caution-display2">1000</span> CHF</strong>
+            bloquée par empreinte de carte — libérée automatiquement au retour si pas de dommage.
           </div>
           <div id="total-bar-wrap">
             <div class="total-bar">
@@ -1924,18 +1936,7 @@
               <span class="total-val" id="resa-total">— CHF</span>
             </div>
           </div><!-- /total-bar-wrap -->
-          <!-- 2-step payment flow -->
-          <div
-            style="background:#faf8f5;border:1px solid #eaddce;border-radius:var(--r);padding:14px 18px;margin-bottom:14px;">
-            <div style="display:flex;align-items:flex-start;gap:10px;">
-              <div style="font-size:13px;color:var(--muted);line-height:1.65;">
-                <strong>Comment ça fonctionne :</strong><br>
-                1. Vous envoyez votre demande<br>
-                2. Je vérifie la disponibilité et vous envoie le contrat<br>
-                3. Vous recevez un lien de paiement sécurisé par email
-              </div>
-            </div>
-          </div>
+
           <button type="submit" class="f-sub" id="resa-submit-btn">Envoyer ma demande</button>
           <p class="f-note" id="resa-note">Aucun paiement maintenant — le lien de paiement vous sera envoyé après
             confirmation.</p>
@@ -2139,8 +2140,8 @@
         var nameSpan = cb.nextElementSibling.querySelector('.ocn');
         if (nameSpan) {
           // Strip emojis to make it cleaner in email
-          var cleanName = nameSpan.textContent.replace(/[^\w\sÀ-ÿ-]/g, '').strip || nameSpan.textContent.trim();
-          selectedOptions.push(cleanName.trim());
+          var cleanName = nameSpan.textContent.replace(/[^\w\sÀ-ÿ-]/g, '').trim() || nameSpan.textContent.trim();
+          selectedOptions.push(cleanName);
         }
       });
       if (hOptions) {
@@ -2167,9 +2168,32 @@
             body: new URLSearchParams(formData).toString()
           })
             .then(() => {
+              // Local backup logic
+              try {
+                var s = fpS && fpS.selectedDates[0], eDate = fpE && fpE.selectedDates[0];
+                var req = {
+                  id: Date.now(),
+                  status: 'pending',
+                  date_req: new Date().toLocaleDateString('fr-CH', { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
+                  type: (typeof currentTab !== 'undefined' && currentTab === 'pass') ? 'Pass Skipper' : 'Location standard',
+                  depart: s ? s.toLocaleDateString('fr-CH') : '—',
+                  retour: eDate ? eDate.toLocaleDateString('fr-CH') : '—',
+                  total: document.getElementById('resa-total')?.textContent || '—',
+                  nom: resaForm.querySelector('input[name="nom"]')?.value || '—',
+                  email: resaForm.querySelector('input[name="email"]')?.value || '—',
+                  telephone: resaForm.querySelector('input[name="telephone"]')?.value || '—',
+                  pays: resaForm.querySelector('input[name="pays"]')?.value || '—',
+                  adresse: resaForm.querySelector('input[name="adresse"]')?.value || '—',
+                  message: resaForm.querySelector('textarea[name="message"]')?.value || ''
+                };
+                var queue = JSON.parse(localStorage.getItem('resa_queue') || '[]');
+                queue.unshift(req);
+                localStorage.setItem('resa_queue', JSON.stringify(queue));
+              } catch (err) { console.error('Backup error:', err); }
+
               btn.style.background = '#28a745';
               btn.textContent = 'Demande envoyée !';
-              note.textContent = 'Merci ! Nous vous recontacterons très bientôt par email.';
+              note.innerHTML = '✓ Votre demande est enregistrée. <strong>Vous recevrez un email de confirmation et votre lien de paiement sous 24h.</strong>';
               note.style.color = '#28a745';
               resaForm.reset();
               if (fpS) fpS.clear();
@@ -2187,57 +2211,7 @@
 
     loadPrices();
 
-    // ── Form submission: save to localStorage for backoffice review ──
-    function handleResaSubmit(e) {
-      e.preventDefault();
-      var btn = document.getElementById('resa-submit-btn');
-      var note = document.getElementById('resa-note');
 
-      // Collect form data
-      var isPass = (typeof currentTab !== 'undefined' && currentTab === 'pass');
-      var startDate = (typeof fpS !== 'undefined' && fpS.selectedDates[0])
-        ? fpS.selectedDates[0].toLocaleDateString('fr-CH') : '';
-      var endDate = (typeof fpE !== 'undefined' && fpE.selectedDates[0])
-        ? fpE.selectedDates[0].toLocaleDateString('fr-CH') : '';
-
-      var opts = [];
-      document.querySelectorAll('#resa-options input:checked').forEach(function (cb) {
-        opts.push(cb.closest('label').querySelector('.ocn').textContent.trim());
-      });
-
-      var totalEl = document.getElementById('resa-total');
-      var total = totalEl ? totalEl.textContent : '—';
-
-      var req = {
-        id: Date.now(),
-        status: 'pending',
-        date_req: new Date().toLocaleDateString('fr-CH', { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
-        type: isPass ? 'Pass Skipper (800 CHF)' : 'Location standard',
-        depart: startDate,
-        retour: endDate,
-        total: total,
-        options: opts.join(', ') || '—',
-        nom: document.querySelector('input[placeholder="Marie Dupont"]')?.value || '—',
-        email: document.querySelector('input[type="email"]')?.value || '—',
-        message: document.querySelector('textarea')?.value || ''
-      };
-
-      // Save to localStorage queue
-      try {
-        var queue = JSON.parse(localStorage.getItem('resa_queue') || '[]');
-        queue.unshift(req);
-        localStorage.setItem('resa_queue', JSON.stringify(queue));
-      } catch (err) { }
-
-      // UI feedback
-      btn.textContent = '✓ Demande envoyée !';
-      btn.style.background = '#0F6E56';
-      btn.disabled = true;
-      if (note) {
-        note.innerHTML = '✓ Votre demande est enregistrée. <strong>Vous recevrez un email de confirmation et votre lien de paiement sous 24h.</strong>';
-        note.style.color = '#0F6E56';
-      }
-    }
 
     // ── Tab switching Standard / Pass Skipper ──
     var currentTab = 'standard';
