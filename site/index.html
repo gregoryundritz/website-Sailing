@@ -850,6 +850,30 @@
       padding: 36px
     }
 
+    .resa-step {
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--sand2);
+    }
+
+    .resa-step:last-of-type {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .resa-step-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--teal);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
 
     .fr {
       display: grid;
@@ -1829,108 +1853,149 @@
         <input type="hidden" name="subject" value="Demande de réservation - Voilier Neuchâtel">
         <div class="resa-head">
           <h3>Demande de réservation</h3>
-
         </div>
         <div class="resa-body">
-          <div style="margin-bottom: 32px;">
-            <h4
-              style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--navy);margin-bottom:12px;text-align:center;">
-              Consultez les <em>disponibilités</em></h4>
-            <div
-              style="border-radius:var(--r);overflow:hidden;border:1.5px solid var(--sand2);background:var(--white);">
-              <iframe
-                src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FZurich&showPrint=0&showTabs=0&showCalendars=0&showTitle=0&src=MzUyYTIzZjE3MGQ0YjhhMGQ0MGIxODMzMDNiYjEyZWE0MDM1MGZjMmU0MjBiMTJkYWM2NDg2OTVkYjhhNDA5NUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%234285f4"
-                style="border-width:0; display:block;" width="100%" height="400" frameborder="0"
-                scrolling="no"></iframe>
-            </div>
-          </div>
 
-          <div class="fr">
-            <div class="fg"><label>Date de départ</label><input type="text" name="date_depart" id="fp-start"
-                placeholder="Choisir la date de départ" readonly style="cursor:pointer"></div>
-            <div class="fg"><label>Date de retour</label><input type="text" name="date_retour" id="fp-end"
-                placeholder="Choisir la date de retour" readonly style="cursor:pointer"></div>
-          </div>
-          <div id="resa-duration-display" class="duration-display"></div>
-          <div class="fr">
-            <div class="fg"><label>Prénom & Nom *</label><input type="text" name="nom" placeholder="Marie Dupont"
-                required></div>
-            <div class="fg"><label>Email *</label><input type="email" name="email" placeholder="marie@example.com"
-                required></div>
-          </div>
-          <div class="fg" style="margin-bottom:14px;"><label>Adresse</label><input type="text" name="adresse"
-              placeholder="Rue, Ville, CP"></div>
-          <div class="fr">
-            <div class="fg"><label>Pays</label><input type="text" name="pays" placeholder="Suisse, France.."></div>
-            <div class="fg"><label>Téléphone</label><input type="tel" name="telephone" placeholder="+41 .."></div>
-          </div>
-          <div class="fg" style="margin-bottom:14px;">
-            <label>Type de réservation</label>
-            <div id="resa-type-tabs" style="display:flex;gap:8px;margin-bottom:14px;">
+          <!-- ÉTAPE 1 : Type de séjour -->
+          <div class="resa-step">
+            <div class="resa-step-label">1 — Type de séjour</div>
+            <div id="resa-type-tabs" style="display:flex;gap:8px;">
               <button type="button" id="tab-standard" onclick="selectTab('standard')"
-                style="flex:1;padding:10px;border-radius:var(--r);border:1.5px solid var(--navy);background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;">Location
-                standard</button>
+                style="flex:1;padding:12px;border-radius:var(--r);border:1.5px solid var(--navy);background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;">Location standard</button>
               <button type="button" id="tab-pass" onclick="selectTab('pass')"
-                style="flex:1;padding:10px;border-radius:var(--r);border:1.5px solid var(--sand2);background:var(--white);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;">⭐
-                Pass Skipper</button>
+                style="flex:1;padding:12px;border-radius:var(--r);border:1.5px solid var(--sand2);background:var(--white);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;">⭐ Pass Skipper</button>
             </div>
-          </div>
-
-          <!-- Standard dates (shown for standard tab) -->
-          <div id="section-standard">
-            <!-- dates already above -->
           </div>
 
           <!-- Pass Skipper info (shown for pass tab) -->
           <div id="section-pass"
-            style="display:none;background:linear-gradient(135deg,var(--navy),#132d42);border-radius:var(--r);padding:20px 22px;margin-bottom:14px;">
+            style="display:none;background:linear-gradient(135deg,var(--navy),#132d42);border-radius:var(--r);padding:20px 22px;margin-bottom:0;">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
               <div>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--white);font-weight:400;">
-                  Pass Skipper</div>
-                <div style="font-size:13px;color:rgba(255,255,255,.55);margin-top:3px;">5 jours · semaine · selon
-                  disponibilité · année en cours</div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--white);font-weight:400;">Pass Skipper</div>
+                <div style="font-size:13px;color:rgba(255,255,255,.55);margin-top:3px;">5 jours · semaine · selon disponibilité · année en cours</div>
               </div>
               <div style="text-align:right;">
-                <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold2);font-weight:400;">
-                  800</div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold2);font-weight:400;">800</div>
                 <div style="font-size:11px;color:rgba(255,255,255,.4);">CHF</div>
               </div>
             </div>
             <div style="height:1px;background:rgba(255,255,255,.1);margin-bottom:12px;"></div>
-            <p style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.7;">Le paiement intégral de 800 CHF est
-              demandé à la souscription. Vous pouvez ensuite réserver vos 5 jours tout au long de l'année selon
-              disponibilité (jours de semaine hors jours fériés).</p>
+            <p style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.7;">Le paiement intégral de 800 CHF est demandé à la souscription. Vous pouvez ensuite réserver vos 5 jours tout au long de l'année selon disponibilité (jours de semaine hors jours fériés).</p>
           </div>
 
-          <div class="fg" style="margin-bottom:14px;"><label>Options</label>
+          <!-- ÉTAPE 2 : Dates -->
+          <div class="resa-step" id="section-standard">
+            <div class="resa-step-label">2 — Vos dates
+              <a href="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FZurich&showPrint=0&showTabs=0&showCalendars=0&showTitle=0&src=MzUyYTIzZjE3MGQ0YjhhMGQ0MGIxODMzMDNiYjEyZWE0MDM1MGZjMmU0MjBiMTJkYWM2NDg2OTVkYjhhNDA5NUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%234285f4"
+                target="_blank"
+                style="font-family:'DM Sans',sans-serif;font-size:12px;font-weight:400;color:var(--teal);text-decoration:none;border:1px solid var(--teal);border-radius:20px;padding:3px 10px;margin-left:10px;vertical-align:middle;white-space:nowrap;">
+                📅 Voir les disponibilités →
+              </a>
+            </div>
+            <div class="fr">
+              <div class="fg"><label>Date de départ</label><input type="text" name="date_depart" id="fp-start"
+                  placeholder="Choisir la date" readonly style="cursor:pointer"></div>
+              <div class="fg"><label>Date de retour</label><input type="text" name="date_retour" id="fp-end"
+                  placeholder="Choisir la date" readonly style="cursor:pointer"></div>
+            </div>
+            <div id="resa-duration-display" class="duration-display"></div>
+          </div>
+
+          <!-- ÉTAPE 3 : Options -->
+          <div class="resa-step">
+            <div class="resa-step-label">3 — Options</div>
             <div class="opts-checks" id="resa-options">
               <label class="opt-check"><input type="checkbox" data-price="60" data-per="forfait"
                   onchange="updateTotal()" checked onclick="return false;"
-                  style="pointer-events:none;opacity:0.8;"><span class="oci"><span class="ocn">🧹 Nettoyage final
-                    (obligatoire)</span><span class="ocp">+60 CHF</span></span></label>
+                  style="pointer-events:none;opacity:0.8;"><span class="oci"><span class="ocn">🧹 Nettoyage final (obligatoire)</span><span class="ocp">+60 CHF</span></span></label>
               <label class="opt-check"><input type="checkbox" data-price="40" data-per="jour"
-                  onchange="updateTotal()"><span class="oci"><span class="ocn">🎏 Gennaker</span><span class="ocp">+40
-                    CHF/j</span></span></label>
+                  onchange="updateTotal()"><span class="oci"><span class="ocn">🎏 Gennaker</span><span class="ocp">+40 CHF/j</span></span></label>
               <label class="opt-check"><input type="checkbox" data-price="25" data-per="jour"
-                  onchange="updateTotal()"><span class="oci"><span class="ocn">🏄 Paddle</span><span class="ocp">+25
-                    CHF/j</span></span></label>
+                  onchange="updateTotal()"><span class="oci"><span class="ocn">🏄 Paddle</span><span class="ocp">+25 CHF/j</span></span></label>
             </div>
           </div>
-          <input type="hidden" name="type_reservation" id="resa-type-hidden" value="Location standard">
-          <input type="hidden" name="total" id="resa-total-hidden" value="">
-          <input type="hidden" name="options_choisies" id="resa-options-hidden" value="">
-          <input type="hidden" name="duree_jours" id="resa-duree-hidden" value="">
-          <div class="fg"><label>Message</label><textarea name="message"
-              placeholder="Votre niveau en voile, questions…"></textarea></div>
 
+          <!-- ÉTAPE 3b : Détails du séjour -->
+          <div class="resa-step">
+            <div class="resa-step-label">3b — Détails du séjour</div>
+            <div class="fr">
+              <div class="fg">
+                <label>Nombre de passagers *</label>
+                <select name="passagers" required style="padding:10px 12px;border-radius:var(--r);border:1.5px solid var(--sand2);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--white);cursor:pointer;">
+                  <option value="">— Sélectionner —</option>
+                  <option value="1">1 personne</option>
+                  <option value="2">2 personnes</option>
+                  <option value="3">3 personnes</option>
+                  <option value="4">4 personnes</option>
+                  <option value="5">5 personnes</option>
+                  <option value="6">6 personnes</option>
+                </select>
+              </div>
+              <div class="fg">
+                <label>Niveau en voile *</label>
+                <select name="niveau_voile" required style="padding:10px 12px;border-radius:var(--r);border:1.5px solid var(--sand2);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--white);cursor:pointer;">
+                  <option value="">— Sélectionner —</option>
+                  <option value="debutant">Débutant (peu ou pas d'expérience)</option>
+                  <option value="intermediaire">Intermédiaire (quelques sorties)</option>
+                  <option value="confirme">Confirmé (pratique régulière)</option>
+                  <option value="expert">Expert / Skipper expérimenté</option>
+                </select>
+              </div>
+            </div>
+            <div class="fr">
+              <div class="fg">
+                <label>N° de permis de navigation</label>
+                <input type="text" name="numero_permis" placeholder="ex. VD-12345">
+              </div>
+              <div class="fg">
+                <label>Copie du permis (PDF, JPG)</label>
+                <input type="file" name="permis_pdf" accept=".pdf,.jpg,.jpeg,.png"
+                  style="padding:8px 0;font-size:13px;color:var(--muted);">
+                <span style="font-size:11px;color:var(--muted);margin-top:2px;">Sinon, envoyez-le par email après confirmation.</span>
+              </div>
+            </div>
+          </div>
 
+          <!-- TOTAL VISIBLE ICI -->
           <div id="total-bar-wrap">
             <div class="total-bar">
               <span>Estimation totale</span>
               <span class="total-val" id="resa-total">— CHF</span>
             </div>
-          </div><!-- /total-bar-wrap -->
+          </div>
+
+          <!-- INFO CAUTION -->
+          <div style="display:flex;align-items:flex-start;gap:10px;padding:12px 16px;background:rgba(184,131,46,0.07);border-radius:var(--r);border:1px solid rgba(184,131,46,0.25);margin-top:12px;">
+            <span style="font-size:16px;flex-shrink:0;">🛡️</span>
+            <span style="font-size:13px;color:#7a5c1e;line-height:1.6;"><strong>Caution de 1 000 CHF</strong> — Une empreinte de carte bancaire sera demandée avant le séjour. Elle est libérée automatiquement au retour sans dommage constaté.</span>
+          </div>
+
+          <!-- ÉTAPE 4 : Coordonnées -->
+          <div class="resa-step">
+            <div class="resa-step-label">4 — Vos coordonnées</div>
+            <div class="fr">
+              <div class="fg"><label>Prénom & Nom *</label><input type="text" name="nom" placeholder="Marie Dupont" required></div>
+              <div class="fg"><label>Email *</label><input type="email" name="email" placeholder="marie@example.com" required></div>
+            </div>
+            <div class="fr">
+              <div class="fg"><label>Pays</label><input type="text" name="pays" placeholder="Suisse, France.."></div>
+              <div class="fg"><label>Téléphone</label><input type="tel" name="telephone" placeholder="+41 .."></div>
+            </div>
+          </div>
+
+          <!-- ÉTAPE 5 : Message -->
+          <div class="resa-step">
+            <div class="resa-step-label">5 — Message <span style="font-weight:400;color:var(--muted);font-size:12px;">(optionnel)</span></div>
+            <div class="fg" style="margin-bottom:0;"><textarea name="message" placeholder="Votre niveau en voile, questions…"></textarea></div>
+          </div>
+
+          <input type="hidden" name="type_reservation" id="resa-type-hidden" value="Location standard">
+          <input type="hidden" name="total" id="resa-total-hidden" value="">
+          <input type="hidden" name="options_choisies" id="resa-options-hidden" value="">
+          <input type="hidden" name="duree_jours" id="resa-duree-hidden" value="">
+
+          <!-- CG + SUBMIT -->
           <div style="margin: 24px 0 20px;">
             <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 14px; color: var(--muted); line-height: 1.5;">
               <input type="checkbox" name="accept_cg" required style="width: 18px; height: 18px; margin-top: 1px; cursor: pointer; flex-shrink: 0;">
@@ -1938,9 +2003,13 @@
             </label>
           </div>
 
-          <button type="submit" class="f-sub" id="resa-submit-btn">Envoyer ma demande</button>
-          <p class="f-note" id="resa-note">Aucun paiement maintenant — le lien de paiement vous sera envoyé après
-            confirmation.</p>
+          <button type="submit" class="f-sub" id="resa-submit-btn">Envoyer ma demande →</button>
+
+          <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;padding:12px 16px;background:rgba(26,98,120,0.06);border-radius:var(--r);border:1px solid rgba(26,98,120,0.15);">
+            <span style="font-size:18px;">🔒</span>
+            <span style="font-size:13px;color:var(--teal);font-weight:500;">Aucun paiement aujourd'hui — confirmation sous 24h, lien de paiement ensuite.</span>
+          </div>
+
         </div>
       </form>
     </div>
@@ -2168,8 +2237,7 @@
 
           fetch('/', {
             method: 'POST',
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString()
+            body: formData
           })
             .then(() => {
               // Local backup logic
