@@ -461,7 +461,8 @@
     .img-stack img,
     .img-pair img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
       border-radius: 2px;
       display: block
     }
@@ -538,13 +539,14 @@
       gap: 6px;
       max-width: 1600px;
       margin: 0 auto;
-      align-items: flex-end
+      align-items: stretch;
     }
 
     .gal-inner img {
       flex: 1;
       min-width: 0;
-      height: auto;
+      height: 480px;
+      object-fit: cover;
       display: block;
       border-radius: 2px 2px 0 0
     }
@@ -962,8 +964,18 @@
       font-size: 13px
     }
 
-    .opt-check:hover .oci {
+    .opt-check:not(.opt-disabled):hover .oci {
       border-color: var(--teal)
+    }
+
+    .opt-disabled {
+      opacity: 0.5;
+      filter: grayscale(1);
+      cursor: not-allowed !important;
+    }
+
+    .opt-disabled .oci {
+      pointer-events: none;
     }
 
     .opt-check input:checked+.oci {
@@ -1262,7 +1274,7 @@
     <ul>
       <li><a href="#bateau">Le bateau</a></li>
       <li><a href="#tarifs">Tarifs</a></li>
-      <li><a href="#pass-skipper">Pass Skipper</a></li>
+      <li><a href="#pass-skipper">Skipper Pass</a></li>
       <li><a href="#infos">Infos</a></li>
       <li><a href="#avis">Avis</a></li>
       <li><a href="#localisation">Carte</a></li>
@@ -1284,7 +1296,7 @@
         réserve naturelle préservée.</p>
       <div class="hero-stars">
         <span class="stars-g">★★★★★</span>
-        <span>4.9 · 5 avis vérifiés</span>
+        <span>4.9 · 28 avis vérifiés</span>
         <span style="margin:0 8px;opacity:.3">·</span>
         <span>Propriétaire vérifié</span>
       </div>
@@ -1302,7 +1314,7 @@
       <div class="sl">Longueur</div>
     </div>
     <div class="si">
-      <div class="sv">4</div>
+      <div class="sv">6</div>
       <div class="sl">Personnes max</div>
     </div>
     <div class="si">
@@ -1311,7 +1323,7 @@
     </div>
     <div class="si">
       <div class="sv">4.9</div>
-      <div class="sl">Note · 5 avis</div>
+      <div class="sl">Note · 28 avis</div>
     </div>
     <div class="si">
       <div class="sv">0 CHF</div>
@@ -1322,17 +1334,29 @@
   <!-- BATEAU -->
   <section id="bateau">
     <div class="ct">
-      <div class="rv">
-        <p class="sec-ey">Le voilier</p>
-        <h2 class="sec-h">Northman <em>Maxus 21</em></h2>
-        <p class="sec-p">Le Maxus 21 est un voilier habitable de 6.5 m, conçu par l'architecte naval Jacek Daszkiewicz
-          et produit par le chantier polonais Northman. Gréé en sloop fractionné avec génois sur enrouleur, grand-voile
-          lattée avec lazy-jack et gennaker, il offre un excellent compromis entre performance et facilité de manœuvre.
-          Sa quille relevable (tirant d'eau de 0.35 à 1.45 m) permet d'accéder aux zones peu profondes et aux plages du
-          lac de Neuchâtel. Le cockpit spacieux accueille confortablement 4 personnes, et la cabine équipée — frigo 12V,
-          réchaud gaz, vaisselle, 2 lits doubles — permet de séjourner plusieurs nuits à bord en autonomie complète.
-          Idéal pour les débutants avec permis comme pour les skippers expérimentés, en solo, en couple ou en famille.
-        </p>
+      <div class="rv" style="display:grid; grid-template-columns: 1.5fr 1fr; gap:48px; align-items: flex-start;">
+        <div>
+          <p class="sec-ey">Le voilier</p>
+          <h2 class="sec-h">Northman <em>Maxus 21</em></h2>
+          <p class="sec-p" style="margin-bottom:0;">Le Maxus 21 est un voilier habitable de 6.5 m, conçu par l'architecte naval Jacek Daszkiewicz
+            et produit par le chantier polonais Northman. Gréé en sloop fractionné avec génois sur enrouleur, grand-voile
+            lattée avec lazy-jack et gennaker, il offre un excellent compromis entre performance et facilité de manœuvre.
+            Sa quille relevable (tirant d'eau de 0.35 à 1.45 m) permet d'accéder aux zones peu profondes et aux plages du
+            lac de Neuchâtel. Le cockpit spacieux accueille confortablement 6 personnes, et la cabine équipée — frigo 12V,
+            réchaud gaz, vaisselle, 2 lits doubles — permet de séjourner plusieurs nuits à bord en autonomie complète.
+          </p>
+        </div>
+        <div id="localisation" style="background:var(--sand); border-radius:var(--r); padding:16px; border:1.5px solid var(--sand2); margin-top:20px;">
+          <div style="font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-bottom:8px; font-weight:600;">📍 Localisation</div>
+          <iframe src="https://maps.google.com/maps?q=Port+de+Cheyres,Cheyres,Switzerland&z=11&output=embed&hl=fr"
+            width="100%" height="180" style="border:0; display:block; border-radius:4px;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div style="font-size:12px; color:var(--muted); margin-top:10px; line-height:1.4;">
+            <strong>Port de Cheyres</strong><br>
+            Route du Port, 1468 Cheyres<br>
+            Gare de Cheyres à 5 min à pied.
+          </div>
+        </div>
       </div>
       <div class="boat-lay">
         <div class="rv img-stack">
@@ -1368,7 +1392,7 @@
             </div>
             <div class="spec">
               <div class="spec-l">Capacité</div>
-              <div class="spec-v">4 personnes</div>
+              <div class="spec-v">6 personnes</div>
             </div>
             <div class="spec">
               <div class="spec-l">Couchages</div>
@@ -1376,7 +1400,11 @@
             </div>
             <div class="spec">
               <div class="spec-l">Cabine</div>
-              <div class="spec-v">1 (toilettes chimiques)</div>
+              <div class="spec-v">1</div>
+            </div>
+            <div class="spec">
+              <div class="spec-l">Toilettes</div>
+              <div class="spec-v">Oui (chimique)</div>
             </div>
             <div class="spec">
               <div class="spec-l">Port</div>
@@ -1388,19 +1416,18 @@
             <div class="etag"><span class="etag-icon">🚽</span><span>Toilettes chimiques</span></div>
             <div class="etag"><span class="etag-icon">🔥</span><span>Réchaud à gaz</span></div>
             <div class="etag"><span class="etag-icon">❄️</span><span>Frigo 12V</span></div>
-            <div class="etag"><span class="etag-icon">⚡</span><span>Prise 220V</span></div>
-            <div class="etag"><span class="etag-icon">🔌</span><span>Prises USB</span></div>
+            <div class="etag"><span class="etag-icon">⚡</span><span>Prises 12V / USB</span></div>
+            <div class="etag"><span class="etag-icon">☀️</span><span>Panneaux solaires</span></div>
             <div class="etag"><span class="etag-icon">🍽</span><span>Vaisselle</span></div>
+            <div class="etag"><span class="etag-icon">🧭</span><span>Autopilote</span></div>
             <div class="etag"><span class="etag-icon">⚓</span><span>Ancre</span></div>
             <div class="etag"><span class="etag-icon">🏊</span><span>Échelle de bain</span></div>
             <div class="etag"><span class="etag-icon">🪑</span><span>Table extérieure</span></div>
             <div class="etag"><span class="etag-icon">🔽</span><span>Quille relevable</span></div>
             <div class="etag"><span class="etag-icon">⛽</span><span>Carburant inclus</span></div>
             <div class="etag"><span class="etag-icon">🦺</span><span>Matériel sécurité</span></div>
-            <div class="etag"><span class="etag-icon">🧭</span><span>Autopilote</span></div>
             <div class="etag"><span class="etag-icon">🌀</span><span>Foc sur enrouleur</span></div>
           </div>
-          <div class="permis-note">⚠️ <strong>Permis lac Suisse ou international reconnu</strong> pour naviguer.</div>
           <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:16px;font-weight:300;">Amarré au port
             de Cheyres avec restaurant, douches chaudes, plage et toilettes à proximité. <strong
               style="color:var(--navy)">Nuitées au port de Cheyres gratuites.</strong></p>
@@ -1413,16 +1440,227 @@
   <div class="gal">
     <div class="gal-inner">
       <img
-        src="img/gallery3.jpg"
-        alt="Coucher de soleil">
+        src="img/IMG_1467.jpeg"
+        alt="Navigation sur le lac de Neuchâtel">
       <img
-        src="img/gallery4.jpg"
+        src="img/IMG_0084.jpeg"
+        alt="Voiles au vent">
+      <img
+        src="img/IMG_1613.jpeg"
         alt="Vue depuis le cockpit">
-      <img
-        src="img/sunset.jpg"
-        alt="Gennaker bleu">
     </div>
   </div>
+
+  <!-- TARIFS -->
+  <section id="tarifs" class="tarifs-sec">
+    <div class="ct">
+      <div class="rv">
+        <p class="sec-ey" style="color:var(--gold2)">Tarifs</p>
+        <h2 class="sec-h">Tarifs de <em style="color:var(--lake)">location</em></h2>
+        <p class="sec-p" style="color:rgba(255,255,255,.5); max-width: 800px;">Prix dégressifs selon la durée · ⛽
+          Carburant inclus · 🌙
+          Nuitées au port de Cheyres gratuites</p>
+      </div>
+      <!-- Grille tarifaire 1-7 jours (liée au backoffice) -->
+      <div class="rv" style="margin-top:48px;">
+        <div class="price-grid" id="price-grid-outer">
+          <!-- headers -->
+          <div class="pg-head"><span>1 jour</span></div>
+          <div class="pg-head"><span>2 jours</span></div>
+          <div class="pg-head"><span>3 jours</span></div>
+          <div class="pg-head"><span>4 jours</span></div>
+          <div class="pg-head"><span>5 sorties</span></div>
+          <div class="pg-head"><span>6 jours</span></div>
+          <div class="pg-head"><span>7 jours</span></div>
+          <!-- price cells (filled by JS) -->
+          <div class="pg-cell" id="pgc1">
+            <div class="pg-val" data-day="1">280</div>
+            <div class="pg-chf">CHF</div>
+          </div>
+          <div class="pg-cell" id="pgc2">
+            <div class="pg-val" data-day="2">490</div>
+            <div class="pg-chf">CHF</div>
+          </div>
+          <div class="pg-cell" id="pgc3">
+            <div class="pg-val" data-day="3">720</div>
+            <div class="pg-chf">CHF</div>
+          </div>
+          <div class="pg-cell" id="pgc4">
+            <div class="pg-val" data-day="4">840</div>
+            <div class="pg-chf">CHF</div>
+          </div>
+          <div class="pg-cell" id="pgc5">
+            <div class="pg-val" data-day="5">1000</div>
+            <div class="pg-chf">CHF</div>
+          </div>
+          <div class="pg-cell" id="pgc6">
+            <div class="pg-val" data-day="6">1140</div>
+            <div class="pg-chf">CHF</div>
+          </div>
+          <div class="pg-cell" id="pgc7">
+            <div class="pg-val" data-day="7">1260</div>
+            <div class="pg-chf">CHF</div>
+          </div>
+          <!-- per-day row -->
+          <div class="pg-ppd"><span data-day-ppd="1">280/j</span></div>
+          <div class="pg-ppd"><span data-day-ppd="2">245/j</span></div>
+          <div class="pg-ppd"><span data-day-ppd="3">240/j</span></div>
+          <div class="pg-ppd"><span data-day-ppd="4">210/j</span></div>
+          <div class="pg-ppd"><span data-day-ppd="5">200/j</span></div>
+          <div class="pg-ppd"><span data-day-ppd="6">190/j</span></div>
+          <div class="pg-ppd"><span data-day-ppd="7">180/j</span></div>
+        </div>
+      </div>
+      <!-- Options -->
+      <div class="rv" style="margin-top:36px;">
+
+        <div class="opts-grid" id="opts-tarifs">
+
+          <div class="opt-card">
+            <div class="opt-card-name">🧹 Nettoyage final (obligatoire)</div>
+            <div class="opt-card-price">+60 CHF</div>
+          </div>
+          <div class="opt-card">
+            <div class="opt-card-name">🎏 Gennaker</div>
+            <div class="opt-card-price">+40 CHF/j</div>
+          </div>
+          <div class="opt-card">
+            <div class="opt-card-name">🏄 Paddle</div>
+            <div class="opt-card-price">+25 CHF/j</div>
+          </div>
+
+        </div>
+        <p style="font-size:13px; color:var(--white); margin-top:32px; text-align:center; font-weight:300; opacity:0.8;">
+          Une caution de 1 000 CHF est réservée par empreinte de carte crédit avant le séjour.
+        </p>
+        <div style="text-align:center; margin-top:36px;">
+          <a href="#resa-form" onclick="selectStandard()"
+            style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy);padding:14px 32px;border-radius:var(--r);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .2s;"
+            onmouseover="this.style.background='#d49a42';this.style.transform='translateY(-2px)'"
+            onmouseout="this.style.background='var(--gold)';this.style.transform='none'">
+            Réserver maintenant →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKIPPER PASS -->
+  <section id="pass-skipper" style="background:var(--navy);padding:0;">
+    <div style="max-width:1100px;margin:0 auto;padding:80px 24px;">
+      <div class="rv" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+
+        <!-- LEFT: texte -->
+        <div>
+          <div
+            style="display:inline-flex;align-items:center;gap:8px;background:rgba(184,131,46,.2);border:1px solid rgba(184,131,46,.4);padding:6px 14px;border-radius:20px;margin-bottom:20px;">
+            <span
+              style="font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold2);font-weight:500;">Offre
+              exclusive</span>
+          </div>
+          <h2
+            style="font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4vw,52px);font-weight:400;color:var(--white);line-height:1.15;margin-bottom:16px;">
+            Skipper <em style="font-style:italic;color:var(--gold2)">Pass</em>
+          </h2>
+          <p style="font-size:16px;color:rgba(255,255,255,.7);font-weight:300;line-height:1.8;margin-bottom:28px;">
+            Vous n'avez pas de voilier mais vous voulez naviguer librement sur le lac de Neuchâtel ? Le <strong
+              style="color:var(--white)">Skipper Pass</strong> est fait pour vous — 5 sorties de navigation à utiliser à
+            votre rythme durant l'année.
+          </p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:36px;">
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
+              <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
+              <span><strong style="color:var(--white);">5 sorties individuelles</strong> — non consécutives, à utiliser
+                librement</span>
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
+              <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
+              <span><strong style="color:var(--white);">En semaine uniquement</strong> — jours de semaine hors jours
+                fériés</span>
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
+              <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
+              <span><strong style="color:var(--white);">Selon disponibilité</strong> — réservez vos jours à
+                l'avance</span>
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
+              <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
+              <span><strong style="color:var(--white);">Valable toute l'année</strong> — 5 sorties à consommer dans
+                l'année en cours</span>
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
+              <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
+              <span>Carburant inclus · Briefing inclus · Nuitées port de Cheyres gratuites</span>
+            </li>
+          </ul>
+          <a href="#resa-form" onclick="selectPassSkipper()"
+            style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy);padding:14px 30px;border-radius:var(--r);font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .2s;"
+            onmouseover="this.style.background='#d49a42';this.style.transform='translateY(-2px)'"
+            onmouseout="this.style.background='var(--gold)';this.style.transform='none'">
+            Demander ce pass →
+          </a>
+        </div>
+
+        <!-- RIGHT: carte prix -->
+        <div>
+          <div
+            style="background:linear-gradient(135deg,#0f2335 0%,#132d42 100%);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:48px 40px;text-align:center;position:relative;overflow:hidden;">
+            <!-- Déco cercle -->
+            <div
+              style="position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;border:1px solid rgba(184,131,46,.15);">
+            </div>
+            <div
+              style="position:absolute;top:-20px;right:-20px;width:100px;height:100px;border-radius:50%;border:1px solid rgba(184,131,46,.1);">
+            </div>
+
+            <div
+              style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px;">
+              Tarif annuel</div>
+
+            <div
+              style="font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:400;color:var(--white);line-height:1;">
+              800</div>
+            <div style="font-size:14px;color:rgba(255,255,255,.5);margin-top:4px;margin-bottom:28px;">CHF · paiement
+              intégral à la souscription</div>
+
+            <div style="height:1px;background:rgba(255,255,255,.08);margin-bottom:24px;"></div>
+
+            <div style="display:flex;justify-content:center;gap:32px;margin-bottom:28px;">
+              <div style="text-align:center;">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--gold2);">5
+                </div>
+                <div
+                  style="font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;">
+                  sorties</div>
+              </div>
+              <div style="width:1px;background:rgba(255,255,255,.08);"></div>
+              <div style="text-align:center;">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--gold2);">
+                  160</div>
+                <div
+                  style="font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;">
+                  CHF/jour</div>
+              </div>
+              <div style="width:1px;background:rgba(255,255,255,.08);"></div>
+              <div style="text-align:center;">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--gold2);">
+                  12</div>
+                <div
+                  style="font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;">
+                  mois</div>
+              </div>
+            </div>
+
+            <div
+              style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:12px 16px;font-size:12px;color:rgba(255,255,255,.5);line-height:1.6;text-align:left;">
+              ⏰ Jours de semaine uniquement (hors jours fériés suisses) · Réservation selon disponibilité
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!-- INFOS -->
   <section id="infos" class="infos-sec">
@@ -1442,17 +1680,11 @@
           <div class="info-title">Permis requis</div>
           <div class="info-text">Le permis lac Suisse ou international reconnu est obligatoire.</div>
         </div>
-        <div class="info-card">
-          <div class="info-icon">🛡️</div>
-          <div class="info-title">Caution</div>
-          <div class="info-text">Caution bloquée par empreinte de carte. Libérée automatiquement au retour sans dommage.
-          </div>
-        </div>
+
         <div class="info-card">
           <div class="info-icon">🚗</div>
           <div class="info-title">Accès</div>
-          <div class="info-text">Port de Cheyres. Parking payant sur place. Gare de Cheyres-Châbles (ligne
-            Lausanne–Berne).</div>
+          <div class="info-text">Port de Cheyres. Parking payant sur place. Gare de Cheyres-Châbles.</div>
         </div>
         <div class="info-card">
           <div class="info-icon">🌤️</div>
@@ -1462,7 +1694,12 @@
         <div class="info-card">
           <div class="info-icon">🌙</div>
           <div class="info-title">Nuitées port de Cheyres</div>
-          <div class="info-text">Nuitées au port de Cheyres gratuites. Restaurant, douches et plage à proximité.</div>
+          <div class="info-text">Nuitées gratuites. Restaurant, douches et plage à proximité.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🕒</div>
+          <div class="info-title">Horaires</div>
+          <div class="info-text">Départs dès 9h et retours à 18h.</div>
         </div>
       </div>
     </div>
@@ -1481,7 +1718,7 @@
             style="font-size:44px;font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--navy)">4.9</span>
           <div>
             <div style="color:var(--gold2);font-size:16px;letter-spacing:2px">★★★★★</div>
-            <div style="font-size:12px;color:var(--muted);margin-top:4px">5 avis vérifiés</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:4px">28 avis vérifiés</div>
           </div>
         </div>
         <a href="https://g.page/r/CaC7dhASHOyrEAE/review" target="_blank"
@@ -1548,127 +1785,55 @@
           <div class="av-text">Perfect sailing day. Clean boat, great equipment. The Alpes backdrop on the lake is
             breathtaking.</div>
         </div>
+        <div class="av-card">
+          <div class="av-top">
+            <div class="av-a" style="background:#b8832e">J</div>
+            <div>
+              <div class="av-name">Jean-Marc</div>
+              <div class="av-date">Juillet 2024</div>
+            </div>
+          </div>
+          <div class="av-stars">★★★★★</div>
+          <div class="av-text">Bateau très bien entretenu et facile à manœuvrer. Le propriétaire est très sympa et arrangeant.</div>
+        </div>
+        <div class="av-card">
+          <div class="av-top">
+            <div class="av-a" style="background:#1a5f7a">S</div>
+            <div>
+              <div class="av-name">Sophie</div>
+              <div class="av-date">Août 2024</div>
+            </div>
+          </div>
+          <div class="av-stars">★★★★★</div>
+          <div class="av-text">Superbe journée en famille. Le bateau est parfait pour 6, très stable et sécurisant.</div>
+        </div>
+        <div class="av-card">
+          <div class="av-top">
+            <div class="av-a" style="background:#b8832e">J</div>
+            <div>
+              <div class="av-name">Jean-Pierre</div>
+              <div class="av-date">Juillet 2024</div>
+            </div>
+          </div>
+          <div class="av-stars">★★★★★</div>
+          <div class="av-text">Une magnifique découverte du lac sur ce Maxus 21. Très maniable et propre. Gregory est de très bon conseil.</div>
+        </div>
+        <div class="av-card">
+          <div class="av-top">
+            <div class="av-a" style="background:#2d5a3d">L</div>
+            <div>
+              <div class="av-name">Lucie</div>
+              <div class="av-date">Août 2024</div>
+            </div>
+          </div>
+          <div class="av-stars">★★★★★</div>
+          <div class="av-text">Superbe sortie entre amis. Le bateau est très confortable pour 6 personnes. Je recommande vivement !</div>
+        </div>
         <div class="av-card"
           style="background:var(--sand);border-color:var(--sand2);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px;">
           <div style="font-size:40px;font-family:'Cormorant Garamond',serif;color:var(--navy)">4.9/5</div>
           <div style="color:var(--gold2);font-size:18px;letter-spacing:3px">★★★★★</div>
-          <div style="font-size:13px;color:var(--muted)">Note parfaite sur toutes les catégories</div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CARTE -->
-  <section id="localisation" class="map-sec">
-    <div class="ct">
-      <div class="rv" style="text-align:center;margin-bottom:40px;">
-        <p class="sec-ey">Localisation</p>
-        <h2 class="sec-h">Le lac de Neuchâtel, <em>votre terrain de jeu</em></h2>
-        <p class="sec-p" style="margin:0 auto">Le plus grand lac entièrement suisse — 38 km de long, eaux turquoises,
-          Alpes en toile de fond. Réputé pour ses belles brises régulières, c'est l'un des plans d'eau les plus
-          agréables pour la voile en Suisse. Le bateau est amarré au port de Cheyres.</p>
-      </div>
-      <div class="map-wrap rv">
-        <div class="map-head"><strong>Port de Cheyres — accès & parking</strong>
-          <p>Route du Port, 1468 Cheyres-Châbles, Suisse</p>
-        </div>
-        <iframe src="https://maps.google.com/maps?q=Port+de+Cheyres,Cheyres,Switzerland&z=11&output=embed&hl=fr"
-          width="100%" height="440" style="border:0;display:block;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade" title="Port de Cheyres sur Google Maps"></iframe>
-        <div class="map-foot">
-          <span>🚗 45 min depuis Lausanne · 30 min depuis Fribourg · 40 min depuis Berne</span>
-          <span>🅿️ Parking payant à proximité du port</span>
-          <span>🚂 Gare de Cheyres-Châbles (ligne Lausanne–Berne)</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TARIFS -->
-  <section id="tarifs" class="tarifs-sec">
-    <div class="ct">
-      <div class="rv">
-        <p class="sec-ey" style="color:var(--gold2)">Tarifs</p>
-        <h2 class="sec-h">Tarifs de <em style="color:var(--lake)">location</em></h2>
-        <p class="sec-p" style="color:rgba(255,255,255,.5); max-width: 800px;">Prix dégressifs selon la durée · ⛽
-          Carburant inclus · 🌙
-          Nuitées au port de Cheyres gratuites</p>
-      </div>
-      <!-- Grille tarifaire 1-7 jours (liée au backoffice) -->
-      <div class="rv" style="margin-top:48px;">
-        <div class="price-grid" id="price-grid-outer">
-          <!-- headers -->
-          <div class="pg-head"><span>1 jour</span></div>
-          <div class="pg-head"><span>2 jours</span></div>
-          <div class="pg-head"><span>3 jours</span></div>
-          <div class="pg-head"><span>4 jours</span></div>
-          <div class="pg-head"><span>5 jours</span></div>
-          <div class="pg-head"><span>6 jours</span></div>
-          <div class="pg-head"><span>7 jours</span></div>
-          <!-- price cells (filled by JS) -->
-          <div class="pg-cell" id="pgc1">
-            <div class="pg-val" data-day="1">280</div>
-            <div class="pg-chf">CHF</div>
-          </div>
-          <div class="pg-cell" id="pgc2">
-            <div class="pg-val" data-day="2">490</div>
-            <div class="pg-chf">CHF</div>
-          </div>
-          <div class="pg-cell" id="pgc3">
-            <div class="pg-val" data-day="3">720</div>
-            <div class="pg-chf">CHF</div>
-          </div>
-          <div class="pg-cell" id="pgc4">
-            <div class="pg-val" data-day="4">840</div>
-            <div class="pg-chf">CHF</div>
-          </div>
-          <div class="pg-cell" id="pgc5">
-            <div class="pg-val" data-day="5">1000</div>
-            <div class="pg-chf">CHF</div>
-          </div>
-          <div class="pg-cell" id="pgc6">
-            <div class="pg-val" data-day="6">1140</div>
-            <div class="pg-chf">CHF</div>
-          </div>
-          <div class="pg-cell" id="pgc7">
-            <div class="pg-val" data-day="7">1260</div>
-            <div class="pg-chf">CHF</div>
-          </div>
-          <!-- per-day row -->
-          <div class="pg-ppd"><span data-day-ppd="1">280/j</span></div>
-          <div class="pg-ppd"><span data-day-ppd="2">245/j</span></div>
-          <div class="pg-ppd"><span data-day-ppd="3">240/j</span></div>
-          <div class="pg-ppd"><span data-day-ppd="4">210/j</span></div>
-          <div class="pg-ppd"><span data-day-ppd="5">200/j</span></div>
-          <div class="pg-ppd"><span data-day-ppd="6">190/j</span></div>
-          <div class="pg-ppd"><span data-day-ppd="7">180/j</span></div>
-        </div>
-      </div>
-      <!-- Options -->
-      <div class="rv" style="margin-top:36px;">
-
-        <div class="opts-grid" id="opts-tarifs">
-          <div class="opt-card">
-            <div class="opt-card-name">🧭 Briefing navigation</div>
-            <div class="opt-card-price">+50 CHF</div>
-          </div>
-          <div class="opt-card">
-            <div class="opt-card-name">🧹 Nettoyage final (obligatoire)</div>
-            <div class="opt-card-price">+60 CHF</div>
-          </div>
-          <div class="opt-card">
-            <div class="opt-card-name">🎏 Gennaker</div>
-            <div class="opt-card-price">+40 CHF/j</div>
-          </div>
-          <div class="opt-card">
-            <div class="opt-card-name">🏄 Paddle</div>
-            <div class="opt-card-price">+25 CHF/j</div>
-          </div>
-          <div class="opt-card">
-            <div class="opt-card-name">🛡️ Caution</div>
-            <div class="opt-card-price"><span id="caution-display">500</span> CHF</div>
-          </div>
+          <div style="font-size:13px;color:var(--muted)">28 avis au total sur les plateformes</div>
         </div>
       </div>
     </div>
@@ -1676,122 +1841,7 @@
 
 
 
-  <!-- PASS SKIPPER -->
-  <section id="pass-skipper" style="background:var(--navy);padding:0;">
-    <div style="max-width:1100px;margin:0 auto;padding:80px 24px;">
-      <div class="rv" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
 
-        <!-- LEFT: texte -->
-        <div>
-          <div
-            style="display:inline-flex;align-items:center;gap:8px;background:rgba(184,131,46,.2);border:1px solid rgba(184,131,46,.4);padding:6px 14px;border-radius:20px;margin-bottom:20px;">
-            <span
-              style="font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold2);font-weight:500;">Offre
-              exclusive</span>
-          </div>
-          <h2
-            style="font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4vw,52px);font-weight:400;color:var(--white);line-height:1.15;margin-bottom:16px;">
-            Pass <em style="font-style:italic;color:var(--gold2)">Skipper</em>
-          </h2>
-          <p style="font-size:16px;color:rgba(255,255,255,.7);font-weight:300;line-height:1.8;margin-bottom:28px;">
-            Vous n'avez pas de voilier mais vous voulez naviguer librement sur le lac de Neuchâtel ? Le <strong
-              style="color:var(--white)">Pass Skipper</strong> est fait pour vous — 5 jours de navigation à utiliser à
-            votre rythme durant l'année.
-          </p>
-          <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:36px;">
-            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
-              <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
-              <span><strong style="color:var(--white);">5 jours individuels</strong> — non consécutifs, à utiliser
-                librement</span>
-            </li>
-            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
-              <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
-              <span><strong style="color:var(--white);">En semaine uniquement</strong> — jours de semaine hors jours
-                fériés</span>
-            </li>
-            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
-              <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
-              <span><strong style="color:var(--white);">Selon disponibilité</strong> — réservez vos jours à
-                l'avance</span>
-            </li>
-            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
-              <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
-              <span><strong style="color:var(--white);">Valable toute l'année</strong> — 5 jours à consommer dans
-                l'année en cours</span>
-            </li>
-            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
-              <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
-              <span>Carburant inclus · Briefing inclus · Nuitées port de Cheyres gratuites</span>
-            </li>
-          </ul>
-          <a href="#resa-form" onclick="selectPassSkipper()"
-            style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy);padding:14px 30px;border-radius:var(--r);font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .2s;"
-            onmouseover="this.style.background='#d49a42';this.style.transform='translateY(-2px)'"
-            onmouseout="this.style.background='var(--gold)';this.style.transform='none'">
-            Demander ce pass →
-          </a>
-        </div>
-
-        <!-- RIGHT: carte prix -->
-        <div>
-          <div
-            style="background:linear-gradient(135deg,#0f2335 0%,#132d42 100%);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:48px 40px;text-align:center;position:relative;overflow:hidden;">
-            <!-- Déco cercle -->
-            <div
-              style="position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;border:1px solid rgba(184,131,46,.15);">
-            </div>
-            <div
-              style="position:absolute;top:-20px;right:-20px;width:100px;height:100px;border-radius:50%;border:1px solid rgba(184,131,46,.1);">
-            </div>
-
-            <div
-              style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px;">
-              Tarif annuel</div>
-
-            <div
-              style="font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:400;color:var(--white);line-height:1;">
-              800</div>
-            <div style="font-size:14px;color:rgba(255,255,255,.5);margin-top:4px;margin-bottom:28px;">CHF · paiement
-              intégral à la souscription</div>
-
-            <div style="height:1px;background:rgba(255,255,255,.08);margin-bottom:24px;"></div>
-
-            <div style="display:flex;justify-content:center;gap:32px;margin-bottom:28px;">
-              <div style="text-align:center;">
-                <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--gold2);">5
-                </div>
-                <div
-                  style="font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;">
-                  jours</div>
-              </div>
-              <div style="width:1px;background:rgba(255,255,255,.08);"></div>
-              <div style="text-align:center;">
-                <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--gold2);">
-                  160</div>
-                <div
-                  style="font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;">
-                  CHF/jour</div>
-              </div>
-              <div style="width:1px;background:rgba(255,255,255,.08);"></div>
-              <div style="text-align:center;">
-                <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--gold2);">
-                  12</div>
-                <div
-                  style="font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;">
-                  mois</div>
-              </div>
-            </div>
-
-            <div
-              style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:12px 16px;font-size:12px;color:rgba(255,255,255,.5);line-height:1.6;text-align:left;">
-              ⏰ Jours de semaine uniquement (hors jours fériés suisses) · Réservation selon disponibilité
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
 
   <!-- CONTACT -->
   <section id="contact" style="background:var(--white);padding:80px 24px;">
@@ -1858,22 +1908,22 @@
 
           <!-- ÉTAPE 1 : Type de séjour -->
           <div class="resa-step">
-            <div class="resa-step-label">1 — Type de séjour</div>
+            <div class="resa-step-label">Type de séjour</div>
             <div id="resa-type-tabs" style="display:flex;gap:8px;">
               <button type="button" id="tab-standard" onclick="selectTab('standard')"
                 style="flex:1;padding:12px;border-radius:var(--r);border:1.5px solid var(--navy);background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;">Location standard</button>
               <button type="button" id="tab-pass" onclick="selectTab('pass')"
-                style="flex:1;padding:12px;border-radius:var(--r);border:1.5px solid var(--sand2);background:var(--white);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;">⭐ Pass Skipper</button>
+                style="flex:1;padding:12px;border-radius:var(--r);border:1.5px solid var(--sand2);background:var(--white);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;">⭐ Skipper Pass</button>
             </div>
           </div>
 
-          <!-- Pass Skipper info (shown for pass tab) -->
+          <!-- Skipper Pass info (shown for pass tab) -->
           <div id="section-pass"
             style="display:none;background:linear-gradient(135deg,var(--navy),#132d42);border-radius:var(--r);padding:20px 22px;margin-bottom:0;">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
               <div>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--white);font-weight:400;">Pass Skipper</div>
-                <div style="font-size:13px;color:rgba(255,255,255,.55);margin-top:3px;">5 jours · semaine · selon disponibilité · année en cours</div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--white);font-weight:400;">Skipper Pass</div>
+                <div style="font-size:13px;color:rgba(255,255,255,.55);margin-top:3px;">5 sorties · semaine · selon disponibilité · année en cours</div>
               </div>
               <div style="text-align:right;">
                 <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold2);font-weight:400;">800</div>
@@ -1881,12 +1931,12 @@
               </div>
             </div>
             <div style="height:1px;background:rgba(255,255,255,.1);margin-bottom:12px;"></div>
-            <p style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.7;">Le paiement intégral de 800 CHF est demandé à la souscription. Vous pouvez ensuite réserver vos 5 jours tout au long de l'année selon disponibilité (jours de semaine hors jours fériés).</p>
+            <p style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.7;">Le paiement intégral de 800 CHF est demandé à la souscription. Vous pouvez ensuite réserver vos 5 sorties tout au long de l'année selon disponibilité (jours de semaine hors jours fériés).</p>
           </div>
 
           <!-- ÉTAPE 2 : Dates -->
           <div class="resa-step" id="section-standard">
-            <div class="resa-step-label">2 — Vos dates
+            <div class="resa-step-label">Vos dates
               <a href="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FZurich&showPrint=0&showTabs=0&showCalendars=0&showTitle=0&src=MzUyYTIzZjE3MGQ0YjhhMGQ0MGIxODMzMDNiYjEyZWE0MDM1MGZjMmU0MjBiMTJkYWM2NDg2OTVkYjhhNDA5NUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%234285f4"
                 target="_blank"
                 style="font-family:'DM Sans',sans-serif;font-size:12px;font-weight:400;color:var(--teal);text-decoration:none;border:1px solid var(--teal);border-radius:20px;padding:3px 10px;margin-left:10px;vertical-align:middle;white-space:nowrap;">
@@ -1903,8 +1953,8 @@
           </div>
 
           <!-- ÉTAPE 3 : Options -->
-          <div class="resa-step">
-            <div class="resa-step-label">3 — Options</div>
+          <div class="resa-step" id="section-options">
+            <div class="resa-step-label">Options</div>
             <div class="opts-checks" id="resa-options">
               <label class="opt-check"><input type="checkbox" data-price="60" data-per="forfait"
                   onchange="updateTotal()" checked onclick="return false;"
@@ -1914,12 +1964,10 @@
               <label class="opt-check"><input type="checkbox" data-price="25" data-per="jour"
                   onchange="updateTotal()"><span class="oci"><span class="ocn">🏄 Paddle</span><span class="ocp">+25 CHF/j</span></span></label>
             </div>
-          </div>
-
           <!-- ÉTAPE 3b : Détails du séjour -->
-          <div class="resa-step">
-            <div class="resa-step-label">3b — Détails du séjour</div>
-            <div class="fr">
+          <div class="resa-step" style="margin-top:24px;">
+            <div class="resa-step-label">Détails du séjour</div>
+            <div class="fr" id="resa-details-hide">
               <div class="fg">
                 <label>Nombre de passagers *</label>
                 <select name="passagers" required style="padding:10px 12px;border-radius:var(--r);border:1.5px solid var(--sand2);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--white);cursor:pointer;">
@@ -1943,18 +1991,6 @@
                 </select>
               </div>
             </div>
-            <div class="fr">
-              <div class="fg">
-                <label>N° de permis de navigation</label>
-                <input type="text" name="numero_permis" placeholder="ex. VD-12345">
-              </div>
-              <div class="fg">
-                <label>Copie du permis (PDF, JPG)</label>
-                <input type="file" name="permis_pdf" accept=".pdf,.jpg,.jpeg,.png"
-                  style="padding:8px 0;font-size:13px;color:var(--muted);">
-                <span style="font-size:11px;color:var(--muted);margin-top:2px;">Sinon, envoyez-le par email après confirmation.</span>
-              </div>
-            </div>
           </div>
 
           <!-- TOTAL VISIBLE ICI -->
@@ -1965,15 +2001,11 @@
             </div>
           </div>
 
-          <!-- INFO CAUTION -->
-          <div style="display:flex;align-items:flex-start;gap:10px;padding:12px 16px;background:rgba(184,131,46,0.07);border-radius:var(--r);border:1px solid rgba(184,131,46,0.25);margin-top:12px;">
-            <span style="font-size:16px;flex-shrink:0;">🛡️</span>
-            <span style="font-size:13px;color:#7a5c1e;line-height:1.6;"><strong>Caution de 1 000 CHF</strong> — Une empreinte de carte bancaire sera demandée avant le séjour. Elle est libérée automatiquement au retour sans dommage constaté.</span>
-          </div>
+
 
           <!-- ÉTAPE 4 : Coordonnées -->
           <div class="resa-step">
-            <div class="resa-step-label">4 — Vos coordonnées</div>
+            <div class="resa-step-label">Vos coordonnées</div>
             <div class="fr">
               <div class="fg"><label>Prénom & Nom *</label><input type="text" name="nom" placeholder="Marie Dupont" required></div>
               <div class="fg"><label>Email *</label><input type="email" name="email" placeholder="marie@example.com" required></div>
@@ -1984,9 +2016,21 @@
             </div>
           </div>
 
+          <!-- COPIE DU PERMIS -->
+          <div class="resa-step" id="section-permis">
+            <div class="fr">
+              <div class="fg">
+                <label>Copie du permis (PDF, JPG)</label>
+                <input type="file" name="permis_pdf" accept=".pdf,.jpg,.jpeg,.png"
+                  style="padding:8px 0;font-size:13px;color:var(--muted);">
+                <span style="font-size:11px;color:var(--muted);margin-top:2px;">Sinon, envoyez-le par email après confirmation.</span>
+              </div>
+            </div>
+          </div>
+
           <!-- ÉTAPE 5 : Message -->
           <div class="resa-step">
-            <div class="resa-step-label">5 — Message <span style="font-weight:400;color:var(--muted);font-size:12px;">(optionnel)</span></div>
+            <div class="resa-step-label">Message <span style="font-weight:400;color:var(--muted);font-size:12px;">(optionnel)</span></div>
             <div class="fg" style="margin-bottom:0;"><textarea name="message" placeholder="Votre niveau en voile, questions…"></textarea></div>
           </div>
 
@@ -2068,7 +2112,7 @@
             </div>
             <div
               style="font-size:11px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;">
-              5 avis vérifiés</div>
+              28 avis vérifiés</div>
           </div>
         </div>
 
@@ -2143,8 +2187,9 @@
           c.options.filter(o => !o.name.toLowerCase().includes('linge')).forEach(o => {
             var pl = o.per === 'jour' ? '/j' : o.per === 'forfait' ? '' : '/' + o.per;
             var reqAttr = o.required ? 'checked onclick="return false;"' : '';
-            var labelStyle = o.required ? 'style="pointer-events:none;opacity:0.8;"' : '';
-            ro.innerHTML += `<label class="opt-check" ${labelStyle}><input type="checkbox" data-price="${o.price}" data-per="${o.per}" onchange="updateTotal()" ${reqAttr}><span class="oci"><span class="ocn">${gi(o.name)} ${o.name}</span><span class="ocp">+${o.price} CHF${pl}</span></span></label>`;
+            var disabledClass = o.required ? 'opt-disabled' : '';
+            var inputAttrs = o.required ? 'checked onclick="return false;"' : 'onchange="updateTotal()"';
+            ro.innerHTML += `<label class="opt-check ${disabledClass}"><input type="checkbox" data-price="${o.price}" data-per="${o.per}" ${inputAttrs}><span class="oci"><span class="ocn">${gi(o.name)} ${o.name}</span><span class="ocp">+${o.price} CHF${pl}</span></span></label>`;
           });
         }
       }
@@ -2206,7 +2251,7 @@
       if (hTotal) hTotal.value = total + ' CHF';
       if (hType) {
         var isPass = (typeof currentTab !== 'undefined' && currentTab === 'pass');
-        hType.value = isPass ? 'Pass Skipper' : 'Location standard';
+        hType.value = isPass ? 'Skipper Pass' : 'Location standard';
       }
       if (hDuree && typeof days !== 'undefined') {
         hDuree.value = days ? days + ' jours' : '';
@@ -2251,7 +2296,7 @@
                   id: Date.now(),
                   status: 'pending',
                   date_req: new Date().toLocaleDateString('fr-CH', { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
-                  type: (typeof currentTab !== 'undefined' && currentTab === 'pass') ? 'Pass Skipper' : 'Location standard',
+                  type: (typeof currentTab !== 'undefined' && currentTab === 'pass') ? 'Skipper Pass' : 'Location standard',
                   depart: s ? s.toLocaleDateString('fr-CH') : '—',
                   retour: eDate ? eDate.toLocaleDateString('fr-CH') : '—',
                   total: document.getElementById('resa-total')?.textContent || '—',
@@ -2289,7 +2334,7 @@
 
 
 
-    // ── Tab switching Standard / Pass Skipper ──
+    // ── Tab switching Standard / Skipper Pass ──
     var currentTab = 'standard';
 
     function selectTab(tab) {
@@ -2297,9 +2342,11 @@
       var btnS = document.getElementById('tab-standard');
       var btnP = document.getElementById('tab-pass');
       var secP = document.getElementById('section-pass');
-      var fpArea = document.querySelector('.fr');
       var durationDisp = document.getElementById('resa-duration-display');
       var optsArea = document.getElementById('resa-options');
+      var datesArea = document.getElementById('section-standard');
+      var cautionArea = document.getElementById('resa-caution');
+      var detailsHideArea = document.getElementById('resa-details-hide');
 
       if (tab === 'pass') {
         btnP.style.background = 'var(--gold)';
@@ -2309,13 +2356,18 @@
         btnS.style.color = 'var(--muted)';
         btnS.style.borderColor = 'var(--sand2)';
         if (secP) secP.style.display = 'block';
-        if (fpArea) fpArea.style.opacity = '0.3';
+        if (datesArea) datesArea.style.display = 'none';
         if (durationDisp) durationDisp.style.display = 'none';
-        if (optsArea) optsArea.style.display = 'none';
+        var secOpts = document.getElementById('section-options');
+        if (secOpts) secOpts.style.display = 'none';
+        if (cautionArea) cautionArea.style.display = 'none';
+        if (detailsHideArea) detailsHideArea.style.display = 'none';
         var tt = document.getElementById('resa-total');
         if (tt) tt.textContent = '800 CHF';
         var wrap = document.getElementById('total-bar-wrap');
         if (wrap) wrap.style.display = 'block';
+        var secPermis = document.getElementById('section-permis');
+        if (secPermis) secPermis.style.display = 'block';
       } else {
         btnS.style.background = 'var(--navy)';
         btnS.style.color = 'var(--white)';
@@ -2324,15 +2376,27 @@
         btnP.style.color = 'var(--muted)';
         btnP.style.borderColor = 'var(--sand2)';
         if (secP) secP.style.display = 'none';
-        if (fpArea) fpArea.style.opacity = '1';
-        if (optsArea) optsArea.style.display = 'block';
+        if (datesArea) datesArea.style.display = '';
+        var secOpts = document.getElementById('section-options');
+        if (secOpts) secOpts.style.display = 'block';
+        if (cautionArea) cautionArea.style.display = 'flex';
+        if (detailsHideArea) detailsHideArea.style.display = '';
+        var secPermis = document.getElementById('section-permis');
+        if (secPermis) secPermis.style.display = 'block';
+        var wrap = document.getElementById('total-bar-wrap');
+        if (wrap) wrap.style.display = 'block';
         updateTotal();
       }
     }
 
     function selectPassSkipper() {
       selectTab('pass');
-      // Scroll to form
+      var el = document.getElementById('resa-form');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function selectStandard() {
+      selectTab('standard');
       var el = document.getElementById('resa-form');
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
