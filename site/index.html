@@ -17,7 +17,7 @@
   <meta name="google-site-verification" content="HwWm7JICYhBUwvHCRovWkfmcsYmZPqf9Pv1EyUpA5F8" />
   <title>Location Voilier Lac de Neuchâtel — Cheyres, Suisse | Maxus 21</title>
   <meta name="description"
-    content="Louez un voilier habitable Maxus 21 sur le lac de Neuchâtel au départ du port de Cheyres, Suisse. Carburant inclus, nuitées gratuites au port. Réservez en ligne dès 280 CHF.">
+    content="Louez un voilier habitable Maxus 21 sur le lac de Neuchâtel au départ du port de Cheyres, Suisse. Carburant inclus, nuitées gratuites au port. Réservez en ligne dès 275 CHF.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://voilier-neuchatel.ch/">
 
@@ -27,18 +27,23 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Location Voilier Lac de Neuchâtel — Cheyres, Suisse">
   <meta property="og:description"
-    content="Louez un voilier habitable Maxus 21 sur le lac de Neuchâtel. Carburant inclus, nuitées gratuites. Dès 280 CHF.">
+    content="Louez un voilier habitable Maxus 21 sur le lac de Neuchâtel. Carburant inclus, nuitées gratuites. Dès 275 CHF.">
   <meta property="og:url" content="https://voilier-neuchatel.ch/">
   <meta property="og:locale" content="fr_CH">
   <meta property="og:locale:alternate" content="en_GB">
   <meta property="og:locale:alternate" content="de_CH">
   <meta property="og:site_name" content="Voilier Lac de Neuchâtel">
+  <meta property="og:image" content="https://voilier-neuchatel.ch/img/og-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Voilier Maxus 21 sur le lac de Neuchâtel, Suisse">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Location Voilier Lac de Neuchâtel — Cheyres, Suisse">
   <meta name="twitter:description"
-    content="Louez un voilier habitable Maxus 21. Carburant inclus, nuitées gratuites. Dès 280 CHF.">
+    content="Louez un voilier habitable Maxus 21. Carburant inclus, nuitées gratuites. Dès 275 CHF.">
+  <meta name="twitter:image" content="https://voilier-neuchatel.ch/img/og-preview.jpg">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -50,7 +55,7 @@
   "brand": {"@type": "Brand", "name": "Northman Maxus 21"},
   "offers": {
     "@type": "AggregateOffer",
-    "lowPrice": "280",
+    "lowPrice": "275",
     "highPrice": "1680",
     "priceCurrency": "CHF",
     "availability": "https://schema.org/InStock"
@@ -58,7 +63,7 @@
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.9",
-    "reviewCount": "5",
+    "reviewCount": "28",
     "bestRating": "5"
   }
 }
@@ -82,7 +87,7 @@
     "longitude": 6.7942
   },
   "url": "https://voilier-neuchatel.ch",
-  "priceRange": "280-1680 CHF"
+  "priceRange": "275-1680 CHF"
 }
 </script>
 
@@ -1292,6 +1297,69 @@
         grid-template-columns: 1fr !important;
       }
     }
+
+    /* ── Tablet breakpoint ── */
+    @media(max-width:768px) {
+      .rv[style*="grid-template-columns: 1.2fr 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+      .rv[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+      .hero-c h1 {
+        font-size: clamp(2rem, 8vw, 3rem);
+      }
+      .resa-body {
+        padding: 16px !important;
+      }
+    }
+
+    /* ── Floating mobile buttons ── */
+    .mob-float {
+      display: none;
+    }
+    @media(max-width:900px) {
+      .mob-float {
+        display: flex;
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 999;
+        gap: 12px;
+        pointer-events: none;
+      }
+      .mob-float a {
+        pointer-events: all;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 22px;
+        border-radius: 50px;
+        font-size: 15px;
+        font-weight: 500;
+        font-family: 'DM Sans', sans-serif;
+        text-decoration: none;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+        transition: transform .15s, box-shadow .15s;
+        white-space: nowrap;
+      }
+      .mob-float a:active {
+        transform: scale(0.96);
+      }
+      .mob-float-wa {
+        background: #25d366;
+        color: #fff;
+      }
+      .mob-float-resa {
+        background: var(--gold);
+        color: var(--navy);
+      }
+      /* Prevent content from being hidden behind floating bar */
+      body {
+        padding-bottom: 80px;
+      }
+    }
   </style>
 
 </head>
@@ -1382,14 +1450,17 @@
           <img
             src="img/logo.jpg"
             alt="Maxus 21 au port de Cheyres"
+            loading="lazy"
             style="width:100%; height:400px; object-fit:cover; border-radius:2px;">
           <img
             src="img/gallery1.jpg"
             alt="Cabine intérieure"
+            loading="lazy"
             style="width:100%; height:400px; object-fit:cover; border-radius:2px;">
           <img
             src="img/gallery2.jpg"
             alt="Plan du bateau"
+            loading="lazy"
             style="width:100%; height:400px; object-fit:contain; background:#fff; border-radius:2px; border:1px solid var(--sand2);">
         </div>
 
@@ -1463,13 +1534,16 @@
     <div class="gal-inner">
       <img
         src="img/IMG_1467.jpeg"
-        alt="Navigation sur le lac de Neuchâtel">
+        alt="Navigation sur le lac de Neuchâtel"
+        loading="lazy">
       <img
         src="img/IMG_0084.jpeg"
-        alt="Voiles au vent">
+        alt="Voiles au vent"
+        loading="lazy">
       <img
         src="img/IMG_1613.jpeg"
-        alt="Vue depuis le cockpit">
+        alt="Vue depuis le cockpit"
+        loading="lazy">
     </div>
   </div>
 
@@ -1496,7 +1570,7 @@
           <div class="pg-head"><span>7 jours</span></div>
           <!-- price cells (filled by JS) -->
           <div class="pg-cell" id="pgc1">
-            <div class="pg-val" data-day="1">280</div>
+            <div class="pg-val" data-day="1">275</div>
             <div class="pg-chf">CHF</div>
           </div>
           <div class="pg-cell" id="pgc2">
@@ -1524,7 +1598,7 @@
             <div class="pg-chf">CHF</div>
           </div>
           <!-- per-day row -->
-          <div class="pg-ppd"><span data-day-ppd="1">280/j</span></div>
+          <div class="pg-ppd"><span data-day-ppd="1">275/j</span></div>
           <div class="pg-ppd"><span data-day-ppd="2">245/j</span></div>
           <div class="pg-ppd"><span data-day-ppd="3">240/j</span></div>
           <div class="pg-ppd"><span data-day-ppd="4">210/j</span></div>
@@ -1544,11 +1618,11 @@
           </div>
           <div class="opt-card">
             <div class="opt-card-name">🎏 Gennaker</div>
-            <div class="opt-card-price">+40 CHF/j</div>
+            <div class="opt-card-price">+15 CHF/j</div>
           </div>
           <div class="opt-card">
             <div class="opt-card-name">🏄 Paddle</div>
-            <div class="opt-card-price">+25 CHF/j</div>
+            <div class="opt-card-price">+15 CHF/j</div>
           </div>
 
         </div>
@@ -1801,10 +1875,10 @@
               <label class="opt-check"><input type="checkbox" data-price="60" data-per="forfait"
                   onchange="updateTotal()" checked onclick="return false;"
                   style="pointer-events:none;opacity:0.8;"><span class="oci"><span class="ocn">🧹 Nettoyage final (obligatoire)</span><span class="ocp">+60 CHF</span></span></label>
-              <label class="opt-check"><input type="checkbox" data-price="40" data-per="jour"
-                  onchange="updateTotal()"><span class="oci"><span class="ocn">🎏 Gennaker</span><span class="ocp">+40 CHF/j</span></span></label>
-              <label class="opt-check"><input type="checkbox" data-price="25" data-per="jour"
-                  onchange="updateTotal()"><span class="oci"><span class="ocn">🏄 Paddle</span><span class="ocp">+25 CHF/j</span></span></label>
+              <label class="opt-check"><input type="checkbox" data-price="15" data-per="jour"
+                  onchange="updateTotal()"><span class="oci"><span class="ocn">🎏 Gennaker</span><span class="ocp">+15 CHF/j</span></span></label>
+              <label class="opt-check"><input type="checkbox" data-price="15" data-per="jour"
+                  onchange="updateTotal()"><span class="oci"><span class="ocn">🏄 Paddle</span><span class="ocp">+15 CHF/j</span></span></label>
             </div>
           </div>
 
@@ -1905,24 +1979,25 @@
             <div
               style="font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">
               Email</div>
-            <div
-              style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--navy);font-weight:500;user-select:all;">
-              welcome@voilier-neuchatel.ch</div>
+            <a href="mailto:welcome@voilier-neuchatel.ch"
+              style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--navy);font-weight:500;text-decoration:none;">
+              welcome@voilier-neuchatel.ch</a>
           </div>
         </div>
         <div
-          style="flex:1;min-width:260px;display:flex;align-items:center;gap:18px;padding:28px 32px;border-radius:var(--r);border:1.5px solid var(--sand2);background:var(--sand);transition:box-shadow .2s;"
-          onmouseover="this.style.boxShadow='0 4px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
+          style="flex:1;min-width:260px;display:flex;align-items:center;gap:18px;padding:28px 32px;border-radius:var(--r);border:1.5px solid var(--sand2);background:var(--sand);transition:box-shadow .2s;cursor:pointer;"
+          onmouseover="this.style.boxShadow='0 4px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'"
+          onclick="if(!window.getSelection().toString()) window.open('https://wa.me/41793867381','_blank')">
           <div
-            style="width:48px;height:48px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;">
-            📞</div>
+            style="width:48px;height:48px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;">
+            💬</div>
           <div style="flex:1">
             <div
               style="font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">
-              Téléphone</div>
-            <div
-              style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--navy);font-weight:500;user-select:all;">
-              +41 79 386 73 81</div>
+              WhatsApp / Téléphone</div>
+            <a href="tel:+41793867381"
+              style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--navy);font-weight:500;text-decoration:none;"
+              onclick="event.stopPropagation()">+41 79 386 73 81</a>
           </div>
         </div>
       </div>
@@ -2101,7 +2176,9 @@
         <div style="position:relative;">
           <img
             src="img/IMG_4793.jpeg"
-            alt="Navigation sur le lac de Neuchâtel" style="width:100%;height:auto;border-radius:2px;display:block;">
+            alt="Navigation sur le lac de Neuchâtel"
+            loading="lazy"
+            style="width:100%;height:auto;border-radius:2px;display:block;">
           <div
             style="position:absolute;bottom:24px;left:-20px;background:var(--navy);color:var(--white);padding:18px 24px;border-radius:var(--r);box-shadow:0 4px 20px rgba(0,0,0,.2);">
             <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--gold2)">4.9
@@ -2137,7 +2214,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
-  <script src="/js/config.js"></script>
   <script src="/js/config.js"></script>
   <script>
     // ── Reveal ──
@@ -2394,6 +2470,16 @@
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
   </script>
+
+  <!-- Floating mobile buttons -->
+  <div class="mob-float">
+    <a href="https://wa.me/41793867381" class="mob-float-wa" target="_blank" rel="noopener">
+      💬 WhatsApp
+    </a>
+    <a href="#reservation" class="mob-float-resa" onclick="selectStandard()">
+      ⚓ Réserver
+    </a>
+  </div>
 </body>
 
 </html>
