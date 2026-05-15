@@ -979,13 +979,15 @@
     }
 
     .opt-check input:checked+.oci {
-      background: var(--white);
-      border-color: var(--navy)
+      background: rgba(184, 131, 46, 0.05);
+      border-color: var(--gold);
+      box-shadow: 0 4px 12px rgba(184, 131, 46, 0.12);
+      transform: translateY(-1px)
     }
 
     .opt-check input:checked+.oci .ocn {
-      font-weight: 500;
-      color: var(--navy)
+      font-weight: 600;
+      color: var(--gold)
     }
 
     .ocn {
@@ -1358,22 +1360,25 @@
           </div>
         </div>
       </div>
-      <div class="boat-lay">
-        <div class="rv img-stack">
+      <div class="boat-lay" style="display:block;">
+        <div class="rv" style="display:grid; grid-template-columns: 1.2fr 1fr 1fr; gap:12px; margin-bottom:48px; align-items: stretch;">
           <img
             src="img/logo.jpg"
-            alt="Maxus 21 au port de Cheyres">
-          <div class="img-pair">
-            <img
-              src="img/gallery1.jpg"
-              alt="Cabine intérieure">
-            <img
-              src="img/gallery2.jpg"
-              alt="Plan du bateau">
-          </div>
+            alt="Maxus 21 au port de Cheyres"
+            style="width:100%; height:400px; object-fit:cover; border-radius:2px;">
+          <img
+            src="img/gallery1.jpg"
+            alt="Cabine intérieure"
+            style="width:100%; height:400px; object-fit:cover; border-radius:2px;">
+          <img
+            src="img/gallery2.jpg"
+            alt="Plan du bateau"
+            style="width:100%; height:400px; object-fit:contain; background:#fff; border-radius:2px; border:1px solid var(--sand2);">
         </div>
-        <div class="rv">
-          <div class="specs-g">
+
+        <div class="rv" style="display:grid; grid-template-columns: 1fr 1fr; gap:64px; align-items: start;">
+          <div>
+            <div class="specs-g" style="margin-top:0;">
             <div class="spec">
               <div class="spec-l">Longueur</div>
               <div class="spec-v">6.5 m</div>
@@ -1410,29 +1415,29 @@
               <div class="spec-l">Port</div>
               <div class="spec-v">Cheyres, Neuchâtel</div>
             </div>
+            </div>
           </div>
-          <div class="etags">
-            <div class="etag"><span class="etag-icon">🛏</span><span>2 lits doubles</span></div>
-            <div class="etag"><span class="etag-icon">🚽</span><span>Toilettes chimiques</span></div>
-            <div class="etag"><span class="etag-icon">🔥</span><span>Réchaud à gaz</span></div>
-            <div class="etag"><span class="etag-icon">❄️</span><span>Frigo 12V</span></div>
-            <div class="etag"><span class="etag-icon">⚡</span><span>Prises 12V / USB</span></div>
-            <div class="etag"><span class="etag-icon">☀️</span><span>Panneaux solaires</span></div>
-            <div class="etag"><span class="etag-icon">🍽</span><span>Vaisselle</span></div>
-            <div class="etag"><span class="etag-icon">🧭</span><span>Autopilote</span></div>
-            <div class="etag"><span class="etag-icon">⚓</span><span>Ancre</span></div>
-            <div class="etag"><span class="etag-icon">🏊</span><span>Échelle de bain</span></div>
-            <div class="etag"><span class="etag-icon">🪑</span><span>Table extérieure</span></div>
-            <div class="etag"><span class="etag-icon">🔽</span><span>Quille relevable</span></div>
-            <div class="etag"><span class="etag-icon">⛽</span><span>Carburant inclus</span></div>
-            <div class="etag"><span class="etag-icon">🦺</span><span>Matériel sécurité</span></div>
-            <div class="etag"><span class="etag-icon">🌀</span><span>Foc sur enrouleur</span></div>
+          <!-- RIGHT: Equipements -->
+          <div>
+            <div class="etags" style="margin-top:0;">
+              <div class="etag"><span class="etag-icon">🛏</span><span>2 lits doubles</span></div>
+              <div class="etag"><span class="etag-icon">🚽</span><span>Toilettes chimiques</span></div>
+              <div class="etag"><span class="etag-icon">🔥</span><span>Réchaud à gaz</span></div>
+              <div class="etag"><span class="etag-icon">❄️</span><span>Frigo 12V</span></div>
+              <div class="etag"><span class="etag-icon">⚡</span><span>Prises 12V / USB</span></div>
+              <div class="etag"><span class="etag-icon">☀️</span><span>Panneaux solaires</span></div>
+              <div class="etag"><span class="etag-icon">🍽</span><span>Vaisselle</span></div>
+              <div class="etag"><span class="etag-icon">🧭</span><span>Autopilote</span></div>
+              <div class="etag"><span class="etag-icon">⚓</span><span>Ancre</span></div>
+              <div class="etag"><span class="etag-icon">🏊</span><span>Échelle de bain</span></div>
+              <div class="etag"><span class="etag-icon">🪑</span><span>Table extérieure</span></div>
+              <div class="etag"><span class="etag-icon">🔽</span><span>Quille relevable</span></div>
+              <div class="etag"><span class="etag-icon">⛽</span><span>Carburant inclus</span></div>
+              <div class="etag"><span class="etag-icon">🦺</span><span>Matériel sécurité</span></div>
+              <div class="etag"><span class="etag-icon">🌀</span><span>Foc sur enrouleur</span></div>
+            </div>
           </div>
-          <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:16px;font-weight:300;">Amarré au port
-            de Cheyres avec restaurant, douches chaudes, plage et toilettes à proximité. <strong
-              style="color:var(--navy)">Nuitées au port de Cheyres gratuites.</strong></p>
         </div>
-      </div>
     </div>
   </section>
 
@@ -1563,9 +1568,8 @@
             Skipper <em style="font-style:italic;color:var(--gold2)">Pass</em>
           </h2>
           <p style="font-size:16px;color:rgba(255,255,255,.7);font-weight:300;line-height:1.8;margin-bottom:28px;">
-            Vous n'avez pas de voilier mais vous voulez naviguer librement sur le lac de Neuchâtel ? Le <strong
-              style="color:var(--white)">Skipper Pass</strong> est fait pour vous — 5 sorties de navigation à utiliser à
-            votre rythme durant l'année.
+            Libérez-vous des contraintes et retrouvez le plaisir pur de la navigation. Le <strong style="color:var(--white)">Skipper Pass</strong> vous offre 5 journées individuelles sur le lac de Neuchâtel, à utiliser selon vos envies durant l'année.<br><br>
+            C'est le tremplin idéal pour les <strong style="color:var(--white)">nouveaux navigateurs</strong> qui souhaitent gagner en assurance après leur permis, ou pour tous ceux qui veulent savourer le lac sans les soucis liés à la propriété (place de port, entretien, frais fixes). Larguez les amarres, on s'occupe du reste.
           </p>
           <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:36px;">
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
@@ -1590,7 +1594,7 @@
             </li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
               <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
-              <span>Carburant inclus · Briefing inclus · Nuitées port de Cheyres gratuites</span>
+              <span><strong style="color:var(--white);">Carburant et briefing inclus</strong></span>
             </li>
           </ul>
           <a href="#resa-form" onclick="selectPassSkipper()"
@@ -1829,12 +1833,7 @@
           <div class="av-stars">★★★★★</div>
           <div class="av-text">Superbe sortie entre amis. Le bateau est très confortable pour 6 personnes. Je recommande vivement !</div>
         </div>
-        <div class="av-card"
-          style="background:var(--sand);border-color:var(--sand2);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px;">
-          <div style="font-size:40px;font-family:'Cormorant Garamond',serif;color:var(--navy)">4.9/5</div>
-          <div style="color:var(--gold2);font-size:18px;letter-spacing:3px">★★★★★</div>
-          <div style="font-size:13px;color:var(--muted)">28 avis au total sur les plateformes</div>
-        </div>
+
       </div>
     </div>
   </section>
@@ -1923,15 +1922,11 @@
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
               <div>
                 <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--white);font-weight:400;">Skipper Pass</div>
-                <div style="font-size:13px;color:rgba(255,255,255,.55);margin-top:3px;">5 sorties · semaine · selon disponibilité · année en cours</div>
-              </div>
-              <div style="text-align:right;">
-                <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold2);font-weight:400;">800</div>
-                <div style="font-size:11px;color:rgba(255,255,255,.4);">CHF</div>
+                <div style="font-size:13px;color:rgba(255,255,255,.55);margin-top:3px;">5 sorties · semaine · année en cours</div>
               </div>
             </div>
             <div style="height:1px;background:rgba(255,255,255,.1);margin-bottom:12px;"></div>
-            <p style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.7;">Le paiement intégral de 800 CHF est demandé à la souscription. Vous pouvez ensuite réserver vos 5 sorties tout au long de l'année selon disponibilité (jours de semaine hors jours fériés).</p>
+            <p style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.7;">Une fois le paiement de 800 CHF reçu, vous pourrez réserver vos 5 sorties tout au long de l'année (jours de semaine hors jours fériés).</p>
           </div>
 
           <!-- ÉTAPE 2 : Dates -->
@@ -1964,8 +1959,10 @@
               <label class="opt-check"><input type="checkbox" data-price="25" data-per="jour"
                   onchange="updateTotal()"><span class="oci"><span class="ocn">🏄 Paddle</span><span class="ocp">+25 CHF/j</span></span></label>
             </div>
+          </div>
+
           <!-- ÉTAPE 3b : Détails du séjour -->
-          <div class="resa-step" style="margin-top:24px;">
+          <div class="resa-step" id="section-details" style="margin-top:24px;">
             <div class="resa-step-label">Détails du séjour</div>
             <div class="fr" id="resa-details-hide">
               <div class="fg">
@@ -2054,9 +2051,7 @@
             <span style="font-size:13px;color:var(--teal);font-weight:500;">Aucun paiement aujourd'hui — confirmation sous 24h, lien de paiement ensuite.</span>
           </div>
 
-          <div style="text-align:center; margin-top:20px; opacity:0.7;">
-            <img src="img/paiement.png" alt="Moyens de paiement acceptés" style="max-width:320px; width:100%; height:auto;">
-          </div>
+
 
         </div>
       </form>
@@ -2358,10 +2353,13 @@
         if (secP) secP.style.display = 'block';
         if (datesArea) datesArea.style.display = 'none';
         if (durationDisp) durationDisp.style.display = 'none';
+        
         var secOpts = document.getElementById('section-options');
         if (secOpts) secOpts.style.display = 'none';
-        if (cautionArea) cautionArea.style.display = 'none';
-        if (detailsHideArea) detailsHideArea.style.display = 'none';
+        
+        var secDetails = document.getElementById('section-details');
+        if (secDetails) secDetails.style.display = 'none';
+        
         var tt = document.getElementById('resa-total');
         if (tt) tt.textContent = '800 CHF';
         var wrap = document.getElementById('total-bar-wrap');
@@ -2377,10 +2375,11 @@
         btnP.style.borderColor = 'var(--sand2)';
         if (secP) secP.style.display = 'none';
         if (datesArea) datesArea.style.display = '';
+        if (durationDisp) durationDisp.style.display = '';
         var secOpts = document.getElementById('section-options');
         if (secOpts) secOpts.style.display = 'block';
-        if (cautionArea) cautionArea.style.display = 'flex';
-        if (detailsHideArea) detailsHideArea.style.display = '';
+        var secDetails = document.getElementById('section-details');
+        if (secDetails) secDetails.style.display = 'block';
         var secPermis = document.getElementById('section-permis');
         if (secPermis) secPermis.style.display = 'block';
         var wrap = document.getElementById('total-bar-wrap');
