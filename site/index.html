@@ -853,27 +853,34 @@
     }
 
     .resa-step {
-      margin-bottom: 28px;
-      padding-bottom: 28px;
-      border-bottom: 1px solid var(--sand2);
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
     }
 
     .resa-step:last-of-type {
-      border-bottom: none;
       margin-bottom: 0;
       padding-bottom: 0;
     }
 
     .resa-step-label {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      color: var(--teal);
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      display: none;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+    .custom-file-upload {
+      display: inline-block;
+      color: var(--text);
+      background: var(--white);
+      border: 1px solid var(--sand2);
+      border-radius: var(--r);
+      padding: 11px 16px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      font-family: inherit;
     }
 
 
@@ -1906,8 +1913,8 @@
         <div class="resa-body">
 
           <!-- ÉTAPE 1 : Type de séjour -->
-          <div class="resa-step">
-            <div class="resa-step-label">Type de séjour</div>
+          <div class="resa-step" style="margin-bottom:24px;">
+
             <div id="resa-type-tabs" style="display:flex;gap:8px;">
               <button type="button" id="tab-standard" onclick="selectTab('standard')"
                 style="flex:1;padding:12px;border-radius:var(--r);border:1.5px solid var(--navy);background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;">Location standard</button>
@@ -1930,26 +1937,32 @@
           </div>
 
           <!-- ÉTAPE 2 : Dates -->
-          <div class="resa-step" id="section-standard">
-            <div class="resa-step-label">Vos dates
-              <a href="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FZurich&showPrint=0&showTabs=0&showCalendars=0&showTitle=0&src=MzUyYTIzZjE3MGQ0YjhhMGQ0MGIxODMzMDNiYjEyZWE0MDM1MGZjMmU0MjBiMTJkYWM2NDg2OTVkYjhhNDA5NUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%234285f4"
-                target="_blank"
-                style="font-family:'DM Sans',sans-serif;font-size:12px;font-weight:400;color:var(--teal);text-decoration:none;border:1px solid var(--teal);border-radius:20px;padding:3px 10px;margin-left:10px;vertical-align:middle;white-space:nowrap;">
-                📅 Voir les disponibilités →
-              </a>
-            </div>
             <div class="fr">
-              <div class="fg"><label>Date de départ</label><input type="text" name="date_depart" id="fp-start"
-                  placeholder="Choisir la date" readonly style="cursor:pointer"></div>
-              <div class="fg"><label>Date de retour</label><input type="text" name="date_retour" id="fp-end"
-                  placeholder="Choisir la date" readonly style="cursor:pointer"></div>
+              <div class="fg"><input type="text" name="date_depart" id="fp-start"
+                  placeholder="Date de départ" readonly style="cursor:pointer"></div>
+              <div class="fg"><input type="text" name="date_retour" id="fp-end"
+                  placeholder="Date de retour" readonly style="cursor:pointer"></div>
             </div>
             <div id="resa-duration-display" class="duration-display"></div>
+            <div class="fr" style="margin-top:16px;">
+              <div class="fg">
+                <select name="passagers" style="padding:10px 12px;border-radius:var(--r);border:1.5px solid var(--sand2);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--white);cursor:pointer;">
+                  <option value="">Nombre d'équipage</option>
+                  <option value="1">1 personne</option>
+                  <option value="2">2 personnes</option>
+                  <option value="3">3 personnes</option>
+                  <option value="4">4 personnes</option>
+                  <option value="5">5 personnes</option>
+                  <option value="6">6 personnes</option>
+                </select>
+              </div>
+              <div class="fg"></div>
+            </div>
           </div>
 
           <!-- ÉTAPE 3 : Options -->
           <div class="resa-step" id="section-options">
-            <div class="resa-step-label">Options</div>
+
             <div class="opts-checks" id="resa-options">
               <label class="opt-check"><input type="checkbox" data-price="60" data-per="forfait"
                   onchange="updateTotal()" checked onclick="return false;"
@@ -1961,34 +1974,7 @@
             </div>
           </div>
 
-          <!-- ÉTAPE 3b : Détails du séjour -->
-          <div class="resa-step" id="section-details" style="margin-top:24px;">
-            <div class="resa-step-label">Détails du séjour</div>
-            <div class="fr" id="resa-details-hide">
-              <div class="fg">
-                <label>Nombre de passagers *</label>
-                <select name="passagers" required style="padding:10px 12px;border-radius:var(--r);border:1.5px solid var(--sand2);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--white);cursor:pointer;">
-                  <option value="">— Sélectionner —</option>
-                  <option value="1">1 personne</option>
-                  <option value="2">2 personnes</option>
-                  <option value="3">3 personnes</option>
-                  <option value="4">4 personnes</option>
-                  <option value="5">5 personnes</option>
-                  <option value="6">6 personnes</option>
-                </select>
-              </div>
-              <div class="fg">
-                <label>Niveau en voile *</label>
-                <select name="niveau_voile" required style="padding:10px 12px;border-radius:var(--r);border:1.5px solid var(--sand2);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--white);cursor:pointer;">
-                  <option value="">— Sélectionner —</option>
-                  <option value="debutant">Débutant (peu ou pas d'expérience)</option>
-                  <option value="intermediaire">Intermédiaire (quelques sorties)</option>
-                  <option value="confirme">Confirmé (pratique régulière)</option>
-                  <option value="expert">Expert / Skipper expérimenté</option>
-                </select>
-              </div>
-            </div>
-          </div>
+
 
           <!-- TOTAL VISIBLE ICI -->
           <div id="total-bar-wrap">
@@ -2002,33 +1988,43 @@
 
           <!-- ÉTAPE 4 : Coordonnées -->
           <div class="resa-step">
-            <div class="resa-step-label">Vos coordonnées</div>
+
             <div class="fr">
-              <div class="fg"><label>Prénom & Nom *</label><input type="text" name="nom" placeholder="Marie Dupont" required></div>
-              <div class="fg"><label>Email *</label><input type="email" name="email" placeholder="marie@example.com" required></div>
+              <div class="fg"><input type="text" name="nom" placeholder="Prénom & Nom *" required></div>
+              <div class="fg"><input type="email" name="email" placeholder="Email *" required></div>
             </div>
             <div class="fr">
-              <div class="fg"><label>Pays</label><input type="text" name="pays" placeholder="Suisse, France.."></div>
-              <div class="fg"><label>Téléphone</label><input type="tel" name="telephone" placeholder="+41 .."></div>
+              <div class="fg"><input type="text" name="pays" placeholder="Pays"></div>
+              <div class="fg"><input type="tel" name="telephone" placeholder="Téléphone"></div>
+            </div>
+            <div class="fr">
+              <div class="fg">
+                <select name="niveau_voile" style="padding:10px 12px;border-radius:var(--r);border:1.5px solid var(--sand2);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--white);cursor:pointer;">
+                  <option value="">Niveau en voile</option>
+                  <option value="debutant">Débutant (peu ou pas d'expérience)</option>
+                  <option value="intermediaire">Intermédiaire (quelques sorties)</option>
+                  <option value="confirme">Confirmé (pratique régulière)</option>
+                  <option value="expert">Expert / Skipper expérimenté</option>
+                </select>
+              </div>
+              <div class="fg"></div>
             </div>
           </div>
 
           <!-- COPIE DU PERMIS -->
           <div class="resa-step" id="section-permis">
-            <div class="fr">
-              <div class="fg">
-                <label>Copie du permis (PDF, JPG)</label>
-                <input type="file" name="permis_pdf" accept=".pdf,.jpg,.jpeg,.png"
-                  style="padding:8px 0;font-size:13px;color:var(--muted);">
-                <span style="font-size:11px;color:var(--muted);margin-top:2px;">Sinon, envoyez-le par email après confirmation.</span>
-              </div>
+            <div style="display:flex; align-items:center; gap:16px;">
+              <label for="permis-upload" class="custom-file-upload">
+                Copie permis
+              </label>
+              <input type="file" id="permis-upload" name="permis_pdf" accept=".pdf,.jpg,.jpeg,.png">
+              <span style="font-size:11px; color:var(--muted);">Sinon, envoyez-le par email après confirmation.</span>
             </div>
           </div>
 
           <!-- ÉTAPE 5 : Message -->
-          <div class="resa-step">
-            <div class="resa-step-label">Message <span style="font-weight:400;color:var(--muted);font-size:12px;">(optionnel)</span></div>
-            <div class="fg" style="margin-bottom:0;"><textarea name="message" placeholder="Votre niveau en voile, questions…"></textarea></div>
+          <div class="resa-step" style="margin-top:24px;">
+            <div class="fg" style="margin-bottom:0;"><textarea name="message" placeholder="Votre message (niveau en voile, questions…)"></textarea></div>
           </div>
 
           <input type="hidden" name="type_reservation" id="resa-type-hidden" value="Location standard">
@@ -2357,9 +2353,6 @@
         var secOpts = document.getElementById('section-options');
         if (secOpts) secOpts.style.display = 'none';
         
-        var secDetails = document.getElementById('section-details');
-        if (secDetails) secDetails.style.display = 'none';
-        
         var tt = document.getElementById('resa-total');
         if (tt) tt.textContent = '800 CHF';
         var wrap = document.getElementById('total-bar-wrap');
@@ -2378,8 +2371,6 @@
         if (durationDisp) durationDisp.style.display = '';
         var secOpts = document.getElementById('section-options');
         if (secOpts) secOpts.style.display = 'block';
-        var secDetails = document.getElementById('section-details');
-        if (secDetails) secDetails.style.display = 'block';
         var secPermis = document.getElementById('section-permis');
         if (secPermis) secPermis.style.display = 'block';
         var wrap = document.getElementById('total-bar-wrap');
