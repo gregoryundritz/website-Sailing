@@ -398,7 +398,7 @@
 
     /* SECTIONS */
     section {
-      padding: 100px 24px
+      padding: 70px 24px
     }
 
     .ct {
@@ -688,7 +688,7 @@
       border: 1px solid var(--sand2);
       border-radius: var(--r);
       overflow: hidden;
-      margin-top: 56px
+      margin-top: 40px
     }
 
     .info-card {
@@ -720,7 +720,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
-      margin-top: 56px
+      margin-top: 40px
     }
 
     .av-card {
@@ -824,7 +824,7 @@
 
     .resa-wrap {
       max-width: 680px;
-      margin: 56px auto 0;
+      margin: 40px auto 0;
       border: 1px solid var(--sand2);
       border-radius: var(--r);
       overflow: hidden
@@ -881,6 +881,25 @@
       font-size: 13px;
       font-weight: 500;
       font-family: inherit;
+      text-transform: none;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: var(--text) !important;
+      opacity: 1;
+    }
+    input::-webkit-input-placeholder { color: var(--text) !important; }
+    input::-moz-placeholder { color: var(--text) !important; opacity: 1; }
+    input:-ms-input-placeholder { color: var(--text) !important; }
+    input:-moz-placeholder { color: var(--text) !important; opacity: 1; }
+
+    select {
+      color: var(--text) !important;
+    }
+
+    input, select, textarea {
+      color: var(--text);
     }
 
 
@@ -1020,8 +1039,9 @@
     }
 
     .total-bar span:first-child {
-      font-size: 13px;
-      color: rgba(255, 255, 255, .6)
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: rgba(255, 255, 255, .8)
     }
 
     .total-val {
@@ -1285,10 +1305,11 @@
       <li><a href="#tarifs">Tarifs</a></li>
       <li><a href="#pass-skipper">Skipper Pass</a></li>
       <li><a href="#infos">Infos</a></li>
+      <li><a href="#reservation">Réservation</a></li>
+      <li><a href="#contact">Contact</a></li>
       <li><a href="#avis">Avis</a></li>
-      <li><a href="#localisation">Carte</a></li>
       <li><a href="#apropos">À propos</a></li>
-      <li><a href="#contact" class="nav-btn">Nous contacter</a></li>
+      <li><a href="#contact" class="nav-btn">Réserver</a></li>
 
     </ul>
   </nav>
@@ -1324,7 +1345,7 @@
     </div>
     <div class="si">
       <div class="sv">6</div>
-      <div class="sl">Personnes max</div>
+      <div class="sl">Personnes</div>
     </div>
     <div class="si">
       <div class="sv">2</div>
@@ -1343,7 +1364,7 @@
   <!-- BATEAU -->
   <section id="bateau">
     <div class="ct">
-      <div class="rv" style="display:grid; grid-template-columns: 1.5fr 1fr; gap:48px; align-items: flex-start;">
+      <div class="rv" style="margin-bottom:48px;">
         <div>
           <p class="sec-ey">Le voilier</p>
           <h2 class="sec-h">Northman <em>Maxus 21</em></h2>
@@ -1354,17 +1375,6 @@
             lac de Neuchâtel. Le cockpit spacieux accueille confortablement 6 personnes, et la cabine équipée — frigo 12V,
             réchaud gaz, vaisselle, 2 lits doubles — permet de séjourner plusieurs nuits à bord en autonomie complète.
           </p>
-        </div>
-        <div id="localisation" style="background:var(--sand); border-radius:var(--r); padding:16px; border:1.5px solid var(--sand2); margin-top:20px;">
-          <div style="font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-bottom:8px; font-weight:600;">📍 Localisation</div>
-          <iframe src="https://maps.google.com/maps?q=Port+de+Cheyres,Cheyres,Switzerland&z=11&output=embed&hl=fr"
-            width="100%" height="180" style="border:0; display:block; border-radius:4px;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-          <div style="font-size:12px; color:var(--muted); margin-top:10px; line-height:1.4;">
-            <strong>Port de Cheyres</strong><br>
-            Route du Port, 1468 Cheyres<br>
-            Gare de Cheyres à 5 min à pied.
-          </div>
         </div>
       </div>
       <div class="boat-lay" style="display:block;">
@@ -1558,8 +1568,8 @@
   </section>
 
   <!-- SKIPPER PASS -->
-  <section id="pass-skipper" style="background:var(--navy);padding:0;">
-    <div style="max-width:1100px;margin:0 auto;padding:80px 24px;">
+  <section id="pass-skipper" style="background:var(--navy);padding:70px 24px;">
+    <div style="max-width:1100px;margin:0 auto;">
       <div class="rv" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
 
         <!-- LEFT: texte -->
@@ -1700,7 +1710,7 @@
         <div class="info-card">
           <div class="info-icon">🌤️</div>
           <div class="info-title">Météo & annulation</div>
-          <div class="info-text">Possibilité de report en cas de conditions dangereuses</div>
+          <div class="info-text">Possibilité de report en cas de conditions dangereuses.</div>
         </div>
         <div class="info-card">
           <div class="info-icon">🌙</div>
@@ -1713,6 +1723,210 @@
           <div class="info-text">Départs dès 9h et retours à 18h.</div>
         </div>
       </div>
+
+      <!-- CARTE (Localisation) -->
+      <div id="localisation" class="rv" style="margin-top:40px;">
+        <iframe src="https://maps.google.com/maps?q=Port+de+Cheyres,Cheyres,Switzerland&z=10&output=embed&hl=fr"
+          width="100%" height="450" style="border:0; display:block; border-radius:var(--r); filter: grayscale(0.2) contrast(1.1);" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- RÉSERVATION -->
+  <section id="reservation" class="resa-sec">
+    <div class="ct">
+
+      <form id="resa-form" name="reservation" method="POST" data-netlify="true" class="resa-wrap rv">
+        <input type="hidden" name="form-name" value="reservation">
+        <input type="hidden" name="subject" value="Demande de réservation - Voilier Neuchâtel">
+        <div class="resa-head">
+          <h3>Demande de réservation</h3>
+        </div>
+        <div class="resa-body">
+
+          <!-- ÉTAPE 1 : Type de séjour -->
+          <div class="resa-step" style="margin-bottom:24px;">
+
+            <div id="resa-type-tabs" style="display:flex;gap:8px;">
+              <button type="button" id="tab-standard" onclick="selectTab('standard')"
+                style="flex:1;padding:12px;border-radius:var(--r);border:1.5px solid var(--navy);background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;">Location standard</button>
+              <button type="button" id="tab-pass" onclick="selectTab('pass')"
+                style="flex:1;padding:12px;border-radius:var(--r);border:1.5px solid var(--sand2);background:var(--white);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;">⭐ Skipper Pass</button>
+            </div>
+          </div>
+
+          <!-- Skipper Pass info (shown for pass tab) -->
+          <div id="section-pass"
+            style="display:none;background:linear-gradient(135deg,var(--navy),#132d42);border-radius:var(--r);padding:20px 22px;margin-bottom:0;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+              <div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--white);font-weight:400;">Skipper Pass</div>
+                <div style="font-size:13px;color:rgba(255,255,255,.55);margin-top:3px;">5 sorties · semaine · année en cours</div>
+              </div>
+            </div>
+            <div style="height:1px;background:rgba(255,255,255,.1);margin-bottom:12px;"></div>
+            <p style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.7;">Une fois le paiement reçu, vous pourrez réserver vos 5 sorties tout au long de l'année (jours de semaine hors jours fériés).</p>
+          </div>
+
+          <!-- ÉTAPE 2 : Dates -->
+          <div class="resa-step" id="section-standard">
+            <div class="fr">
+              <div class="fg"><input type="text" name="date_depart" id="fp-start"
+                  placeholder="Date de départ" readonly style="cursor:pointer"></div>
+              <div class="fg"><input type="text" name="date_retour" id="fp-end"
+                  placeholder="Date de retour" readonly style="cursor:pointer"></div>
+            </div>
+            <div id="resa-duration-display" class="duration-display"></div>
+            <div class="fr" style="margin-top:16px;">
+              <div class="fg">
+                <select name="passagers" style="padding:10px 12px;border-radius:var(--r);border:1.5px solid var(--sand2);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--white);cursor:pointer;">
+                  <option value="">Nombre d'équipage</option>
+                  <option value="1">1 personne</option>
+                  <option value="2">2 personnes</option>
+                  <option value="3">3 personnes</option>
+                  <option value="4">4 personnes</option>
+                  <option value="5">5 personnes</option>
+                  <option value="6">6 personnes</option>
+                </select>
+              </div>
+              <div class="fg"></div>
+            </div>
+          </div>
+
+          <!-- ÉTAPE 3 : Options -->
+          <div class="resa-step" id="section-options">
+
+            <div class="opts-checks" id="resa-options">
+              <label class="opt-check"><input type="checkbox" data-price="60" data-per="forfait"
+                  onchange="updateTotal()" checked onclick="return false;"
+                  style="pointer-events:none;opacity:0.8;"><span class="oci"><span class="ocn">🧹 Nettoyage final (obligatoire)</span><span class="ocp">+60 CHF</span></span></label>
+              <label class="opt-check"><input type="checkbox" data-price="40" data-per="jour"
+                  onchange="updateTotal()"><span class="oci"><span class="ocn">🎏 Gennaker</span><span class="ocp">+40 CHF/j</span></span></label>
+              <label class="opt-check"><input type="checkbox" data-price="25" data-per="jour"
+                  onchange="updateTotal()"><span class="oci"><span class="ocn">🏄 Paddle</span><span class="ocp">+25 CHF/j</span></span></label>
+            </div>
+          </div>
+
+
+
+          <!-- TOTAL VISIBLE ICI -->
+          <div id="total-bar-wrap">
+            <div class="total-bar">
+              <span>Montant total TVA incl.</span>
+              <span class="total-val" id="resa-total">— CHF</span>
+            </div>
+          </div>
+
+
+
+          <!-- ÉTAPE 4 : Coordonnées -->
+          <div class="resa-step">
+
+            <div class="fr">
+              <div class="fg"><input type="text" name="nom" placeholder="Prénom & Nom *" required></div>
+              <div class="fg"><input type="email" name="email" placeholder="Email *" required></div>
+            </div>
+            <div class="fr">
+              <div class="fg"><input type="text" name="pays" placeholder="Pays"></div>
+              <div class="fg"><input type="tel" name="telephone" placeholder="Téléphone"></div>
+            </div>
+            <div class="fr">
+              <div class="fg">
+                <select name="niveau_voile" style="padding:10px 12px;border-radius:var(--r);border:1.5px solid var(--sand2);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--white);cursor:pointer;">
+                  <option value="">Niveau en voile</option>
+                  <option value="debutant">Débutant (peu ou pas d'expérience)</option>
+                  <option value="intermediaire">Intermédiaire (quelques sorties)</option>
+                  <option value="confirme">Confirmé (pratique régulière)</option>
+                  <option value="expert">Expert / Skipper expérimenté</option>
+                </select>
+              </div>
+              <div class="fg" id="section-permis">
+                <label for="permis-upload" class="custom-file-upload" style="width:100%; text-align:center; box-sizing:border-box; padding:10px 12px;">
+                  Permis voilier
+                </label>
+                <input type="file" id="permis-upload" name="permis_pdf" accept=".pdf,.jpg,.jpeg,.png">
+              </div>
+            </div>
+            <div style="font-size:11px; color:var(--muted); margin-top:-6px; margin-bottom:16px;">Sinon, envoyez-le par email après confirmation.</div>
+          </div>
+
+
+
+          <!-- ÉTAPE 5 : Message -->
+          <div class="resa-step" style="margin-top:8px;">
+            <div class="fg" style="margin-bottom:0;"><textarea name="message" placeholder="Votre message (niveau en voile, questions…)"></textarea></div>
+          </div>
+
+          <input type="hidden" name="type_reservation" id="resa-type-hidden" value="Location standard">
+          <input type="hidden" name="total" id="resa-total-hidden" value="">
+          <input type="hidden" name="options_choisies" id="resa-options-hidden" value="">
+          <input type="hidden" name="duree_jours" id="resa-duree-hidden" value="">
+
+          <!-- CG + SUBMIT -->
+          <div style="margin: 24px 0 20px;">
+            <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 14px; color: var(--muted); line-height: 1.5;">
+              <input type="checkbox" name="accept_cg" required style="width: 18px; height: 18px; margin-top: 1px; cursor: pointer; flex-shrink: 0;">
+              <span>J'ai lu et j'accepte les <a href="/conditions-generales.html" target="_blank" style="color: var(--teal); text-decoration: underline; font-weight: 500;">Conditions Générales de Location</a> *</span>
+            </label>
+          </div>
+
+          <button type="submit" class="f-sub" id="resa-submit-btn">Envoyer ma demande →</button>
+
+          <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;padding:12px 16px;background:rgba(26,98,120,0.06);border-radius:var(--r);border:1px solid rgba(26,98,120,0.15);">
+            <span style="font-size:18px;">🔒</span>
+            <span style="font-size:13px;color:var(--teal);font-weight:500;">Aucun paiement aujourd'hui — confirmation sous 24h, lien de paiement ensuite.</span>
+          </div>
+
+
+
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="background:var(--white);padding:70px 24px;">
+    <div class="ct">
+      <div class="rv" style="text-align:center;margin-bottom:48px;">
+        <p class="sec-ey">Contact</p>
+        <h2 class="sec-h" style="max-width:520px;margin:0 auto 16px;">Une question ? <em>Parlons-en</em></h2>
+
+      </div>
+      <div class="rv"
+        style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap;max-width:700px;margin:0 auto 40px;">
+        <div
+          style="flex:1;min-width:260px;display:flex;align-items:center;gap:18px;padding:28px 32px;border-radius:var(--r);border:1.5px solid var(--sand2);background:var(--sand);transition:box-shadow .2s;"
+          onmouseover="this.style.boxShadow='0 4px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
+          <div
+            style="width:48px;height:48px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;">
+            ✉️</div>
+          <div style="flex:1">
+            <div
+              style="font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">
+              Email</div>
+            <div
+              style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--navy);font-weight:500;user-select:all;">
+              welcome@voilier-neuchatel.ch</div>
+          </div>
+        </div>
+        <div
+          style="flex:1;min-width:260px;display:flex;align-items:center;gap:18px;padding:28px 32px;border-radius:var(--r);border:1.5px solid var(--sand2);background:var(--sand);transition:box-shadow .2s;"
+          onmouseover="this.style.boxShadow='0 4px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
+          <div
+            style="width:48px;height:48px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;">
+            📞</div>
+          <div style="flex:1">
+            <div
+              style="font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">
+              Téléphone</div>
+            <div
+              style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--navy);font-weight:500;user-select:all;">
+              +41 79 386 73 81</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1845,217 +2059,8 @@
     </div>
   </section>
 
-
-
-
-
-  <!-- CONTACT -->
-  <section id="contact" style="background:var(--white);padding:80px 24px;">
-    <div class="ct">
-      <div class="rv" style="text-align:center;margin-bottom:48px;">
-        <p class="sec-ey">Contact</p>
-        <h2 class="sec-h" style="max-width:520px;margin:0 auto 16px;">Une question ? <em>Parlons-en</em></h2>
-
-      </div>
-      <div class="rv"
-        style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap;max-width:700px;margin:0 auto 40px;">
-        <div
-          style="flex:1;min-width:260px;display:flex;align-items:center;gap:18px;padding:28px 32px;border-radius:var(--r);border:1.5px solid var(--sand2);background:var(--sand);transition:box-shadow .2s;"
-          onmouseover="this.style.boxShadow='0 4px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
-          <div
-            style="width:48px;height:48px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;">
-            ✉️</div>
-          <div style="flex:1">
-            <div
-              style="font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">
-              Email</div>
-            <div
-              style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--navy);font-weight:500;user-select:all;">
-              welcome@voilier-neuchatel.ch</div>
-          </div>
-        </div>
-        <div
-          style="flex:1;min-width:260px;display:flex;align-items:center;gap:18px;padding:28px 32px;border-radius:var(--r);border:1.5px solid var(--sand2);background:var(--sand);transition:box-shadow .2s;"
-          onmouseover="this.style.boxShadow='0 4px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
-          <div
-            style="width:48px;height:48px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;">
-            📞</div>
-          <div style="flex:1">
-            <div
-              style="font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">
-              Téléphone</div>
-            <div
-              style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--navy);font-weight:500;user-select:all;">
-              +41 79 386 73 81</div>
-          </div>
-        </div>
-      </div>
-      <div class="rv" style="text-align:center;">
-        <a href="#resa-form"
-          style="display:inline-block;padding:12px 28px;border-radius:var(--r);border:1.5px solid var(--navy);color:var(--navy);font-size:13px;font-weight:500;text-decoration:none;font-family:'DM Sans',sans-serif;transition:background .2s,color .2s;"
-          onmouseover="this.style.background='var(--navy)';this.style.color='var(--white)'"
-          onmouseout="this.style.background='transparent';this.style.color='var(--navy)'">Passer directement à la
-          réservation →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- RÉSERVATION -->
-  <section id="reservation" class="resa-sec">
-    <div class="ct">
-
-      <form id="resa-form" name="reservation" method="POST" data-netlify="true" class="resa-wrap rv">
-        <input type="hidden" name="form-name" value="reservation">
-        <input type="hidden" name="subject" value="Demande de réservation - Voilier Neuchâtel">
-        <div class="resa-head">
-          <h3>Demande de réservation</h3>
-        </div>
-        <div class="resa-body">
-
-          <!-- ÉTAPE 1 : Type de séjour -->
-          <div class="resa-step" style="margin-bottom:24px;">
-
-            <div id="resa-type-tabs" style="display:flex;gap:8px;">
-              <button type="button" id="tab-standard" onclick="selectTab('standard')"
-                style="flex:1;padding:12px;border-radius:var(--r);border:1.5px solid var(--navy);background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;">Location standard</button>
-              <button type="button" id="tab-pass" onclick="selectTab('pass')"
-                style="flex:1;padding:12px;border-radius:var(--r);border:1.5px solid var(--sand2);background:var(--white);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;">⭐ Skipper Pass</button>
-            </div>
-          </div>
-
-          <!-- Skipper Pass info (shown for pass tab) -->
-          <div id="section-pass"
-            style="display:none;background:linear-gradient(135deg,var(--navy),#132d42);border-radius:var(--r);padding:20px 22px;margin-bottom:0;">
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
-              <div>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--white);font-weight:400;">Skipper Pass</div>
-                <div style="font-size:13px;color:rgba(255,255,255,.55);margin-top:3px;">5 sorties · semaine · année en cours</div>
-              </div>
-            </div>
-            <div style="height:1px;background:rgba(255,255,255,.1);margin-bottom:12px;"></div>
-            <p style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.7;">Une fois le paiement de 800 CHF reçu, vous pourrez réserver vos 5 sorties tout au long de l'année (jours de semaine hors jours fériés).</p>
-          </div>
-
-          <!-- ÉTAPE 2 : Dates -->
-            <div class="fr">
-              <div class="fg"><input type="text" name="date_depart" id="fp-start"
-                  placeholder="Date de départ" readonly style="cursor:pointer"></div>
-              <div class="fg"><input type="text" name="date_retour" id="fp-end"
-                  placeholder="Date de retour" readonly style="cursor:pointer"></div>
-            </div>
-            <div id="resa-duration-display" class="duration-display"></div>
-            <div class="fr" style="margin-top:16px;">
-              <div class="fg">
-                <select name="passagers" style="padding:10px 12px;border-radius:var(--r);border:1.5px solid var(--sand2);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--white);cursor:pointer;">
-                  <option value="">Nombre d'équipage</option>
-                  <option value="1">1 personne</option>
-                  <option value="2">2 personnes</option>
-                  <option value="3">3 personnes</option>
-                  <option value="4">4 personnes</option>
-                  <option value="5">5 personnes</option>
-                  <option value="6">6 personnes</option>
-                </select>
-              </div>
-              <div class="fg"></div>
-            </div>
-          </div>
-
-          <!-- ÉTAPE 3 : Options -->
-          <div class="resa-step" id="section-options">
-
-            <div class="opts-checks" id="resa-options">
-              <label class="opt-check"><input type="checkbox" data-price="60" data-per="forfait"
-                  onchange="updateTotal()" checked onclick="return false;"
-                  style="pointer-events:none;opacity:0.8;"><span class="oci"><span class="ocn">🧹 Nettoyage final (obligatoire)</span><span class="ocp">+60 CHF</span></span></label>
-              <label class="opt-check"><input type="checkbox" data-price="40" data-per="jour"
-                  onchange="updateTotal()"><span class="oci"><span class="ocn">🎏 Gennaker</span><span class="ocp">+40 CHF/j</span></span></label>
-              <label class="opt-check"><input type="checkbox" data-price="25" data-per="jour"
-                  onchange="updateTotal()"><span class="oci"><span class="ocn">🏄 Paddle</span><span class="ocp">+25 CHF/j</span></span></label>
-            </div>
-          </div>
-
-
-
-          <!-- TOTAL VISIBLE ICI -->
-          <div id="total-bar-wrap">
-            <div class="total-bar">
-              <span>Estimation totale</span>
-              <span class="total-val" id="resa-total">— CHF</span>
-            </div>
-          </div>
-
-
-
-          <!-- ÉTAPE 4 : Coordonnées -->
-          <div class="resa-step">
-
-            <div class="fr">
-              <div class="fg"><input type="text" name="nom" placeholder="Prénom & Nom *" required></div>
-              <div class="fg"><input type="email" name="email" placeholder="Email *" required></div>
-            </div>
-            <div class="fr">
-              <div class="fg"><input type="text" name="pays" placeholder="Pays"></div>
-              <div class="fg"><input type="tel" name="telephone" placeholder="Téléphone"></div>
-            </div>
-            <div class="fr">
-              <div class="fg">
-                <select name="niveau_voile" style="padding:10px 12px;border-radius:var(--r);border:1.5px solid var(--sand2);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--white);cursor:pointer;">
-                  <option value="">Niveau en voile</option>
-                  <option value="debutant">Débutant (peu ou pas d'expérience)</option>
-                  <option value="intermediaire">Intermédiaire (quelques sorties)</option>
-                  <option value="confirme">Confirmé (pratique régulière)</option>
-                  <option value="expert">Expert / Skipper expérimenté</option>
-                </select>
-              </div>
-              <div class="fg"></div>
-            </div>
-          </div>
-
-          <!-- COPIE DU PERMIS -->
-          <div class="resa-step" id="section-permis">
-            <div style="display:flex; align-items:center; gap:16px;">
-              <label for="permis-upload" class="custom-file-upload">
-                Copie permis
-              </label>
-              <input type="file" id="permis-upload" name="permis_pdf" accept=".pdf,.jpg,.jpeg,.png">
-              <span style="font-size:11px; color:var(--muted);">Sinon, envoyez-le par email après confirmation.</span>
-            </div>
-          </div>
-
-          <!-- ÉTAPE 5 : Message -->
-          <div class="resa-step" style="margin-top:24px;">
-            <div class="fg" style="margin-bottom:0;"><textarea name="message" placeholder="Votre message (niveau en voile, questions…)"></textarea></div>
-          </div>
-
-          <input type="hidden" name="type_reservation" id="resa-type-hidden" value="Location standard">
-          <input type="hidden" name="total" id="resa-total-hidden" value="">
-          <input type="hidden" name="options_choisies" id="resa-options-hidden" value="">
-          <input type="hidden" name="duree_jours" id="resa-duree-hidden" value="">
-
-          <!-- CG + SUBMIT -->
-          <div style="margin: 24px 0 20px;">
-            <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 14px; color: var(--muted); line-height: 1.5;">
-              <input type="checkbox" name="accept_cg" required style="width: 18px; height: 18px; margin-top: 1px; cursor: pointer; flex-shrink: 0;">
-              <span>J'ai lu et j'accepte les <a href="/conditions-generales.html" target="_blank" style="color: var(--teal); text-decoration: underline; font-weight: 500;">Conditions Générales de Location</a> *</span>
-            </label>
-          </div>
-
-          <button type="submit" class="f-sub" id="resa-submit-btn">Envoyer ma demande →</button>
-
-          <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;padding:12px 16px;background:rgba(26,98,120,0.06);border-radius:var(--r);border:1px solid rgba(26,98,120,0.15);">
-            <span style="font-size:18px;">🔒</span>
-            <span style="font-size:13px;color:var(--teal);font-weight:500;">Aucun paiement aujourd'hui — confirmation sous 24h, lien de paiement ensuite.</span>
-          </div>
-
-
-
-        </div>
-      </form>
-    </div>
-  </section>
-
   <!-- À PROPOS -->
-  <section id="apropos" style="background:var(--sand);padding:100px 24px;">
+  <section id="apropos" style="background:var(--sand);padding:70px 24px;">
     <div class="ct">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;" class="rv">
 
@@ -2095,7 +2100,7 @@
         <!-- Photo coucher de soleil / navigation -->
         <div style="position:relative;">
           <img
-            src="img/logo_footer.jpg"
+            src="img/IMG_4793.jpeg"
             alt="Navigation sur le lac de Neuchâtel" style="width:100%;height:auto;border-radius:2px;display:block;">
           <div
             style="position:absolute;bottom:24px;left:-20px;background:var(--navy);color:var(--white);padding:18px 24px;border-radius:var(--r);box-shadow:0 4px 20px rgba(0,0,0,.2);">
@@ -2346,9 +2351,9 @@
         btnS.style.background = 'var(--white)';
         btnS.style.color = 'var(--muted)';
         btnS.style.borderColor = 'var(--sand2)';
+        
         if (secP) secP.style.display = 'block';
         if (datesArea) datesArea.style.display = 'none';
-        if (durationDisp) durationDisp.style.display = 'none';
         
         var secOpts = document.getElementById('section-options');
         if (secOpts) secOpts.style.display = 'none';
@@ -2357,8 +2362,6 @@
         if (tt) tt.textContent = '800 CHF';
         var wrap = document.getElementById('total-bar-wrap');
         if (wrap) wrap.style.display = 'block';
-        var secPermis = document.getElementById('section-permis');
-        if (secPermis) secPermis.style.display = 'block';
       } else {
         btnS.style.background = 'var(--navy)';
         btnS.style.color = 'var(--white)';
@@ -2366,13 +2369,13 @@
         btnP.style.background = 'var(--white)';
         btnP.style.color = 'var(--muted)';
         btnP.style.borderColor = 'var(--sand2)';
+        
         if (secP) secP.style.display = 'none';
-        if (datesArea) datesArea.style.display = '';
-        if (durationDisp) durationDisp.style.display = '';
+        if (datesArea) datesArea.style.display = 'block';
+        
         var secOpts = document.getElementById('section-options');
         if (secOpts) secOpts.style.display = 'block';
-        var secPermis = document.getElementById('section-permis');
-        if (secPermis) secPermis.style.display = 'block';
+        
         var wrap = document.getElementById('total-bar-wrap');
         if (wrap) wrap.style.display = 'block';
         updateTotal();
