@@ -38,6 +38,10 @@ window.VOILIER_CONFIG = {
     { name: "Nettoyage final", price: 60, per: "forfait", required: false },
     { name: "Paddle", price: 15, per: "jour", required: false },
     { name: "Gennaker", price: 15, per: "jour", required: false }
+  ],
 
-  ]
+  // Paramètres Skipper Pass
+  pass_price: 800,
+  pass_sorties: 5,
+  pass_guests: 2
 };

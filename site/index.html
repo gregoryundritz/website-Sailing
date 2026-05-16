@@ -693,7 +693,7 @@
       border: 1px solid var(--sand2);
       border-radius: var(--r);
       overflow: hidden;
-      margin-top: 40px
+      padding-top: 0
     }
 
     .info-card {
@@ -829,7 +829,7 @@
 
     .resa-wrap {
       max-width: 680px;
-      margin: 40px auto 0;
+      margin: 0 auto;
       border: 1px solid var(--sand2);
       border-radius: var(--r);
       overflow: hidden
@@ -881,12 +881,14 @@
       background: var(--white);
       border: 1px solid var(--sand2);
       border-radius: var(--r);
-      padding: 11px 16px;
+      padding: 11px 13px;
       cursor: pointer;
-      font-size: 13px;
-      font-weight: 500;
-      font-family: inherit;
+      font-size: 14px;
+      font-weight: 400;
+      font-family: 'DM Sans', sans-serif !important;
       text-transform: none;
+      letter-spacing: normal;
+      line-height: normal;
     }
 
     input::placeholder,
@@ -942,6 +944,13 @@
       outline: none;
       transition: border-color .2s;
       width: 100%
+    }
+
+    #fp-start, #fp-end {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231a3a5a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'%3E%3C/rect%3E%3Cline x1='16' y1='2' x2='16' y2='6'%3E%3C/line%3E%3Cline x1='8' y1='2' x2='8' y2='6'%3E%3C/line%3E%3Cline x1='3' y1='10' x2='21' y2='10'%3E%3C/line%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 38px;
     }
 
     input:focus,
@@ -1087,7 +1096,7 @@
     /* FOOTER */
     footer {
       background: var(--navy);
-      padding: 56px 24px 40px;
+      padding: 70px 24px 50px;
       text-align: center
     }
 
@@ -1218,7 +1227,7 @@
 
     /* Flatpickr overrides */
     .flatpickr-input {
-      background: var(--white) !important;
+      background-color: var(--white) !important;
       border: 1px solid var(--sand2) !important;
       color: var(--text) !important;
       cursor: pointer !important
@@ -1370,15 +1379,13 @@
     <a href="#accueil" class="logo">Voilier <span>lac de Neuchâtel</span></a>
     <ul>
       <li><a href="#bateau">Le bateau</a></li>
+      <li><a href="#emplacement" onclick="event.preventDefault(); document.getElementById('emplacement').scrollIntoView({ behavior: 'smooth', block: 'center' });">Emplacement</a></li>
       <li><a href="#tarifs">Tarifs</a></li>
-      <li><a href="#pass-skipper">Skipper Pass</a></li>
       <li><a href="#infos">Infos</a></li>
-      <li><a href="#reservation">Réservation</a></li>
-      <li><a href="#contact">Contact</a></li>
       <li><a href="#avis">Avis</a></li>
       <li><a href="#apropos">À propos</a></li>
+      <li><a href="#contact">Contact</a></li>
       <li><a href="#contact" class="nav-btn">Réserver</a></li>
-
     </ul>
   </nav>
 
@@ -1395,8 +1402,6 @@
       <div class="hero-stars">
         <span class="stars-g">★★★★★</span>
         <span>4.9 · 28 avis vérifiés</span>
-        <span style="margin:0 8px;opacity:.3">·</span>
-        <span>Propriétaire vérifié</span>
       </div>
       <div class="btns">
         <a href="#contact" class="btn-p">Nous contacter</a>
@@ -1529,6 +1534,17 @@
     </div>
   </section>
 
+  <!-- EMPLACEMENT -->
+  <section id="emplacement" style="padding-top: 0;">
+    <div class="ct">
+      <div id="localisation" class="rv">
+        <iframe src="https://maps.google.com/maps?q=Location+de+voilier+Lac+de+Neuchâtel+Cheyres&ll=46.8845,6.8444&z=11&output=embed&hl=fr"
+          width="100%" height="450" style="border:0; display:block; border-radius:var(--r); filter: grayscale(0.2) contrast(1.1);" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
   <!-- GALERIE -->
   <div class="gal">
     <div class="gal-inner">
@@ -1548,10 +1564,10 @@
   </div>
 
   <!-- TARIFS -->
-  <section id="tarifs" class="tarifs-sec">
+  <section id="tarifs" class="tarifs-sec" style="padding-top: 0;">
     <div class="ct">
       <div class="rv">
-        <p class="sec-ey" style="color:var(--gold2)">Tarifs</p>
+
         <h2 class="sec-h">Tarifs de <em style="color:var(--lake)">location</em></h2>
         <p class="sec-p" style="color:rgba(255,255,255,.5); max-width: 800px;">Prix dégressifs selon la durée · ⛽
           Carburant inclus · 🌙
@@ -1627,7 +1643,7 @@
 
         </div>
         <p style="font-size:13px; color:var(--white); margin-top:32px; text-align:center; font-weight:300; opacity:0.8;">
-          Une caution de 1 000 CHF est réservée par empreinte de carte crédit avant le séjour.
+          Une caution de <span id="caution-display3">1 000</span> CHF est réservée par empreinte de carte crédit avant le séjour.
         </p>
         <div style="text-align:center; margin-top:36px;">
           <a href="#resa-form" onclick="selectStandard()"
@@ -1642,7 +1658,7 @@
   </section>
 
   <!-- SKIPPER PASS -->
-  <section id="pass-skipper" style="background:var(--navy);padding:70px 24px;">
+  <section id="pass-skipper" style="background:var(--navy); padding-top: 0;">
     <div style="max-width:1100px;margin:0 auto;">
       <div class="rv" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
 
@@ -1680,7 +1696,7 @@
             </li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
               <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
-              <span><strong style="color:var(--white);">Valable toute l'année</strong> — 5 sorties à consommer dans
+              <span><strong style="color:var(--white);">Valable toute l'année</strong> — <span id="pass-sorties-bullet">5</span> sorties à consommer dans
                 l'année en cours</span>
             </li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
@@ -1712,17 +1728,16 @@
               style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px;">
               Tarif annuel</div>
 
-            <div
+            <div id="pass-price-display"
               style="font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:400;color:var(--white);line-height:1;">
               800</div>
-            <div style="font-size:14px;color:rgba(255,255,255,.5);margin-top:4px;margin-bottom:28px;">CHF · paiement
-              intégral à la souscription</div>
+            <div style="font-size:14px;color:rgba(255,255,255,.5);margin-top:4px;margin-bottom:28px;">CHF</div>
 
             <div style="height:1px;background:rgba(255,255,255,.08);margin-bottom:24px;"></div>
 
             <div style="display:flex;justify-content:center;gap:32px;margin-bottom:28px;">
               <div style="text-align:center;">
-                <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--gold2);">5
+                <div id="pass-sorties-display" style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--gold2);">5
                 </div>
                 <div
                   style="font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;">
@@ -1730,7 +1745,7 @@
               </div>
               <div style="width:1px;background:rgba(255,255,255,.08);"></div>
               <div style="text-align:center;">
-                <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--gold2);">
+                <div id="pass-ppd-display" style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--gold2);">
                   160</div>
                 <div
                   style="font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;">
@@ -1758,12 +1773,9 @@
   </section>
 
   <!-- INFOS -->
-  <section id="infos" class="infos-sec">
+  <section id="infos" class="infos-sec" style="padding-top: 40px; padding-bottom: 20px; background: var(--sand);">
     <div class="ct">
-      <div class="rv">
-        <p class="sec-ey">Informations pratiques</p>
-        <h2 class="sec-h">Tout ce qu'il faut <em>savoir</em></h2>
-      </div>
+
       <div class="infos-grid rv">
         <div class="info-card">
           <div class="info-icon">⚓</div>
@@ -1798,17 +1810,12 @@
         </div>
       </div>
 
-      <!-- CARTE (Localisation) -->
-      <div id="localisation" class="rv" style="margin-top:40px;">
-        <iframe src="https://maps.google.com/maps?q=Port+de+Cheyres,Cheyres,Switzerland&z=10&output=embed&hl=fr"
-          width="100%" height="450" style="border:0; display:block; border-radius:var(--r); filter: grayscale(0.2) contrast(1.1);" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
+
     </div>
   </section>
 
   <!-- RÉSERVATION -->
-  <section id="reservation" class="resa-sec">
+  <section id="reservation" class="resa-sec" style="padding-top: 40px;">
     <div class="ct">
 
       <form id="resa-form" name="reservation" method="POST" data-netlify="true" class="resa-wrap rv">
@@ -1916,8 +1923,8 @@
                 </select>
               </div>
               <div class="fg" id="section-permis">
-                <label for="permis-upload" class="custom-file-upload" style="width:100%; text-align:center; box-sizing:border-box; padding:10px 12px;">
-                  Permis voilier
+                <label for="permis-upload" class="custom-file-upload" style="width:100%; text-align:left; box-sizing:border-box;">
+                  Copie permis voilier
                 </label>
                 <input type="file" id="permis-upload" name="permis_pdf" accept=".pdf,.jpg,.jpeg,.png">
               </div>
@@ -1960,10 +1967,10 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" style="background:var(--white);padding:70px 24px;">
+  <section id="contact" style="background:var(--white); padding-top: 0;">
     <div class="ct">
       <div class="rv" style="text-align:center;margin-bottom:48px;">
-        <p class="sec-ey">Contact</p>
+
         <h2 class="sec-h" style="max-width:520px;margin:0 auto 16px;">Une question ? <em>Parlons-en</em></h2>
 
       </div>
@@ -2006,11 +2013,11 @@
   </section>
 
   <!-- AVIS -->
-  <section id="avis" style="background:var(--white)">
+  <section id="avis" style="background:var(--white); padding-top: 0;">
     <div class="ct">
       <div class="rv" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px;">
         <div>
-          <p class="sec-ey">Avis clients</p>
+
           <h2 class="sec-h">Ce que disent <em>nos locataires</em></h2>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding-bottom:16px;">
@@ -2135,7 +2142,7 @@
   </section>
 
   <!-- À PROPOS -->
-  <section id="apropos" style="background:var(--sand);padding:70px 24px;">
+  <section id="apropos" style="background:var(--sand); padding-top: 0;">
     <div class="ct">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;" class="rv">
 
@@ -2235,10 +2242,21 @@
       }
       // Caution
       var c = getCfg();
-      ['caution-display', 'caution-display2'].forEach(id => {
+      ['caution-display', 'caution-display2', 'caution-display3'].forEach(id => {
         var el = document.getElementById(id);
-        if (el && c.caution) el.textContent = c.caution;
+        if (el && c.caution) el.textContent = c.caution.toLocaleString('fr-CH');
       });
+      // Pass
+      var pPriceEl = document.getElementById('pass-price-display');
+      if (pPriceEl && c.pass_price) pPriceEl.textContent = c.pass_price;
+      var pSortiesEl = document.getElementById('pass-sorties-display');
+      if (pSortiesEl && c.pass_sorties) pSortiesEl.textContent = c.pass_sorties;
+      var pBulletEl = document.getElementById('pass-sorties-bullet');
+      if (pBulletEl && c.pass_sorties) pBulletEl.textContent = c.pass_sorties;
+      var pPpdEl = document.getElementById('pass-ppd-display');
+      if (pPpdEl && c.pass_price && c.pass_sorties) {
+        pPpdEl.textContent = Math.round(c.pass_price / c.pass_sorties);
+      }
       // Options grid in tarifs section
       if (c.options && c.options.length) {
         var icons = { paddle: '🏄', nettoyage: '🧹', briefing: '🧭', caution: '🛡️', barbecue: '🍖', gilet: '🦺', 'apéro': '🥂', gps: '🗺️', photo: '📸', 'vélo': '🚲' };
@@ -2275,7 +2293,7 @@
       if (typeof flatpickr === 'undefined') { setTimeout(initFp, 80); return; }
       var loc = (typeof flatpickr.l10ns !== 'undefined' && flatpickr.l10ns.fr) ? 'fr' : 'default';
       fpS = flatpickr('#fp-start', {
-        locale: loc, dateFormat: 'j F Y', minDate: minD, disableMobile: false, allowInput: false,
+        locale: loc, dateFormat: 'j F Y', minDate: minD, disableMobile: true, allowInput: false,
         onChange: function (d) {
           if (!d.length) return;
           var nd = new Date(d[0]); // allow same day
@@ -2285,7 +2303,7 @@
         }
       });
       fpE = flatpickr('#fp-end', {
-        locale: loc, dateFormat: 'j F Y', minDate: minD, disableMobile: false, allowInput: false,
+        locale: loc, dateFormat: 'j F Y', minDate: minD, disableMobile: true, allowInput: false,
         onChange: function () { updateTotal(); }
       });
     }
