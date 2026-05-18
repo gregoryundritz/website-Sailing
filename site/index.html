@@ -403,7 +403,8 @@
 
     /* SECTIONS */
     section {
-      padding: 70px 24px
+      padding: 70px 24px;
+      scroll-margin-top: 70px
     }
 
     .ct {
@@ -1096,7 +1097,7 @@
     /* FOOTER */
     footer {
       background: var(--navy);
-      padding: 70px 24px 50px;
+      padding: 35px 24px 50px;
       text-align: center
     }
 
@@ -1385,7 +1386,7 @@
       <li><a href="#avis">Avis</a></li>
       <li><a href="#apropos">À propos</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="#contact" class="nav-btn">Réserver</a></li>
+      <li><a href="#reservation" class="nav-btn">Réserver</a></li>
     </ul>
   </nav>
 
@@ -1535,7 +1536,7 @@
   </section>
 
   <!-- EMPLACEMENT -->
-  <section id="emplacement" style="padding-top: 0;">
+  <section id="emplacement" style="padding-top: 0; padding-bottom: 64px;">
     <div class="ct">
       <div id="localisation" class="rv">
         <iframe src="https://maps.google.com/maps?q=Location+de+voilier+Lac+de+Neuchâtel+Cheyres&ll=46.8845,6.8444&z=11&output=embed&hl=fr"
@@ -1564,7 +1565,7 @@
   </div>
 
   <!-- TARIFS -->
-  <section id="tarifs" class="tarifs-sec" style="padding-top: 0;">
+  <section id="tarifs" class="tarifs-sec" style="padding-top: 70px;">
     <div class="ct">
       <div class="rv">
 
@@ -1658,7 +1659,7 @@
   </section>
 
   <!-- SKIPPER PASS -->
-  <section id="pass-skipper" style="background:var(--navy); padding-top: 0;">
+  <section id="pass-skipper" style="background:var(--navy); padding-top: 0; padding-bottom: 35px;">
     <div style="max-width:1100px;margin:0 auto;">
       <div class="rv" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
 
@@ -1773,7 +1774,7 @@
   </section>
 
   <!-- INFOS -->
-  <section id="infos" class="infos-sec" style="padding-top: 40px; padding-bottom: 20px; background: var(--sand);">
+  <section id="infos" class="infos-sec" style="padding-top: 35px; padding-bottom: 70px; background: var(--sand);">
     <div class="ct">
 
       <div class="infos-grid rv">
@@ -1815,7 +1816,7 @@
   </section>
 
   <!-- RÉSERVATION -->
-  <section id="reservation" class="resa-sec" style="padding-top: 40px;">
+  <section id="reservation" class="resa-sec" style="padding-top: 0; padding-bottom: 35px;">
     <div class="ct">
 
       <form id="resa-form" name="reservation" method="POST" data-netlify="true" class="resa-wrap rv">
@@ -1967,7 +1968,7 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" style="background:var(--white); padding-top: 0;">
+  <section id="contact" style="background:var(--white); padding-top: 35px; padding-bottom: 70px;">
     <div class="ct">
       <div class="rv" style="text-align:center;margin-bottom:48px;">
 
@@ -2013,7 +2014,7 @@
   </section>
 
   <!-- AVIS -->
-  <section id="avis" style="background:var(--white); padding-top: 0;">
+  <section id="avis" style="background:var(--white); padding-top: 0; padding-bottom: 35px;">
     <div class="ct">
       <div class="rv" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px;">
         <div>
@@ -2142,7 +2143,7 @@
   </section>
 
   <!-- À PROPOS -->
-  <section id="apropos" style="background:var(--sand); padding-top: 0;">
+  <section id="apropos" style="background:var(--sand); padding-top: 35px; padding-bottom: 35px;">
     <div class="ct">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;" class="rv">
 
@@ -2205,12 +2206,12 @@
     <p class="ft">Lac de Neuchâtel · Port de Cheyres, Suisse</p>
     <div class="flinks">
       <a href="#bateau">Le bateau</a>
+      <a href="#emplacement" onclick="event.preventDefault(); document.getElementById('emplacement').scrollIntoView({ behavior: 'smooth', block: 'center' });">Emplacement</a>
       <a href="#tarifs">Tarifs</a>
       <a href="#infos">Infos</a>
       <a href="#avis">Avis</a>
-      <a href="#localisation">Carte</a>
       <a href="#apropos">À propos</a>
-      <a href="#contact">Nous contacter</a>
+      <a href="#contact">Contact</a>
       <a href="#reservation">Réserver</a>
       <a href="/conditions-generales.html">Conditions Générales</a>
       <a href="/mentions-legales.html">Mentions Légales</a>
