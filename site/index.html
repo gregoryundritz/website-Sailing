@@ -876,6 +876,7 @@
     input[type="file"] {
       display: none;
     }
+
     .custom-file-upload {
       display: inline-block;
       color: var(--text);
@@ -897,16 +898,32 @@
       color: var(--text) !important;
       opacity: 1;
     }
-    input::-webkit-input-placeholder { color: var(--text) !important; }
-    input::-moz-placeholder { color: var(--text) !important; opacity: 1; }
-    input:-ms-input-placeholder { color: var(--text) !important; }
-    input:-moz-placeholder { color: var(--text) !important; opacity: 1; }
+
+    input::-webkit-input-placeholder {
+      color: var(--text) !important;
+    }
+
+    input::-moz-placeholder {
+      color: var(--text) !important;
+      opacity: 1;
+    }
+
+    input:-ms-input-placeholder {
+      color: var(--text) !important;
+    }
+
+    input:-moz-placeholder {
+      color: var(--text) !important;
+      opacity: 1;
+    }
 
     select {
       color: var(--text) !important;
     }
 
-    input, select, textarea {
+    input,
+    select,
+    textarea {
       color: var(--text);
     }
 
@@ -947,7 +964,8 @@
       width: 100%
     }
 
-    #fp-start, #fp-end {
+    #fp-start,
+    #fp-end {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231a3a5a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'%3E%3C/rect%3E%3Cline x1='16' y1='2' x2='16' y2='6'%3E%3C/line%3E%3Cline x1='8' y1='2' x2='8' y2='6'%3E%3C/line%3E%3Cline x1='3' y1='10' x2='21' y2='10'%3E%3C/line%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 12px center;
@@ -1313,12 +1331,15 @@
       .rv[style*="grid-template-columns: 1.2fr 1fr 1fr"] {
         grid-template-columns: 1fr !important;
       }
+
       .rv[style*="grid-template-columns: 1fr 1fr"] {
         grid-template-columns: 1fr !important;
       }
+
       .hero-c h1 {
         font-size: clamp(2rem, 8vw, 3rem);
       }
+
       .resa-body {
         padding: 16px !important;
       }
@@ -1328,6 +1349,7 @@
     .mob-float {
       display: none;
     }
+
     @media(max-width:900px) {
       .mob-float {
         display: flex;
@@ -1339,6 +1361,7 @@
         gap: 12px;
         pointer-events: none;
       }
+
       .mob-float a {
         pointer-events: all;
         display: flex;
@@ -1350,21 +1373,25 @@
         font-weight: 500;
         font-family: 'DM Sans', sans-serif;
         text-decoration: none;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
         transition: transform .15s, box-shadow .15s;
         white-space: nowrap;
       }
+
       .mob-float a:active {
         transform: scale(0.96);
       }
+
       .mob-float-wa {
         background: #25d366;
         color: #fff;
       }
+
       .mob-float-resa {
         background: var(--gold);
         color: var(--navy);
       }
+
       /* Prevent content from being hidden behind floating bar */
       body {
         padding-bottom: 80px;
@@ -1380,7 +1407,9 @@
     <a href="#accueil" class="logo">Voilier <span>lac de Neuchâtel</span></a>
     <ul>
       <li><a href="#bateau">Le bateau</a></li>
-      <li><a href="#emplacement" onclick="event.preventDefault(); document.getElementById('emplacement').scrollIntoView({ behavior: 'smooth', block: 'center' });">Emplacement</a></li>
+      <li><a href="#emplacement"
+          onclick="event.preventDefault(); document.getElementById('emplacement').scrollIntoView({ behavior: 'smooth', block: 'center' });">Emplacement</a>
+      </li>
       <li><a href="#tarifs">Tarifs</a></li>
       <li><a href="#infos">Infos</a></li>
       <li><a href="#avis">Avis</a></li>
@@ -1442,73 +1471,70 @@
         <div>
           <p class="sec-ey">Le voilier</p>
           <h2 class="sec-h">Northman <em>Maxus 21</em></h2>
-          <p class="sec-p" style="margin-bottom:0;">Le Maxus 21 est un voilier habitable de 6.5 m, conçu par l'architecte naval Jacek Daszkiewicz
-            et produit par le chantier polonais Northman. Gréé en sloop fractionné avec génois sur enrouleur, grand-voile
-            lattée avec lazy-jack et gennaker, il offre un excellent compromis entre performance et facilité de manœuvre.
-            Sa quille relevable (tirant d'eau de 0.35 à 1.45 m) permet d'accéder aux zones peu profondes et aux plages du
-            lac de Neuchâtel. Le cockpit spacieux accueille confortablement 6 personnes, et la cabine équipée — frigo 12V,
+          <p class="sec-p" style="margin-bottom:0;">Le Maxus 21 est un voilier habitable de 6.5 m, conçu par
+            l'architecte naval Jacek Daszkiewicz
+            et produit par le chantier polonais Northman. Gréé en sloop fractionné avec génois sur enrouleur,
+            grand-voile
+            lattée avec lazy-jack et gennaker, il offre un excellent compromis entre performance et facilité de
+            manœuvre.
+            Sa quille relevable (tirant d'eau de 0.35 à 1.45 m) permet d'accéder aux zones peu profondes et aux plages
+            du
+            lac de Neuchâtel. Le cockpit spacieux accueille confortablement 6 personnes, et la cabine équipée — frigo
+            12V,
             réchaud gaz, vaisselle, 2 lits doubles — permet de séjourner plusieurs nuits à bord en autonomie complète.
           </p>
         </div>
       </div>
       <div class="boat-lay" style="display:block;">
-        <div class="rv" style="display:grid; grid-template-columns: 1.2fr 1fr 1fr; gap:12px; margin-bottom:48px; align-items: stretch;">
-          <img
-            src="img/logo.jpg"
-            alt="Maxus 21 au port de Cheyres"
-            loading="lazy"
+        <div class="rv"
+          style="display:grid; grid-template-columns: 1.2fr 1fr 1fr; gap:12px; margin-bottom:48px; align-items: stretch;">
+          <img src="img/logo.jpg" alt="Maxus 21 au port de Cheyres" loading="lazy"
             style="width:100%; height:400px; object-fit:cover; border-radius:2px;">
-          <img
-            src="img/gallery1.jpg"
-            alt="Cabine intérieure"
-            loading="lazy"
+          <img src="img/gallery1.jpg" alt="Cabine intérieure" loading="lazy"
             style="width:100%; height:400px; object-fit:cover; border-radius:2px;">
-          <img
-            src="img/gallery2.jpg"
-            alt="Plan du bateau"
-            loading="lazy"
+          <img src="img/gallery2.jpg" alt="Plan du bateau" loading="lazy"
             style="width:100%; height:400px; object-fit:contain; background:#fff; border-radius:2px; border:1px solid var(--sand2);">
         </div>
 
         <div class="rv" style="display:grid; grid-template-columns: 1fr 1fr; gap:64px; align-items: start;">
           <div>
             <div class="specs-g" style="margin-top:0;">
-            <div class="spec">
-              <div class="spec-l">Longueur</div>
-              <div class="spec-v">6.5 m</div>
-            </div>
-            <div class="spec">
-              <div class="spec-l">Largeur</div>
-              <div class="spec-v">2.48 m</div>
-            </div>
-            <div class="spec">
-              <div class="spec-l">Tirant d'eau</div>
-              <div class="spec-v">0.35 – 1.45 m</div>
-            </div>
-            <div class="spec">
-              <div class="spec-l">Moteur</div>
-              <div class="spec-v">6 cv hors-bord</div>
-            </div>
-            <div class="spec">
-              <div class="spec-l">Capacité</div>
-              <div class="spec-v">6 personnes</div>
-            </div>
-            <div class="spec">
-              <div class="spec-l">Couchages</div>
-              <div class="spec-v">2 lits doubles</div>
-            </div>
-            <div class="spec">
-              <div class="spec-l">Cabine</div>
-              <div class="spec-v">1</div>
-            </div>
-            <div class="spec">
-              <div class="spec-l">Toilettes</div>
-              <div class="spec-v">Oui (chimique)</div>
-            </div>
-            <div class="spec">
-              <div class="spec-l">Port</div>
-              <div class="spec-v">Cheyres, Neuchâtel</div>
-            </div>
+              <div class="spec">
+                <div class="spec-l">Longueur</div>
+                <div class="spec-v">6.5 m</div>
+              </div>
+              <div class="spec">
+                <div class="spec-l">Largeur</div>
+                <div class="spec-v">2.48 m</div>
+              </div>
+              <div class="spec">
+                <div class="spec-l">Tirant d'eau</div>
+                <div class="spec-v">0.35 – 1.45 m</div>
+              </div>
+              <div class="spec">
+                <div class="spec-l">Moteur</div>
+                <div class="spec-v">6 cv hors-bord</div>
+              </div>
+              <div class="spec">
+                <div class="spec-l">Capacité</div>
+                <div class="spec-v">6 personnes</div>
+              </div>
+              <div class="spec">
+                <div class="spec-l">Couchages</div>
+                <div class="spec-v">2 lits doubles</div>
+              </div>
+              <div class="spec">
+                <div class="spec-l">Cabine</div>
+                <div class="spec-v">1</div>
+              </div>
+              <div class="spec">
+                <div class="spec-l">Toilettes</div>
+                <div class="spec-v">Oui (chimique)</div>
+              </div>
+              <div class="spec">
+                <div class="spec-l">Port</div>
+                <div class="spec-v">Cheyres, Neuchâtel</div>
+              </div>
             </div>
           </div>
           <!-- RIGHT: Equipements -->
@@ -1532,16 +1558,18 @@
             </div>
           </div>
         </div>
-    </div>
+      </div>
   </section>
 
   <!-- EMPLACEMENT -->
   <section id="emplacement" style="padding-top: 0; padding-bottom: 64px;">
     <div class="ct">
       <div id="localisation" class="rv">
-        <iframe src="https://maps.google.com/maps?q=Location+de+voilier+Lac+de+Neuchâtel+Cheyres&ll=46.8845,6.8444&z=11&output=embed&hl=fr"
-          width="100%" height="450" style="border:0; display:block; border-radius:var(--r); filter: grayscale(0.2) contrast(1.1);" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe
+          src="https://maps.google.com/maps?q=Location+de+voilier+Lac+de+Neuchâtel+Cheyres&ll=46.8845,6.8444&z=11&output=embed&hl=fr"
+          width="100%" height="450"
+          style="border:0; display:block; border-radius:var(--r); filter: grayscale(0.2) contrast(1.1);"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </section>
@@ -1549,18 +1577,9 @@
   <!-- GALERIE -->
   <div class="gal">
     <div class="gal-inner">
-      <img
-        src="img/IMG_1467.jpeg"
-        alt="Navigation sur le lac de Neuchâtel"
-        loading="lazy">
-      <img
-        src="img/IMG_0084.jpeg"
-        alt="Voiles au vent"
-        loading="lazy">
-      <img
-        src="img/IMG_1613.jpeg"
-        alt="Vue depuis le cockpit"
-        loading="lazy">
+      <img src="img/IMG_1467.jpeg" alt="Navigation sur le lac de Neuchâtel" loading="lazy">
+      <img src="img/IMG_0084.jpeg" alt="Voiles au vent" loading="lazy">
+      <img src="img/IMG_1613.jpeg" alt="Vue depuis le cockpit" loading="lazy">
     </div>
   </div>
 
@@ -1643,8 +1662,10 @@
           </div>
 
         </div>
-        <p style="font-size:13px; color:var(--white); margin-top:32px; text-align:center; font-weight:300; opacity:0.8;">
-          Une caution de <span id="caution-display3">1 000</span> CHF est réservée par empreinte de carte crédit avant le séjour.
+        <p
+          style="font-size:13px; color:var(--white); margin-top:32px; text-align:center; font-weight:300; opacity:0.8;">
+          Une caution de <span id="caution-display3">1 000</span> CHF est réservée par empreinte de carte crédit avant
+          le séjour.
         </p>
         <div style="text-align:center; margin-top:36px;">
           <a href="#resa-form" onclick="selectStandard()"
@@ -1676,8 +1697,13 @@
             Skipper <em style="font-style:italic;color:var(--gold2)">Pass</em>
           </h2>
           <p style="font-size:16px;color:rgba(255,255,255,.7);font-weight:300;line-height:1.8;margin-bottom:28px;">
-            Libérez-vous des contraintes et retrouvez le plaisir pur de la navigation. Le <strong style="color:var(--white)">Skipper Pass</strong> vous offre 5 journées individuelles sur le lac de Neuchâtel, à utiliser selon vos envies durant l'année.<br><br>
-            C'est le tremplin idéal pour les <strong style="color:var(--white)">nouveaux navigateurs</strong> qui souhaitent gagner en assurance après leur permis, ou pour tous ceux qui veulent savourer le lac sans les soucis liés à la propriété (place de port, entretien, frais fixes). Larguez les amarres, on s'occupe du reste.
+            Libérez-vous des contraintes et retrouvez le plaisir pur de la navigation. Le <strong
+              style="color:var(--white)">Skipper Pass</strong> vous offre 5 journées individuelles sur le lac de
+            Neuchâtel, à utiliser selon vos envies durant l'année.<br><br>
+            C'est le tremplin idéal pour les <strong style="color:var(--white)">nouveaux navigateurs</strong> qui
+            souhaitent gagner en assurance après leur permis, ou pour tous ceux qui veulent savourer le lac sans les
+            soucis liés à la propriété (place de port, entretien, frais fixes). Larguez les amarres, on s'occupe du
+            reste.
           </p>
           <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:36px;">
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
@@ -1697,7 +1723,8 @@
             </li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
               <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
-              <span><strong style="color:var(--white);">Valable toute l'année</strong> — <span id="pass-sorties-bullet">5</span> sorties à consommer dans
+              <span><strong style="color:var(--white);">Valable toute l'année</strong> — <span
+                  id="pass-sorties-bullet">5</span> sorties à consommer dans
                 l'année en cours</span>
             </li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
@@ -1738,7 +1765,8 @@
 
             <div style="display:flex;justify-content:center;gap:32px;margin-bottom:28px;">
               <div style="text-align:center;">
-                <div id="pass-sorties-display" style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--gold2);">5
+                <div id="pass-sorties-display"
+                  style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--gold2);">5
                 </div>
                 <div
                   style="font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;">
@@ -1746,7 +1774,8 @@
               </div>
               <div style="width:1px;background:rgba(255,255,255,.08);"></div>
               <div style="text-align:center;">
-                <div id="pass-ppd-display" style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--gold2);">
+                <div id="pass-ppd-display"
+                  style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--gold2);">
                   160</div>
                 <div
                   style="font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;">
@@ -1832,9 +1861,11 @@
 
             <div id="resa-type-tabs" style="display:flex;gap:8px;">
               <button type="button" id="tab-standard" onclick="selectTab('standard')"
-                style="flex:1;padding:12px;border-radius:var(--r);border:1.5px solid var(--navy);background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;">Location standard</button>
+                style="flex:1;padding:12px;border-radius:var(--r);border:1.5px solid var(--navy);background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;">Location
+                standard</button>
               <button type="button" id="tab-pass" onclick="selectTab('pass')"
-                style="flex:1;padding:12px;border-radius:var(--r);border:1.5px solid var(--sand2);background:var(--white);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;">⭐ Skipper Pass</button>
+                style="flex:1;padding:12px;border-radius:var(--r);border:1.5px solid var(--sand2);background:var(--white);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;">⭐
+                Skipper Pass</button>
             </div>
           </div>
 
@@ -1843,26 +1874,30 @@
             style="display:none;background:linear-gradient(135deg,var(--navy),#132d42);border-radius:var(--r);padding:20px 22px;margin-bottom:0;">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
               <div>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--white);font-weight:400;">Skipper Pass</div>
-                <div style="font-size:13px;color:rgba(255,255,255,.55);margin-top:3px;">5 sorties · semaine · année en cours</div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--white);font-weight:400;">
+                  Skipper Pass</div>
+                <div style="font-size:13px;color:rgba(255,255,255,.55);margin-top:3px;">5 sorties · semaine · année en
+                  cours</div>
               </div>
             </div>
             <div style="height:1px;background:rgba(255,255,255,.1);margin-bottom:12px;"></div>
-            <p style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.7;">Une fois le paiement reçu, vous pourrez réserver vos 5 sorties tout au long de l'année (jours de semaine hors jours fériés).</p>
+            <p style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.7;">Une fois le paiement reçu, vous
+              pourrez réserver vos 5 sorties tout au long de l'année (jours de semaine hors jours fériés).</p>
           </div>
 
           <!-- ÉTAPE 2 : Dates -->
           <div class="resa-step" id="section-standard">
             <div class="fr">
-              <div class="fg"><input type="text" name="date_depart" id="fp-start"
-                  placeholder="Date de départ" readonly style="cursor:pointer"></div>
-              <div class="fg"><input type="text" name="date_retour" id="fp-end"
-                  placeholder="Date de retour" readonly style="cursor:pointer"></div>
+              <div class="fg"><input type="text" name="date_depart" id="fp-start" placeholder="Date de départ" readonly
+                  required style="cursor:pointer"></div>
+              <div class="fg"><input type="text" name="date_retour" id="fp-end" placeholder="Date de retour" readonly
+                  required style="cursor:pointer"></div>
             </div>
             <div id="resa-duration-display" class="duration-display"></div>
             <div class="fr" style="margin-top:16px;">
               <div class="fg">
-                <select name="passagers" style="padding:10px 12px;border-radius:var(--r);border:1.5px solid var(--sand2);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--white);cursor:pointer;">
+                <select name="passagers"
+                  style="padding:10px 12px;border-radius:var(--r);border:1.5px solid var(--sand2);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--white);cursor:pointer;">
                   <option value="">Nombre d'équipage</option>
                   <option value="1">1 personne</option>
                   <option value="2">2 personnes</option>
@@ -1882,11 +1917,14 @@
             <div class="opts-checks" id="resa-options">
               <label class="opt-check"><input type="checkbox" data-price="60" data-per="forfait"
                   onchange="updateTotal()" checked onclick="return false;"
-                  style="pointer-events:none;opacity:0.8;"><span class="oci"><span class="ocn">🧹 Nettoyage final (obligatoire)</span><span class="ocp">+60 CHF</span></span></label>
+                  style="pointer-events:none;opacity:0.8;"><span class="oci"><span class="ocn">🧹 Nettoyage final
+                    (obligatoire)</span><span class="ocp">+60 CHF</span></span></label>
               <label class="opt-check"><input type="checkbox" data-price="15" data-per="jour"
-                  onchange="updateTotal()"><span class="oci"><span class="ocn">🎏 Gennaker</span><span class="ocp">+15 CHF/j</span></span></label>
+                  onchange="updateTotal()"><span class="oci"><span class="ocn">🎏 Gennaker</span><span class="ocp">+15
+                    CHF/j</span></span></label>
               <label class="opt-check"><input type="checkbox" data-price="15" data-per="jour"
-                  onchange="updateTotal()"><span class="oci"><span class="ocn">🏄 Paddle</span><span class="ocp">+15 CHF/j</span></span></label>
+                  onchange="updateTotal()"><span class="oci"><span class="ocn">🏄 Paddle</span><span class="ocp">+15
+                    CHF/j</span></span></label>
             </div>
           </div>
 
@@ -1906,8 +1944,14 @@
           <div class="resa-step">
 
             <div class="fr">
-              <div class="fg"><input type="text" name="nom" placeholder="Prénom & Nom *" required></div>
-              <div class="fg"><input type="email" name="email" placeholder="Email *" required></div>
+  <div class="fg"><input type="text" name="nom" placeholder="Prénom & Nom *" required></div>
+  <div class="fg"><input type="email" name="email" placeholder="Email *" required></div>
+</div>
+<div class="fr">
+  <div class="fg"><input type="text" name="rue" placeholder="Rue" style="width:100%"></div>
+  <div class="fg"><input type="text" name="npa" placeholder="NPA" ></div>
+  <div class="fg"><input type="text" name="localite" placeholder="Localité" ></div>
+</div>
             </div>
             <div class="fr">
               <div class="fg"><input type="text" name="pays" placeholder="Pays"></div>
@@ -1915,8 +1959,9 @@
             </div>
             <div class="fr">
               <div class="fg">
-                <select name="niveau_voile" style="padding:10px 12px;border-radius:var(--r);border:1.5px solid var(--sand2);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--white);cursor:pointer;">
-                  <option value="">Niveau en voile</option>
+                <select name="niveau_voile"
+                  style="padding:10px 12px;border-radius:var(--r);border:1.5px solid var(--sand2);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--white);cursor:pointer;">
+                  <option value="">Expérience skipper</option>
                   <option value="debutant">Débutant (peu ou pas d'expérience)</option>
                   <option value="intermediaire">Intermédiaire (quelques sorties)</option>
                   <option value="confirme">Confirmé (pratique régulière)</option>
@@ -1924,20 +1969,21 @@
                 </select>
               </div>
               <div class="fg" id="section-permis">
-                <label for="permis-upload" class="custom-file-upload" style="width:100%; text-align:left; box-sizing:border-box;">
-                  Copie permis voilier
+                <label for="permis-upload" class="custom-file-upload"
+                  style="width:100%; text-align:left; box-sizing:border-box;">
+                  <span class="icon" style="margin-right:4px;font-size:14px;">📎</span> Copie permis voilier
                 </label>
                 <input type="file" id="permis-upload" name="permis_pdf" accept=".pdf,.jpg,.jpeg,.png">
               </div>
             </div>
-            <div style="font-size:11px; color:var(--muted); margin-top:-6px; margin-bottom:16px;">Sinon, envoyez-le par email après confirmation.</div>
           </div>
 
 
 
           <!-- ÉTAPE 5 : Message -->
           <div class="resa-step" style="margin-top:8px;">
-            <div class="fg" style="margin-bottom:0;"><textarea name="message" placeholder="Votre message (niveau en voile, questions…)"></textarea></div>
+            <div class="fg" style="margin-bottom:0;"><textarea name="message" placeholder="Votre message"></textarea>
+            </div>
           </div>
 
           <input type="hidden" name="type_reservation" id="resa-type-hidden" value="Location standard">
@@ -1947,18 +1993,24 @@
 
           <!-- CG + SUBMIT -->
           <div style="margin: 24px 0 20px;">
-            <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 14px; color: var(--muted); line-height: 1.5;">
-              <input type="checkbox" name="accept_cg" required style="width: 18px; height: 18px; margin-top: 1px; cursor: pointer; flex-shrink: 0;">
-              <span>J'ai lu et j'accepte les <a href="/conditions-generales.html" target="_blank" style="color: var(--teal); text-decoration: underline; font-weight: 500;">Conditions Générales de Location</a> *</span>
+            <label
+              style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 14px; color: var(--muted); line-height: 1.5;">
+              <input type="checkbox" name="accept_cg" required
+                style="width: 18px; height: 18px; margin-top: 1px; cursor: pointer; flex-shrink: 0;">
+              <span>J'ai lu et j'accepte les <a href="/conditions-generales.html" target="_blank"
+                  style="color: var(--teal); text-decoration: underline; font-weight: 500;">Conditions Générales de
+                  Location</a> *</span>
             </label>
           </div>
 
           <button type="submit" class="f-sub" id="resa-submit-btn">Envoyer ma demande →</button>
-    <div id="resa-note" style="margin-top:12px;"></div>
+          <div id="resa-note" style="margin-top:12px;"></div>
 
-          <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;padding:12px 16px;background:rgba(26,98,120,0.06);border-radius:var(--r);border:1px solid rgba(26,98,120,0.15);">
+          <div
+            style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;padding:12px 16px;background:rgba(26,98,120,0.06);border-radius:var(--r);border:1px solid rgba(26,98,120,0.15);">
             <span style="font-size:18px;">🔒</span>
-            <span style="font-size:13px;color:var(--teal);font-weight:500;">Aucun paiement aujourd'hui — confirmation sous 24h, lien de paiement ensuite.</span>
+            <span style="font-size:13px;color:var(--teal);font-weight:500;">Aucun paiement aujourd'hui — confirmation
+              sous 24h, lien de paiement ensuite.</span>
           </div>
 
 
@@ -2103,7 +2155,8 @@
             </div>
           </div>
           <div class="av-stars">★★★★★</div>
-          <div class="av-text">Bateau très bien entretenu et facile à manœuvrer. Le propriétaire est très sympa et arrangeant.</div>
+          <div class="av-text">Bateau très bien entretenu et facile à manœuvrer. Le propriétaire est très sympa et
+            arrangeant.</div>
         </div>
         <div class="av-card">
           <div class="av-top">
@@ -2114,7 +2167,8 @@
             </div>
           </div>
           <div class="av-stars">★★★★★</div>
-          <div class="av-text">Superbe journée en famille. Le bateau est parfait pour 6, très stable et sécurisant.</div>
+          <div class="av-text">Superbe journée en famille. Le bateau est parfait pour 6, très stable et sécurisant.
+          </div>
         </div>
         <div class="av-card">
           <div class="av-top">
@@ -2125,7 +2179,8 @@
             </div>
           </div>
           <div class="av-stars">★★★★★</div>
-          <div class="av-text">Une magnifique découverte du lac sur ce Maxus 21. Très maniable et propre. Gregory est de très bon conseil.</div>
+          <div class="av-text">Une magnifique découverte du lac sur ce Maxus 21. Très maniable et propre. Gregory est de
+            très bon conseil.</div>
         </div>
         <div class="av-card">
           <div class="av-top">
@@ -2136,7 +2191,8 @@
             </div>
           </div>
           <div class="av-stars">★★★★★</div>
-          <div class="av-text">Superbe sortie entre amis. Le bateau est très confortable pour 6 personnes. Je recommande vivement !</div>
+          <div class="av-text">Superbe sortie entre amis. Le bateau est très confortable pour 6 personnes. Je recommande
+            vivement !</div>
         </div>
 
       </div>
@@ -2183,10 +2239,7 @@
 
         <!-- Photo coucher de soleil / navigation -->
         <div style="position:relative;">
-          <img
-            src="img/IMG_4793.jpeg"
-            alt="Navigation sur le lac de Neuchâtel"
-            loading="lazy"
+          <img src="img/IMG_4793.jpeg" alt="Navigation sur le lac de Neuchâtel" loading="lazy"
             style="width:100%;height:auto;border-radius:2px;display:block;">
           <div
             style="position:absolute;bottom:24px;left:-20px;background:var(--navy);color:var(--white);padding:18px 24px;border-radius:var(--r);box-shadow:0 4px 20px rgba(0,0,0,.2);">
@@ -2207,7 +2260,8 @@
     <p class="ft">Lac de Neuchâtel · Port de Cheyres, Suisse</p>
     <div class="flinks">
       <a href="#bateau">Le bateau</a>
-      <a href="#emplacement" onclick="event.preventDefault(); document.getElementById('emplacement').scrollIntoView({ behavior: 'smooth', block: 'center' });">Emplacement</a>
+      <a href="#emplacement"
+        onclick="event.preventDefault(); document.getElementById('emplacement').scrollIntoView({ behavior: 'smooth', block: 'center' });">Emplacement</a>
       <a href="#tarifs">Tarifs</a>
       <a href="#infos">Infos</a>
       <a href="#avis">Avis</a>
@@ -2380,7 +2434,7 @@
             method: 'POST',
             body: formData
           })
-            
+
             .then(() => {
               // Local backup logic
               try {
@@ -2448,13 +2502,13 @@
         btnS.style.background = 'var(--white)';
         btnS.style.color = 'var(--muted)';
         btnS.style.borderColor = 'var(--sand2)';
-        
+
         if (secP) secP.style.display = 'block';
         if (datesArea) datesArea.style.display = 'none';
-        
+
         var secOpts = document.getElementById('section-options');
         if (secOpts) secOpts.style.display = 'none';
-        
+
         var tt = document.getElementById('resa-total');
         if (tt) tt.textContent = '800 CHF';
         var wrap = document.getElementById('total-bar-wrap');
@@ -2466,13 +2520,13 @@
         btnP.style.background = 'var(--white)';
         btnP.style.color = 'var(--muted)';
         btnP.style.borderColor = 'var(--sand2)';
-        
+
         if (secP) secP.style.display = 'none';
         if (datesArea) datesArea.style.display = 'block';
-        
+
         var secOpts = document.getElementById('section-options');
         if (secOpts) secOpts.style.display = 'block';
-        
+
         var wrap = document.getElementById('total-bar-wrap');
         if (wrap) wrap.style.display = 'block';
         updateTotal();
