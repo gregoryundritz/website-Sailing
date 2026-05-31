@@ -1205,13 +1205,38 @@
     }
 
     /* RESPONSIVE */
+    .menu-btn {
+      display: none;
+      color: var(--white);
+      font-size: 28px;
+      cursor: pointer;
+      user-select: none;
+    }
+
     @media(max-width:900px) {
       nav {
-        padding: 16px 20px
+        padding: 16px 20px;
+      }
+
+      .menu-btn {
+        display: block;
       }
 
       nav ul {
-        display: none
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(11, 31, 48, .98);
+        flex-direction: column;
+        padding: 20px;
+        gap: 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, .1);
+      }
+      
+      nav ul.show {
+        display: flex;
       }
 
       .boat-lay,
@@ -1416,6 +1441,7 @@
 
     <nav>
     <a href="index.html" class="logo"><img src="img/logo-vn-white.png" alt="VN Logo" style="height: 36px; width: auto; display: block;"><div>Voilier <span>lac de Neuchâtel</span></div></a>
+    <div class="menu-btn" onclick="document.querySelector('nav ul').classList.toggle('show')">☰</div>
     <ul>
       <li><a href="index.html#bateau">Le bateau</a></li>
       <li><a href="index.html#emplacement">Emplacement</a></li>
