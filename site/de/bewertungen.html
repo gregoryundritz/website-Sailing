@@ -6,7 +6,7 @@
   <meta name="viewHafen" content="width=device-width, initial-scale=1.0">
 
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PPJN31C9G0"></script>
+  <script async src="https://www.googletagmanager.com/gtag/Tags?id=G-PPJN31C9G0"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
@@ -270,7 +270,7 @@
       <a href="#apropos">Über uns</a>
       <a href="kontakt.html">Kontakt</a>
       <a href="kontakt.html#reservation">Buchen</a>
-      <a href="/conditions-generales.html">Allgemeine Geschäftsbedingungen</a>
+      <a href="/conditions-generales.html">AGB</a>
       <a href="/mentions-legales.html">Impressum</a>
     </div>
     <div class="fdiv"></div>
@@ -279,7 +279,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
-  <script src="/js/config.js"></script>
+  <script src="/Tags/config.js"></script>
   <script>
     // ── Reveal ──
     const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target) } }), { threshold: .08 });
@@ -296,7 +296,7 @@
         var pEl = document.querySelector('[data-day-ppd="' + d + '"]');
         var total = getPrice(d);
         if (vEl) vEl.textContent = total.toLocaleString('fr-CH');
-        if (pEl) pEl.textContent = Math.round(total / d) + '/j';
+        if (pEl) pEl.textContent = Math.round(total / d) + '/Tag';
       }
       // Kaution
       var c = getCfg();
@@ -307,13 +307,13 @@
       // Pass
       var pPriceEl = document.getElementById('pass-price-display');
       if (pPriceEl && c.pass_price) pPriceEl.textContent = c.pass_price;
-      var pSortiesEl = document.getElementById('pass-sorties-display');
-      if (pSortiesEl && c.pass_sorties) pSortiesEl.textContent = c.pass_sorties;
-      var pBulletEl = document.getElementById('pass-sorties-bullet');
-      if (pBulletEl && c.pass_sorties) pBulletEl.textContent = c.pass_sorties;
+      var pAUSFLÜGEEl = document.getElementById('pass-AUSFLÜGE-display');
+      if (pAUSFLÜGEEl && c.pass_AUSFLÜGE) pAUSFLÜGEEl.textContent = c.pass_AUSFLÜGE;
+      var pBulletEl = document.getElementById('pass-AUSFLÜGE-bullet');
+      if (pBulletEl && c.pass_AUSFLÜGE) pBulletEl.textContent = c.pass_AUSFLÜGE;
       var pPpdEl = document.getElementById('pass-ppd-display');
-      if (pPpdEl && c.pass_price && c.pass_sorties) {
-        pPpdEl.textContent = Math.round(c.pass_price / c.pass_sorties);
+      if (pPpdEl && c.pass_price && c.pass_AUSFLÜGE) {
+        pPpdEl.textContent = Math.round(c.pass_price / c.pass_AUSFLÜGE);
       }
       // Options grid in tarifs section
       if (c.options && c.options.length) {
@@ -323,7 +323,7 @@
         if (tg) {
           tg.innerHTML = '';
           c.options.forEach(o => {
-            var pl = o.per === 'jour' ? '/j' : o.per === 'forfait' ? '' : '/' + o.per;
+            var pl = o.per === 'jour' ? '/Tag' : o.per === 'forfait' ? '' : '/' + o.per;
             tg.innerHTML += `<div class="opt-card"><div class="opt-card-name">${gi(o.name)} ${o.name}</div><div class="opt-card-price">+${o.price} CHF${pl}</div></div>`;
           });
 
@@ -333,7 +333,7 @@
         if (ro) {
           ro.innerHTML = '';
           c.options.filter(o => !o.name.toLowerCase().includes('linge')).forEach(o => {
-            var pl = o.per === 'jour' ? '/j' : o.per === 'forfait' ? '' : '/' + o.per;
+            var pl = o.per === 'jour' ? '/Tag' : o.per === 'forfait' ? '' : '/' + o.per;
             var reqAttr = o.required ? 'checked onclick="return false;"' : '';
             var disabledClass = o.required ? 'opt-disabled' : '';
             var inputAttrs = o.required ? 'checked onclick="return false;"' : 'onchange="updateTotal()"';
