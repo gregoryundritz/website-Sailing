@@ -2015,6 +2015,18 @@
       ⚓ Réserver
     </a>
   </div>
+
+  <!-- Mobile menu close on click -->
+  <script>
+    document.querySelectorAll('nav ul a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        var menu = document.querySelector('nav ul');
+        if (menu && menu.classList.contains('show')) {
+          menu.classList.remove('show');
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
