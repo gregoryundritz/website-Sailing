@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewHafen" content="width=device-width, initial-scale=1.0">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PPJN31C9G0"></script>
@@ -57,7 +57,7 @@
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "Location Voilier Schweiz — Neuenburgersee (Yacht & Segelschiff mieten)",
-  "description": "Segelboot chartern et yacht habitable Northman Maxus 21 (6.5m) au port de Cheyres sur le Neuenburgersee, Schweiz. Segelschiff mieten. Carburant inclus, nuitées au port gratuites.",
+  "description": "Segelboot chartern et yacht habitable Northman Maxus 21 (6.5m) au Hafen de Cheyres sur le Neuenburgersee, Schweiz. Segelschiff mieten. Treibstoff inklusive, nuitées au Hafen gratuites.",
   "brand": {"@type": "Brand", "name": "Northman Maxus 21"},
   "offers": {
     "@type": "AggregateOffer",
@@ -82,7 +82,7 @@
   "description": "Segelboot chartern et yacht sur le Neuenburgersee. Segelschiff mieten.",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Port de Cheyres",
+    "streetAddress": "Hafen de Cheyres",
     "addressLocality": "Cheyres-Châbles",
     "postalCode": "1468",
     "addressCountry": "CH"
@@ -130,7 +130,7 @@
       <div class="rv" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px;">
         <div>
 
-          <h2 class="sec-h">Ce que disent <em>nos locataires</em></h2>
+          <h2 class="sec-h">Was <em>unsere Gäste</em> sagen</h2>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding-bottom:16px;">
           <span
@@ -154,7 +154,7 @@
             </div>
           </div>
           <div class="av-stars">★★★★★</div>
-          <div class="av-text">Très bonne expérience sur le bateau ! Nous avons fait une super sortie à refaire !</div>
+          <div class="av-text">Sehr gute Erfahrung auf dem Boot! Wir hatten einen tollen Ausflug, gerne wieder!</div>
         </div>
         <div class="av-card">
           <div class="av-top">
@@ -225,7 +225,7 @@
             </div>
           </div>
           <div class="av-stars">★★★★★</div>
-          <div class="av-text">Superbe journée en famille. Das Boot est parfait pour 6, très stable et sécurisant.
+          <div class="av-text">Ein wunderbarer Tag mit der Familie. Das Boot ist perfekt für 6 Personen, sehr stabil und sicher.
           </div>
         </div>
         <div class="av-card">
@@ -268,13 +268,13 @@
       <a href="#infos">Infos</a>
       <a href="#avis">Bewertungen</a>
       <a href="#apropos">Über uns</a>
-      <a href="kontakt.html">Contact</a>
+      <a href="kontakt.html">Kontakt</a>
       <a href="kontakt.html#reservation">Buchen</a>
       <a href="/conditions-generales.html">Allgemeine Geschäftsbedingungen</a>
       <a href="/mentions-legales.html">Impressum</a>
     </div>
     <div class="fdiv"></div>
-    <p class="fcopy">© 2026 · Neuenburgersee Voilier · Alle Rechte vorbehalten</p>
+    <p class="fcopy">© 2026 · Segelboot Neuenburgersee · Alle Rechte vorbehalten</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -298,11 +298,11 @@
         if (vEl) vEl.textContent = total.toLocaleString('fr-CH');
         if (pEl) pEl.textContent = Math.round(total / d) + '/j';
       }
-      // Caution
+      // Kaution
       var c = getCfg();
-      ['caution-display', 'caution-display2', 'caution-display3'].forEach(id => {
+      ['Kaution-display', 'Kaution-display2', 'Kaution-display3'].forEach(id => {
         var el = document.getElementById(id);
-        if (el && c.caution) el.textContent = c.caution.toLocaleString('fr-CH');
+        if (el && c.Kaution) el.textContent = c.Kaution.toLocaleString('fr-CH');
       });
       // Pass
       var pPriceEl = document.getElementById('pass-price-display');
@@ -317,7 +317,7 @@
       }
       // Options grid in tarifs section
       if (c.options && c.options.length) {
-        var icons = { paddle: '🏄', nettoyage: '🧹', briefing: '🧭', caution: '🛡️', barbecue: '🍖', gilet: '🦺', 'apéro': '🥂', gps: '🗺️', photo: '📸', 'vélo': '🚲' };
+        var icons = { paddle: '🏄', nettoyage: '🧹', briefing: '🧭', Kaution: '🛡️', barbecue: '🍖', gilet: '🦺', 'apéro': '🥂', gps: '🗺️', photo: '📸', 'vélo': '🚲' };
         function gi(n) { var k = n.toLowerCase(); for (var x in icons) { if (k.includes(x)) return icons[x] } return '✦'; }
         var tg = document.getElementById('opts-tarifs');
         if (tg) {
@@ -494,7 +494,7 @@
       var durationDisp = document.getElementById('resa-duration-display');
       var optsArea = document.getElementById('resa-options');
       var datesArea = document.getElementById('section-standard');
-      var cautionArea = document.getElementById('resa-caution');
+      var KautionArea = document.getElementById('resa-Kaution');
       var detailsHideArea = document.getElementById('resa-details-hide');
 
       if (tab === 'pass') {

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewHafen" content="width=device-width, initial-scale=1.0">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PPJN31C9G0"></script>
@@ -57,7 +57,7 @@
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "Location Voilier Schweiz — Neuenburgersee (Yacht & Segelschiff mieten)",
-  "description": "Segelboot chartern et yacht habitable Northman Maxus 21 (6.5m) au port de Cheyres sur le Neuenburgersee, Schweiz. Segelschiff mieten. Carburant inclus, nuitées au port gratuites.",
+  "description": "Segelboot chartern et yacht habitable Northman Maxus 21 (6.5m) au Hafen de Cheyres sur le Neuenburgersee, Schweiz. Segelschiff mieten. Treibstoff inklusive, nuitées au Hafen gratuites.",
   "brand": {"@type": "Brand", "name": "Northman Maxus 21"},
   "offers": {
     "@type": "AggregateOffer",
@@ -82,7 +82,7 @@
   "description": "Segelboot chartern et yacht sur le Neuenburgersee. Segelschiff mieten.",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Port de Cheyres",
+    "streetAddress": "Hafen de Cheyres",
     "addressLocality": "Cheyres-Châbles",
     "postalCode": "1468",
     "addressCountry": "CH"
@@ -203,7 +203,7 @@
         </div>
         <p
           style="font-size:13px; color:var(--white); margin-top:32px; text-align:center; font-weight:300; opacity:0.8;">
-          Une caution de <span id="caution-display3">1 000</span> CHF est réservée par empreinte de carte crédit avant
+          Une Kaution de <span id="Kaution-display3">1 000</span> CHF est réservée par empreinte de carte crédit avant
           le séjour.
         </p>
         <div style="text-align:center; margin-top:36px;">
@@ -241,7 +241,7 @@
             Neuchâtel, à utiliser selon vos envies durant l'année.<br><br>
             C'est le tremplin idéal pour les <strong style="color:var(--white)">nouveaux navigateurs</strong> qui
             souhaitent gagner en assurance après leur permis, ou pour tous ceux qui veulent savourer le lac sans les
-            soucis liés à la propriété (place de port, entretien, frais fixes). Larguez les amarres, on s'occupe du
+            soucis liés à la propriété (place de Hafen, entretien, frais fixes). Larguez les amarres, on s'occupe du
             reste.
           </p>
           <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:36px;">
@@ -268,7 +268,7 @@
             </li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
               <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
-              <span><strong style="color:var(--white);">Carburant et briefing inclus</strong></span>
+              <span><strong style="color:var(--white);">Treibstoff und Briefing inbegriffen</strong></span>
             </li>
             <li class="lang-sel"><a href="/tarifs.html">FR</a><span>|</span><a href="#" class="active">DE</a></li>
     </ul>
@@ -333,7 +333,7 @@
 
             <div
               style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:12px 16px;font-size:12px;color:rgba(255,255,255,.5);line-height:1.6;text-align:left;">
-              ⏰ Jours de semaine uniquement (hors jours fériés suisses) · Réservation selon disponibilité
+              ⏰ Nur wochentags (außer Schweizer Feiertage) · Reservierung nach Verfügbarkeit
             </div>
           </div>
         </div>
@@ -352,13 +352,13 @@
       <a href="#infos">Infos</a>
       <a href="#avis">Bewertungen</a>
       <a href="#apropos">Über uns</a>
-      <a href="kontakt.html">Contact</a>
+      <a href="kontakt.html">Kontakt</a>
       <a href="kontakt.html#reservation">Buchen</a>
       <a href="/conditions-generales.html">Allgemeine Geschäftsbedingungen</a>
       <a href="/mentions-legales.html">Impressum</a>
     </div>
     <div class="fdiv"></div>
-    <p class="fcopy">© 2026 · Neuenburgersee Voilier · Alle Rechte vorbehalten</p>
+    <p class="fcopy">© 2026 · Segelboot Neuenburgersee · Alle Rechte vorbehalten</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -382,11 +382,11 @@
         if (vEl) vEl.textContent = total.toLocaleString('fr-CH');
         if (pEl) pEl.textContent = Math.round(total / d) + '/j';
       }
-      // Caution
+      // Kaution
       var c = getCfg();
-      ['caution-display', 'caution-display2', 'caution-display3'].forEach(id => {
+      ['Kaution-display', 'Kaution-display2', 'Kaution-display3'].forEach(id => {
         var el = document.getElementById(id);
-        if (el && c.caution) el.textContent = c.caution.toLocaleString('fr-CH');
+        if (el && c.Kaution) el.textContent = c.Kaution.toLocaleString('fr-CH');
       });
       // Pass
       var pPriceEl = document.getElementById('pass-price-display');
@@ -401,7 +401,7 @@
       }
       // Options grid in tarifs section
       if (c.options && c.options.length) {
-        var icons = { paddle: '🏄', nettoyage: '🧹', briefing: '🧭', caution: '🛡️', barbecue: '🍖', gilet: '🦺', 'apéro': '🥂', gps: '🗺️', photo: '📸', 'vélo': '🚲' };
+        var icons = { paddle: '🏄', nettoyage: '🧹', briefing: '🧭', Kaution: '🛡️', barbecue: '🍖', gilet: '🦺', 'apéro': '🥂', gps: '🗺️', photo: '📸', 'vélo': '🚲' };
         function gi(n) { var k = n.toLowerCase(); for (var x in icons) { if (k.includes(x)) return icons[x] } return '✦'; }
         var tg = document.getElementById('opts-tarifs');
         if (tg) {
@@ -578,7 +578,7 @@
       var durationDisp = document.getElementById('resa-duration-display');
       var optsArea = document.getElementById('resa-options');
       var datesArea = document.getElementById('section-standard');
-      var cautionArea = document.getElementById('resa-caution');
+      var KautionArea = document.getElementById('resa-Kaution');
       var detailsHideArea = document.getElementById('resa-details-hide');
 
       if (tab === 'pass') {
