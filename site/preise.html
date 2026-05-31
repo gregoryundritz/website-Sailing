@@ -1289,7 +1289,7 @@
     }
 
     @media(max-width:900px) {
-      #pass-skipper .rv[style*="grid-template-columns:1fr 1fr"] {
+      #pass-skipper .rv[style*="grid-template-columns: 1fr 1fr"] {
         grid-template-columns: 1fr !important;
       }
     }
@@ -1435,58 +1435,11 @@
     }
   </style>
 
-
-    <style>
-      /* Galerie Masonry */
-      .galerie-sec {
-        padding-top: 120px;
-        padding-bottom: 80px;
-      }
-      
-      .masonry {
-        columns: 3;
-        column-gap: 16px;
-        width: 100%;
-      }
-      
-      .gal-item {
-        break-inside: avoid;
-        margin-bottom: 16px;
-        border-radius: var(--r);
-        overflow: hidden;
-        background: var(--navy);
-        transition: transform 0.3s;
-      }
-      
-      .gal-item:hover {
-        transform: scale(1.02);
-      }
-      
-      .gal-item img {
-        width: 100%;
-        height: auto;
-        display: block;
-        object-fit: cover;
-      }
-      
-      @media(max-width: 900px) {
-        .masonry {
-          columns: 2;
-        }
-      }
-      
-      @media(max-width: 600px) {
-        .masonry {
-          columns: 1;
-        }
-        .galerie-sec {
-          padding-top: 100px;
-        }
-      }
-    </style>
 </head>
+
 <body>
-<nav>
+
+    <nav>
     <a href="index.html" class="logo"><img src="img/logo-vn-white.png" alt="VN Logo" style="height: 36px; width: auto; display: block;"><div>Segelyacht <span>Neuenburgersee</span></div></a>
     <div class="menu-btn" onclick="document.querySelector('nav ul').classList.toggle('show')">☰</div>
     <ul>
@@ -1501,48 +1454,223 @@
       <li><a href="kontakt.html" class="nav-btn">Kontakt & Buchung</a></li>
     </ul>
   </nav>
-
-  <section class="galerie-sec">
+<!-- TARIFS -->
+  <section id="tarifs" class="tarifs-sec" style="padding-top: 120px;">
     <div class="ct">
-      <div class="rv" style="text-align:center;margin-bottom:48px;">
-        <span class="eyebrow">In Bildern</span>
-        <h2 class="sec-h">Unsere <em style="color:var(--lake)">Galerie</em></h2>
-        <p class="sec-p" style="margin:0 auto;">Entdecken Sie die Segelyacht und die Landschaften durch unsere Fotos.</p>
+      <div class="rv">
+
+        <h2 class="sec-h">Preise de <em style="color:var(--lake)">location</em></h2>
+        <p class="sec-p" style="color:rgba(255,255,255,.5); max-width: 800px;">Gestaffelte Preise je nach Dauer · ⛽ Treibstoff inklusive · 🌙 Übernachtungen im Hafen Cheyres gratis</p>
       </div>
-      
-      <div class="rv masonry">
-        <div class="gal-item"><img src="img/galerie/galerie_27.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-        <div class="gal-item"><img src="img/galerie/galerie_1.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-        <div class="gal-item"><img src="img/galerie/galerie_2.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-        <div class="gal-item"><img src="img/galerie/galerie_3.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-        <div class="gal-item"><img src="img/galerie/galerie_4.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-        <div class="gal-item"><img src="img/galerie/galerie_5.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-        <div class="gal-item"><img src="img/galerie/galerie_6.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-        <div class="gal-item"><img src="img/galerie/galerie_7.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-        <div class="gal-item"><img src="img/galerie/galerie_8.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-        <div class="gal-item"><img src="img/galerie/galerie_9.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-        <div class="gal-item"><img src="img/galerie/galerie_10.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-        <div class="gal-item"><img src="img/galerie/galerie_11.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-        <div class="gal-item"><img src="img/galerie/galerie_12.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-        <div class="gal-item"><img src="img/galerie/galerie_13.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-        <div class="gal-item"><img src="img/galerie/galerie_14.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-        <div class="gal-item"><img src="img/galerie/galerie_15.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-        <div class="gal-item"><img src="img/galerie/galerie_16.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-        <div class="gal-item"><img src="img/galerie/galerie_17.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-        <div class="gal-item"><img src="img/galerie/galerie_18.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-        <div class="gal-item"><img src="img/galerie/galerie_19.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-        <div class="gal-item"><img src="img/galerie/galerie_20.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-        <div class="gal-item"><img src="img/galerie/galerie_21.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-        <div class="gal-item"><img src="img/galerie/galerie_22.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-        <div class="gal-item"><img src="img/galerie/galerie_23.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-        <div class="gal-item"><img src="img/galerie/galerie_24.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-                <div class="gal-item"><img src="img/galerie/galerie_26.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
-        <div class="gal-item"><img src="img/galerie/galerie_33.webp" loading="lazy" alt="Voilier Neuchâtel"></div>
+      <!-- Grille tarifaire 1-7 jours (liée au backoffice) -->
+      <div class="rv" style="margin-top:48px;">
+        <div class="price-grid" id="price-grid-outer">
+          <!-- headers -->
+          <div class="pg-head"><span>1 Tag</span></div>
+          <div class="pg-head"><span>2 Tage</span></div>
+          <div class="pg-head"><span>3 Tage</span></div>
+          <div class="pg-head"><span>4 Tage</span></div>
+          <div class="pg-head"><span>5 sorties</span></div>
+          <div class="pg-head"><span>6 Tage</span></div>
+          <div class="pg-head"><span>7 jours</span></div>
+          <!-- price cells (filled by JS) -->
+          <div class="pg-cell" id="pgc1">
+            <div class="pg-val" data-day="1">275</div>
+            <div class="pg-chf">CHF</div>
+          </div>
+          <div class="pg-cell" id="pgc2">
+            <div class="pg-val" data-day="2">490</div>
+            <div class="pg-chf">CHF</div>
+          </div>
+          <div class="pg-cell" id="pgc3">
+            <div class="pg-val" data-day="3">720</div>
+            <div class="pg-chf">CHF</div>
+          </div>
+          <div class="pg-cell" id="pgc4">
+            <div class="pg-val" data-day="4">840</div>
+            <div class="pg-chf">CHF</div>
+          </div>
+          <div class="pg-cell" id="pgc5">
+            <div class="pg-val" data-day="5">1000</div>
+            <div class="pg-chf">CHF</div>
+          </div>
+          <div class="pg-cell" id="pgc6">
+            <div class="pg-val" data-day="6">1140</div>
+            <div class="pg-chf">CHF</div>
+          </div>
+          <div class="pg-cell" id="pgc7">
+            <div class="pg-val" data-day="7">1260</div>
+            <div class="pg-chf">CHF</div>
+          </div>
+          <!-- per-day row -->
+          <div class="pg-ppd"><span data-day-ppd="1">275/j</span></div>
+          <div class="pg-ppd"><span data-day-ppd="2">245/j</span></div>
+          <div class="pg-ppd"><span data-day-ppd="3">240/j</span></div>
+          <div class="pg-ppd"><span data-day-ppd="4">210/j</span></div>
+          <div class="pg-ppd"><span data-day-ppd="5">200/j</span></div>
+          <div class="pg-ppd"><span data-day-ppd="6">190/j</span></div>
+          <div class="pg-ppd"><span data-day-ppd="7">180/j</span></div>
+        </div>
+      </div>
+      <!-- Options -->
+      <div class="rv" style="margin-top:36px;">
+
+        <div class="opts-grid" id="opts-tarifs">
+
+          <div class="opt-card">
+            <div class="opt-card-name">🧹 Nettoyage final (obligatoire)</div>
+            <div class="opt-card-price">+60 CHF</div>
+          </div>
+          <div class="opt-card">
+            <div class="opt-card-name">🎏 Gennaker</div>
+            <div class="opt-card-price">+15 CHF/j</div>
+          </div>
+          <div class="opt-card">
+            <div class="opt-card-name">🏄 Paddle</div>
+            <div class="opt-card-price">+15 CHF/j</div>
+          </div>
+
+        </div>
+        <p
+          style="font-size:13px; color:var(--white); margin-top:32px; text-align:center; font-weight:300; opacity:0.8;">
+          Une caution de <span id="caution-display3">1 000</span> CHF est réservée par empreinte de carte crédit avant
+          le séjour.
+        </p>
+        <div style="text-align:center; margin-top:36px;">
+          <a href="#resa-form" onclick="selectStandard()"
+            style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy);padding:14px 32px;border-radius:var(--r);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .2s;"
+            onmouseover="this.style.background='#d49a42';this.style.transform='translateY(-2px)'"
+            onmouseout="this.style.background='var(--gold)';this.style.transform='none'">
+            Buchen maintenant →
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-<footer>
+  <!-- SKIPPER PASS -->
+  <section id="pass-skipper" style="background:var(--navy);">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div class="rv" style="display:grid;grid-template-columns: 1fr 1fr;gap:64px;align-items:center;">
+
+        <!-- LEFT: texte -->
+        <div>
+          <div
+            style="display:inline-flex;align-items:center;gap:8px;background:rgba(184,131,46,.2);border:1px solid rgba(184,131,46,.4);padding:6px 14px;border-radius:20px;margin-bottom:20px;">
+            <span
+              style="font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold2);font-weight:500;">Offre
+              exclusive</span>
+          </div>
+          <h2
+            style="font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4vw,52px);font-weight:400;color:var(--white);line-height:1.15;margin-bottom:16px;">
+            Skipper <em style="font-style:italic;color:var(--gold2)">Pass</em>
+          </h2>
+          <p style="font-size:16px;color:rgba(255,255,255,.7);font-weight:300;line-height:1.8;margin-bottom:28px;">
+            Libérez-vous des contraintes et retrouvez le plaisir pur de la navigation. Le <strong
+              style="color:var(--white)">Skipper Pass</strong> vous offre 5 journées individuelles sur le lac de
+            Neuchâtel, à utiliser selon vos envies durant l'année.<br><br>
+            C'est le tremplin idéal pour les <strong style="color:var(--white)">nouveaux navigateurs</strong> qui
+            souhaitent gagner en assurance après leur permis, ou pour tous ceux qui veulent savourer le lac sans les
+            soucis liés à la propriété (place de port, entretien, frais fixes). Larguez les amarres, on s'occupe du
+            reste.
+          </p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:36px;">
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
+              <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
+              <span><strong style="color:var(--white);">5 sorties individuelles</strong> — non consécutives, à utiliser
+                librement</span>
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
+              <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
+              <span><strong style="color:var(--white);">En semaine uniquement</strong> — jours de semaine hors jours
+                fériés</span>
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
+              <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
+              <span><strong style="color:var(--white);">Selon disponibilité</strong> — réservez vos jours à
+                l'avance</span>
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
+              <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
+              <span><strong style="color:var(--white);">Valable toute l'année</strong> — <span
+                  id="pass-sorties-bullet">5</span> sorties à consommer dans
+                l'année en cours</span>
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
+              <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
+              <span><strong style="color:var(--white);">Carburant et briefing inclus</strong></span>
+            </li>
+          </ul>
+          <a href="#resa-form" onclick="selectPassSkipper()"
+            style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy);padding:14px 30px;border-radius:var(--r);font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .2s;"
+            onmouseover="this.style.background='#d49a42';this.style.transform='translateY(-2px)'"
+            onmouseout="this.style.background='var(--gold)';this.style.transform='none'">
+            Demander ce pass →
+          </a>
+        </div>
+
+        <!-- RIGHT: carte prix -->
+        <div>
+          <div
+            style="background:linear-gradient(135deg,#0f2335 0%,#132d42 100%);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:48px 40px;text-align:center;position:relative;overflow:hidden;">
+            <!-- Déco cercle -->
+            <div
+              style="position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;border:1px solid rgba(184,131,46,.15);">
+            </div>
+            <div
+              style="position:absolute;top:-20px;right:-20px;width:100px;height:100px;border-radius:50%;border:1px solid rgba(184,131,46,.1);">
+            </div>
+
+            <div
+              style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px;">
+              Tarif annuel</div>
+
+            <div id="pass-price-display"
+              style="font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:400;color:var(--white);line-height:1;">
+              800</div>
+            <div style="font-size:14px;color:rgba(255,255,255,.5);margin-top:4px;margin-bottom:28px;">CHF</div>
+
+            <div style="height:1px;background:rgba(255,255,255,.08);margin-bottom:24px;"></div>
+
+            <div style="display:flex;justify-content:center;gap:32px;margin-bottom:28px;">
+              <div style="text-align:center;">
+                <div id="pass-sorties-display"
+                  style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--gold2);">5
+                </div>
+                <div
+                  style="font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;">
+                  sorties</div>
+              </div>
+              <div style="width:1px;background:rgba(255,255,255,.08);"></div>
+              <div style="text-align:center;">
+                <div id="pass-ppd-display"
+                  style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--gold2);">
+                  160</div>
+                <div
+                  style="font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;">
+                  CHF/jour</div>
+              </div>
+              <div style="width:1px;background:rgba(255,255,255,.08);"></div>
+              <div style="text-align:center;">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--gold2);">
+                  12</div>
+                <div
+                  style="font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;">
+                  mois</div>
+              </div>
+            </div>
+
+            <div
+              style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:12px 16px;font-size:12px;color:rgba(255,255,255,.5);line-height:1.6;text-align:left;">
+              ⏰ Jours de semaine uniquement (hors jours fériés suisses) · Réservation selon disponibilité
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <footer>
     <div class="fl">Segelyacht · <span>Neuenburgersee</span></div>
     <p class="ft">Neuenburgersee · Hafen Cheyres, Schweiz</p>
     <div class="flinks">
@@ -1562,13 +1690,289 @@
     <p class="fcopy">© 2026 · Neuenburgersee Voilier · Alle Rechte vorbehalten</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
   <script src="/js/config.js"></script>
   <script>
-    // Reveal
+    // ── Reveal ──
     const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target) } }), { threshold: .08 });
     document.querySelectorAll('.rv').forEach(el => obs.observe(el));
-    
-    // Mobile menu logic
+
+    // ── Prices ──
+    function getCfg() { return window.VOILIER_CONFIG || { prices_per_days: {}, options: [], blocked_dates: [] }; }
+    function getPrice(d) { const c = getCfg(); return c.prices_per_days && c.prices_per_days[d] ? c.prices_per_days[d] : (c.prices_per_days[14] || 1400); }
+
+    function loadPrices() {
+      // Update price grid
+      for (var d = 1; d <= 7; d++) {
+        var vEl = document.querySelector('[data-day="' + d + '"]');
+        var pEl = document.querySelector('[data-day-ppd="' + d + '"]');
+        var total = getPrice(d);
+        if (vEl) vEl.textContent = total.toLocaleString('fr-CH');
+        if (pEl) pEl.textContent = Math.round(total / d) + '/j';
+      }
+      // Caution
+      var c = getCfg();
+      ['caution-display', 'caution-display2', 'caution-display3'].forEach(id => {
+        var el = document.getElementById(id);
+        if (el && c.caution) el.textContent = c.caution.toLocaleString('fr-CH');
+      });
+      // Pass
+      var pPriceEl = document.getElementById('pass-price-display');
+      if (pPriceEl && c.pass_price) pPriceEl.textContent = c.pass_price;
+      var pSortiesEl = document.getElementById('pass-sorties-display');
+      if (pSortiesEl && c.pass_sorties) pSortiesEl.textContent = c.pass_sorties;
+      var pBulletEl = document.getElementById('pass-sorties-bullet');
+      if (pBulletEl && c.pass_sorties) pBulletEl.textContent = c.pass_sorties;
+      var pPpdEl = document.getElementById('pass-ppd-display');
+      if (pPpdEl && c.pass_price && c.pass_sorties) {
+        pPpdEl.textContent = Math.round(c.pass_price / c.pass_sorties);
+      }
+      // Options grid in tarifs section
+      if (c.options && c.options.length) {
+        var icons = { paddle: '🏄', nettoyage: '🧹', briefing: '🧭', caution: '🛡️', barbecue: '🍖', gilet: '🦺', 'apéro': '🥂', gps: '🗺️', photo: '📸', 'vélo': '🚲' };
+        function gi(n) { var k = n.toLowerCase(); for (var x in icons) { if (k.includes(x)) return icons[x] } return '✦'; }
+        var tg = document.getElementById('opts-tarifs');
+        if (tg) {
+          tg.innerHTML = '';
+          c.options.forEach(o => {
+            var pl = o.per === 'jour' ? '/j' : o.per === 'forfait' ? '' : '/' + o.per;
+            tg.innerHTML += `<div class="opt-card"><div class="opt-card-name">${gi(o.name)} ${o.name}</div><div class="opt-card-price">+${o.price} CHF${pl}</div></div>`;
+          });
+
+        }
+        // Update form checkboxes
+        var ro = document.getElementById('resa-options');
+        if (ro) {
+          ro.innerHTML = '';
+          c.options.filter(o => !o.name.toLowerCase().includes('linge')).forEach(o => {
+            var pl = o.per === 'jour' ? '/j' : o.per === 'forfait' ? '' : '/' + o.per;
+            var reqAttr = o.required ? 'checked onclick="return false;"' : '';
+            var disabledClass = o.required ? 'opt-disabled' : '';
+            var inputAttrs = o.required ? 'checked onclick="return false;"' : 'onchange="updateTotal()"';
+            ro.innerHTML += `<label class="opt-check ${disabledClass}"><input type="checkbox" data-price="${o.price}" data-per="${o.per}" ${inputAttrs}><span class="oci"><span class="ocn">${gi(o.name)} ${o.name}</span><span class="ocp">+${o.price} CHF${pl}</span></span></label>`;
+          });
+        }
+      }
+    }
+
+    // ── Flatpickr ──
+    var fpS, fpE;
+    var minD = new Date(); minD.setHours(0, 0, 0, 0); minD.setDate(minD.getDate() + 2);
+
+    function initFp() {
+      if (typeof flatpickr === 'undefined') { setTimeout(initFp, 80); return; }
+      var loc = (typeof flatpickr.l10ns !== 'undefined' && flatpickr.l10ns.fr) ? 'fr' : 'default';
+      fpS = flatpickr('#fp-start', {
+        locale: loc, dateFormat: 'j F Y', minDate: minD, disableMobile: true, allowInput: false,
+        onChange: function (d) {
+          if (!d.length) return;
+          var nd = new Date(d[0]); // allow same day
+          fpE.set('minDate', nd);
+          if (fpE.selectedDates[0] && fpE.selectedDates[0] < d[0]) fpE.clear();
+          updateTotal();
+        }
+      });
+      fpE = flatpickr('#fp-end', {
+        locale: loc, dateFormat: 'j F Y', minDate: minD, disableMobile: true, allowInput: false,
+        onChange: function () { updateTotal(); }
+      });
+    }
+    initFp();
+
+    // ── Total ──
+    function updateTotal() {
+      var s = fpS && fpS.selectedDates[0], e = fpE && fpE.selectedDates[0];
+      var dd = document.getElementById('resa-duration-display');
+      var tt = document.getElementById('resa-total');
+      if (!s || !e) { if (dd) dd.style.display = 'none'; if (tt) tt.textContent = '— CHF'; return; }
+      var days = Math.round((e - s) / 86400000) + 1;
+      if (days <= 0 || days > 14) { if (dd) dd.style.display = 'none'; if (tt) tt.textContent = days > 14 ? 'Max 14 Tage' : '— CHF'; return; }
+      var total = getPrice(days);
+      var isPass = (typeof currentTab !== 'undefined' && currentTab === 'pass');
+      if (!isPass) {
+        document.querySelectorAll('#resa-options input:checked').forEach(function (cb) {
+          var p = parseInt(cb.dataset.price) || 0;
+          total += (cb.dataset.per === 'jour') ? p * days : p;
+        });
+      }
+      if (dd) {
+        var opts = { day: 'numeric', month: 'long', year: 'numeric' };
+        dd.textContent = days + ' jour' + (days > 1 ? 's' : '') + ' · du ' + s.toLocaleDateString('fr-CH', opts) + ' au ' + e.toLocaleDateString('fr-CH', opts);
+        dd.style.display = 'block';
+      }
+      if (tt) tt.textContent = total.toLocaleString('fr-CH') + ' CHF';
+
+      // Optimization: Update hidden fields for Netlify
+      var hTotal = document.getElementById('resa-total-hidden');
+      var hType = document.getElementById('resa-type-hidden');
+      var hOptions = document.getElementById('resa-options-hidden');
+      var hVonree = document.getElementById('resa-duree-hidden');
+
+      if (hTotal) hTotal.value = total + ' CHF';
+      if (hType) {
+        var isPass = (typeof currentTab !== 'undefined' && currentTab === 'pass');
+        hType.value = isPass ? 'Skipper Pass' : 'Standard-Charter';
+      }
+      if (hVonree && typeof days !== 'undefined') {
+        hVonree.value = days ? days + ' jours' : '';
+      }
+
+      var selectedOptions = [];
+      document.querySelectorAll('#resa-options input:checked').forEach(function (cb) {
+        var nameSpan = cb.nextElementSibling.querySelector('.ocn');
+        if (nameSpan) {
+          // Strip emojis to make it cleaner in email
+          var cleanName = nameSpan.textContent.replace(/[^\w\sÀ-ÿ-]/g, '').trim() || nameSpan.textContent.trim();
+          selectedOptions.push(cleanName);
+        }
+      });
+      if (hOptions) {
+        hOptions.value = selectedOptions.length ? selectedOptions.join(', ') : 'Biscune option';
+      }
+    }
+
+    // ── Netlify Form AJAX Handling ──
+    document.addEventListener('DOMContentLoaded', function () {
+      const resaForm = document.querySelector('form[name="reservation"]');
+      if (resaForm) {
+        resaForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const btn = document.getElementById('resa-submit-btn');
+          const note = document.getElementById('resa-note');
+          const formData = new FormData(resaForm);
+
+          btn.disabled = true;
+          btn.textContent = 'Envoi en cours...';
+
+          fetch('/', {
+            method: 'POST',
+            body: formData
+          })
+
+            .then(() => {
+              // Local backup logic
+              try {
+                var s = fpS && fpS.selectedDates[0], eDate = fpE && fpE.selectedDates[0];
+                var req = {
+                  id: Date.now(),
+                  status: 'pending',
+                  date_req: new Date().toLocaleDateString('fr-CH', { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
+                  type: (typeof currentTab !== 'undefined' && currentTab === 'pass') ? 'Skipper Pass' : 'Standard-Charter',
+                  depart: s ? s.toLocaleDateString('fr-CH') : '—',
+                  retour: eDate ? eDate.toLocaleDateString('fr-CH') : '—',
+                  total: document.getElementById('resa-total')?.textContent || '—',
+                  nom: resaForm.querySelector('input[name="nom"]')?.value || '—',
+                  email: resaForm.querySelector('input[name="email"]')?.value || '—',
+                  telephone: resaForm.querySelector('input[name="telephone"]')?.value || '—',
+                  pays: resaForm.querySelector('input[name="pays"]')?.value || '—',
+                  adresse: resaForm.querySelector('input[name="adresse"]')?.value || '—',
+                  message: resaForm.querySelector('textarea[name="message"]')?.value || ''
+                };
+                var queue = JSON.parse(localStorage.getItem('resa_queue') || '[]');
+                queue.unshift(req);
+                localStorage.setItem('resa_queue', JSON.stringify(queue));
+              } catch (err) { console.error('Backup error:', err); }
+
+              btn.style.background = '#28a745';
+              btn.textContent = 'Demande envoyée !';
+              note.innerHTML = '✓ Ihre Anfrage wurde registriert. <strong>Sie erhalten innerhalb von 24 Stunden eine Bestätigungs-E-Mail und Ihren Zahlungslink.</strong>';
+              note.style.color = '#28a745';
+              resaForm.reset();
+              if (fpS) fpS.clear();
+              if (fpE) fpE.clear();
+              updateTotal();
+            })
+            .catch((error) => {
+              btn.disabled = false;
+              btn.textContent = 'Réessayer';
+              alert('Erreur lors de l\'envoi. Veuillez réessayer.');
+            });
+        });
+      }
+    });
+
+    loadPrices();
+
+
+
+    // ── Tab switching Standard / Skipper Pass ──
+    var currentTab = 'standard';
+
+    function selectTab(tab) {
+      currentTab = tab;
+      var btnS = document.getElementById('tab-standard');
+      var btnP = document.getElementById('tab-pass');
+      var secP = document.getElementById('section-pass');
+      var durationDisp = document.getElementById('resa-duration-display');
+      var optsArea = document.getElementById('resa-options');
+      var datesArea = document.getElementById('section-standard');
+      var cautionArea = document.getElementById('resa-caution');
+      var detailsHideArea = document.getElementById('resa-details-hide');
+
+      if (tab === 'pass') {
+        btnP.style.background = 'var(--gold)';
+        btnP.style.color = 'var(--navy)';
+        btnP.style.borderColor = 'var(--gold)';
+        btnS.style.background = 'var(--white)';
+        btnS.style.color = 'var(--muted)';
+        btnS.style.borderColor = 'var(--sand2)';
+
+        if (secP) secP.style.display = 'block';
+        if (datesArea) datesArea.style.display = 'none';
+
+        var secOpts = document.getElementById('section-options');
+        if (secOpts) secOpts.style.display = 'none';
+
+        var tt = document.getElementById('resa-total');
+        if (tt) tt.textContent = '800 CHF';
+        var wrap = document.getElementById('total-bar-wrap');
+        if (wrap) wrap.style.display = 'block';
+      } else {
+        btnS.style.background = 'var(--navy)';
+        btnS.style.color = 'var(--white)';
+        btnS.style.borderColor = 'var(--navy)';
+        btnP.style.background = 'var(--white)';
+        btnP.style.color = 'var(--muted)';
+        btnP.style.borderColor = 'var(--sand2)';
+
+        if (secP) secP.style.display = 'none';
+        if (datesArea) datesArea.style.display = 'block';
+
+        var secOpts = document.getElementById('section-options');
+        if (secOpts) secOpts.style.display = 'block';
+
+        var wrap = document.getElementById('total-bar-wrap');
+        if (wrap) wrap.style.display = 'block';
+        updateTotal();
+      }
+    }
+
+    function selectPassSkipper() {
+      selectTab('pass');
+      var el = document.getElementById('resa-form');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function selectStandard() {
+      selectTab('standard');
+      var el = document.getElementById('resa-form');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+  <!-- Floating mobile buttons -->
+  <div class="mob-float">
+    <a href="https://wa.me/41793867381" class="mob-float-wa" target="_blank" rel="noopener">
+      💬 WhatsApp
+    </a>
+    <a href="kontakt.html#reservation" class="mob-float-resa" onclick="selectStandard()">
+      ⚓ Buchen
+    </a>
+  </div>
+
+  <!-- Mobile menu close on click -->
+  <script>
     document.querySelectorAll('nav ul a').forEach(function(link) {
       link.addEventListener('click', function() {
         var menu = document.querySelector('nav ul');
@@ -1579,4 +1983,5 @@
     });
   </script>
 </body>
+
 </html>
