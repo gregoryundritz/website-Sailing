@@ -4,35 +4,129 @@
   <url>
     <loc>https://voilier-neuchatel.ch/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://voilier-neuchatel.ch/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://voilier-neuchatel.ch/en/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://voilier-neuchatel.ch/de/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voilier-neuchatel.ch/" />
     <priority>1.0</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://voilier-neuchatel.ch/en/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://voilier-neuchatel.ch/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://voilier-neuchatel.ch/en/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://voilier-neuchatel.ch/de/" />
-    <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://voilier-neuchatel.ch/de/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://voilier-neuchatel.ch/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://voilier-neuchatel.ch/en/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://voilier-neuchatel.ch/de/" />
-    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voilier-neuchatel.ch/" />
+    <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://voilier-neuchatel.ch/tarifs.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voilier-neuchatel.ch/tarifs.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://voilier-neuchatel.ch/de/preise.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voilier-neuchatel.ch/tarifs.html" />
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://voilier-neuchatel.ch/de/preise.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voilier-neuchatel.ch/tarifs.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://voilier-neuchatel.ch/de/preise.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voilier-neuchatel.ch/tarifs.html" />
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://voilier-neuchatel.ch/itineraires.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voilier-neuchatel.ch/itineraires.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://voilier-neuchatel.ch/de/toerns.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voilier-neuchatel.ch/itineraires.html" />
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://voilier-neuchatel.ch/de/toerns.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voilier-neuchatel.ch/itineraires.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://voilier-neuchatel.ch/de/toerns.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voilier-neuchatel.ch/itineraires.html" />
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://voilier-neuchatel.ch/avis.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voilier-neuchatel.ch/avis.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://voilier-neuchatel.ch/de/bewertungen.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voilier-neuchatel.ch/avis.html" />
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://voilier-neuchatel.ch/de/bewertungen.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voilier-neuchatel.ch/avis.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://voilier-neuchatel.ch/de/bewertungen.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voilier-neuchatel.ch/avis.html" />
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://voilier-neuchatel.ch/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voilier-neuchatel.ch/contact.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://voilier-neuchatel.ch/de/kontakt.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voilier-neuchatel.ch/contact.html" />
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://voilier-neuchatel.ch/de/kontakt.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voilier-neuchatel.ch/contact.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://voilier-neuchatel.ch/de/kontakt.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voilier-neuchatel.ch/contact.html" />
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://voilier-neuchatel.ch/galerie.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voilier-neuchatel.ch/galerie.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://voilier-neuchatel.ch/de/galerie.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voilier-neuchatel.ch/galerie.html" />
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://voilier-neuchatel.ch/de/galerie.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voilier-neuchatel.ch/galerie.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://voilier-neuchatel.ch/de/galerie.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voilier-neuchatel.ch/galerie.html" />
+    <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://voilier-neuchatel.ch/conditions-generales.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voilier-neuchatel.ch/conditions-generales.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://voilier-neuchatel.ch/de/agb.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voilier-neuchatel.ch/conditions-generales.html" />
     <priority>0.3</priority>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://voilier-neuchatel.ch/de/agb.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voilier-neuchatel.ch/conditions-generales.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://voilier-neuchatel.ch/de/agb.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voilier-neuchatel.ch/conditions-generales.html" />
+    <priority>0.3</priority>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://voilier-neuchatel.ch/mentions-legales.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voilier-neuchatel.ch/mentions-legales.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://voilier-neuchatel.ch/de/impressum.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voilier-neuchatel.ch/mentions-legales.html" />
     <priority>0.3</priority>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://voilier-neuchatel.ch/de/impressum.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voilier-neuchatel.ch/mentions-legales.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://voilier-neuchatel.ch/de/impressum.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voilier-neuchatel.ch/mentions-legales.html" />
+    <priority>0.3</priority>
+    <changefreq>weekly</changefreq>
   </url>
 </urlset>
