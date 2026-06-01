@@ -108,8 +108,11 @@
 
 <body>
 
-    <nav>
-    <a href="index.html" class="logo"><img src="../img/logo-vn-white.png" alt="VN Logo" style="height: 36px; width: auto; display: block;"><div>Segeln auf dem <span>Neuenburgersee</span></div></a>
+  <nav>
+    <a href="index.html" class="logo"><img src="../img/logo-vn-white.png" alt="VN Logo"
+        style="height: 36px; width: auto; display: block;">
+      <div>Segeln auf dem <span>Neuenburgersee</span></div>
+    </a>
     <div class="menu-btn" onclick="document.querySelector('nav ul').classList.toggle('show')">☰</div>
     <ul>
       <li><a href="index.html#bateau">Das Boot</a></li>
@@ -133,33 +136,37 @@
         <h2 class="sec-h">Törns sur le <em style="color:var(--lake)">Neuenburgersee</em></h2>
         <p class="sec-p" style="margin:0 auto;">Entdecken Sie unsere Routenvorschläge ab Cheyres.</p>
       </div>
-      
+
       <div class="rv" style="display:grid;grid-template-columns: 1fr 1fr;gap:32px;">
         <div style="background:var(--sand);border-radius:var(--r);padding:32px;">
           <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:16px;">Südufer & Estavayer</h3>
-          <p style="font-size:15px;color:rgba(0,0,0,0.6);line-height:1.6;margin-bottom:16px;">Ein friedlicher Törn entlang der Grande Cariçaie, dem größten Seeschutzgebiet der Schweiz. Ideal für einen halben oder ganzen Tag mit Halt in Estavayer-le-Lac zur Besichtigung des Schlosses.</p>
+          <p style="font-size:15px;color:rgba(0,0,0,0.6);line-height:1.6;margin-bottom:16px;">Ein friedlicher Törn
+            entlang der Grande Cariçaie, dem größten Seeschutzgebiet der Schweiz. Ideal für einen halben oder ganzen Tag
+            mit Halt in Estavayer-le-Lac zur Besichtigung des Schlosses.</p>
           <ul style="font-size:14px;color:rgba(0,0,0,0.5);margin-left:20px;line-height:1.8;">
-            <li>Dauer : Demi-journée à 1 Tag</li>
+            <li>Dauer : Halber bis 1 Tag</li>
             <li>Schwierigkeit: Leicht</li>
             <li>Sehenswert: Naturschutzgebiet, Hafen Estavayer</li>
             <li class="lang-sel"><a href="/itineraires.html">FR</a><span>|</span><a href="#" class="active">DE</a></li>
-    </ul>
+          </ul>
         </div>
-        
+
         <div style="background:var(--sand);border-radius:var(--r);padding:32px;">
           <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:16px;">Große Seerunde</h3>
-          <p style="font-size:15px;color:rgba(0,0,0,0.6);line-height:1.6;margin-bottom:16px;">Partez pour 2 à 3 Tage de navigation autour du lac. Traversez vers Gorgier, remontez jusqu'à Neuchâtel, puis longez la rive nord avant de redescendre vers Yverdon-les-Bains.</p>
+          <p style="font-size:15px;color:rgba(0,0,0,0.6);line-height:1.6;margin-bottom:16px;">Unternehmen Sie eine 2-
+            bis 3-tägige Segeltour auf dem See. Setzen Sie nach Gorgier über, fahren Sie weiter nach Neuchâtel und
+            folgen Sie dann dem Nordufer, bevor Sie zurück nach Cheyres segeln.</p>
           <ul style="font-size:14px;color:rgba(0,0,0,0.5);margin-left:20px;line-height:1.8;">
-            <li>Dauer : 2 à 3 Tage (week-end)</li>
+            <li>Dauer : 2 bis 3 Tage (Wochenende)</li>
             <li>Schwierigkeit: Moderat</li>
             <li>Sehenswert: Neuchâtel, Yverdon, Alpenpanorama</li>
             <li class="lang-sel"><a href="/itineraires.html">FR</a><span>|</span><a href="#" class="active">DE</a></li>
-    </ul>
+          </ul>
         </div>
       </div>
     </div>
   </section>
-    <footer>
+  <footer>
     <div class="fl">Segeln auf dem <span>Neuenburgersee</span></div>
     <p class="ft">Neuenburgersee · Hafen Cheyres, Schweiz</p>
     <div class="flinks">
@@ -464,8 +471,8 @@
 
   <!-- Mobile menu close on click -->
   <script>
-    document.querySelectorAll('nav ul a').forEach(function(link) {
-      link.addEventListener('click', function() {
+    document.querySelectorAll('nav ul a').forEach(function (link) {
+      link.addEventListener('click', function () {
         var menu = document.querySelector('nav ul');
         if (menu && menu.classList.contains('show')) {
           menu.classList.remove('show');
