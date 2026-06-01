@@ -77,22 +77,6 @@
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Skipper Pass — 5 Tage Segelboot mieten",
-  "description": "Der Skipper Pass bietet Ihnen 5 individuelle Segeltage auf dem Neuenburgersee, die Sie ganz nach Ihren Wünschen über das Jahr verteilt nutzen können.",
-  "brand": {"@type": "Brand", "name": "Segeln auf dem Neuenburgersee"},
-  "offers": {
-    "@type": "Offer",
-    "price": "800",
-    "priceCurrency": "CHF",
-    "availability": "https://schema.org/InStock",
-    "url": "https://voilier-neuchatel.ch/de/preise.html#pass-skipper"
-  }
-}
-</script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Location Voilier Schweiz",
   "description": "Segelboot chartern et yacht sur le Neuenburgersee. Segelschiff mieten.",
@@ -122,9 +106,31 @@
 
 
   <!-- Hreflang Tags -->
-  <link rel="alternate" hreflang="fr" href="https://voilier-neuchatel.ch/tarifs.html">
-  <link rel="alternate" hreflang="de" href="https://voilier-neuchatel.ch/de/preise.html">
-  <link rel="alternate" hreflang="x-default" href="https://voilier-neuchatel.ch/tarifs.html">
+  <link rel="alternate" hreflang="fr" href="https://voilier-neuchatel.ch/permis-bateau-suisse.html">
+  <link rel="alternate" hreflang="de" href="https://voilier-neuchatel.ch/de/segelpruefung-schweiz.html">
+  <link rel="alternate" hreflang="x-default" href="https://voilier-neuchatel.ch/permis-bateau-suisse.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "Braucht man einen Segelschein, um dieses Segelboot in der Schweiz zu mieten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. In der Schweiz ist der Segelschein (Kategorie D) obligatorisch, sobald die Segelfläche 15 m² überschreitet. Da unsere Maxus 21 eine Segelfläche von 21 m² hat, ist der Segelschein erforderlich."
+      }
+    }, {
+      "@type": "Question",
+      "name": "Werden ausländische Segelscheine in der Schweiz anerkannt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Für durchreisende Touristen anerkennen die Schweizer Behörden in der Regel die im Heimatland erforderlichen Qualifikationen (oder ICC). Einwohner haben 12 Monate Zeit, ihren Ausweis umzutauschen."
+      }
+    }]
+  }
+  </script>
 </head>
 
 <body>
@@ -142,231 +148,64 @@
       <li><a href="index.html#infos">Infos</a></li>
       <li><a href="bewertungen.html">Bewertungen</a></li>
       <li><a href="galerie.html">Galerie</a></li>
-      <li><a href="toerns.html">Törns</a></li>
-      <li><a href="segelpruefung-schweiz.html">Segelprüfung</a></li>
+      <li><a href="segelpruefung-schweiz.html">Törns</a></li>
       <li><a href="index.html#apropos">Über uns</a></li>
       <li><a href="kontakt.html" class="nav-btn">Kontakt & Buchung</a></li>
-      <li class="lang-sel"><a href="/tarifs.html">FR</a><span>|</span><a href="#" class="active">DE</a></li>
+      <li class="lang-sel"><a href="/permis-bateau-suisse.html">FR</a><span>|</span><a href="#" class="active">DE</a></li>
     </ul>
   </nav>
-  <!-- TARIFS -->
-  <section id="tarifs" class="tarifs-sec" style="padding-top: 120px;">
+  <section style="padding-top: 120px; background:var(--white);">
     <div class="ct">
-      <div class="rv">
-
-        <h2 class="sec-h"><em style="color:var(--lake)">Mietpreise</em></h2>
-        <p class="sec-p" style="color:rgba(255,255,255,.5); max-width: 800px;">Degressive Preise je nach Dauer · ⛽
-          Treibstoff inklusive · 🌙 Übernachtungen im Hafen Cheyres gratis</p>
+      <div style="text-align:center;margin-bottom:64px;" class="rv">
+        <p class="sec-ey">Gesetzgebung</p>
+        <h1 class="sec-h">Braucht man einen <em style="color:var(--lake)">Segelschein</em>?</h1>
+        <p class="sec-p" style="margin:0 auto;">Alles, was Sie über die Segelvorschriften in der Schweiz und auf dem Neuenburgersee wissen müssen.</p>
       </div>
-      <!-- Grille tarifaire 1-7 jours (liée au backoffice) -->
-      <div class="rv" style="margin-top:48px;">
-        <div class="price-grid" id="price-grid-outer">
-          <!-- headers -->
-          <div class="pg-head"><span>1 Tag</span></div>
-          <div class="pg-head"><span>2 Tage</span></div>
-          <div class="pg-head"><span>3 Tage</span></div>
-          <div class="pg-head"><span>4 Tage</span></div>
-          <div class="pg-head"><span>5 Tage</span></div>
-          <div class="pg-head"><span>6 Tage</span></div>
-          <div class="pg-head"><span>7 Tage</span></div>
-          <!-- price cells (filled by JS) -->
-          <div class="pg-cell" id="pgc1">
-            <div class="pg-val" data-day="1">275</div>
-            <div class="pg-chf">CHF</div>
-          </div>
-          <div class="pg-cell" id="pgc2">
-            <div class="pg-val" data-day="2">490</div>
-            <div class="pg-chf">CHF</div>
-          </div>
-          <div class="pg-cell" id="pgc3">
-            <div class="pg-val" data-day="3">720</div>
-            <div class="pg-chf">CHF</div>
-          </div>
-          <div class="pg-cell" id="pgc4">
-            <div class="pg-val" data-day="4">840</div>
-            <div class="pg-chf">CHF</div>
-          </div>
-          <div class="pg-cell" id="pgc5">
-            <div class="pg-val" data-day="5">1000</div>
-            <div class="pg-chf">CHF</div>
-          </div>
-          <div class="pg-cell" id="pgc6">
-            <div class="pg-val" data-day="6">1140</div>
-            <div class="pg-chf">CHF</div>
-          </div>
-          <div class="pg-cell" id="pgc7">
-            <div class="pg-val" data-day="7">1260</div>
-            <div class="pg-chf">CHF</div>
-          </div>
-          <!-- per-day row -->
-          <div class="pg-ppd"><span data-day-ppd="1">275/Tag</span></div>
-          <div class="pg-ppd"><span data-day-ppd="2">245/Tag</span></div>
-          <div class="pg-ppd"><span data-day-ppd="3">240/Tag</span></div>
-          <div class="pg-ppd"><span data-day-ppd="4">210/Tag</span></div>
-          <div class="pg-ppd"><span data-day-ppd="5">200/Tag</span></div>
-          <div class="pg-ppd"><span data-day-ppd="6">190/Tag</span></div>
-          <div class="pg-ppd"><span data-day-ppd="7">180/Tag</span></div>
-        </div>
-      </div>
-      <!-- Options -->
-      <div class="rv" style="margin-top:36px;">
 
-        <div class="opts-grid" id="opts-tarifs">
-
-          <div class="opt-card">
-            <div class="opt-card-name">🧹 Reinigung </div>
-            <div class="opt-card-price">+60 CHF</div>
-          </div>
-          <div class="opt-card">
-            <div class="opt-card-name">🎏 Gennaker</div>
-            <div class="opt-card-price">+15 CHF/Tag</div>
-          </div>
-          <div class="opt-card">
-            <div class="opt-card-name">🏄 SUP</div>
-            <div class="opt-card-price">+15 CHF/Tag</div>
-          </div>
-
-        </div>
-        <p
-          style="font-size:13px; color:var(--white); margin-top:32px; text-align:center; font-weight:300; opacity:0.8;">
-          Vor dem Törn wird eine Kaution von <span id="Kaution-display3">1 000</span> CHF auf Ihrer Kreditkarte
-          reserviert.
-        </p>
-        <div style="text-align:center; margin-top:36px;">
-          <a href="#resa-form" onclick="selectStandard()"
-            style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy);padding:14px 32px;border-radius:var(--r);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .2s;"
-            onmouseover="this.style.background='#d49a42';this.style.transform='translateY(-2px)'"
-            onmouseout="this.style.background='var(--gold)';this.style.transform='none'">
-            Jetzt buchen →
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKIPPER PASS -->
-  <section id="pass-skipper" style="background:var(--navy);">
-    <div style="max-width:1100px;margin:0 auto;">
-      <div class="rv" style="display:grid;grid-template-columns: 1fr 1fr;gap:64px;align-items:center;">
-
-        <!-- LEFT: texte -->
-        <div>
-          <div
-            style="display:inline-flex;align-items:center;gap:8px;background:rgba(184,131,46,.2);border:1px solid rgba(184,131,46,.4);padding:6px 14px;border-radius:20px;margin-bottom:20px;">
-            <span
-              style="font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold2);font-weight:500;">EXKLUSIVES
-              ANGEBOT</span>
-          </div>
-          <h2
-            style="font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4vw,52px);font-weight:400;color:var(--white);line-height:1.15;margin-bottom:16px;">
-            Skipper <em style="font-style:italic;color:var(--gold2)">Pass</em>
-          </h2>
-          <p style="font-size:16px;color:rgba(255,255,255,.7);font-weight:300;line-height:1.8;margin-bottom:28px;">
-            Befreien Sie sich von Einschränkungen und finden Sie das pure Vergnügen am Segeln wieder. Der <strong
-              style="color:var(--white)">Skipper Pass</strong> bietet Ihnen 5 individuelle Tage auf dem Neuenburgersee,
-            die Sie nach Lust und Laune im Laufe des Jahres nutzen können.<br><br>
-            Es ist das ideale Sprungbrett für <strong style="color:var(--white)">neue Segler</strong>, die nach ihrem
-            Führerschein mehr Sicherheit gewinnen möchten, oder für alle, die den See ohne die Sorgen des Eigentums
-            (Liegeplatz, Wartung, Fixkosten) genießen wollen. Leinen los, wir kümmern uns um den Rest.
+      <div class="rv" style="max-width:800px; margin:0 auto;">
+        
+        <div style="margin-bottom:40px;">
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:16px;">Die 15m² Regel in der Schweiz</h2>
+          <p style="font-size:15px;color:rgba(0,0,0,0.7);line-height:1.8;">
+            In der Schweiz ist die Sportschifffahrt streng geregelt. Der <strong>Segelführerschein (Kategorie D)</strong> ist obligatorisch, sobald die Segelfläche des Bootes <strong>15 m²</strong> überschreitet. <br><br>
+            Da unser Segelboot Maxus 21 eine Segelfläche von ca. 21 m² hat, <strong>ist der Segelschein zwingend erforderlich</strong>, um es zu mieten und zu steuern. Der Motorbootführerschein (Kategorie A) ist hingegen nicht erforderlich, da unser Außenbordmotor eine Leistung von weniger als 6 kW (8 PS) hat.
           </p>
-          <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:36px;">
-            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
-              <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
-              <span><strong style="color:var(--white);">5 Tagesausflüge</strong> — frei wählbar an nicht
-                aneinanderfolgenden Tagen
-              </span>
-            </li>
-            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
-              <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
-              <span><strong style="color:var(--white);">Ausschliesslich an Wochentagen</strong> — nicht an Samstagen
-                oder Feiertagen</span>
-            </li>
-            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
-              <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
-              <span><strong style="color:var(--white);">Nach Verfügbarkeit</strong> — buchen Sie Ihre bevorzugten Tage
-                im Voraus</span>
-            </li>
-            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
-              <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
-              <span><strong style="color:var(--white);">Gültig das ganze Jahr</strong> — <span
-                  id="pass-AUSFLÜGE-bullet">5</span> Ausflüge innerhalb des Jahres</span>
-            </li>
-            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
-              <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
-              <span><strong style="color:var(--white);">Treibstoff und Briefing inbegriffen</strong></span>
-            </li>
-
-          </ul>
-          <a href="#resa-form" onclick="selectPassSkipper()"
-            style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy);padding:14px 30px;border-radius:var(--r);font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .2s;"
-            onmouseover="this.style.background='#d49a42';this.style.transform='translateY(-2px)'"
-            onmouseout="this.style.background='var(--gold)';this.style.transform='none'">
-            PASS BUCHEN →
-          </a>
         </div>
 
-        <!-- RIGHT: carte prix -->
-        <div>
-          <div
-            style="background:linear-gradient(135deg,#0f2335 0%,#132d42 100%);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:48px 40px;text-align:center;position:relative;overflow:hidden;">
-            <!-- Déco cercle -->
-            <div
-              style="position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;border:1px solid rgba(184,131,46,.15);">
-            </div>
-            <div
-              style="position:absolute;top:-20px;right:-20px;width:100px;height:100px;border-radius:50%;border:1px solid rgba(184,131,46,.1);">
-            </div>
+        <div style="margin-bottom:40px;">
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:16px;">Ich bin Schweizer und habe meinen Ausweis</h2>
+          <p style="font-size:15px;color:rgba(0,0,0,0.7);line-height:1.8;">
+            Perfekt! Wenn Sie Ihren vom Schifffahrtsamt ausgestellten Segelschein (Kategorie D) haben, können Sie unser Segelboot mieten. Bei Ihrer ersten Reservierung werden wir Sie um ein Foto Ihres Ausweises bitten.
+          </p>
+        </div>
 
-            <div
-              style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px;">
-              JAHRESTARIF</div>
+        <div style="margin-bottom:40px;">
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:16px;">Ich bin ausländischer Tourist</h2>
+          <p style="font-size:15px;color:rgba(0,0,0,0.7);line-height:1.8;">
+            Als Tourist auf der Durchreise (ohne Wohnsitz in der Schweiz) anerkennen die Behörden grundsätzlich die in Ihrem Heimatland erforderlichen Qualifikationen. <br><br>
+            Internationale Zertifikate (wie ICC) oder anerkannte nationale Lizenzen (z. B. SBF Binnen unter Segel aus Deutschland) werden für kurzfristige Aufenthalte akzeptiert.
+          </p>
+        </div>
 
-            <div id="pass-price-display"
-              style="font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:400;color:var(--white);line-height:1;">
-              800</div>
-            <div style="font-size:14px;color:rgba(255,255,255,.5);margin-top:4px;margin-bottom:28px;">CHF</div>
+        <div style="margin-bottom:40px;">
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:16px;">Neue Einwohner in der Schweiz</h2>
+          <p style="font-size:15px;color:rgba(0,0,0,0.7);line-height:1.8;">
+            Wenn Sie sich in der Schweiz niederlassen, haben Sie 12 Monate Zeit, um Ihren ausländischen Führerschein umzutauschen oder den Schweizer Führerschein zu erwerben. Erkundigen Sie sich bei Ihrem Kanton.
+          </p>
+        </div>
 
-            <div style="height:1px;background:rgba(255,255,255,.08);margin-bottom:24px;"></div>
-
-            <div style="display:flex;justify-content:center;gap:32px;margin-bottom:28px;">
-              <div style="text-align:center;">
-                <div id="pass-AUSFLÜGE-display"
-                  style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--gold2);">5
-                </div>
-                <div
-                  style="font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;">
-                  AUSFLÜGE</div>
-              </div>
-              <div style="width:1px;background:rgba(255,255,255,.08);"></div>
-              <div style="text-align:center;">
-                <div id="pass-ppd-display"
-                  style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--gold2);">
-                  160</div>
-                <div
-                  style="font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;">
-                  CHF/Tag</div>
-              </div>
-              <div style="width:1px;background:rgba(255,255,255,.08);"></div>
-              <div style="text-align:center;">
-                <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--gold2);">
-                  12</div>
-                <div
-                  style="font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;">
-                  MONATE</div>
-              </div>
-            </div>
-
-            <div
-              style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:12px 16px;font-size:12px;color:rgba(255,255,255,.5);line-height:1.6;text-align:left;">
-              ⏰ Nur wochentags (ausser Feiertage) · Reservierung nach Verfügbarkeit
-            </div>
-          </div>
+        <div style="background:var(--sand); padding: 32px; border-radius: var(--r); margin-bottom:40px;">
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:24px;margin-bottom:12px;">Offizielle Quellen und Informationen</h2>
+          <p style="font-size:15px;color:rgba(0,0,0,0.7);line-height:1.8; margin-bottom:16px;">
+            Da sich die Vorschriften ändern können, bitten wir Sie, sich bei speziellen Fragen oder zur Validierung Ihres ausländischen Titels an die offiziellen Behörden zu wenden. Der Hafen von Cheyres befindet sich im Kanton Freiburg.
+          </p>
+          <a href="https://www.ocn.ch/de/schifffahrt/schiffsfuehrerausweise" target="_blank" style="display:inline-block; background:var(--navy); color:var(--white); padding:10px 20px; border-radius:4px; text-decoration:none; font-size:14px;">Besuchen Sie die Website des OCN Freiburg →</a>
         </div>
 
       </div>
     </div>
   </section>
-  <footer>
+<footer>
     <div class="fl">Segeln auf dem <span>Neuenburgersee</span></div>
     <p class="ft">Neuenburgersee · Hafen Cheyres, Schweiz</p>
     <div class="flinks">

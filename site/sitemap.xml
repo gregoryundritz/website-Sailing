@@ -129,4 +129,20 @@
     <priority>0.3</priority>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://voilier-neuchatel.ch/permis-bateau-suisse.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voilier-neuchatel.ch/permis-bateau-suisse.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://voilier-neuchatel.ch/de/segelpruefung-schweiz.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voilier-neuchatel.ch/permis-bateau-suisse.html" />
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://voilier-neuchatel.ch/de/segelpruefung-schweiz.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voilier-neuchatel.ch/permis-bateau-suisse.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://voilier-neuchatel.ch/de/segelpruefung-schweiz.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voilier-neuchatel.ch/permis-bateau-suisse.html" />
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>
