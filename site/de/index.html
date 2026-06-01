@@ -304,7 +304,7 @@
         </div>
         <div class="info-card">
           <div class="info-icon">🌙</div>
-          <div class="info-title">Nuitées Hafen de Cheyres</div>
+          <div class="info-title">Übernachtungen Hafen Cheyres</div>
           <div class="info-text">Kostenlose Übernachtungen. Restaurant, Duschen und Strand in der Nähe.</div>
         </div>
         <div class="info-card">
@@ -436,8 +436,9 @@
         if (tg) {
           tg.innerHTML = '';
           c.options.forEach(o => {
+            var tName = o.name === "Nettoyage final" ? "Reinigung" : o.name;
             var pl = o.per === 'jour' ? '/Tag' : o.per === 'forfait' ? '' : '/' + o.per;
-            tg.innerHTML += `<div class="opt-card"><div class="opt-card-name">${gi(o.name)} ${o.name}</div><div class="opt-card-price">+${o.price} CHF${pl}</div></div>`;
+            tg.innerHTML += `<div class="opt-card"><div class="opt-card-name">${gi(o.name)} ${tName}</div><div class="opt-card-price">+${o.price} CHF${pl}</div></div>`;
           });
 
         }
@@ -446,11 +447,12 @@
         if (ro) {
           ro.innerHTML = '';
           c.options.filter(o => !o.name.toLowerCase().includes('linge')).forEach(o => {
+            var tName = o.name === "Nettoyage final" ? "Reinigung" : o.name;
             var pl = o.per === 'jour' ? '/Tag' : o.per === 'forfait' ? '' : '/' + o.per;
             var reqAttr = o.required ? 'checked onclick="return false;"' : '';
             var disabledClass = o.required ? 'opt-disabled' : '';
             var inputAttrs = o.required ? 'checked onclick="return false;"' : 'onchange="updateTotal()"';
-            ro.innerHTML += `<label class="opt-check ${disabledClass}"><input type="checkbox" data-price="${o.price}" data-per="${o.per}" ${inputAttrs}><span class="oci"><span class="ocn">${gi(o.name)} ${o.name}</span><span class="ocp">+${o.price} CHF${pl}</span></span></label>`;
+            ro.innerHTML += `<label class="opt-check ${disabledClass}"><input type="checkbox" data-price="${o.price}" data-per="${o.per}" ${inputAttrs}><span class="oci"><span class="ocn">${gi(o.name)} ${tName}</span><span class="ocp">+${o.price} CHF${pl}</span></span></label>`;
           });
         }
       }

@@ -250,8 +250,9 @@
           <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:36px;">
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
               <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
-              <span><strong style="color:var(--white);">5 einzelne Tagesausflüge</strong> — nicht aneinanderfolgende
-                Tage, aber frei wählbar
+              <span><strong style="color:var(--white);">5 einzelne Tagesausflüge</strong> — frei wählbar an nicht
+                aneinanderfolgende
+                Tagen
               </span>
             </li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.75);">
@@ -274,7 +275,7 @@
               <span style="color:var(--gold2);font-size:16px;margin-top:1px;">✦</span>
               <span><strong style="color:var(--white);">Treibstoff und Briefing inbegriffen</strong></span>
             </li>
-            <li class="lang-sel"><a href="/tarifs.html">FR</a><span>|</span><a href="#" class="active">DE</a></li>
+            
           </ul>
           <a href="#resa-form" onclick="selectPassSkipper()"
             style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy);padding:14px 30px;border-radius:var(--r);font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .2s;"
@@ -411,8 +412,9 @@
         if (tg) {
           tg.innerHTML = '';
           c.options.forEach(o => {
+            var tName = o.name === "Nettoyage final" ? "Reinigung" : o.name;
             var pl = o.per === 'jour' ? '/Tag' : o.per === 'forfait' ? '' : '/' + o.per;
-            tg.innerHTML += `<div class="opt-card"><div class="opt-card-name">${gi(o.name)} ${o.name}</div><div class="opt-card-price">+${o.price} CHF${pl}</div></div>`;
+            tg.innerHTML += `<div class="opt-card"><div class="opt-card-name">${gi(o.name)} ${tName}</div><div class="opt-card-price">+${o.price} CHF${pl}</div></div>`;
           });
 
         }
@@ -421,11 +423,12 @@
         if (ro) {
           ro.innerHTML = '';
           c.options.filter(o => !o.name.toLowerCase().includes('linge')).forEach(o => {
+            var tName = o.name === "Nettoyage final" ? "Reinigung" : o.name;
             var pl = o.per === 'jour' ? '/Tag' : o.per === 'forfait' ? '' : '/' + o.per;
             var reqAttr = o.required ? 'checked onclick="return false;"' : '';
             var disabledClass = o.required ? 'opt-disabled' : '';
             var inputAttrs = o.required ? 'checked onclick="return false;"' : 'onchange="updateTotal()"';
-            ro.innerHTML += `<label class="opt-check ${disabledClass}"><input type="checkbox" data-price="${o.price}" data-per="${o.per}" ${inputAttrs}><span class="oci"><span class="ocn">${gi(o.name)} ${o.name}</span><span class="ocp">+${o.price} CHF${pl}</span></span></label>`;
+            ro.innerHTML += `<label class="opt-check ${disabledClass}"><input type="checkbox" data-price="${o.price}" data-per="${o.per}" ${inputAttrs}><span class="oci"><span class="ocn">${gi(o.name)} ${tName}</span><span class="ocp">+${o.price} CHF${pl}</span></span></label>`;
           });
         }
       }
