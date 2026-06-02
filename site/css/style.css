@@ -1333,3 +1333,13 @@
 .lang-sel a { color: var(--white); text-decoration: none; font-size: 13px; font-weight: 500; opacity: 0.5; transition: opacity 0.2s; }
 .lang-sel a.active { opacity: 1; font-weight: 700; }
 .lang-sel span { color: rgba(255,255,255,0.2); font-size: 12px; }
+
+    .lang-sel-mob { display: none; }
+    .mob-actions { display: flex; align-items: center; gap: 16px; }
+    @media(max-width:900px) {
+      .lang-sel-mob { display: flex; align-items: center; gap: 6px; }
+      .lang-sel-mob a { font-size: 13px; color: var(--white); text-decoration: none; opacity: 0.5; font-weight: 500; padding: 4px 6px; border-radius: 4px; }
+      .lang-sel-mob a.active { opacity: 1; font-weight: 700; background: rgba(255, 255, 255, 0.15); }
+      .lang-sel-mob span { color: rgba(255,255,255,0.2); font-size: 12px; }
+      nav ul .lang-sel { display: none !important; }
+    }
