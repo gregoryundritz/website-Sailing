@@ -108,7 +108,6 @@
   <!-- Hreflang Tags -->
   <link rel="alternate" hreflang="fr" href="https://voilier-neuchatel.ch/contact.html">
   <link rel="alternate" hreflang="de" href="https://voilier-neuchatel.ch/de/contact.html">
-  <link rel="alternate" hreflang="en" href="https://voilier-neuchatel.ch/en/contact.html">
   <link rel="alternate" hreflang="x-default" href="https://voilier-neuchatel.ch/contact.html">
 </head>
 
@@ -132,9 +131,10 @@
       <li><a href="galerie.html">Galerie</a></li>
       <li><a href="toerns.html">Routen</a></li>
       <li><a href="segelpruefung-schweiz.html">Segelprüfung</a></li>
-      <li><a href="index.html#apropos">Über uns</a></li>
+      <li><a href="ueber-uns.html">Über uns</a></li>
       <li><a href="kontakt.html" class="nav-btn">Kontakt & Buchung</a></li>
-      <li class="lang-sel"><a href="/contact.html" class="">FR</a><span>|</span><a href="/de/kontakt.html" class="active">DE</a><span>|</span><a href="/en/contact.html" class="">EN</a></li>
+      <li class="lang-sel"><a href="/contact.html" class="">FR</a><span>|</span><a href="/de/kontakt.html"
+          class="active">DE</a></li>
     </ul>
   </nav>
   <!-- Kontakt -->
@@ -200,8 +200,7 @@
 
             <div id="resa-type-tabs" style="display:flex;gap:8px;">
               <button type="button" id="tab-standard" onclick="selectTab('standard')"
-                style="flex:1;padding:12px;border-radius:var(--r);border:1.5px solid var(--navy);background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;">Location
-                standard</button>
+                style="flex:1;padding:12px;border-radius:var(--r);border:1.5px solid var(--navy);background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;">Standardmiete</button>
               <button type="button" id="tab-pass" onclick="selectTab('pass')"
                 style="flex:1;padding:12px;border-radius:var(--r);border:1.5px solid var(--sand2);background:var(--white);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;">⭐
                 Skipper Pass</button>
@@ -215,13 +214,13 @@
               <div>
                 <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--white);font-weight:400;">
                   Skipper Pass</div>
-                <div style="font-size:13px;color:rgba(255,255,255,.55);margin-top:3px;">5 AUSFLÜGE · semaine · année en
-                  cours</div>
+                <div style="font-size:13px;color:rgba(255,255,255,.55);margin-top:3px;">5 separate Tagesausflüge · unter
+                  der Woche · im Laufe des Jahres</div>
               </div>
             </div>
             <div style="height:1px;background:rgba(255,255,255,.1);margin-bottom:12px;"></div>
-            <p style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.7;">Une fois le paiement reçu, vous
-              pourrez réserver vos 5 AUSFLÜGE tout au long de l'année (jours de semaine hors jours fériés).</p>
+            <p style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.7;">Sobald die Zahlung eingegangen ist,
+              können Sie Ihre 5 Tagesausflüge das ganze Jahr über buchen (Wochentage ohne Feiertage).</p>
           </div>
 
           <!-- ÉTAPE 2 : Dates -->
@@ -498,7 +497,7 @@
             <div class="fg" id="section-permis">
               <label for="permis-upload" class="custom-file-upload"
                 style="width:100%; text-align:left; box-sizing:border-box;">
-                <span class="icon" style="margin-right:4px;font-size:14px;">📎</span> Copie permis voilier
+                <span class="icon" style="margin-right:4px;font-size:14px;">📎</span> Kopie Segelschein
               </label>
               <input type="file" id="permis-upload" name="permis_pdf" accept=".pdf,.jpg,.jpeg,.png">
             </div>
@@ -525,18 +524,19 @@
             <input type="checkbox" name="accept_cg" required
               style="width: 18px; height: 18px; margin-top: 1px; cursor: pointer; flex-shrink: 0;">
             <span>Ich habe die <a href="/de/agb.html" target="_blank"
-                style="color: var(--teal); text-decoration: underline; font-weight: 500;">Allgemeinen Mietbedingungen</a> gelesen und akzeptiere sie *</span>
+                style="color: var(--teal); text-decoration: underline; font-weight: 500;">Allgemeinen
+                Mietbedingungen</a> gelesen und akzeptiere sie *</span>
           </label>
         </div>
 
-        <button type="submit" class="f-sub" id="resa-submit-btn">Envoyer ma demande →</button>
+        <button type="submit" class="f-sub" id="resa-submit-btn">Anfrage senden →</button>
         <div id="resa-note" style="margin-top:12px;"></div>
 
         <div
           style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;padding:12px 16px;background:rgba(26,98,120,0.06);border-radius:var(--r);border:1px solid rgba(26,98,120,0.15);">
           <span style="font-size:18px;">🔒</span>
-          <span style="font-size:13px;color:var(--teal);font-weight:500;">Biscun paiement aujourd'hui — confirmation
-            sous 24h, lien de paiement ensuite.</span>
+          <span style="font-size:13px;color:var(--teal);font-weight:500;">Keine Zahlung jetzt, Bestätigung innerhalb von
+            24 Stunden</span>
         </div>
 
 
@@ -557,7 +557,7 @@
       <a href="preise.html">Preise</a>
       <a href="#infos">Infos</a>
       <a href="#avis">Bewertungen</a>
-      <a href="#apropos">Über uns</a>
+      <a href="ueber-uns.html">Über uns</a>
       <a href="kontakt.html">Kontakt</a>
       <a href="kontakt.html#reservation">Buchen</a>
       <a href="/de/agb.html">AGB</a>
