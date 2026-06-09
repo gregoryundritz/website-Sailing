@@ -96,8 +96,16 @@ def translate_html_file(filepath, source_lang="FR", target_lang="DE"):
     
     if short_lang == "de":
         translated_html = translated_html.replace('class="">DE', 'class="active">DE')
+        translated_html = translated_html.replace('<div>Segelboot <span>Genfersee</span></div>', '<div>Segelboot <span>Neuenburgersee</span></div>')
+        translated_html = translated_html.replace('<div>Segelboot <span>auf dem Neuenburgersee</span></div>', '<div>Segelboot <span>Neuenburgersee</span></div>')
+        translated_html = translated_html.replace('<div class="fl">Segelboot · <span>Genfersee</span></div>', '<div class="fl">Segelboot · <span>Neuenburgersee</span></div>')
     elif short_lang == "en":
         translated_html = translated_html.replace('class="">EN', 'class="active">EN')
+        translated_html = translated_html.replace('<div>Sailing boat <span>Lake Neuchâtel</span></div>', '<div>Sailing <span>Lake Neuchatel</span></div>')
+        translated_html = translated_html.replace('<div>Sailing boat <span>on Lake Neuchâtel</span></div>', '<div>Sailing <span>Lake Neuchatel</span></div>')
+        translated_html = translated_html.replace('<div class="fl">Sailing boat · <span>Lake Neuchâtel</span></div>', '<div class="fl">Sailing · <span>Lake Neuchatel</span></div>')
+        translated_html = translated_html.replace('>Itineraries<', '>Routes<')
+        translated_html = translated_html.replace('>ITINERARIES<', '>ROUTES<')
     
     # Inject CSS to fix badge-pill overflow for long translated words
     css_fix = """
