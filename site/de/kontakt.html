@@ -130,7 +130,7 @@
       <li><a href="segelpruefung-schweiz.html">Segelschein</a></li>
       <li><a href="ueber-uns.html">Über uns</a></li>
       <li><a href="kontakt.html" class="nav-btn">Kontakt &amp; Buchung</a></li>
-      <li class="lang-sel"><a href="/kontakt.html" class="">FR</a><span>|</span><a href="/de/kontakt.html" class="active">DE</a><span>|</span><a href="/en/contact.html" class="">EN</a></li>
+      <li class="lang-sel"><a href="/contact.html" class="">FR</a><span>|</span><a href="/de/kontakt.html" class="active">DE</a><span>|</span><a href="/en/contact.html" class="">EN</a></li>
     </ul>
   </nav>
 <!-- CONTACT -->
@@ -193,7 +193,10 @@
 
           <!-- ÉTAPE 1 : Type de séjour -->
           <div class="resa-step" style="margin-bottom:24px;" id="section-type">
-            <div style="font-size:14px; font-weight:600; margin-bottom:12px; color:var(--navy);">Wählen Sie Ihre Buchungsart :</div>
+            <div style="width: 100%; overflow: hidden; margin-bottom: 20px; border-radius: var(--r); box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+              <iframe src="https://calendar.google.com/calendar/embed?height=400&wkst=2&ctz=Europe%2FZurich&showPrint=0&showTitle=0&showTabs=0&showCalendars=0&showTz=0&hl=de&src=MzUyYTIzZjE3MGQ0YjhhMGQ0MGIxODMzMDNiYjEyZWE0MDM1MGZjMmU0MjBiMTJkYWM2NDg2OTVkYjhhNDA5NUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%234285f4" style="border-width:0; width: 100%; height: 400px;" frameborder="0" scrolling="no"></iframe>
+            </div>
+            <div class="resa-step-title">Wählen Sie Ihre Buchungsart:</div>
             <div id="resa-type-tabs" style="display:flex; gap:8px; flex-wrap: wrap;">
               <label class="opt-check" style="flex:1; min-width:200px; margin:0;">
                 <input type="radio" name="resa_type" value="standard" checked onchange="selectTab('standard')">
@@ -225,6 +228,7 @@
 
           <!-- ÉTAPE 2 : Dates -->
           <div class="resa-step" id="section-standard">
+            <div class="resa-step-title">Ihre Reisedaten <span style="font-size:13px; font-weight:400; color:var(--muted);">(Verfügbarkeit oben prüfen)</span>:</div>
             <div class="fr">
               <div class="fg"><input type="text" name="date_depart" id="fp-start" placeholder="Abreisedatum" readonly
                   required style="cursor:pointer"></div>
@@ -237,6 +241,7 @@
 
           <!-- ÉTAPE 3 : Options -->
           <div class="resa-step" id="section-options">
+            <div class="resa-step-title">Zusätzliche Optionen:</div>
 
             <div class="opts-checks" id="resa-options">
               <label class="opt-check"><input type="checkbox" data-price="60" data-per="forfait"
@@ -259,7 +264,7 @@
           <!-- TOTAL VISIBLE ICI -->
           <div id="total-bar-wrap">
             <div class="total-bar">
-              <span>Gesamtbetrag inkl. MwSt. </span>
+              <span>Gesamtbetrag inkl. MwSt.</span>
               <span class="total-val" id="resa-total">— CHF</span>
             </div>
           </div>
@@ -270,8 +275,8 @@
           <div class="resa-step">
 
             <div class="fr">
-              <div class="fg"><input type="text" name="nom" placeholder="Vorname & Name *" required></div>
-              <div class="fg"><input type="email" name="email" placeholder="E-Mail *" required></div>
+              <div class="fg"><input type="text" name="nom" placeholder="Vorname & Name *" required  ></div>
+              <div class="fg"><input type="email" name="email" placeholder="E-Mail *" required  ></div>
             </div>
             <div class="fr">
               <div class="fg" style="grid-column:1/-1"><input type="text" name="rue" placeholder="Strasse, Hausnummer"
@@ -619,10 +624,13 @@
         function t(str) {
            if (lang === 'fr') return str;
            if (!window.VOILIER_TRANSLATIONS) return str;
-           for (var k in window.VOILIER_TRANSLATIONS) {
+           var keys = Object.keys(window.VOILIER_TRANSLATIONS).sort(function(a, b) { return b.length - a.length; });
+           for (var i = 0; i < keys.length; i++) {
+               var k = keys[i];
                if (str.toLowerCase().includes(k.toLowerCase())) {
                    var trans = window.VOILIER_TRANSLATIONS[k][lang];
-                   if(trans) return str.replace(new RegExp(k, 'i'), trans);
+                   var escapedK = k.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+                   if(trans) return str.replace(new RegExp(escapedK, 'i'), trans);
                }
            }
            return str;
@@ -677,6 +685,79 @@
     }
     initFp();
 
+    
+    // ── Form Validation & Session Storage ──
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.querySelector('form[name="reservation"]');
+      if (!form) return;
+      
+      const lang = document.documentElement.lang || 'fr';
+      const msgs = {
+        fr: { req: 'Veuillez renseigner ce champ.', email: 'Veuillez entrer une adresse e-mail valide.' },
+        en: { req: 'Please fill out this field.', email: 'Please enter a valid email address.' },
+        de: { req: 'Bitte füllen Sie dieses Feld aus.', email: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.' }
+      };
+
+      // Custom validation messages
+      Array.from(form.elements).forEach(el => {
+        // Remove inline handlers if they exist
+        el.removeAttribute('oninvalid');
+        el.removeAttribute('oninput');
+        
+        el.addEventListener('invalid', function(e) {
+          if (el.validity.valueMissing) el.setCustomValidity(msgs[lang].req);
+          else if (el.validity.typeMismatch) el.setCustomValidity(msgs[lang].email);
+        });
+        el.addEventListener('input', function(e) {
+          el.setCustomValidity('');
+          saveFormData();
+        });
+      });
+
+      // Session storage logic
+      function saveFormData() {
+        const formData = new FormData(form);
+        const data = {};
+        for (let [k, v] of formData.entries()) {
+          data[k] = v;
+        }
+        sessionStorage.setItem('resa_draft', JSON.stringify(data));
+      }
+
+      function loadFormData() {
+        const saved = sessionStorage.getItem('resa_draft');
+        if (!saved) return;
+        try {
+          const data = JSON.parse(saved);
+          Object.keys(data).forEach(k => {
+            const el = form.elements[k];
+            if (!el) return;
+            if (el.type === 'checkbox' || el.type === 'radio') {
+              if (el instanceof RadioNodeList) {
+                el.value = data[k];
+              } else {
+                el.checked = (data[k] === el.value || data[k] === 'on');
+              }
+            } else {
+              el.value = data[k];
+            }
+          });
+          if (data.date_depart && window.fpS) window.fpS.setDate(data.date_depart);
+          if (data.date_retour && window.fpE) window.fpE.setDate(data.date_retour);
+          if (typeof updateTotal === 'function') updateTotal();
+        } catch (e) {
+          console.error('Failed to parse form draft', e);
+        }
+      }
+      
+      // Load form data immediately
+      loadFormData();
+      
+      // Also save data on flatpickr changes
+      if (window.fpS) window.fpS.config.onChange.push(saveFormData);
+      if (window.fpE) window.fpE.config.onChange.push(saveFormData);
+    });
+
     // ── Total ──
     function updateTotal() {
       var s = fpS && fpS.selectedDates[0], e = fpE && fpE.selectedDates[0];
@@ -694,8 +775,11 @@
         });
       }
       if (dd) {
-        var opts = { day: 'numeric', month: 'long', year: 'numeric' };
-        dd.textContent = days + ' jour' + (days > 1 ? 's' : '') + ' · du ' + s.toLocaleDateString('fr-CH', opts) + ' au ' + e.toLocaleDateString('fr-CH', opts);
+        var lang = document.documentElement.lang || 'fr';
+        var t_jours = (lang === 'de') ? ' Tage' : ((lang === 'en') ? ' days' : ' jours');
+        var t_jour = (lang === 'de') ? ' Tag' : ((lang === 'en') ? ' day' : ' jour');
+        var pricePerDay = Math.round(basePrice / days);
+        dd.textContent = days + (days > 1 ? t_jours : t_jour) + ' (' + pricePerDay + ' CHF / ' + t_jour.trim() + ')';
         dd.style.display = 'block';
       }
       if (tt) tt.textContent = total.toLocaleString('fr-CH') + ' CHF';

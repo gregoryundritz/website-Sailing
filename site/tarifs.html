@@ -426,10 +426,13 @@
         function t(str) {
            if (lang === 'fr') return str;
            if (!window.VOILIER_TRANSLATIONS) return str;
-           for (var k in window.VOILIER_TRANSLATIONS) {
+           var keys = Object.keys(window.VOILIER_TRANSLATIONS).sort(function(a, b) { return b.length - a.length; });
+           for (var i = 0; i < keys.length; i++) {
+               var k = keys[i];
                if (str.toLowerCase().includes(k.toLowerCase())) {
                    var trans = window.VOILIER_TRANSLATIONS[k][lang];
-                   if(trans) return str.replace(new RegExp(k, 'i'), trans);
+                   var escapedK = k.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+                   if(trans) return str.replace(new RegExp(escapedK, 'i'), trans);
                }
            }
            return str;
