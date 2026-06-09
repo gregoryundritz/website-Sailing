@@ -223,9 +223,9 @@
           <!-- ÉTAPE 2 : Dates -->
           <div class="resa-step" id="section-standard">
             <div class="fr">
-              <div class="fg"><input type="text" name="date_depart" id="fp-start" placeholder="Date de départ" readonly
+              <div class="fg"><input type="text" name="date_depart" id="fp-start" placeholder="Abreisedatum" readonly
                   required style="cursor:pointer"></div>
-              <div class="fg"><input type="text" name="date_retour" id="fp-end" placeholder="Date de retour" readonly
+              <div class="fg"><input type="text" name="date_retour" id="fp-end" placeholder="Rückgabedatum" readonly
                   required style="cursor:pointer"></div>
             </div>
             <div id="resa-duration-display" class="duration-display"></div>
@@ -265,16 +265,16 @@
           <div class="resa-step">
 
             <div class="fr">
-              <div class="fg"><input type="text" name="nom" placeholder="Prénom & Nom *" required></div>
-              <div class="fg"><input type="email" name="email" placeholder="Email *" required></div>
+              <div class="fg"><input type="text" name="nom" placeholder="Vorname & Name *" required></div>
+              <div class="fg"><input type="email" name="email" placeholder="E-Mail *" required></div>
             </div>
             <div class="fr">
-              <div class="fg" style="grid-column:1/-1"><input type="text" name="rue" placeholder="Rue, numéro"
+              <div class="fg" style="grid-column:1/-1"><input type="text" name="rue" placeholder="Strasse, Hausnummer"
                   style="width:100%"></div>
             </div>
             <div class="fr">
-              <div class="fg"><input type="text" name="npa" placeholder="NPA"></div>
-              <div class="fg"><input type="text" name="localite" placeholder="Localité"></div>
+              <div class="fg"><input type="text" name="npa" placeholder="PLZ"></div>
+              <div class="fg"><input type="text" name="localite" placeholder="Ort"></div>
             </div>
           </div>
           <div class="fr">
@@ -478,7 +478,7 @@
                 <option value="Zimbabwe">Simbabwe</option>
               </select>
             </div>
-            <div class="fg"><input type="tel" name="telephone" placeholder="Téléphone"></div>
+            <div class="fg"><input type="tel" name="telephone" placeholder="Telefon"></div>
           </div>
           <div class="fr">
             <div class="fg">
@@ -506,7 +506,7 @@
 
         <!-- ÉTAPE 5 : Message -->
         <div class="resa-step" style="margin-top:8px;">
-          <div class="fg" style="margin-bottom:0;"><textarea name="message" placeholder="Votre message"></textarea>
+          <div class="fg" style="margin-bottom:0;"><textarea name="message" placeholder="Ihre Nachricht"></textarea>
           </div>
         </div>
 
@@ -630,7 +630,7 @@
             var reqAttr = o.required ? 'checked onclick="return false;"' : '';
             var disabledClass = o.required ? 'opt-disabled' : '';
             var inputAttrs = o.required ? 'checked onclick="return false;"' : 'onchange="updateTotal()"';
-            ro.innerHTML += `<label class="opt-check ${disabledClass}"><input type="checkbox" data-price="${o.price}" data-per="${o.per}" ${inputAttrs}><span class="oci"><span class="ocn">${gi(o.name)} ${o.name}</span><span class="ocp">+${o.price} CHF${pl}</span></span></label>`;
+            ro.innerHTML += `<label class="opt-check ${disabledClass}"><input type="checkbox" data-price="${o.price}" data-per="${o.per}" ${inputAttrs}><span class="oci"><span style="display:flex; align-items:center;"><span class="oc-radio"></span><span class="ocn">${gi(o.name)} ${o.name}</span></span><span class="ocp">+${o.price} CHF${pl}</span></span></label>`;
           });
         }
       }
@@ -791,13 +791,6 @@
       var detailsHideArea = document.getElementById('resa-details-hide');
 
       if (tab === 'pass') {
-        btnP.style.background = 'var(--gold)';
-        btnP.style.color = 'var(--navy)';
-        btnP.style.borderColor = 'var(--gold)';
-        btnS.style.background = 'var(--white)';
-        btnS.style.color = 'var(--muted)';
-        btnS.style.borderColor = 'var(--sand2)';
-
         if (secP) secP.style.display = 'block';
         if (datesArea) datesArea.style.display = 'none';
 
@@ -808,15 +801,12 @@
         if (tt) tt.textContent = '800 CHF';
         var wrap = document.getElementById('total-bar-wrap');
         if (wrap) wrap.style.display = 'block';
+        var rad = document.querySelector('input[value=\"pass\"]');
+        if(rad) rad.checked = true;
       } else {
-        btnS.style.background = 'var(--navy)';
-        btnS.style.color = 'var(--white)';
-        btnS.style.borderColor = 'var(--navy)';
-        btnP.style.background = 'var(--white)';
-        btnP.style.color = 'var(--muted)';
-        btnP.style.borderColor = 'var(--sand2)';
-
         if (secP) secP.style.display = 'none';
+        var rad = document.querySelector('input[value=\"standard\"]');
+        if(rad) rad.checked = true;
         if (datesArea) datesArea.style.display = 'block';
 
         var secOpts = document.getElementById('section-options');
