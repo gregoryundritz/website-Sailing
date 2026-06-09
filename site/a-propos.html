@@ -102,7 +102,7 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 
 
   <!-- Hreflang Tags -->
@@ -114,7 +114,7 @@
 <body>
 
     <nav>
-    <a href="index.html" class="logo"><img src="/img/logo-vn-white.png" alt="VN Logo" style="height: 36px; width: auto; display: block;"><div>Voilier <span>lac de Neuchâtel</span></div></a>
+    <a href="index.html" class="logo"><img src="img/logo-vn-white.png" alt="VN Logo" style="height: 36px; width: auto; display: block;"><div>Voilier <span>lac de Neuchâtel</span></div></a>
     <div class="mob-actions">
       <div class="lang-sel-mob"><a href="#" class="active">FR</a><span>|</span><a href="/de/bewertungen.html">DE</a></div>
       <div class="menu-btn" onclick="document.querySelector('nav ul').classList.toggle('show')">☰</div>
@@ -169,7 +169,7 @@
 
         <!-- Photo coucher de soleil / navigation -->
         <div style="position:relative;">
-          <img src="/img/IMG_4793.jpeg" alt="Navigation sur le lac de Neuchâtel" loading="lazy"
+          <img src="img/IMG_4793.jpeg" alt="Navigation sur le lac de Neuchâtel" loading="lazy"
             style="width:100%;height:auto;border-radius:2px;display:block;">
           <div
             style="position:absolute;bottom:24px;left:-20px;background:var(--navy);color:var(--white);padding:18px 24px;border-radius:var(--r);box-shadow:0 4px 20px rgba(0,0,0,.2);">
@@ -204,7 +204,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
-  <script src="/js/config.js"></script>
+  <script src="js/config.js"></script>
   <script>
     // ── Reveal ──
     const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target) } }), { threshold: .08 });

@@ -69,6 +69,13 @@ def translate_html_file(filepath, source_lang="FR", target_lang="DE"):
     elif target_lang == "EN-GB":
         translated_html = re.sub(r'\bport\b', 'harbour', translated_html)
         translated_html = re.sub(r'\bPort\b', 'Harbour', translated_html)
+        translated_html = re.sub(r'\bhire\b', 'rental', translated_html, flags=re.IGNORECASE)
+    
+    # Map relative paths back to parent directory for translated subdirectories
+    translated_html = translated_html.replace('src="img/', 'src="../img/')
+    translated_html = translated_html.replace('href="img/', 'href="../img/')
+    translated_html = translated_html.replace('href="css/', 'href="../css/')
+    translated_html = translated_html.replace('src="js/', 'src="../js/')
     
     # Post-process: Restore links mapped to localized names
     for fr_page, translations in ROUTE_MAP.items():
@@ -97,7 +104,8 @@ def translate_html_file(filepath, source_lang="FR", target_lang="DE"):
     # Inject CSS to fix badge-pill overflow for long translated words
     css_fix = """
     <style>
-      .badge-pill { white-space: normal !important; height: auto !important; padding: 6px 12px !important; text-align: center; line-height: 1.2; }
+      .badge-pill { white-space: normal !important; height: auto !important; max-width: 100%; box-sizing: border-box; }
+      .badge-pill span { word-break: break-word; hyphens: auto; letter-spacing: 0.05em !important; line-height: 1.4; display: block; }
     </style>
     </head>
     """

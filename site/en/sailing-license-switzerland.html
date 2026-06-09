@@ -102,7 +102,7 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 
 
   <!-- Hreflang Tags -->
@@ -132,7 +132,8 @@
   </script>
 
     <style>
-      .badge-pill { white-space: normal !important; height: auto !important; padding: 6px 12px !important; text-align: center; line-height: 1.2; }
+      .badge-pill { white-space: normal !important; height: auto !important; max-width: 100%; box-sizing: border-box; }
+      .badge-pill span { word-break: break-word; hyphens: auto; letter-spacing: 0.05em !important; line-height: 1.4; display: block; }
     </style>
     </head>
     
@@ -140,7 +141,7 @@
 <body>
 
   <nav>
-    <a href="index.html" class="logo"><img src="/img/logo-vn-white.png" alt="VN Logo"
+    <a href="index.html" class="logo"><img src="../img/logo-vn-white.png" alt="VN Logo"
         style="height: 36px; width: auto; display: block;">
       <div>Sailing <span>on Lake Neuchâtel</span></div>
     </a>
@@ -173,14 +174,14 @@
           <h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:16px;">The 15m² rule in Switzerland</h2>
           <p style="font-size:15px;color:rgba(0,0,0,0.7);line-height:1.8;">
             In Switzerland, recreational boating is strictly regulated. A <strong>sailing licence (category D)</strong> is mandatory as soon as the boat’s sail area exceeds <strong>15 m²</strong><br><br>. 
-            As our Maxus 21 sailing boat has a sail area of approximately 21 m², <strong>a sailing licence is strictly required</strong> to hire and sail it. A motorboat licence (category A), however, is not required, as our outboard motor has a power output of less than 6 kW (8 hp).
+            As our Maxus 21 sailing boat has a sail area of approximately 21 m², <strong>a sailing licence is strictly required</strong> to rental and sail it. A motorboat licence (category A), however, is not required, as our outboard motor has a power output of less than 6 kW (8 hp).
           </p>
         </div>
 
         <div style="margin-bottom:40px;">
           <h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:16px;">I am Swiss and I have my licence</h2>
           <p style="font-size:15px;color:rgba(0,0,0,0.7);line-height:1.8;">
-            Perfect! If you hold a sailing licence (category D) issued by the Swiss Federal Office of Navigation, you can hire our sailing boat. When you make your first booking, we will ask you to provide a photo of your licence.
+            Perfect! If you hold a sailing licence (category D) issued by the Swiss Federal Office of Navigation, you can rental our sailing boat. When you make your first booking, we will ask you to provide a photo of your licence.
           </p>
         </div>
 
@@ -235,12 +236,12 @@
       <a href="/legal-notice.html">Legal Notice</a>
     </div>
     <div class="fdiv"></div>
-    <p class="fcopy">© 2026 · Lake Neuchâtel Sailing Boat · All rights reserved</p>
+    <p class="fcopy">© 2026 · Lake Neuchâtel Sailing · All rights reserved</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
-  <script src="/js/config.js"></script>
+  <script src="../js/config.js"></script>
   <script>
     // ── Reveal ──
     const obs = new IntersectionObserver(es =&gt; es.forEach(e =&gt; { if (e.isIntersecting) { e.target.classList.add(&#x27;in&#x27;); obs.unobserve(e.target) } }), { threshold: .08 });

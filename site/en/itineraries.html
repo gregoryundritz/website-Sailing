@@ -102,7 +102,7 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 
 
   <!-- Hreflang Tags -->
@@ -111,7 +111,8 @@
   <link rel="alternate" hreflang="x-default" href="https://voilier-neuchatel.ch/itineraires.html">
 
     <style>
-      .badge-pill { white-space: normal !important; height: auto !important; padding: 6px 12px !important; text-align: center; line-height: 1.2; }
+      .badge-pill { white-space: normal !important; height: auto !important; max-width: 100%; box-sizing: border-box; }
+      .badge-pill span { word-break: break-word; hyphens: auto; letter-spacing: 0.05em !important; line-height: 1.4; display: block; }
     </style>
     </head>
     
@@ -119,7 +120,7 @@
 <body>
 
   <nav>
-    <a href="index.html" class="logo"><img src="/img/logo-vn-white.png" alt="VN Logo"
+    <a href="index.html" class="logo"><img src="../img/logo-vn-white.png" alt="VN Logo"
         style="height: 36px; width: auto; display: block;">
       <div>Sailing <span>on Lake Neuchâtel</span></div>
     </a>
@@ -166,7 +167,7 @@
           <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:16px;">Grand Tour of the Lake</h3>
           <p style="font-size:15px;color:rgba(0,0,0,0.6);line-height:1.6;margin-bottom:16px;">Set off for a 2- to 3-day
             cruise around the lake. Cross over to Gorgier, head up to Neuchâtel, then follow the north shore before
-            heading back down towards Cheyres.</p>
+            heading back down to Cheyres.</p>
           <ul style="font-size:14px;color:rgba(0,0,0,0.5);margin-left:20px;line-height:1.8;">
             <li>Duration: 2 to 3 days (weekend)</li>
             <li>Difficulty: Moderate</li>
@@ -205,7 +206,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
-  <script src="/js/config.js"></script>
+  <script src="../js/config.js"></script>
   <script>
     // ── Reveal ──
     const obs = new IntersectionObserver(es =&gt; es.forEach(e =&gt; { if (e.isIntersecting) { e.target.classList.add(&#x27;in&#x27;); obs.unobserve(e.target) } }), { threshold: .08 });
