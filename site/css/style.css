@@ -1347,12 +1347,17 @@
 .lang-sel a.active { opacity: 1; font-weight: 700; }
 .lang-sel span { color: rgba(255,255,255,0.2); font-size: 12px; }
 
-    .lang-sel-mob { display: none; }
     .mob-actions { display: flex; align-items: center; gap: 16px; }
     @media(max-width:900px) {
-      .lang-sel-mob { display: flex; align-items: center; gap: 8px; }
-      .lang-sel-mob a { font-size: 14px; color: var(--white); text-decoration: none; opacity: 0.5; font-weight: 500; padding: 12px 14px; border-radius: 8px; margin: 0 -4px; }
-      .lang-sel-mob a.active { opacity: 1; font-weight: 700; background: rgba(255, 255, 255, 0.15); }
-      .lang-sel-mob span { color: rgba(255,255,255,0.2); font-size: 12px; }
-      nav ul .lang-sel { display: none !important; }
+      nav ul .lang-sel {
+        display: flex !important;
+        justify-content: center;
+        margin: 24px 0 0 0;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+      nav ul .lang-sel a {
+        font-size: 16px;
+        padding: 8px 16px;
+      }
     }

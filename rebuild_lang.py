@@ -31,8 +31,7 @@ for filepath in html_files:
     de_url = "/de/" if de_page == "index.html" else f"/de/{de_page}"
     en_url = "/en/" if en_page == "index.html" else f"/en/{en_page}"
     
-    new_mob = f'<div class="lang-sel-mob"><a href="#" class="active">FR</a><span>|</span><a href="{de_url}" class="">DE</a><span>|</span><a href="{en_url}" class="">EN</a></div>'
-    content = re.sub(r'<div class="lang-sel-mob">.*?</div>', new_mob, content)
+    content = re.sub(r'<div class="lang-sel-mob">.*?</div>', '', content, flags=re.DOTALL)
     
     new_desk = f'<li class="lang-sel"><a href="{fr_url}" class="active">FR</a><span>|</span><a href="{de_url}" class="">DE</a><span>|</span><a href="{en_url}" class="">EN</a></li>'
     content = re.sub(r'<li class="lang-sel">.*?</li>', new_desk, content)
