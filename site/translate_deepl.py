@@ -15,9 +15,35 @@ if not API_KEY:
 
 translator = deepl.Translator(API_KEY)
 
+ROUTE_MAP = {
+    'index.html': {'de': 'index.html', 'en': 'index.html'},
+    'tarifs.html': {'de': 'preise.html', 'en': 'prices.html'},
+    'contact.html': {'de': 'kontakt.html', 'en': 'contact.html'},
+    'galerie.html': {'de': 'galerie.html', 'en': 'gallery.html'},
+    'itineraires.html': {'de': 'toerns.html', 'en': 'itineraries.html'},
+    'avis.html': {'de': 'bewertungen.html', 'en': 'reviews.html'},
+    'permis-bateau-suisse.html': {'de': 'segelpruefung-schweiz.html', 'en': 'sailing-license-switzerland.html'},
+    'conditions-generales.html': {'de': 'agb.html', 'en': 'terms-and-conditions.html'},
+    'mentions-legales.html': {'de': 'impressum.html', 'en': 'legal-notice.html'},
+    'a-propos.html': {'de': 'ueber-uns.html', 'en': 'about.html'}
+}
+
 def translate_html_file(filepath, source_lang="FR", target_lang="DE"):
     with open(filepath, 'r', encoding='utf-8') as f:
         html_content = f.read()
+        
+    basename = os.path.basename(filepath)
+    short_lang = target_lang.split('-')[0].lower()
+
+    # Pre-process: Protect links so DeepL doesn't translate them into unpredictable strings
+    for fr_page in ROUTE_MAP.keys():
+        # Match href="page.html" or href="/page.html"
+        html_content = html_content.replace(f'href="{fr_page}"', f'href="LINK_PROTECT_{fr_page}"')
+        html_content = html_content.replace(f'href="/{fr_page}"', f'href="/LINK_PROTECT_{fr_page}"')
+        
+        # Also protect the language switcher paths
+        html_content = html_content.replace(f'href="/de/{fr_page}"', f'href="/de/LINK_PROTECT_{fr_page}"')
+        html_content = html_content.replace(f'href="/en/{fr_page}"', f'href="/en/LINK_PROTECT_{fr_page}"')
 
     print(f"Translating {filepath} to {target_lang}...")
     
@@ -33,24 +59,26 @@ def translate_html_file(filepath, source_lang="FR", target_lang="DE"):
     
     if target_lang == "DE":
         # --- Swiss German specificities ---
-        # In Switzerland, the "ß" (Eszett) is not used. It is replaced by "ss".
         translated_html = translated_html.replace('ß', 'ss')
         translated_html = translated_html.replace('ẞ', 'SS')
-        
-        # Custom Swiss vocabulary replacements
         translated_html = translated_html.replace('Verleih', 'Vermietung')
         translated_html = translated_html.replace('verleih', 'vermietung')
         translated_html = translated_html.replace('Bootsführerschein', 'Segelschein')
         translated_html = translated_html.replace('bootsführerschein', 'segelschein')
         
     elif target_lang == "EN-GB":
-        # Custom English vocabulary replacements
-        # Use regex \b to match whole words and avoid replacing inside 'viewport' or 'important'
         translated_html = re.sub(r'\bport\b', 'harbour', translated_html)
         translated_html = re.sub(r'\bPort\b', 'Harbour', translated_html)
     
-    # For languages like EN-GB, use 'en' for folder and lang attribute
-    short_lang = target_lang.split('-')[0].lower()
+    # Post-process: Restore links mapped to localized names
+    for fr_page, translations in ROUTE_MAP.items():
+        localized_name = translations.get(short_lang, fr_page)
+        translated_html = translated_html.replace(f'href="LINK_PROTECT_{fr_page}"', f'href="{localized_name}"')
+        translated_html = translated_html.replace(f'href="/LINK_PROTECT_{fr_page}"', f'href="/{localized_name}"')
+        
+        # Restore the language switcher paths.
+        translated_html = translated_html.replace(f'href="/de/LINK_PROTECT_{fr_page}"', f'href="/de/{translations.get("de", fr_page)}"')
+        translated_html = translated_html.replace(f'href="/en/LINK_PROTECT_{fr_page}"', f'href="/en/{translations.get("en", fr_page)}"')
     
     # Update the lang attribute manually to avoid breaking formatting
     translated_html = translated_html.replace('lang="fr"', f'lang="{short_lang}"')
@@ -75,12 +103,12 @@ def translate_html_file(filepath, source_lang="FR", target_lang="DE"):
     """
     translated_html = translated_html.replace('</head>', css_fix)
 
-    # Determine output path
-    basename = os.path.basename(filepath)
+    # Determine output path with localized name
+    target_basename = ROUTE_MAP.get(basename, {}).get(short_lang, basename)
     output_dir = os.path.join(os.path.dirname(__file__), short_lang)
     os.makedirs(output_dir, exist_ok=True)
     
-    output_path = os.path.join(output_dir, basename)
+    output_path = os.path.join(output_dir, target_basename)
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(translated_html)
         
