@@ -192,6 +192,19 @@
         <div class="resa-body">
 
           <!-- ÉTAPE 1 : Type de séjour -->
+          <div class="resa-step" style="margin-bottom:24px;" id="section-type">
+            <div style="font-size:14px; font-weight:600; margin-bottom:12px; color:var(--navy);">Wählen Sie Ihre Buchungsart :</div>
+            <div id="resa-type-tabs" style="display:flex; gap:8px; flex-wrap: wrap;">
+              <label class="opt-check" style="flex:1; min-width:200px; margin:0;">
+                <input type="radio" name="resa_type" value="standard" checked onchange="selectTab('standard')">
+                <span class="oci" style="height:100%;"><span style="display:flex; align-items:center;"><span class="oc-radio"></span><span class="ocn" style="font-weight:600;" id="tab-label-standard">Standardmiete</span></span></span>
+              </label>
+              <label class="opt-check" style="flex:1; min-width:200px; margin:0;">
+                <input type="radio" name="resa_type" value="pass" onchange="selectTab('pass')">
+                <span class="oci" style="height:100%;"><span style="display:flex; align-items:center;"><span class="oc-radio"></span><span class="ocn" style="font-weight:600;" id="tab-label-pass">⭐ Skipper Pass</span></span></span>
+              </label>
+            </div>
+          </div>
           
 
           <!-- Skipper Pass info (shown for pass tab) -->
@@ -241,18 +254,7 @@
 
 
 
-          <div class="resa-step" style="margin-bottom:24px;">
-
-            <div style="font-size:14px; font-weight:600; margin-bottom:12px; color:var(--navy);">Wählen Sie Ihre Buchungsart :</div>
-            <div id="resa-type-tabs" style="display:flex;gap:8px;">
-              <button type="button" id="tab-standard" onclick="selectTab('standard')"
-                style="flex:1;padding:12px;border-radius:var(--r);border:1.5px solid var(--navy);background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;">Vermietung
-                Standard</button>
-              <button type="button" id="tab-pass" onclick="selectTab('pass')"
-                style="flex:1;padding:12px;border-radius:var(--r);border:1.5px solid var(--sand2);background:var(--white);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;">⭐
-                Skipper-Pass</button>
-            </div>
-          </div>
+          
 
           <!-- TOTAL VISIBLE ICI -->
           <div id="total-bar-wrap">
