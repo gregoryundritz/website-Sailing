@@ -56,6 +56,25 @@ def translate_html_file(filepath, source_lang="FR", target_lang="DE"):
     translated_html = translated_html.replace('lang="fr"', f'lang="{short_lang}"')
     translated_html = translated_html.replace("lang='fr'", f"lang='{short_lang}'")
     
+    # Fix active state in language selector
+    translated_html = translated_html.replace('class="active">FR', 'class="">FR')
+    
+    if short_lang == "de":
+        translated_html = translated_html.replace('href="/de/" class=""', 'href="/de/" class="active"')
+        translated_html = translated_html.replace('href="/de/index.html" class=""', 'href="/de/index.html" class="active"')
+    elif short_lang == "en":
+        translated_html = translated_html.replace('href="/en/" class=""', 'href="/en/" class="active"')
+        translated_html = translated_html.replace('href="/en/index.html" class=""', 'href="/en/index.html" class="active"')
+    
+    # Inject CSS to fix badge-pill overflow for long translated words
+    css_fix = """
+    <style>
+      .badge-pill { white-space: normal !important; height: auto !important; padding: 6px 12px !important; text-align: center; line-height: 1.2; }
+    </style>
+    </head>
+    """
+    translated_html = translated_html.replace('</head>', css_fix)
+
     # Determine output path
     basename = os.path.basename(filepath)
     output_dir = os.path.join(os.path.dirname(__file__), short_lang)
