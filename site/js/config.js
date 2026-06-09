@@ -45,3 +45,10 @@ window.VOILIER_CONFIG = {
   pass_sorties: 5,
   pass_guests: 2
 };
+
+window.VOILIER_TRANSLATIONS = {
+  'Nettoyage final (obligatoire)': { 'de': 'Endreinigung (obligatorisch)', 'en': 'Final cleaning (mandatory)' },
+  'Nettoyage final': { 'de': 'Endreinigung', 'en': 'Final cleaning' },
+  'Paddle': { 'de': 'Stand-Up Paddle', 'en': 'Paddleboard' },
+  'Gennaker': { 'de': 'Gennaker', 'en': 'Gennaker' }
+};

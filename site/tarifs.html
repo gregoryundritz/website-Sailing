@@ -422,14 +422,26 @@
       }
       // Options grid in tarifs section
       if (c.options && c.options.length) {
+        var lang = document.documentElement.lang || 'fr';
+        function t(str) {
+           if (lang === 'fr') return str;
+           if (!window.VOILIER_TRANSLATIONS) return str;
+           for (var k in window.VOILIER_TRANSLATIONS) {
+               if (str.toLowerCase().includes(k.toLowerCase())) {
+                   var trans = window.VOILIER_TRANSLATIONS[k][lang];
+                   if(trans) return str.replace(new RegExp(k, 'i'), trans);
+               }
+           }
+           return str;
+        }
         var icons = { paddle: '🏄', nettoyage: '🧹', briefing: '🧭', caution: '🛡️', barbecue: '🍖', gilet: '🦺', 'apéro': '🥂', gps: '🗺️', photo: '📸', 'vélo': '🚲' };
         function gi(n) { var k = n.toLowerCase(); for (var x in icons) { if (k.includes(x)) return icons[x] } return '✦'; }
         var tg = document.getElementById('opts-tarifs');
         if (tg) {
           tg.innerHTML = '';
           c.options.forEach(o => {
-            var pl = o.per === 'jour' ? '/j' : o.per === 'forfait' ? '' : '/' + o.per;
-            tg.innerHTML += `<div class="opt-card"><div class="opt-card-name">${gi(o.name)} ${o.name}</div><div class="opt-card-price">+${o.price} CHF${pl}</div></div>`;
+            var pl = o.per === 'jour' ? (lang==='de'? '/Tag' : lang==='en'? '/day' : '/j') : o.per === 'forfait' ? '' : '/' + o.per;
+            tg.innerHTML += `<div class="opt-card"><div class="opt-card-name">${gi(o.name)} ${t(o.name)}</div><div class="opt-card-price">+${o.price} CHF${pl}</div></div>`;
           });
 
         }
@@ -438,11 +450,11 @@
         if (ro) {
           ro.innerHTML = '';
           c.options.filter(o => !o.name.toLowerCase().includes('linge')).forEach(o => {
-            var pl = o.per === 'jour' ? '/j' : o.per === 'forfait' ? '' : '/' + o.per;
+            var pl = o.per === 'jour' ? (lang==='de'? '/Tag' : lang==='en'? '/day' : '/j') : o.per === 'forfait' ? '' : '/' + o.per;
             var reqAttr = o.required ? 'checked onclick="return false;"' : '';
             var disabledClass = o.required ? 'opt-disabled' : '';
             var inputAttrs = o.required ? 'checked onclick="return false;"' : 'onchange="updateTotal()"';
-            ro.innerHTML += `<label class="opt-check ${disabledClass}"><input type="checkbox" data-price="${o.price}" data-per="${o.per}" ${inputAttrs}><span class="oci"><span class="ocn">${gi(o.name)} ${o.name}</span><span class="ocp">+${o.price} CHF${pl}</span></span></label>`;
+            ro.innerHTML += `<label class="opt-check ${disabledClass}"><input type="checkbox" data-price="${o.price}" data-per="${o.per}" ${inputAttrs}><span class="oci"><span class="ocn">${gi(o.name)} ${t(o.name)}</span><span class="ocp">+${o.price} CHF${pl}</span></span></label>`;
           });
         }
       }
