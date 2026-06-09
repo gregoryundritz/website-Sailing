@@ -10,9 +10,9 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
-    gtag(&#x27;js&#x27;, new Date());
+    gtag('js', new Date());
 
-    gtag(&#x27;config&#x27;, &#x27;G-PPJN31C9G0&#x27;);
+    gtag('config', 'G-PPJN31C9G0');
   </script>
   <meta name="google-site-verification" content="HwWm7JICYhBUwvHCRovWkfmcsYmZPqf9Pv1EyUpA5F8" />
   <title>Sailboat rental in Switzerland | Yacht &amp; Sailboat rental on Lake Neuchâtel</title>
@@ -54,46 +54,46 @@
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
 {
-  &quot;@context&quot;: &quot;https://schema.org&quot;,
-  &quot;@type&quot;: &quot;Product&quot;,
-  &quot;name&quot;: &quot;Location Voilier Suisse — Lac de Neuchâtel (Yacht &amp; Segelschiff mieten)&quot;,
-  &quot;description&quot;: &quot;Location de voilier et yacht habitable Northman Maxus 21 (6.5m) au harbour de Cheyres sur le lac de Neuchâtel, Suisse. Segelschiff mieten. Carburant inclus, nuitées au harbour gratuites.&quot;,
-  &quot;brand&quot;: {&quot;@type&quot;: &quot;Brand&quot;, &quot;name&quot;: &quot;Northman Maxus 21&quot;},
-  &quot;offers&quot;: {
-    &quot;@type&quot;: &quot;AggregateOffer&quot;,
-    &quot;lowPrice&quot;: &quot;275&quot;,
-    &quot;highPrice&quot;: &quot;1680&quot;,
-    &quot;priceCurrency&quot;: &quot;CHF&quot;,
-    &quot;availability&quot;: &quot;https://schema.org/InStock&quot;
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Location Voilier Suisse — Lac de Neuchâtel (Yacht & Segelschiff mieten)",
+  "description": "Location de voilier et yacht habitable Northman Maxus 21 (6.5m) au harbour de Cheyres sur le lac de Neuchâtel, Suisse. Segelschiff mieten. Carburant inclus, nuitées au harbour gratuites.",
+  "brand": {"@type": "Brand", "name": "Northman Maxus 21"},
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": "275",
+    "highPrice": "1680",
+    "priceCurrency": "CHF",
+    "availability": "https://schema.org/InStock"
   },
-  &quot;aggregateRating&quot;: {
-    &quot;@type&quot;: &quot;AggregateRating&quot;,
-    &quot;ratingValue&quot;: &quot;4.9&quot;,
-    &quot;reviewCount&quot;: &quot;28&quot;,
-    &quot;bestRating&quot;: &quot;5&quot;
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "28",
+    "bestRating": "5"
   }
 }
 </script>
   <script type="application/ld+json">
 {
-  &quot;@context&quot;: &quot;https://schema.org&quot;,
-  &quot;@type&quot;: &quot;LocalBusiness&quot;,
-  &quot;name&quot;: &quot;Location Voilier Suisse&quot;,
-  &quot;description&quot;: &quot;Location de voilier et yacht sur le lac de Neuchâtel. Segelschiff mieten.&quot;,
-  &quot;address&quot;: {
-    &quot;@type&quot;: &quot;PostalAddress&quot;,
-    &quot;streetAddress&quot;: &quot;Harbour de Cheyres&quot;,
-    &quot;addressLocality&quot;: &quot;Cheyres-Châbles&quot;,
-    &quot;postalCode&quot;: &quot;1468&quot;,
-    &quot;addressCountry&quot;: &quot;CH&quot;
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Location Voilier Suisse",
+  "description": "Location de voilier et yacht sur le lac de Neuchâtel. Segelschiff mieten.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Harbour de Cheyres",
+    "addressLocality": "Cheyres-Châbles",
+    "postalCode": "1468",
+    "addressCountry": "CH"
   },
-  &quot;geo&quot;: {
-    &quot;@type&quot;: &quot;GeoCoordinates&quot;,
-    &quot;latitude&quot;: 46.8154,
-    &quot;longitude&quot;: 6.7942
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 46.8154,
+    "longitude": 6.7942
   },
-  &quot;url&quot;: &quot;https://voilier-neuchatel.ch&quot;,
-  &quot;priceRange&quot;: &quot;275-1680 CHF&quot;
+  "url": "https://voilier-neuchatel.ch",
+  "priceRange": "275-1680 CHF"
 }
 </script>
 
@@ -412,62 +412,62 @@
   <script src="../js/config.js"></script>
   <script>
     // ── Reveal ──
-    const obs = new IntersectionObserver(es =&gt; es.forEach(e =&gt; { if (e.isIntersecting) { e.target.classList.add(&#x27;in&#x27;); obs.unobserve(e.target) } }), { threshold: .08 });
-    document.querySelectorAll(&#x27;.rv&#x27;).forEach(el =&gt; obs.observe(el));
+    const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target) } }), { threshold: .08 });
+    document.querySelectorAll('.rv').forEach(el => obs.observe(el));
 
     // ── Prices ──
     function getCfg() { return window.VOILIER_CONFIG || { prices_per_days: {}, options: [], blocked_dates: [] }; }
-    function getPrice(d) { const c = getCfg(); return c.prices_per_days &amp;&amp; c.prices_per_days[d] ? c.prices_per_days[d] : (c.prices_per_days[14] || 1400); }
+    function getPrice(d) { const c = getCfg(); return c.prices_per_days && c.prices_per_days[d] ? c.prices_per_days[d] : (c.prices_per_days[14] || 1400); }
 
     function loadPrices() {
       // Update price grid
-      for (var d = 1; d &lt;= 7; d++) {
-        var vEl = document.querySelector(&#x27;[data-day=&quot;&#x27; + d + &#x27;&quot;]&#x27;);
-        var pEl = document.querySelector(&#x27;[data-day-ppd=&quot;&#x27; + d + &#x27;&quot;]&#x27;);
+      for (var d = 1; d <= 7; d++) {
+        var vEl = document.querySelector('[data-day="' + d + '"]');
+        var pEl = document.querySelector('[data-day-ppd="' + d + '"]');
         var total = getPrice(d);
-        if (vEl) vEl.textContent = total.toLocaleString(&#x27;fr-CH&#x27;);
-        if (pEl) pEl.textContent = Math.round(total / d) + &#x27;/j&#x27;;
+        if (vEl) vEl.textContent = total.toLocaleString('fr-CH');
+        if (pEl) pEl.textContent = Math.round(total / d) + '/j';
       }
       // Caution
       var c = getCfg();
-      [&#x27;caution-display&#x27;, &#x27;caution-display2&#x27;, &#x27;caution-display3&#x27;].forEach(id =&gt; {
+      ['caution-display', 'caution-display2', 'caution-display3'].forEach(id => {
         var el = document.getElementById(id);
-        if (el &amp;&amp; c.caution) el.textContent = c.caution.toLocaleString(&#x27;fr-CH&#x27;);
+        if (el && c.caution) el.textContent = c.caution.toLocaleString('fr-CH');
       });
       // Pass
-      var pPriceEl = document.getElementById(&#x27;pass-price-display&#x27;);
-      if (pPriceEl &amp;&amp; c.pass_price) pPriceEl.textContent = c.pass_price;
-      var pSortiesEl = document.getElementById(&#x27;pass-sorties-display&#x27;);
-      if (pSortiesEl &amp;&amp; c.pass_sorties) pSortiesEl.textContent = c.pass_sorties;
-      var pBulletEl = document.getElementById(&#x27;pass-sorties-bullet&#x27;);
-      if (pBulletEl &amp;&amp; c.pass_sorties) pBulletEl.textContent = c.pass_sorties;
-      var pPpdEl = document.getElementById(&#x27;pass-ppd-display&#x27;);
-      if (pPpdEl &amp;&amp; c.pass_price &amp;&amp; c.pass_sorties) {
+      var pPriceEl = document.getElementById('pass-price-display');
+      if (pPriceEl && c.pass_price) pPriceEl.textContent = c.pass_price;
+      var pSortiesEl = document.getElementById('pass-sorties-display');
+      if (pSortiesEl && c.pass_sorties) pSortiesEl.textContent = c.pass_sorties;
+      var pBulletEl = document.getElementById('pass-sorties-bullet');
+      if (pBulletEl && c.pass_sorties) pBulletEl.textContent = c.pass_sorties;
+      var pPpdEl = document.getElementById('pass-ppd-display');
+      if (pPpdEl && c.pass_price && c.pass_sorties) {
         pPpdEl.textContent = Math.round(c.pass_price / c.pass_sorties);
       }
       // Options grid in tarifs section
-      if (c.options &amp;&amp; c.options.length) {
-        var icons = { paddle: &#x27;🏄&#x27;, nettoyage: &#x27;🧹&#x27;, briefing: &#x27;🧭&#x27;, caution: &#x27;🛡️&#x27;, barbecue: &#x27;🍖&#x27;, gilet: &#x27;🦺&#x27;, &#x27;apéro&#x27;: &#x27;🥂&#x27;, gps: &#x27;🗺️&#x27;, photo: &#x27;📸&#x27;, &#x27;vélo&#x27;: &#x27;🚲&#x27; };
-        function gi(n) { var k = n.toLowerCase(); for (var x in icons) { if (k.includes(x)) return icons[x] } return &#x27;✦&#x27;; }
-        var tg = document.getElementById(&#x27;opts-tarifs&#x27;);
+      if (c.options && c.options.length) {
+        var icons = { paddle: '🏄', nettoyage: '🧹', briefing: '🧭', caution: '🛡️', barbecue: '🍖', gilet: '🦺', 'apéro': '🥂', gps: '🗺️', photo: '📸', 'vélo': '🚲' };
+        function gi(n) { var k = n.toLowerCase(); for (var x in icons) { if (k.includes(x)) return icons[x] } return '✦'; }
+        var tg = document.getElementById('opts-tarifs');
         if (tg) {
-          tg.innerHTML = &#x27;&#x27;;
-          c.options.forEach(o =&gt; {
-            var pl = o.per === &#x27;jour&#x27; ? &#x27;/j&#x27; : o.per === &#x27;forfait&#x27; ? &#x27;&#x27; : &#x27;/&#x27; + o.per;
-            tg.innerHTML += `&lt;div class=&quot;opt-card&quot;&gt;&lt;div class=&quot;opt-card-name&quot;&gt;${gi(o.name)} ${o.name}&lt;/div&gt;&lt;div class=&quot;opt-card-price&quot;&gt;+${o.price} CHF${pl}&lt;/div&gt;&lt;/div&gt;`;
+          tg.innerHTML = '';
+          c.options.forEach(o => {
+            var pl = o.per === 'jour' ? '/j' : o.per === 'forfait' ? '' : '/' + o.per;
+            tg.innerHTML += `<div class="opt-card"><div class="opt-card-name">${gi(o.name)} ${o.name}</div><div class="opt-card-price">+${o.price} CHF${pl}</div></div>`;
           });
 
         }
         // Update form checkboxes
-        var ro = document.getElementById(&#x27;resa-options&#x27;);
+        var ro = document.getElementById('resa-options');
         if (ro) {
-          ro.innerHTML = &#x27;&#x27;;
-          c.options.filter(o =&gt; !o.name.toLowerCase().includes(&#x27;linge&#x27;)).forEach(o =&gt; {
-            var pl = o.per === &#x27;jour&#x27; ? &#x27;/j&#x27; : o.per === &#x27;forfait&#x27; ? &#x27;&#x27; : &#x27;/&#x27; + o.per;
-            var reqAttr = o.required ? &#x27;checked onclick=&quot;return false;&quot;&#x27; : &#x27;&#x27;;
-            var disabledClass = o.required ? &#x27;opt-disabled&#x27; : &#x27;&#x27;;
-            var inputAttrs = o.required ? &#x27;checked onclick=&quot;return false;&quot;&#x27; : &#x27;onchange=&quot;updateTotal()&quot;&#x27;;
-            ro.innerHTML += `&lt;label class=&quot;opt-check ${disabledClass}&quot;&gt;&lt;input type=&quot;checkbox&quot; data-price=&quot;${o.price}&quot; data-per=&quot;${o.per}&quot; ${inputAttrs}&gt;&lt;span class=&quot;oci&quot;&gt;&lt;span class=&quot;ocn&quot;&gt;${gi(o.name)} ${o.name}&lt;/span&gt;&lt;span class=&quot;ocp&quot;&gt;+${o.price} CHF${pl}&lt;/span&gt;&lt;/span&gt;&lt;/label&gt;`;
+          ro.innerHTML = '';
+          c.options.filter(o => !o.name.toLowerCase().includes('linge')).forEach(o => {
+            var pl = o.per === 'jour' ? '/j' : o.per === 'forfait' ? '' : '/' + o.per;
+            var reqAttr = o.required ? 'checked onclick="return false;"' : '';
+            var disabledClass = o.required ? 'opt-disabled' : '';
+            var inputAttrs = o.required ? 'checked onclick="return false;"' : 'onchange="updateTotal()"';
+            ro.innerHTML += `<label class="opt-check ${disabledClass}"><input type="checkbox" data-price="${o.price}" data-per="${o.per}" ${inputAttrs}><span class="oci"><span class="ocn">${gi(o.name)} ${o.name}</span><span class="ocp">+${o.price} CHF${pl}</span></span></label>`;
           });
         }
       }
@@ -478,20 +478,20 @@
     var minD = new Date(); minD.setHours(0, 0, 0, 0); minD.setDate(minD.getDate() + 2);
 
     function initFp() {
-      if (typeof flatpickr === &#x27;undefined&#x27;) { setTimeout(initFp, 80); return; }
-      var loc = (typeof flatpickr.l10ns !== &#x27;undefined&#x27; &amp;&amp; flatpickr.l10ns.fr) ? &#x27;fr&#x27; : &#x27;default&#x27;;
-      fpS = flatpickr(&#x27;#fp-start&#x27;, {
-        locale: loc, dateFormat: &#x27;j F Y&#x27;, minDate: minD, disableMobile: true, allowInput: false,
+      if (typeof flatpickr === 'undefined') { setTimeout(initFp, 80); return; }
+      var loc = (typeof flatpickr.l10ns !== 'undefined' && flatpickr.l10ns.fr) ? 'fr' : 'default';
+      fpS = flatpickr('#fp-start', {
+        locale: loc, dateFormat: 'j F Y', minDate: minD, disableMobile: true, allowInput: false,
         onChange: function (d) {
           if (!d.length) return;
           var nd = new Date(d[0]); // allow same day
-          fpE.set(&#x27;minDate&#x27;, nd);
-          if (fpE.selectedDates[0] &amp;&amp; fpE.selectedDates[0] &lt; d[0]) fpE.clear();
+          fpE.set('minDate', nd);
+          if (fpE.selectedDates[0] && fpE.selectedDates[0] < d[0]) fpE.clear();
           updateTotal();
         }
       });
-      fpE = flatpickr(&#x27;#fp-end&#x27;, {
-        locale: loc, dateFormat: &#x27;j F Y&#x27;, minDate: minD, disableMobile: true, allowInput: false,
+      fpE = flatpickr('#fp-end', {
+        locale: loc, dateFormat: 'j F Y', minDate: minD, disableMobile: true, allowInput: false,
         onChange: function () { updateTotal(); }
       });
     }
@@ -499,111 +499,111 @@
 
     // ── Total ──
     function updateTotal() {
-      var s = fpS &amp;&amp; fpS.selectedDates[0], e = fpE &amp;&amp; fpE.selectedDates[0];
-      var dd = document.getElementById(&#x27;resa-duration-display&#x27;);
-      var tt = document.getElementById(&#x27;resa-total&#x27;);
-      if (!s || !e) { if (dd) dd.style.display = &#x27;none&#x27;; if (tt) tt.textContent = &#x27;— CHF&#x27;; return; }
+      var s = fpS && fpS.selectedDates[0], e = fpE && fpE.selectedDates[0];
+      var dd = document.getElementById('resa-duration-display');
+      var tt = document.getElementById('resa-total');
+      if (!s || !e) { if (dd) dd.style.display = 'none'; if (tt) tt.textContent = '— CHF'; return; }
       var days = Math.round((e - s) / 86400000) + 1;
-      if (days &lt;= 0 || days &gt; 14) { if (dd) dd.style.display = &#x27;none&#x27;; if (tt) tt.textContent = days &gt; 14 ? &#x27;Max 14 jours&#x27; : &#x27;— CHF&#x27;; return; }
+      if (days <= 0 || days > 14) { if (dd) dd.style.display = 'none'; if (tt) tt.textContent = days > 14 ? 'Max 14 jours' : '— CHF'; return; }
       var total = getPrice(days);
-      var isPass = (typeof currentTab !== &#x27;undefined&#x27; &amp;&amp; currentTab === &#x27;pass&#x27;);
+      var isPass = (typeof currentTab !== 'undefined' && currentTab === 'pass');
       if (!isPass) {
-        document.querySelectorAll(&#x27;#resa-options input:checked&#x27;).forEach(function (cb) {
+        document.querySelectorAll('#resa-options input:checked').forEach(function (cb) {
           var p = parseInt(cb.dataset.price) || 0;
-          total += (cb.dataset.per === &#x27;jour&#x27;) ? p * days : p;
+          total += (cb.dataset.per === 'jour') ? p * days : p;
         });
       }
       if (dd) {
-        var opts = { day: &#x27;numeric&#x27;, month: &#x27;long&#x27;, year: &#x27;numeric&#x27; };
-        dd.textContent = days + &#x27; jour&#x27; + (days &gt; 1 ? &#x27;s&#x27; : &#x27;&#x27;) + &#x27; · du &#x27; + s.toLocaleDateString(&#x27;fr-CH&#x27;, opts) + &#x27; au &#x27; + e.toLocaleDateString(&#x27;fr-CH&#x27;, opts);
-        dd.style.display = &#x27;block&#x27;;
+        var opts = { day: 'numeric', month: 'long', year: 'numeric' };
+        dd.textContent = days + ' jour' + (days > 1 ? 's' : '') + ' · du ' + s.toLocaleDateString('fr-CH', opts) + ' au ' + e.toLocaleDateString('fr-CH', opts);
+        dd.style.display = 'block';
       }
-      if (tt) tt.textContent = total.toLocaleString(&#x27;fr-CH&#x27;) + &#x27; CHF&#x27;;
+      if (tt) tt.textContent = total.toLocaleString('fr-CH') + ' CHF';
 
       // Optimization: Update hidden fields for Netlify
-      var hTotal = document.getElementById(&#x27;resa-total-hidden&#x27;);
-      var hType = document.getElementById(&#x27;resa-type-hidden&#x27;);
-      var hOptions = document.getElementById(&#x27;resa-options-hidden&#x27;);
-      var hDuree = document.getElementById(&#x27;resa-duree-hidden&#x27;);
+      var hTotal = document.getElementById('resa-total-hidden');
+      var hType = document.getElementById('resa-type-hidden');
+      var hOptions = document.getElementById('resa-options-hidden');
+      var hDuree = document.getElementById('resa-duree-hidden');
 
-      if (hTotal) hTotal.value = total + &#x27; CHF&#x27;;
+      if (hTotal) hTotal.value = total + ' CHF';
       if (hType) {
-        var isPass = (typeof currentTab !== &#x27;undefined&#x27; &amp;&amp; currentTab === &#x27;pass&#x27;);
-        hType.value = isPass ? &#x27;Skipper Pass&#x27; : &#x27;Location standard&#x27;;
+        var isPass = (typeof currentTab !== 'undefined' && currentTab === 'pass');
+        hType.value = isPass ? 'Skipper Pass' : 'Location standard';
       }
-      if (hDuree &amp;&amp; typeof days !== &#x27;undefined&#x27;) {
-        hDuree.value = days ? days + &#x27; jours&#x27; : &#x27;&#x27;;
+      if (hDuree && typeof days !== 'undefined') {
+        hDuree.value = days ? days + ' jours' : '';
       }
 
       var selectedOptions = [];
-      document.querySelectorAll(&#x27;#resa-options input:checked&#x27;).forEach(function (cb) {
-        var nameSpan = cb.nextElementSibling.querySelector(&#x27;.ocn&#x27;);
+      document.querySelectorAll('#resa-options input:checked').forEach(function (cb) {
+        var nameSpan = cb.nextElementSibling.querySelector('.ocn');
         if (nameSpan) {
           // Strip emojis to make it cleaner in email
-          var cleanName = nameSpan.textContent.replace(/[^\w\sÀ-ÿ-]/g, &#x27;&#x27;).trim() || nameSpan.textContent.trim();
+          var cleanName = nameSpan.textContent.replace(/[^\w\sÀ-ÿ-]/g, '').trim() || nameSpan.textContent.trim();
           selectedOptions.push(cleanName);
         }
       });
       if (hOptions) {
-        hOptions.value = selectedOptions.length ? selectedOptions.join(&#x27;, &#x27;) : &#x27;Aucune option&#x27;;
+        hOptions.value = selectedOptions.length ? selectedOptions.join(', ') : 'Aucune option';
       }
     }
 
     // ── Netlify Form AJAX Handling ──
-    document.addEventListener(&#x27;DOMContentLoaded&#x27;, function () {
-      const resaForm = document.querySelector(&#x27;form[name=&quot;reservation&quot;]&#x27;);
+    document.addEventListener('DOMContentLoaded', function () {
+      const resaForm = document.querySelector('form[name="reservation"]');
       if (resaForm) {
-        resaForm.addEventListener(&#x27;submit&#x27;, function (e) {
+        resaForm.addEventListener('submit', function (e) {
           e.preventDefault();
-          const btn = document.getElementById(&#x27;resa-submit-btn&#x27;);
-          const note = document.getElementById(&#x27;resa-note&#x27;);
+          const btn = document.getElementById('resa-submit-btn');
+          const note = document.getElementById('resa-note');
           const formData = new FormData(resaForm);
 
           btn.disabled = true;
-          btn.textContent = &#x27;Envoi en cours...&#x27;;
+          btn.textContent = 'Envoi en cours...';
 
-          fetch(&#x27;/&#x27;, {
-            method: &#x27;POST&#x27;,
+          fetch('/', {
+            method: 'POST',
             body: formData
           })
 
-            .then(() =&gt; {
+            .then(() => {
               // Local backup logic
               try {
-                var s = fpS &amp;&amp; fpS.selectedDates[0], eDate = fpE &amp;&amp; fpE.selectedDates[0];
+                var s = fpS && fpS.selectedDates[0], eDate = fpE && fpE.selectedDates[0];
                 var req = {
                   id: Date.now(),
-                  status: &#x27;pending&#x27;,
-                  date_req: new Date().toLocaleDateString(&#x27;fr-CH&#x27;, { day: &#x27;numeric&#x27;, month: &#x27;long&#x27;, year: &#x27;numeric&#x27;, hour: &#x27;2-digit&#x27;, minute: &#x27;2-digit&#x27; }),
-                  type: (typeof currentTab !== &#x27;undefined&#x27; &amp;&amp; currentTab === &#x27;pass&#x27;) ? &#x27;Skipper Pass&#x27; : &#x27;Location standard&#x27;,
-                  depart: s ? s.toLocaleDateString(&#x27;fr-CH&#x27;) : &#x27;—&#x27;,
-                  retour: eDate ? eDate.toLocaleDateString(&#x27;fr-CH&#x27;) : &#x27;—&#x27;,
-                  total: document.getElementById(&#x27;resa-total&#x27;)?.textContent || &#x27;—&#x27;,
-                  nom: resaForm.querySelector(&#x27;input[name=&quot;nom&quot;]&#x27;)?.value || &#x27;—&#x27;,
-                  email: resaForm.querySelector(&#x27;input[name=&quot;email&quot;]&#x27;)?.value || &#x27;—&#x27;,
-                  telephone: resaForm.querySelector(&#x27;input[name=&quot;telephone&quot;]&#x27;)?.value || &#x27;—&#x27;,
-                  pays: resaForm.querySelector(&#x27;input[name=&quot;pays&quot;]&#x27;)?.value || &#x27;—&#x27;,
-                  adresse: resaForm.querySelector(&#x27;input[name=&quot;adresse&quot;]&#x27;)?.value || &#x27;—&#x27;,
-                  message: resaForm.querySelector(&#x27;textarea[name=&quot;message&quot;]&#x27;)?.value || &#x27;&#x27;
+                  status: 'pending',
+                  date_req: new Date().toLocaleDateString('fr-CH', { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
+                  type: (typeof currentTab !== 'undefined' && currentTab === 'pass') ? 'Skipper Pass' : 'Location standard',
+                  depart: s ? s.toLocaleDateString('fr-CH') : '—',
+                  retour: eDate ? eDate.toLocaleDateString('fr-CH') : '—',
+                  total: document.getElementById('resa-total')?.textContent || '—',
+                  nom: resaForm.querySelector('input[name="nom"]')?.value || '—',
+                  email: resaForm.querySelector('input[name="email"]')?.value || '—',
+                  telephone: resaForm.querySelector('input[name="telephone"]')?.value || '—',
+                  pays: resaForm.querySelector('input[name="pays"]')?.value || '—',
+                  adresse: resaForm.querySelector('input[name="adresse"]')?.value || '—',
+                  message: resaForm.querySelector('textarea[name="message"]')?.value || ''
                 };
-                var queue = JSON.parse(localStorage.getItem(&#x27;resa_queue&#x27;) || &#x27;[]&#x27;);
+                var queue = JSON.parse(localStorage.getItem('resa_queue') || '[]');
                 queue.unshift(req);
-                localStorage.setItem(&#x27;resa_queue&#x27;, JSON.stringify(queue));
-              } catch (err) { console.error(&#x27;Backup error:&#x27;, err); }
+                localStorage.setItem('resa_queue', JSON.stringify(queue));
+              } catch (err) { console.error('Backup error:', err); }
 
-              btn.style.background = &#x27;#28a745&#x27;;
-              btn.textContent = &#x27;Demande envoyée !&#x27;;
-              note.innerHTML = &#x27;✓ Votre demande est enregistrée. &lt;strong&gt;Vous recevrez un email de confirmation et votre lien de paiement sous 24h.&lt;/strong&gt;&#x27;;
-              note.style.color = &#x27;#28a745&#x27;;
+              btn.style.background = '#28a745';
+              btn.textContent = 'Demande envoyée !';
+              note.innerHTML = '✓ Votre demande est enregistrée. <strong>Vous recevrez un email de confirmation et votre lien de paiement sous 24h.</strong>';
+              note.style.color = '#28a745';
               resaForm.reset();
               if (fpS) fpS.clear();
               if (fpE) fpE.clear();
               updateTotal();
             })
-            .catch((error) =&gt; {
+            .catch((error) => {
               btn.disabled = false;
-              btn.textContent = &#x27;Réessayer&#x27;;
-              alert(&#x27;Erreur lors de l\&#x27;envoi. Veuillez réessayer.&#x27;);
+              btn.textContent = 'Réessayer';
+              alert('Erreur lors de l\'envoi. Veuillez réessayer.');
             });
         });
       }
@@ -614,67 +614,67 @@
 
 
     // ── Tab switching Standard / Skipper Pass ──
-    var currentTab = &#x27;standard&#x27;;
+    var currentTab = 'standard';
 
     function selectTab(tab) {
       currentTab = tab;
-      var btnS = document.getElementById(&#x27;tab-standard&#x27;);
-      var btnP = document.getElementById(&#x27;tab-pass&#x27;);
-      var secP = document.getElementById(&#x27;section-pass&#x27;);
-      var durationDisp = document.getElementById(&#x27;resa-duration-display&#x27;);
-      var optsArea = document.getElementById(&#x27;resa-options&#x27;);
-      var datesArea = document.getElementById(&#x27;section-standard&#x27;);
-      var cautionArea = document.getElementById(&#x27;resa-caution&#x27;);
-      var detailsHideArea = document.getElementById(&#x27;resa-details-hide&#x27;);
+      var btnS = document.getElementById('tab-standard');
+      var btnP = document.getElementById('tab-pass');
+      var secP = document.getElementById('section-pass');
+      var durationDisp = document.getElementById('resa-duration-display');
+      var optsArea = document.getElementById('resa-options');
+      var datesArea = document.getElementById('section-standard');
+      var cautionArea = document.getElementById('resa-caution');
+      var detailsHideArea = document.getElementById('resa-details-hide');
 
-      if (tab === &#x27;pass&#x27;) {
-        btnP.style.background = &#x27;var(--gold)&#x27;;
-        btnP.style.color = &#x27;var(--navy)&#x27;;
-        btnP.style.borderColor = &#x27;var(--gold)&#x27;;
-        btnS.style.background = &#x27;var(--white)&#x27;;
-        btnS.style.color = &#x27;var(--muted)&#x27;;
-        btnS.style.borderColor = &#x27;var(--sand2)&#x27;;
+      if (tab === 'pass') {
+        btnP.style.background = 'var(--gold)';
+        btnP.style.color = 'var(--navy)';
+        btnP.style.borderColor = 'var(--gold)';
+        btnS.style.background = 'var(--white)';
+        btnS.style.color = 'var(--muted)';
+        btnS.style.borderColor = 'var(--sand2)';
 
-        if (secP) secP.style.display = &#x27;block&#x27;;
-        if (datesArea) datesArea.style.display = &#x27;none&#x27;;
+        if (secP) secP.style.display = 'block';
+        if (datesArea) datesArea.style.display = 'none';
 
-        var secOpts = document.getElementById(&#x27;section-options&#x27;);
-        if (secOpts) secOpts.style.display = &#x27;none&#x27;;
+        var secOpts = document.getElementById('section-options');
+        if (secOpts) secOpts.style.display = 'none';
 
-        var tt = document.getElementById(&#x27;resa-total&#x27;);
-        if (tt) tt.textContent = &#x27;800 CHF&#x27;;
-        var wrap = document.getElementById(&#x27;total-bar-wrap&#x27;);
-        if (wrap) wrap.style.display = &#x27;block&#x27;;
+        var tt = document.getElementById('resa-total');
+        if (tt) tt.textContent = '800 CHF';
+        var wrap = document.getElementById('total-bar-wrap');
+        if (wrap) wrap.style.display = 'block';
       } else {
-        btnS.style.background = &#x27;var(--navy)&#x27;;
-        btnS.style.color = &#x27;var(--white)&#x27;;
-        btnS.style.borderColor = &#x27;var(--navy)&#x27;;
-        btnP.style.background = &#x27;var(--white)&#x27;;
-        btnP.style.color = &#x27;var(--muted)&#x27;;
-        btnP.style.borderColor = &#x27;var(--sand2)&#x27;;
+        btnS.style.background = 'var(--navy)';
+        btnS.style.color = 'var(--white)';
+        btnS.style.borderColor = 'var(--navy)';
+        btnP.style.background = 'var(--white)';
+        btnP.style.color = 'var(--muted)';
+        btnP.style.borderColor = 'var(--sand2)';
 
-        if (secP) secP.style.display = &#x27;none&#x27;;
-        if (datesArea) datesArea.style.display = &#x27;block&#x27;;
+        if (secP) secP.style.display = 'none';
+        if (datesArea) datesArea.style.display = 'block';
 
-        var secOpts = document.getElementById(&#x27;section-options&#x27;);
-        if (secOpts) secOpts.style.display = &#x27;block&#x27;;
+        var secOpts = document.getElementById('section-options');
+        if (secOpts) secOpts.style.display = 'block';
 
-        var wrap = document.getElementById(&#x27;total-bar-wrap&#x27;);
-        if (wrap) wrap.style.display = &#x27;block&#x27;;
+        var wrap = document.getElementById('total-bar-wrap');
+        if (wrap) wrap.style.display = 'block';
         updateTotal();
       }
     }
 
     function selectPassSkipper() {
-      selectTab(&#x27;pass&#x27;);
-      var el = document.getElementById(&#x27;resa-form&#x27;);
-      if (el) el.scrollIntoView({ behavior: &#x27;smooth&#x27; });
+      selectTab('pass');
+      var el = document.getElementById('resa-form');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
 
     function selectStandard() {
-      selectTab(&#x27;standard&#x27;);
-      var el = document.getElementById(&#x27;resa-form&#x27;);
-      if (el) el.scrollIntoView({ behavior: &#x27;smooth&#x27; });
+      selectTab('standard');
+      var el = document.getElementById('resa-form');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 
@@ -691,11 +691,11 @@
 
   <!-- Mobile menu close on click -->
   <script>
-    document.querySelectorAll(&#x27;nav ul a&#x27;).forEach(function(link) {
-      link.addEventListener(&#x27;click&#x27;, function() {
-        var menu = document.querySelector(&#x27;nav ul&#x27;);
-        if (menu &amp;&amp; menu.classList.contains(&#x27;show&#x27;)) {
-          menu.classList.remove(&#x27;show&#x27;);
+    document.querySelectorAll('nav ul a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        var menu = document.querySelector('nav ul');
+        if (menu && menu.classList.contains('show')) {
+          menu.classList.remove('show');
         }
       });
     });

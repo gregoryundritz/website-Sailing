@@ -10,9 +10,9 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
-    gtag(&#x27;js&#x27;, new Date());
+    gtag('js', new Date());
 
-    gtag(&#x27;config&#x27;, &#x27;G-PPJN31C9G0&#x27;);
+    gtag('config', 'G-PPJN31C9G0');
   </script>
   <meta name="google-site-verification" content="HwWm7JICYhBUwvHCRovWkfmcsYmZPqf9Pv1EyUpA5F8" />
   <title>Fotogalerie – Segelboot Northman Maxus 21 auf dem Neuenburgersee</title>
@@ -54,46 +54,46 @@
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
 {
-  &quot;@context&quot;: &quot;https://schema.org&quot;,
-  &quot;@type&quot;: &quot;Product&quot;,
-  &quot;name&quot;: &quot;Location Voilier Suisse — Lac de Neuchâtel (Yacht &amp; Segelschiff mieten)&quot;,
-  &quot;description&quot;: &quot;Location de voilier et yacht habitable Northman Maxus 21 (6.5m) au port de Cheyres sur le lac de Neuchâtel, Suisse. Segelschiff mieten. Carburant inclus, nuitées au port gratuites.&quot;,
-  &quot;brand&quot;: {&quot;@type&quot;: &quot;Brand&quot;, &quot;name&quot;: &quot;Northman Maxus 21&quot;},
-  &quot;offers&quot;: {
-    &quot;@type&quot;: &quot;AggregateOffer&quot;,
-    &quot;lowPrice&quot;: &quot;275&quot;,
-    &quot;highPrice&quot;: &quot;1680&quot;,
-    &quot;priceCurrency&quot;: &quot;CHF&quot;,
-    &quot;availability&quot;: &quot;https://schema.org/InStock&quot;
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Location Voilier Suisse — Lac de Neuchâtel (Yacht & Segelschiff mieten)",
+  "description": "Location de voilier et yacht habitable Northman Maxus 21 (6.5m) au port de Cheyres sur le lac de Neuchâtel, Suisse. Segelschiff mieten. Carburant inclus, nuitées au port gratuites.",
+  "brand": {"@type": "Brand", "name": "Northman Maxus 21"},
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": "275",
+    "highPrice": "1680",
+    "priceCurrency": "CHF",
+    "availability": "https://schema.org/InStock"
   },
-  &quot;aggregateRating&quot;: {
-    &quot;@type&quot;: &quot;AggregateRating&quot;,
-    &quot;ratingValue&quot;: &quot;4.9&quot;,
-    &quot;reviewCount&quot;: &quot;28&quot;,
-    &quot;bestRating&quot;: &quot;5&quot;
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "28",
+    "bestRating": "5"
   }
 }
 </script>
   <script type="application/ld+json">
 {
-  &quot;@context&quot;: &quot;https://schema.org&quot;,
-  &quot;@type&quot;: &quot;LocalBusiness&quot;,
-  &quot;name&quot;: &quot;Location Voilier Suisse&quot;,
-  &quot;description&quot;: &quot;Location de voilier et yacht sur le lac de Neuchâtel. Segelschiff mieten.&quot;,
-  &quot;address&quot;: {
-    &quot;@type&quot;: &quot;PostalAddress&quot;,
-    &quot;streetAddress&quot;: &quot;Port de Cheyres&quot;,
-    &quot;addressLocality&quot;: &quot;Cheyres-Châbles&quot;,
-    &quot;postalCode&quot;: &quot;1468&quot;,
-    &quot;addressCountry&quot;: &quot;CH&quot;
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Location Voilier Suisse",
+  "description": "Location de voilier et yacht sur le lac de Neuchâtel. Segelschiff mieten.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Port de Cheyres",
+    "addressLocality": "Cheyres-Châbles",
+    "postalCode": "1468",
+    "addressCountry": "CH"
   },
-  &quot;geo&quot;: {
-    &quot;@type&quot;: &quot;GeoCoordinates&quot;,
-    &quot;latitude&quot;: 46.8154,
-    &quot;longitude&quot;: 6.7942
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 46.8154,
+    "longitude": 6.7942
   },
-  &quot;url&quot;: &quot;https://voilier-neuchatel.ch&quot;,
-  &quot;priceRange&quot;: &quot;275-1680 CHF&quot;
+  "url": "https://voilier-neuchatel.ch",
+  "priceRange": "275-1680 CHF"
 }
 </script>
 
@@ -251,15 +251,15 @@
   <script src="../js/config.js"></script>
   <script>
     // Reveal
-    const obs = new IntersectionObserver(es =&gt; es.forEach(e =&gt; { if (e.isIntersecting) { e.target.classList.add(&#x27;in&#x27;); obs.unobserve(e.target) } }), { threshold: .08 });
-    document.querySelectorAll(&#x27;.rv&#x27;).forEach(el =&gt; obs.observe(el));
+    const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target) } }), { threshold: .08 });
+    document.querySelectorAll('.rv').forEach(el => obs.observe(el));
     
     // Mobile menu logic
-    document.querySelectorAll(&#x27;nav ul a&#x27;).forEach(function(link) {
-      link.addEventListener(&#x27;click&#x27;, function() {
-        var menu = document.querySelector(&#x27;nav ul&#x27;);
-        if (menu &amp;&amp; menu.classList.contains(&#x27;show&#x27;)) {
-          menu.classList.remove(&#x27;show&#x27;);
+    document.querySelectorAll('nav ul a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        var menu = document.querySelector('nav ul');
+        if (menu && menu.classList.contains('show')) {
+          menu.classList.remove('show');
         }
       });
     });
