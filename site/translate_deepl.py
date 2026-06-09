@@ -95,11 +95,9 @@ def translate_html_file(filepath, source_lang="FR", target_lang="DE"):
     translated_html = translated_html.replace('class="active">FR', 'class="">FR')
     
     if short_lang == "de":
-        translated_html = translated_html.replace('href="/de/" class=""', 'href="/de/" class="active"')
-        translated_html = translated_html.replace('href="/de/index.html" class=""', 'href="/de/index.html" class="active"')
+        translated_html = translated_html.replace('class="">DE', 'class="active">DE')
     elif short_lang == "en":
-        translated_html = translated_html.replace('href="/en/" class=""', 'href="/en/" class="active"')
-        translated_html = translated_html.replace('href="/en/index.html" class=""', 'href="/en/index.html" class="active"')
+        translated_html = translated_html.replace('class="">EN', 'class="active">EN')
     
     # Inject CSS to fix badge-pill overflow for long translated words
     css_fix = """
