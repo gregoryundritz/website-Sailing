@@ -127,7 +127,7 @@
       <li><a href="reviews.html">Reviews</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="itineraries.html">Routes</a></li>
-      <li><a href="https://www.bav.admin.ch/de/freizeitschifffahrt#FAQ-Freizeitschifffahrt" target="_blank">Boating Licence</a></li>
+      <li><a href="sailing-license-switzerland.html">Boating Licence</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html" class="nav-btn">Contact &amp; Booking</a></li>
       <li class="lang-sel"><a href="/contact.html" class="">FR</a><span>|</span><a href="/de/kontakt.html" class="">DE</a><span>|</span><a href="/en/contact.html" class="active">EN</a></li>
@@ -193,7 +193,7 @@
 
           <!-- ÉTAPE 1 : Type de séjour -->
           <div class="resa-step" style="margin-bottom:24px;" id="section-type">
-            <div class="resa-step-title">Select your booking type:</div>
+            <div style="font-size:14px; font-weight:600; margin-bottom:12px; color:var(--navy);">Select your booking type :</div>
             <div id="resa-type-tabs" style="display:flex; gap:8px; flex-wrap: wrap;">
               <label class="opt-check" style="flex:1; min-width:200px; margin:0;">
                 <input type="radio" name="resa_type" value="standard" checked onchange="selectTab('standard')">
@@ -225,7 +225,6 @@
 
           <!-- ÉTAPE 2 : Dates -->
           <div class="resa-step" id="section-standard">
-            <div class="resa-step-title">Your travel dates:</div>
             <div class="fr">
               <div class="fg"><input type="text" name="date_depart" id="fp-start" placeholder="Departure date" readonly
                   required style="cursor:pointer"></div>
@@ -238,7 +237,6 @@
 
           <!-- ÉTAPE 3 : Options -->
           <div class="resa-step" id="section-options">
-            <div class="resa-step-title">Additional options:</div>
 
             <div class="opts-checks" id="resa-options">
               <label class="opt-check"><input type="checkbox" data-price="60" data-per="forfait"
@@ -261,8 +259,9 @@
           <!-- TOTAL VISIBLE ICI -->
           <div id="total-bar-wrap">
             <div class="total-bar">
-              <span>Total amount VAT incl.</span>
-              <span class="total-val" id="resa-total">— CHF</span>
+              <span>Total amount incl.</span>
+              <span class="total-val" id="resa-total"></span>
+              <span>VAT — CHF</span>
             </div>
           </div>
 
@@ -272,8 +271,8 @@
           <div class="resa-step">
 
             <div class="fr">
-              <div class="fg"><input type="text" name="nom" placeholder="First & Last Name *" required oninvalid="this.setCustomValidity('Please fill out this field.')" oninput="this.setCustomValidity('')"></div>
-              <div class="fg"><input type="email" name="email" placeholder="Email *" required oninvalid="this.setCustomValidity('Please fill out this field.')" oninput="this.setCustomValidity('')"></div>
+              <div class="fg"><input type="text" name="nom" placeholder="First & Last Name *" required></div>
+              <div class="fg"><input type="email" name="email" placeholder="Email *" required></div>
             </div>
             <div class="fr">
               <div class="fg" style="grid-column:1/-1"><input type="text" name="rue" placeholder="Street, Number"
@@ -556,7 +555,7 @@
     <div class="fl">Sailing · <span>Lake Neuchatel</span></div>
     <p class="ft">Lake Neuchâtel · Harbour de Cheyres, Switzerland</p>
     <div class="flinks">
-      <a href="https://www.bav.admin.ch/de/freizeitschifffahrt#FAQ-Freizeitschifffahrt" target="_blank">Boating Licence</a>
+      <a href="/sailing-license-switzerland.html">Boating Licence</a>
       
       <a href="prices.html">Prices</a>
       
@@ -695,10 +694,8 @@
         });
       }
       if (dd) {
-        var lang = document.documentElement.lang || 'fr';
-        var t_jours = (lang === 'de') ? ' Tage' : ((lang === 'en') ? ' days' : ' jours');
-        var t_jour = (lang === 'de') ? ' Tag' : ((lang === 'en') ? ' day' : ' jour');
-        dd.textContent = days + (days > 1 ? t_jours : t_jour);
+        var opts = { day: 'numeric', month: 'long', year: 'numeric' };
+        dd.textContent = days + ' jour' + (days > 1 ? 's' : '') + ' · du ' + s.toLocaleDateString('fr-CH', opts) + ' au ' + e.toLocaleDateString('fr-CH', opts);
         dd.style.display = 'block';
       }
       if (tt) tt.textContent = total.toLocaleString('fr-CH') + ' CHF';
