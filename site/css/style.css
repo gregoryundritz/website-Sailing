@@ -156,12 +156,15 @@
     .badge-pill {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       background: rgba(184, 131, 46, .2);
       border: 1px solid rgba(184, 131, 46, .5);
       padding: 6px 16px;
       border-radius: 20px;
-      margin-bottom: 18px
+      margin-bottom: 18px;
+      max-width: 100%;
+      box-sizing: border-box;
     }
 
     .badge-pill span {
@@ -169,7 +172,11 @@
       letter-spacing: .15em;
       text-transform: uppercase;
       color: var(--gold2);
-      font-weight: 500
+      font-weight: 500;
+      white-space: normal;
+      word-break: break-word;
+      min-width: 0;
+      text-align: center;
     }
 
     .eyebrow {

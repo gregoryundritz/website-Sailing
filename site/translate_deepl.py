@@ -106,16 +106,6 @@ def translate_html_file(filepath, source_lang="FR", target_lang="DE"):
         translated_html = translated_html.replace('<div class="fl">Sailing boat · <span>Lake Neuchâtel</span></div>', '<div class="fl">Sailing · <span>Lake Neuchatel</span></div>')
         translated_html = translated_html.replace('>Itineraries<', '>Routes<')
         translated_html = translated_html.replace('>ITINERARIES<', '>ROUTES<')
-    
-    # Inject CSS to fix badge-pill overflow for long translated words
-    css_fix = """
-    <style>
-      .badge-pill { white-space: normal !important; height: auto !important; max-width: 100%; box-sizing: border-box; }
-      .badge-pill span { word-break: break-word; hyphens: auto; letter-spacing: 0.05em !important; line-height: 1.4; display: block; }
-    </style>
-    </head>
-    """
-    translated_html = translated_html.replace('</head>', css_fix)
 
     # Determine output path with localized name
     target_basename = ROUTE_MAP.get(basename, {}).get(short_lang, basename)
