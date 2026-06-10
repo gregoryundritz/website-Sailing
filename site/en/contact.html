@@ -130,7 +130,7 @@
       <li><a href="sailing-license-switzerland.html">Boating Licence</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html" class="nav-btn">Contact &amp; Booking</a></li>
-      <li class="lang-sel"><a href="contact.html" class="">FR</a><span>|</span><a href="de/kontakt.html" class="">DE</a><span>|</span><a href="en/contact.html" class="active">EN</a></li>
+      <li class="lang-sel"><a href="/contact.html" class="">FR</a><span>|</span><a href="/de/kontakt.html" class="">DE</a><span>|</span><a href="/en/contact.html" class="active">EN</a></li>
     </ul>
   </nav>
 <!-- CONTACT -->
@@ -985,8 +985,8 @@
               } catch (err) { console.error('Backup error:', err); }
 
               btn.style.background = '#28a745';
-              btn.textContent = 'Demande envoyée !';
-              note.innerHTML = '✓ Votre demande est enregistrée. <strong>Vous recevrez un email de confirmation et votre lien de paiement sous 24h.</strong>';
+              btn.textContent = (lang === 'de') ? 'Anfrage gesendet!' : ((lang === 'en') ? 'Request sent!' : 'Demande envoyée !');
+              note.innerHTML = (lang === 'de') ? '✓ Ihre Anfrage wurde gespeichert. <strong>Sie erhalten innerhalb von 24 Stunden eine Bestätigungs-E-Mail und Ihren Zahlungslink.</strong>' : ((lang === 'en') ? '✓ Your request has been saved. <strong>You will receive a confirmation email and your payment link within 24 hours.</strong>' : '✓ Votre demande est enregistrée. <strong>Vous recevrez un email de confirmation et votre lien de paiement sous 24h.</strong>');
               note.style.color = '#28a745';
               resaForm.reset();
               if (fpS) fpS.clear();
