@@ -936,6 +936,7 @@
              }, {once: true});
              return;
           }
+          const lang = document.documentElement.lang || 'fr';
           const formData = new FormData(resaForm);
 
           btn.disabled = true;
