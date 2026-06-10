@@ -736,7 +736,8 @@
 
     /* RÉSERVATION */
     .resa-sec {
-      background: var(--sand)
+      background: var(--sand);
+      padding: 40px 0 80px;
     }
 
     .resa-wrap {
@@ -1404,3 +1405,9 @@
       border-color: var(--gold);
       border-width: 6px;
     }
+
+
+/* Hide previous and next month days in Flatpickr */
+.flatpickr-day.prevMonthDay, .flatpickr-day.nextMonthDay {
+    visibility: hidden;
+}

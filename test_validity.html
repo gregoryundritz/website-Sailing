@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+<body>
+  <form name="reservation">
+    <input type="email" name="email" id="email" required>
+    <button type="submit">Submit</button>
+  </form>
+  <script>
+    const form = document.querySelector('form');
+    const lang = 'de';
+    const msgs = { de: { req: 'REQ', email: 'EMAIL' } };
+    function updateValidity(el) {
+      if (!el.setCustomValidity) return;
+      el.setCustomValidity('');
+      if (!el.validity.valid) {
+        if (el.validity.valueMissing) el.setCustomValidity(msgs[lang].req);
+        else if (el.type === 'email') el.setCustomValidity(msgs[lang].email);
+        else el.setCustomValidity(msgs[lang].req);
+      }
+    }
+    Array.from(form.elements).forEach(el => {
+      updateValidity(el);
+      el.addEventListener('input', () => updateValidity(el));
+    });
+    
+    // Simulate user typing
+    const email = document.getElementById('email');
+    email.value = 'retfd@';
+    email.dispatchEvent(new Event('input'));
+    
+    console.log("Validation Message:", email.validationMessage);
+  </script>
+</body>
+</html>

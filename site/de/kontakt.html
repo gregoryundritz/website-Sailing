@@ -134,7 +134,7 @@
     </ul>
   </nav>
 <!-- CONTACT -->
-  <section id="contact" style="padding-top: 120px; background:var(--white);">
+  <section id="contact" style="padding: 120px 0 0px; background:var(--white);">
     <div class="ct">
       <div class="rv" style="text-align:center;margin-bottom:48px;">
 
@@ -232,6 +232,7 @@
               <div class="fg"><input type="text" name="date_retour" id="fp-end" placeholder="Rückgabedatum" readonly
                   required style="cursor:pointer"></div>
             </div>
+            
             <div id="resa-duration-display" class="duration-display"></div>
 
           </div>
@@ -243,7 +244,7 @@
             <div class="opts-checks" id="resa-options">
               <label class="opt-check"><input type="checkbox" data-price="50" data-per="forfait"
                   onchange="updateTotal()" checked onclick="return false;"
-                  style="pointer-events:none;opacity:0.8;"><span class="oci" style="background: rgba(184, 131, 46, 0.15); border: 2px solid var(--gold); opacity: 1;"><span class="ocn">🧹 Endreinigung (obligatorisch)</span><span class="ocp">+50 CHF</span></span></label>
+                  style="pointer-events:none;opacity:0.8;"><span class="oci" style="background: #fff8ee; border: 2px solid var(--gold);"><span class="ocn" style="color: var(--navy); font-weight: 700; font-size: 14px;">🧹 Endreinigung (obligatorisch)</span><span class="ocp">+50 CHF</span></span></label>
               <label class="opt-check"><input type="checkbox" data-price="15" data-per="jour"
                   onchange="updateTotal()"><span class="oci"><span class="ocn">🎏 Gennaker</span><span class="ocp">+15
                     CHF/Tag</span></span></label>
@@ -511,7 +512,7 @@
 
 
         <!-- ÉTAPE 5 : Message -->
-        <div class="resa-step" style="margin-top:8px;">
+        <div class="resa-step" style="margin-top:-16px;">
           <div class="fg" style="margin-bottom:0;"><textarea name="message" placeholder="Ihre Nachricht"></textarea>
           </div>
         </div>
@@ -524,9 +525,9 @@
         <!-- CG + SUBMIT -->
         <div style="margin: 24px 0 20px;">
           <label
-            style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 14px; color: var(--muted); line-height: 1.5;">
+            style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 14px; color: var(--muted); line-height: 1.5;">
             <input type="checkbox" name="accept_cg" required
-              style="width: 18px; height: 18px; margin-top: 1px; cursor: pointer; flex-shrink: 0;">
+              style="width: 18px; height: 18px; cursor: pointer; flex-shrink: 0; margin: 0;">
             <span>Ich habe die <a href="/agb.html" target="_blank"
                 style="color: var(--teal); text-decoration: underline; font-weight: 500;">Allgemeinen Mietbedingungen</a> gelesen und akzeptiere <a href="/agb.html" target="_blank"
                 style="color: var(--teal); text-decoration: underline; font-weight: 500;">sie
@@ -682,13 +683,19 @@
                         let start = event.start.date || event.start.dateTime;
                         let end = event.end.date || event.end.dateTime;
                         if (start && end) {
-                            let endDate = new Date(end);
+                            let startStr = start.split('T')[0];
+                            let endStr = end.split('T')[0];
+                            
+                            let startDateObj = new Date(startStr + 'T00:00:00');
+                            let endDateObj = new Date(endStr + 'T00:00:00');
+                            
                             if (event.end.date) {
-                                endDate.setDate(endDate.getDate() - 1);
+                                endDateObj.setDate(endDateObj.getDate() - 1);
                             }
+                            
                             dates.push({
-                                from: new Date(start).toISOString().split('T')[0],
-                                to: endDate.toISOString().split('T')[0]
+                                from: startDateObj,
+                                to: endDateObj
                             });
                         }
                     });
@@ -705,21 +712,74 @@
 
     function initFp() {
       if (typeof flatpickr === 'undefined') { setTimeout(initFp, 80); return; }
-      var loc = (typeof flatpickr.l10ns !== 'undefined' && flatpickr.l10ns.de) ? 'de' : 'default';
+      var docLang = document.documentElement.lang || 'fr';
+      var loc = (typeof flatpickr.l10ns !== 'undefined' && flatpickr.l10ns[docLang]) ? docLang : 'default';
+      
+      var summerNoticeText = "Min. 2 Tage im Juli und August";
+      function toggleNotice(inst) {
+          var m = inst.currentMonth;
+          if (inst.summerNote) {
+              inst.summerNote.style.display = (m === 6 || m === 7) ? 'block' : 'none';
+          }
+      }
+      function onReadyHandler(s, d, inst) {
+          var note = document.createElement("div");
+          note.innerHTML = summerNoticeText;
+          note.style.padding = "10px";
+          note.style.textAlign = "center";
+          note.style.fontSize = "13px";
+          note.style.fontWeight = "600";
+          note.style.color = "#7a5a10";
+          note.style.background = "#fff8ee";
+          note.style.borderTop = "1px solid #f0d898";
+          note.style.display = "none";
+          inst.calendarContainer.appendChild(note);
+          inst.summerNote = note;
+          toggleNotice(inst);
+      }
+
       fpS = flatpickr('#fp-start', {
         disable: window.VOILIER_BLOCKED_DATES, locale: loc, dateFormat: 'j F Y', minDate: minD, disableMobile: true, allowInput: false,
+        onReady: onReadyHandler,
+        onMonthChange: function(s, d, inst) { toggleNotice(inst); },
+        onYearChange: function(s, d, inst) { toggleNotice(inst); },
+        onOpen: function(s, d, inst) { toggleNotice(inst); },
         onChange: function (d) {
           if (!d.length) return;
-          var nd = new Date(d[0]); // allow same day
-          fpE.set('minDate', nd);
-          if (fpE.selectedDates[0] && fpE.selectedDates[0] < d[0]) fpE.clear();
+          var nd = new Date(d[0]);
+          var m = nd.getMonth();
+          if (m === 6 || m === 7) {
+              nd.setDate(nd.getDate() + 1);
+          }
+          if (fpE) {
+              fpE.set('minDate', nd);
+              if (fpE.selectedDates[0] && fpE.selectedDates[0] < nd) {
+                  fpE.setDate(nd);
+              }
+          }
           updateTotal();
         }
       });
       fpE = flatpickr('#fp-end', {
         disable: window.VOILIER_BLOCKED_DATES, locale: loc, dateFormat: 'j F Y', minDate: minD, disableMobile: true, allowInput: false,
+        onReady: onReadyHandler,
+        onMonthChange: function(s, d, inst) { toggleNotice(inst); },
+        onYearChange: function(s, d, inst) { toggleNotice(inst); },
+        onOpen: function(s, d, inst) { toggleNotice(inst); },
         onChange: function () { updateTotal(); }
       });
+
+      // Force sync constraints if dates were pre-filled (e.g. from draft)
+      if (fpS.selectedDates.length > 0) {
+          var nd = new Date(fpS.selectedDates[0]);
+          var m = nd.getMonth();
+          if (m === 6 || m === 7) nd.setDate(nd.getDate() + 1);
+          fpE.set('minDate', nd);
+          if (fpE.selectedDates.length > 0 && fpE.selectedDates[0] < nd) {
+              fpE.setDate(nd, true);
+          }
+      }
+      updateTotal();
     }
     initFp();
 
@@ -729,28 +789,18 @@
       const form = document.querySelector('form[name="reservation"]');
       if (!form) return;
       
-      const lang = document.documentElement.lang || 'fr';
+      const lang = 'de';
       const msgs = {
         fr: { req: 'Veuillez renseigner ce champ.', email: 'Veuillez entrer une adresse e-mail valide.' },
         en: { req: 'Please fill out this field.', email: 'Please enter a valid email address.' },
         de: { req: 'Bitte füllen Sie dieses Feld aus.', email: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.' }
       };
 
-      // Custom validation messages
-      Array.from(form.elements).forEach(el => {
-        // Remove inline handlers if they exist
-        el.removeAttribute('oninvalid');
-        el.removeAttribute('oninput');
-        
-        el.addEventListener('invalid', function(e) {
-          if (el.validity.valueMissing) el.setCustomValidity(msgs[lang].req);
-          else if (el.validity.typeMismatch) el.setCustomValidity(msgs[lang].email);
-        });
-        el.addEventListener('input', function(e) {
-          el.setCustomValidity('');
-          saveFormData();
-        });
-      });
+      function getCustomMsg(el) {
+        if (el.validity.valueMissing) return msgs[lang].req;
+        if (el.type === 'email' || el.name === 'email') return msgs[lang].email;
+        return msgs[lang].req;
+      }
 
       // Session storage logic
       function saveFormData() {
@@ -781,8 +831,8 @@
               el.value = data[k];
             }
           });
-          if (data.date_depart && window.fpS) window.fpS.setDate(data.date_depart);
-          if (data.date_retour && window.fpE) window.fpE.setDate(data.date_retour);
+          if (data.date_depart && window.fpS) window.fpS.setDate(data.date_depart, true);
+          if (data.date_retour && window.fpE) window.fpE.setDate(data.date_retour, true);
           if (typeof updateTotal === 'function') updateTotal();
         } catch (e) {
           console.error('Failed to parse form draft', e);
@@ -804,8 +854,9 @@
       var tt = document.getElementById('resa-total');
       if (!s || !e) { if (dd) dd.style.display = 'none'; if (tt) tt.textContent = '— CHF'; return; }
       var days = Math.round((e - s) / 86400000) + 1;
-      if (days <= 0 || days > 14) { if (dd) dd.style.display = 'none'; if (tt) tt.textContent = days > 14 ? 'Max 14 jours' : '— CHF'; return; }
-      var total = getPrice(days);
+      if (days <= 0 || days > 14) { if (dd) dd.style.display = 'none'; if (tt) tt.textContent = days > 14 ? ((lang === 'de') ? 'Max 14 Tage' : ((lang === 'en') ? 'Max 14 days' : 'Max 14 jours')) : '— CHF'; return; }
+      var basePrice = getPrice(days);
+      var total = basePrice;
       var isPass = (typeof currentTab !== 'undefined' && currentTab === 'pass');
       if (!isPass) {
         document.querySelectorAll('#resa-options input:checked').forEach(function (cb) {
@@ -856,14 +907,52 @@
     document.addEventListener('DOMContentLoaded', function () {
       const resaForm = document.querySelector('form[name="reservation"]');
       if (resaForm) {
+        resaForm.setAttribute('novalidate', 'true');
         resaForm.addEventListener('submit', function (e) {
           e.preventDefault();
           const btn = document.getElementById('resa-submit-btn');
           const note = document.getElementById('resa-note');
+          
+          // Manual Custom Validation
+          let isFormValid = true;
+          let firstInvalid = null;
+          
+          for (let el of resaForm.elements) {
+            if (el.willValidate && !el.validity.valid) {
+              isFormValid = false;
+              if (!firstInvalid) firstInvalid = el;
+            }
+          }
+          
+          if (!isFormValid) {
+             const docLang = document.documentElement.lang || 'fr';
+             const errMsgs = {
+               fr: { req: 'Veuillez renseigner ce champ.', email: 'Veuillez entrer une adresse e-mail valide.' },
+               en: { req: 'Please fill out this field.', email: 'Please enter a valid email address.' },
+               de: { req: 'Bitte füllen Sie dieses Feld aus.', email: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.' }
+             };
+             let msg = errMsgs[docLang] ? errMsgs[docLang].req : errMsgs.fr.req;
+             if (firstInvalid.type === 'email' || firstInvalid.name === 'email') {
+                 msg = firstInvalid.validity.valueMissing ? (errMsgs[docLang] ? errMsgs[docLang].req : errMsgs.fr.req) : (errMsgs[docLang] ? errMsgs[docLang].email : errMsgs.fr.email);
+             }
+             if (note) {
+                 note.innerHTML = '<span style="color:#d9534f;font-weight:600;display:block;padding:12px;background:#fdf2f2;border:1px solid #d9534f;border-radius:6px;margin-bottom:12px;">⚠️ ' + msg + '</span>';
+             }
+             firstInvalid.style.borderColor = '#d9534f';
+             // Scroll to the invalid element
+             firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+             firstInvalid.focus({ preventScroll: true });
+             
+             firstInvalid.addEventListener('input', function() {
+                 firstInvalid.style.borderColor = '';
+                 if (note) note.innerHTML = '';
+             }, {once: true});
+             return;
+          }
           const formData = new FormData(resaForm);
 
           btn.disabled = true;
-          btn.textContent = 'Envoi en cours...';
+          btn.textContent = (lang === 'de') ? 'Wird gesendet...' : ((lang === 'en') ? 'Sending...' : 'Envoi en cours...');
 
           fetch('/', {
             method: 'POST',
@@ -905,8 +994,8 @@
             })
             .catch((error) => {
               btn.disabled = false;
-              btn.textContent = 'Réessayer';
-              alert('Erreur lors de l\'envoi. Veuillez réessayer.');
+              btn.textContent = (lang === 'de') ? 'Erneut versuchen' : ((lang === 'en') ? 'Retry' : 'Réessayer');
+              alert((lang === 'de') ? 'Fehler beim Senden. Bitte versuchen Sie es erneut.' : ((lang === 'en') ? 'Error sending. Please try again.' : 'Erreur lors de l\'envoi. Veuillez réessayer.'));
             });
         });
       }
