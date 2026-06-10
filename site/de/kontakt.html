@@ -1010,11 +1010,6 @@
               }
               console.error(error);
             });
-            .catch((error) => {
-              btn.disabled = false;
-              btn.textContent = (lang === 'de') ? 'Erneut versuchen' : ((lang === 'en') ? 'Retry' : 'Réessayer');
-              alert((lang === 'de') ? 'Fehler beim Senden. Bitte versuchen Sie es erneut.' : ((lang === 'en') ? 'Error sending. Please try again.' : 'Erreur lors de l\'envoi. Veuillez réessayer.'));
-            });
         });
       }
     });
