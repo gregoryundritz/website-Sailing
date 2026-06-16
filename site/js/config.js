@@ -58,3 +58,26 @@ window.VOILIER_TRANSLATIONS = {
   'Paddle': { 'de': 'Stand-Up Paddle', 'en': 'Paddleboard' },
   'Gennaker': { 'de': 'Gennaker', 'en': 'Gennaker' }
 };
+
+document.addEventListener('DOMContentLoaded', function() {
+  const mobFloat = document.querySelector('.mob-float');
+  if (mobFloat) {
+    const observer = new IntersectionObserver((entries) => {
+      let isVisible = false;
+      entries.forEach(entry => {
+        if (entry.isIntersecting) isVisible = true;
+      });
+      if (isVisible) {
+        mobFloat.style.opacity = '0';
+        mobFloat.style.pointerEvents = 'none';
+        mobFloat.style.transform = 'translate(-50%, 20px)';
+      } else {
+        mobFloat.style.opacity = '1';
+        mobFloat.style.pointerEvents = 'all';
+        mobFloat.style.transform = 'translateX(-50%)';
+      }
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('.resa-wrap, footer').forEach(el => observer.observe(el));
+  }
+});

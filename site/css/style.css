@@ -1009,24 +1009,27 @@
 
     .f-sub {
       width: 100%;
-      background: var(--navy);
-      color: var(--white);
+      background: var(--gold);
+      color: var(--navy);
       border: none;
       padding: 16px;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: .12em;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .1em;
       text-transform: uppercase;
       cursor: pointer;
       border-radius: var(--r);
       font-family: 'DM Sans', sans-serif;
-      transition: background .2s;
-      margin-top: 4px
+      transition: background .2s, transform .2s, box-shadow .2s;
+      margin-top: 4px;
+      box-shadow: 0 4px 15px rgba(184, 131, 46, 0.2);
     }
 
     @media (hover: hover) {
     .f-sub:hover {
-      background: var(--teal)
+      background: #cba04b;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(184, 131, 46, 0.3);
     }
     }
 
@@ -1313,6 +1316,7 @@
         z-index: 999;
         gap: 12px;
         pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
       }
 
       .mob-float a {
