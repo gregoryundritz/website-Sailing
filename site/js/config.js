@@ -12,13 +12,13 @@ window.VOILIER_CONFIG = {
   GOOGLE_CALENDAR_ID: '352a23f170d4b8a0d40b183303bb12ea40350fc2e420b12dac648695db8a4095@group.calendar.google.com',
 
   prices_per_days: {
-    1: 275,
-    2: 510,
-    3: 750,
-    4: 980,
-    5: 1200,
-    6: 1410,
-    7: 1610,
+    1: 235,
+    2: 430,
+    3: 630,
+    4: 820,
+    5: 1000,
+    6: 1170,
+    7: 1330,
   },
 
   // Montant de la caution (en CHF)
