@@ -142,7 +142,9 @@
       <div class="rv" style="text-align:center;margin-bottom:48px;">
         <span class="eyebrow">Escape &amp; Discovery</span>
         <h2 class="sec-h">Routes on <em style="color:var(--lake)">Lake Neuchâtel</em></h2>
-        <p class="sec-p" style="margin:0 auto;">Discover our suggested routes starting from Cheyres.</p>
+        <p class="sec-p" style="margin:0 auto;">Discover our suggested routes starting from Cheyres.</p>\n        <div style="text-align:center; margin-top: 16px;">
+          <a href="#vents" style="display:inline-block; font-size: 14px; color: var(--gold); text-decoration: none; border: 1px solid var(--gold); padding: 8px 20px; border-radius: 30px; transition: all 0.2s;" onmouseover="this.style.background='var(--gold)'; this.style.color='#fff';" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)';">Weather & Winds ↓</a>
+        </div>
       </div>
 
       <div class="rv" style="display:grid;grid-template-columns: 1fr 1fr;gap:32px;">
@@ -170,13 +172,126 @@
             <li>Places to see: Neuchâtel, Yverdon, views of the Alps</li>
           </ul>
         </div>
+
+        <div style="background:var(--sand);border-radius:var(--r);padding:32px;">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:16px;">Heading South-West</h3>
+          <p style="font-size:15px;color:rgba(0,0,0,0.6);line-height:1.6;margin-bottom:16px;">Sailing towards the south-western end of the lake. Ideal for a quiet weekend with an overnight stay at the port of Grandson. A great opportunity to eat at a restaurant before heading back.</p>
+          <ul style="font-size:14px;color:rgba(0,0,0,0.5);margin-left:20px;line-height:1.8;">
+            <li>Duration: 1 to 2 days</li>
+            <li>Difficulty: Easy to Moderate</li>
+            <li>Highlights: Grandson Castle</li>
+          </ul>
+        </div>
+
+        <div style="background:var(--sand);border-radius:var(--r);padding:32px;">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:16px;">Getaway to Portalban & Neuchâtel</h3>
+          <p style="font-size:15px;color:rgba(0,0,0,0.6);line-height:1.6;margin-bottom:16px;">A beautiful sail up the lake with the prevailing wind (South-West). Possible stop at the sandy port of Portalban, followed by a crossing to Neuchâtel and its historic area.</p>
+          <ul style="font-size:14px;color:rgba(0,0,0,0.5);margin-left:20px;line-height:1.8;">
+            <li>Duration: 1 to 2 days</li>
+            <li>Difficulty: Easy</li>
+            <li>Highlights: Portalban beach, Neuchâtel harbour</li>
+          </ul>
+        </div>
       </div>
       <div class="rv" style="text-align: center; margin-top: 48px;">
         <a href="gallery.html" style="font-size: 15px; color: var(--navy); text-decoration: underline; font-weight: 500; text-underline-offset: 3px; transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--navy)'">To the photo gallery</a>
       </div>
     </div>
   </section>
-  <footer>
+
+  <!-- VENTS -->
+  <section id="vents" style="padding-top: 70px; padding-bottom: 90px; background: var(--white);">
+    <div class="ct">
+      <div class="rv" style="text-align:center;margin-bottom:64px;">
+        <span class="eyebrow">Weather & Navigation</span>
+        <h2 class="sec-h">Wind Patterns on the <em style="color:var(--lake)">Lake</em></h2>
+        <p class="sec-p" style="margin:0 auto; max-width: 600px;">Understand the main winds of Lake Neuchâtel to prepare your trips safely.</p>
+      </div>
+
+      <div class="rv wind-section">
+        <!-- SVG Graphic -->
+        <div class="wind-graphic-wrap" style="padding: 20px;">
+          <div class="wind-map" style="position: relative; width: 100%; max-width: 400px; margin: 0 auto;">
+            <svg viewBox="0 0 400 300" style="width: 100%; height: auto; display: block;">
+              <defs>
+                <marker id="arrowBise" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0,0 L0,6 L9,3 z" fill="#a3c4f3" />
+                </marker>
+                <marker id="arrowJoran" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0,0 L0,6 L9,3 z" fill="#f1c40f" />
+                </marker>
+                <marker id="arrowSudOuest" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0,0 L0,6 L9,3 z" fill="#ffffff" />
+                </marker>
+              </defs>
+              
+              <!-- Lake Path -->
+              <path d="M 40,250 C 80,210 150,130 250,80 C 300,60 360,40 360,40 C 340,70 300,110 240,160 C 180,210 120,240 40,250 Z" 
+                    fill="rgba(90, 171, 203, 0.15)" stroke="var(--lake)" stroke-width="2" />
+              
+              <!-- Cities -->
+              <circle cx="50" cy="240" r="4" fill="var(--gold)" />
+              <text x="35" y="260" fill="var(--sand)" font-family="'DM Sans', sans-serif" font-size="11">Yverdon</text>
+
+              <circle cx="260" cy="80" r="4" fill="var(--gold)" />
+              <text x="270" y="75" fill="var(--sand)" font-family="'DM Sans', sans-serif" font-size="11">Neuchâtel</text>
+
+              <circle cx="190" cy="180" r="4" fill="var(--gold)" />
+              <text x="200" y="195" fill="var(--sand)" font-family="'DM Sans', sans-serif" font-size="11">Estavayer</text>
+
+              <circle cx="150" cy="210" r="3" fill="var(--sand)" />
+              <text x="145" y="228" fill="rgba(255,255,255,0.7)" font-family="'DM Sans', sans-serif" font-size="10">Cheyres</text>
+
+              <!-- Bise (Nord-Est -> Sud-Ouest) -->
+              <g class="wind-arr-grp" style="transform-origin: 320px 40px;">
+                <line x1="380" y1="10" x2="310" y2="60" stroke="#a3c4f3" stroke-width="3" marker-end="url(#arrowBise)" />
+                <rect x="330" y="0" width="40" height="20" rx="10" fill="var(--navy2)" stroke="rgba(255,255,255,0.2)"/>
+                <text x="350" y="14" fill="#a3c4f3" font-family="'DM Sans', sans-serif" font-size="11" font-weight="500" text-anchor="middle">Bise</text>
+              </g>
+
+              <!-- Joran (Nord-Ouest -> Sud-Est) -->
+              <g class="wind-arr-grp" style="transform-origin: 140px 90px;">
+                <line x1="80" y1="30" x2="150" y2="100" stroke="#f1c40f" stroke-width="3" marker-end="url(#arrowJoran)" />
+                <rect x="70" y="10" width="45" height="20" rx="10" fill="var(--navy2)" stroke="rgba(255,255,255,0.2)"/>
+                <text x="92" y="24" fill="#f1c40f" font-family="'DM Sans', sans-serif" font-size="11" font-weight="500" text-anchor="middle">Joran</text>
+              </g>
+
+              <!-- Sud-Ouest (Sud-Ouest -> Nord-Est) -->
+              <g class="wind-arr-grp" style="transform-origin: 80px 220px;">
+                <line x1="10" y1="280" x2="80" y2="210" stroke="#ffffff" stroke-width="3" marker-end="url(#arrowSudOuest)" />
+                <rect x="0" y="270" width="75" height="20" rx="10" fill="var(--navy2)" stroke="rgba(255,255,255,0.2)"/>
+                <text x="37" y="284" fill="#ffffff" font-family="'DM Sans', sans-serif" font-size="11" font-weight="500" text-anchor="middle">Sud-Ouest</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Explanations -->
+        <div class="wind-details">
+          <div class="wind-card">
+            <h4><span class="wind-color-dot" style="background:#a3c4f3;"></span> La Bise (North-East)</h4>
+            <p>Fair weather wind, cold and dry. On Lake Neuchâtel, it quickly raises a short and steep chop. Ideal for sporty sailing, but requires vigilance as it can blow hard and create waves over 1.5 meters.</p>
+          </div>
+
+          <div class="wind-card">
+            <h4><span class="wind-color-dot" style="background:#f1c40f;"></span> Le Joran (North-West)</h4>
+            <p>Thermal wind descending from the Jura ridges. It typically rises in the late afternoon on hot summer days. Beware, it can be sudden, violent, and often heralds thunderstorms. It is advisable to seek shelter or reduce sail when it approaches.</p>
+          </div>
+
+          <div class="wind-card">
+            <h4><span class="wind-color-dot" style="background:#ffffff; border:1px solid #ccc;"></span> Le Sud-Ouest (Vent Blanc)</h4>
+            <p>The dominant and often most regular wind. It generally brings depressions or a clear sky (vent blanc). It is the perfect wind for long, peaceful crossings along the Grande Cariçaie towards Neuchâtel.</p>
+          </div>
+
+          <div style="margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap;">
+            <a href="https://www.meteosuisse.admin.ch" target="_blank" style="background: var(--navy); color: #fff; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-size: 14px; font-weight: 500; transition: transform 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">MeteoSwiss Forecast ↗</a>
+            <a href="https://www.windfinder.com" target="_blank" style="background: var(--lake); color: #fff; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-size: 14px; font-weight: 500; transition: transform 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">Windfinder Yvonand ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+\n  <footer>
     <div class="fl">Sailing · <span>Lake Neuchatel</span></div>
     <p class="ft">Lake Neuchâtel · Harbour de Cheyres, Switzerland</p>
     <div class="flinks">
