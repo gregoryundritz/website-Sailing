@@ -8,7 +8,7 @@ window.VOILIER_CONFIG = {
 
   // Paramètres Google Calendar
   // Remplacez 'VOTRE_CLE_API_ICI' par la clé que vous allez créer
-  GOOGLE_CALENDAR_API_KEY: 'AIzaSyB3U9splqxZ5tUG3LnIQA1LU6mquxNvaio',
+  GOOGLE_CALENDAR_API_KEY: 'AIzaSyCm6GVbJNN_IlGh-GF5AHSQCJ40DJfOxaw',
   GOOGLE_CALENDAR_ID: '352a23f170d4b8a0d40b183303bb12ea40350fc2e420b12dac648695db8a4095@group.calendar.google.com',
 
   prices_per_days: {
