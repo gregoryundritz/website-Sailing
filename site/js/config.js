@@ -5,7 +5,7 @@
 
 window.VOILIER_CONFIG = {
   // Grille des prix (en CHF) selon le nombre de jours
-  
+
   // Paramètres Google Calendar
   // Remplacez 'VOTRE_CLE_API_ICI' par la clé que vous allez créer
   GOOGLE_CALENDAR_API_KEY: 'AIzaSyB3U9splqxZ5tUG3LnIQA1LU6mquxNvaio',
@@ -19,13 +19,6 @@ window.VOILIER_CONFIG = {
     5: 1200,
     6: 1410,
     7: 1610,
-    8: 1800,
-    9: 1980,
-    10: 2150,
-    11: 2310,
-    12: 2460,
-    13: 2600,
-    14: 2730,
   },
 
   // Montant de la caution (en CHF)
@@ -59,7 +52,7 @@ window.VOILIER_TRANSLATIONS = {
   'Gennaker': { 'de': 'Gennaker', 'en': 'Gennaker' }
 };
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const mobFloat = document.querySelector('.mob-float');
   if (mobFloat) {
     const observer = new IntersectionObserver((entries) => {
@@ -77,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
         mobFloat.style.transform = 'translateX(-50%)';
       }
     }, { threshold: 0.1 });
-    
+
     document.querySelectorAll('.resa-wrap, footer').forEach(el => observer.observe(el));
   }
 });
