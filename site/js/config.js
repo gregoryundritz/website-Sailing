@@ -34,8 +34,8 @@ window.VOILIER_CONFIG = {
   // - per: "forfait" (paiement unique) ou "jour" (paiement par jour)
   // - required: true (obligatoire, la case sera cochée et bloquée), false (facultatif)
   options: [
-    { name: "Nettoyage final (obligatoire)", price: 50, per: "forfait", required: true },
-    { name: "Essence (obligatoire)", price: 15, per: "jour", required: true },
+    { name: "Nettoyage final", price: 50, per: "forfait", required: true },
+    { name: "Essence", price: 15, per: "jour", required: true },
     { name: "Paddle", price: 15, per: "jour", required: false },
     { name: "Gennaker", price: 15, per: "jour", required: false }
   ],
@@ -47,11 +47,9 @@ window.VOILIER_CONFIG = {
 };
 
 window.VOILIER_TRANSLATIONS = {
-  'Nettoyage final (obligatoire)': { 'de': 'Endreinigung (obligatorisch)', 'en': 'Final cleaning (mandatory)' },
   'Nettoyage final': { 'de': 'Endreinigung', 'en': 'Final cleaning' },
   'Paddle': { 'de': 'Stand-Up Paddle', 'en': 'Paddleboard' },
   'Gennaker': { 'de': 'Gennaker', 'en': 'Gennaker' },
-  'Essence (obligatoire)': { 'de': 'Benzin (obligatorisch)', 'en': 'Gasoline (mandatory)' },
   'Essence': { 'de': 'Benzin', 'en': 'Gasoline' }
 };
 

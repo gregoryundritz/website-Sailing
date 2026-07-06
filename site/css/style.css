@@ -950,8 +950,7 @@
     }
 
     .opt-disabled {
-      opacity: 0.5;
-      filter: grayscale(1);
+      opacity: 0.9;
       cursor: not-allowed !important;
     }
 
@@ -969,6 +968,10 @@
     .opt-check input:checked+.oci .ocn {
       font-weight: 600;
       color: var(--gold)
+    }
+
+    .opt-disabled input:checked+.oci .ocn {
+      font-weight: 500;
     }
 
     .ocn {

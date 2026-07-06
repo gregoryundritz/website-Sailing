@@ -228,8 +228,8 @@
                   required style="cursor:pointer"></div>
             </div>
             
+            <div id="resa-duration-display" style="padding:15px 20px; background:var(--white, #fff); border-radius:var(--r, 8px); border:1px solid rgba(13,38,59,0.15); margin-top:15px; margin-bottom:25px; font-weight:600; font-size:14px; color:var(--navy, #0d263b); display:none; justify-content:space-between; align-items:center;"></div>
             
-
           </div>
 
           <!-- ÉTAPE 3 : Options -->
@@ -239,10 +239,10 @@
             <div class="opts-checks" id="resa-options">
               <label class="opt-check"><input type="checkbox" data-price="50" data-per="forfait"
                   onchange="updateTotal()" checked onclick="return false;"
-                  style="pointer-events:none;opacity:0.8;"><span class="oci" style="background: #fff8ee; border: 2px solid var(--gold);"><span class="ocn" style="color: var(--navy); font-weight: 700; font-size: 14px;">🧹 Nettoyage final (obligatoire)</span><span class="ocp">+50 CHF</span></span></label>
+                  style="pointer-events:none;opacity:0.8;"><span class="oci" style="background: #fff8ee; border: 2px solid var(--gold);"><span class="ocn" style="color: var(--navy); font-weight: 700; font-size: 14px;">🧹 Nettoyage final</span><span class="ocp">+50 CHF</span></span></label>
               <label class="opt-check"><input type="checkbox" data-price="15" data-per="jour"
                   onchange="updateTotal()" checked onclick="return false;"
-                  style="pointer-events:none;opacity:0.8;"><span class="oci" style="background: #fff8ee; border: 2px solid var(--gold);"><span class="ocn" style="color: var(--navy); font-weight: 700; font-size: 14px;">⛽ Essence (obligatoire)</span><span class="ocp">+15 CHF/j</span></span></label>
+                  style="pointer-events:none;opacity:0.8;"><span class="oci" style="background: #fff8ee; border: 2px solid var(--gold);"><span class="ocn" style="color: var(--navy); font-weight: 700; font-size: 14px;">⛽ Essence</span><span class="ocp">+15 CHF/j</span></span></label>
               <label class="opt-check"><input type="checkbox" data-price="15" data-per="jour"
                   onchange="updateTotal()"><span class="oci"><span class="ocn">🎏 Gennaker</span><span class="ocp">+15
                     CHF/j</span></span></label>
@@ -261,7 +261,7 @@
             <div class="total-bar">
               <span style="display:flex; flex-direction:column;">
                 <span style="font-family: 'Cormorant Garamond', serif; font-size: 22px;">Montant total TVA incl.</span>
-                <span style="font-family: 'Cormorant Garamond', serif; font-size: 18px; opacity:0.9; font-style: italic; margin-top: 2px;">(Nettoyage et essence inclus)</span>
+                <span id="resa-inclus-text" style="font-family: 'Cormorant Garamond', serif; font-size: 18px; opacity:0.9; font-style: italic; margin-top: 2px;">(Nettoyage et essence inclus)</span>
               </span>
               <span class="total-val" id="resa-total">— CHF</span>
             </div>
@@ -629,7 +629,7 @@
         if (tg) {
           tg.innerHTML = '';
           c.options.forEach(o => {
-            var pl = o.per === 'jour' ? (lang==='de'? '/Tag' : lang==='en'? '/day' : '/j') : o.per === 'forfait' ? '' : '/' + o.per;
+            var pl = o.per === 'jour' ? (lang==='de'? ' <span style="text-transform:none;">/ Tag</span>' : lang==='en'? ' <span style="text-transform:none;">/ day</span>' : ' <span style="text-transform:none;">/ jour</span>') : o.per === 'forfait' ? '' : ' <span style="text-transform:none;">/ ' + o.per + '</span>';
             tg.innerHTML += `<div class="opt-card"><div class="opt-card-name">${gi(o.name)} ${t(o.name)}</div><div class="opt-card-price">+${o.price} CHF${pl}</div></div>`;
           });
 
@@ -644,7 +644,7 @@
           if (mand.length) {
             ro.innerHTML += `<div style="font-size:13px;font-weight:600;color:var(--navy);margin:0 0 10px 0;letter-spacing:0.05em;text-transform:uppercase;">${lang==='de'?'Obligatorische Optionen':lang==='en'?'Mandatory options':'Options obligatoires'}</div>`;
             mand.forEach(o => {
-              var pl = o.per === 'jour' ? (lang==='de'? '/Tag' : lang==='en'? '/day' : '/j') : o.per === 'forfait' ? '' : '/' + o.per;
+              var pl = o.per === 'jour' ? (lang==='de'? ' <span style="text-transform:none;">/ Tag</span>' : lang==='en'? ' <span style="text-transform:none;">/ day</span>' : ' <span style="text-transform:none;">/ jour</span>') : o.per === 'forfait' ? '' : ' <span style="text-transform:none;">/ ' + o.per + '</span>';
               var disabledClass = 'opt-disabled';
               var inputAttrs = 'checked onclick="return false;"';
               ro.innerHTML += `<label class="opt-check ${disabledClass}"><input type="checkbox" data-price="${o.price}" data-per="${o.per}" ${inputAttrs}><span class="oci"><span style="display:flex; align-items:center;"><span class="oc-radio"></span><span class="ocn">${gi(o.name)} ${t(o.name)}</span></span><span class="ocp">+${o.price} CHF${pl}</span></span></label>`;
@@ -653,7 +653,7 @@
           if (opt.length) {
             ro.innerHTML += `<div style="font-size:13px;font-weight:600;color:var(--navy);margin:16px 0 10px 0;letter-spacing:0.05em;text-transform:uppercase;">${lang==='de'?'Zusätzliche Optionen':lang==='en'?'Additional options':'Options supplémentaires'}</div>`;
             opt.forEach(o => {
-              var pl = o.per === 'jour' ? (lang==='de'? '/Tag' : lang==='en'? '/day' : '/j') : o.per === 'forfait' ? '' : '/' + o.per;
+              var pl = o.per === 'jour' ? (lang==='de'? ' <span style="text-transform:none;">/ Tag</span>' : lang==='en'? ' <span style="text-transform:none;">/ day</span>' : ' <span style="text-transform:none;">/ jour</span>') : o.per === 'forfait' ? '' : ' <span style="text-transform:none;">/ ' + o.per + '</span>';
               var disabledClass = '';
               var inputAttrs = 'onchange="updateTotal()"';
               ro.innerHTML += `<label class="opt-check ${disabledClass}"><input type="checkbox" data-price="${o.price}" data-per="${o.per}" ${inputAttrs}><span class="oci"><span style="display:flex; align-items:center;"><span class="oc-radio"></span><span class="ocn">${gi(o.name)} ${t(o.name)}</span></span><span class="ocp">+${o.price} CHF${pl}</span></span></label>`;
@@ -864,28 +864,67 @@
 
     // ── Total ──
     function updateTotal() {
+      var isPass = (typeof currentTab !== 'undefined' && currentTab === 'pass');
+      var lang = document.documentElement.lang || 'fr';
+      
+      var incText = document.getElementById('resa-inclus-text');
+      if (incText) {
+         if (isPass) {
+            incText.textContent = (lang === 'de') ? '(Benzin inklusive)' : ((lang === 'en') ? '(Gasoline included)' : '(Essence incluse)');
+         } else {
+            incText.textContent = (lang === 'de') ? '(Endreinigung und Benzin inklusive)' : ((lang === 'en') ? '(Final cleaning and gasoline included)' : '(Nettoyage et essence inclus)');
+         }
+      }
+
       var s = fpS && fpS.selectedDates[0], e = fpE && fpE.selectedDates[0];
       var dd = document.getElementById('resa-duration-display');
       var tt = document.getElementById('resa-total');
-      if (!s || !e) { if (dd) dd.style.display = 'none'; if (tt) tt.textContent = '— CHF'; return; }
+      
+      if (isPass) {
+        if (dd) dd.style.display = 'none';
+        if (tt) {
+          var passPrice = (window.VOILIER_CONFIG && window.VOILIER_CONFIG.pass_price) ? window.VOILIER_CONFIG.pass_price : 800;
+          tt.textContent = passPrice + ' CHF';
+        }
+        var hTotal = document.getElementById('resa-total-hidden');
+        if (hTotal) hTotal.value = (window.VOILIER_CONFIG ? window.VOILIER_CONFIG.pass_price : 800) + ' CHF';
+        return;
+      }
+
+      if (!s || !e) { 
+        if (dd) {
+          var t_loc = (lang === 'de') ? 'Preis Segelboot' : ((lang === 'en') ? 'Boat price' : 'Prix voilier');
+          dd.innerHTML = '<span>⛵ ' + t_loc + '</span><span>— CHF</span>';
+          dd.style.display = 'flex';
+        }
+        if (tt) tt.textContent = '— CHF'; 
+        return; 
+      }
       var days = Math.round((e - s) / 86400000) + 1;
-      if (days <= 0 || days > 14) { if (dd) dd.style.display = 'none'; if (tt) tt.textContent = days > 14 ? ((lang === 'de') ? 'Max 14 Tage' : ((lang === 'en') ? 'Max 14 days' : 'Max 14 jours')) : '— CHF'; return; }
+      if (days <= 0 || days > 14) { 
+        if (dd) {
+          var t_loc = (lang === 'de') ? 'Preis Segelboot' : ((lang === 'en') ? 'Boat price' : 'Prix voilier');
+          dd.innerHTML = '<span>⛵ ' + t_loc + '</span><span>— CHF</span>';
+          dd.style.display = 'flex';
+        }
+        if (tt) tt.textContent = days > 14 ? ((lang === 'de') ? 'Max 14 Tage' : ((lang === 'en') ? 'Max 14 days' : 'Max 14 jours')) : '— CHF'; 
+        return; 
+      }
+      
       var basePrice = getPrice(days);
       var total = basePrice;
-      var isPass = (typeof currentTab !== 'undefined' && currentTab === 'pass');
-      if (!isPass) {
-        document.querySelectorAll('#resa-options input:checked').forEach(function (cb) {
-          var p = parseInt(cb.dataset.price) || 0;
-          total += (cb.dataset.per === 'jour') ? p * days : p;
-        });
-      }
+      document.querySelectorAll('#resa-options input:checked').forEach(function (cb) {
+        var p = parseInt(cb.dataset.price) || 0;
+        total += (cb.dataset.per === 'jour') ? p * days : p;
+      });
       if (dd) {
-        var lang = document.documentElement.lang || 'fr';
-        var t_jours = (lang === 'de') ? ' Tage' : ((lang === 'en') ? ' days' : ' jours');
-        var t_jour = (lang === 'de') ? ' Tag' : ((lang === 'en') ? ' day' : ' jour');
-        var pricePerDay = Math.round(basePrice / days);
-        dd.textContent = days + (days > 1 ? t_jours : t_jour) + ' (' + pricePerDay + ' CHF / ' + t_jour.trim() + ')';
-        dd.style.display = 'block';
+         var t_jours = (lang === 'de') ? ' Tage' : ((lang === 'en') ? ' days' : ' jours');
+         var t_jour = (lang === 'de') ? ' Tag' : ((lang === 'en') ? ' day' : ' jour');
+         var t_loc = (lang === 'de') ? 'Preis Segelboot' : ((lang === 'en') ? 'Boat price' : 'Prix voilier');
+         var pricePerDay = Math.round(basePrice / days);
+         var perDayStr = days >= 2 ? '<div style="font-size:12px; font-weight:400; opacity:0.6; margin-top:2px;">(' + pricePerDay + ' CHF / ' + t_jour.trim() + ')</div>' : '';
+         dd.innerHTML = '<span>⛵ ' + t_loc + ' <span style="opacity:0.6;font-weight:400;margin-left:4px;">(' + days + (days > 1 ? t_jours : t_jour) + ')</span></span><div style="display:flex; flex-direction:column; align-items:flex-end;"><span>' + basePrice + ' CHF</span>' + perDayStr + '</div>';
+         dd.style.display = 'flex';
       }
       if (tt) tt.textContent = total.toLocaleString('fr-CH') + ' CHF';
 
@@ -1049,12 +1088,11 @@
         var secOpts = document.getElementById('section-options');
         if (secOpts) secOpts.style.display = 'none';
 
-        var tt = document.getElementById('resa-total');
-        if (tt) tt.textContent = '800 CHF';
         var wrap = document.getElementById('total-bar-wrap');
         if (wrap) wrap.style.display = 'block';
         var rad = document.querySelector('input[value=\"pass\"]');
         if(rad) rad.checked = true;
+        updateTotal();
       } else {
         if (secP) secP.style.display = 'none';
         var rad = document.querySelector('input[value=\"standard\"]');
