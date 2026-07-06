@@ -231,13 +231,13 @@
                   required style="cursor:pointer"></div>
             </div>
             
-            <div id="resa-duration-display" class="duration-display"></div>
+            
 
           </div>
 
           <!-- ÉTAPE 3 : Options -->
           <div class="resa-step" id="section-options">
-            <div class="resa-step-title">Additional options:</div>
+            <div class="resa-step-title" style="display:none;">Additional options:</div>
 
             <div class="opts-checks" id="resa-options">
               <label class="opt-check"><input type="checkbox" data-price="60" data-per="forfait"
@@ -263,7 +263,10 @@
           <!-- TOTAL VISIBLE ICI -->
           <div id="total-bar-wrap">
             <div class="total-bar">
-              <span>Total amount VAT incl.</span>
+              <span style="display:flex; flex-direction:column;">
+                <span style="font-family: 'Cormorant Garamond', serif; font-size: 22px;">Total amount VAT incl.</span>
+                <span style="font-family: 'Cormorant Garamond', serif; font-size: 18px; opacity:0.9; font-style: italic; margin-top: 2px;">(Final cleaning and gasoline included)</span>
+              </span>
               <span class="total-val" id="resa-total">— CHF</span>
             </div>
           </div>
@@ -648,13 +651,27 @@
         var ro = document.getElementById('resa-options');
         if (ro) {
           ro.innerHTML = '';
-          c.options.filter(o => !o.name.toLowerCase().includes('linge')).forEach(o => {
-            var pl = o.per === 'jour' ? (lang==='de'? '/Tag' : lang==='en'? '/day' : '/j') : o.per === 'forfait' ? '' : '/' + o.per;
-            var reqAttr = o.required ? 'checked onclick="return false;"' : '';
-            var disabledClass = o.required ? 'opt-disabled' : '';
-            var inputAttrs = o.required ? 'checked onclick="return false;"' : 'onchange="updateTotal()"';
-            ro.innerHTML += `<label class="opt-check ${disabledClass}"><input type="checkbox" data-price="${o.price}" data-per="${o.per}" ${inputAttrs}><span class="oci"><span style="display:flex; align-items:center;"><span class="oc-radio"></span><span class="ocn">${gi(o.name)} ${t(o.name)}</span></span><span class="ocp">+${o.price} CHF${pl}</span></span></label>`;
-          });
+          var mand = c.options.filter(o => o.required && !o.name.toLowerCase().includes('linge'));
+          var opt = c.options.filter(o => !o.required && !o.name.toLowerCase().includes('linge'));
+          
+          if (mand.length) {
+            ro.innerHTML += `<div style="font-size:13px;font-weight:600;color:var(--navy);margin:0 0 10px 0;letter-spacing:0.05em;text-transform:uppercase;">${lang==='de'?'Obligatorische Optionen':lang==='en'?'Mandatory options':'Options obligatoires'}</div>`;
+            mand.forEach(o => {
+              var pl = o.per === 'jour' ? (lang==='de'? '/Tag' : lang==='en'? '/day' : '/j') : o.per === 'forfait' ? '' : '/' + o.per;
+              var disabledClass = 'opt-disabled';
+              var inputAttrs = 'checked onclick="return false;"';
+              ro.innerHTML += `<label class="opt-check ${disabledClass}"><input type="checkbox" data-price="${o.price}" data-per="${o.per}" ${inputAttrs}><span class="oci"><span style="display:flex; align-items:center;"><span class="oc-radio"></span><span class="ocn">${gi(o.name)} ${t(o.name)}</span></span><span class="ocp">+${o.price} CHF${pl}</span></span></label>`;
+            });
+          }
+          if (opt.length) {
+            ro.innerHTML += `<div style="font-size:13px;font-weight:600;color:var(--navy);margin:16px 0 10px 0;letter-spacing:0.05em;text-transform:uppercase;">${lang==='de'?'Zusätzliche Optionen':lang==='en'?'Additional options':'Options supplémentaires'}</div>`;
+            opt.forEach(o => {
+              var pl = o.per === 'jour' ? (lang==='de'? '/Tag' : lang==='en'? '/day' : '/j') : o.per === 'forfait' ? '' : '/' + o.per;
+              var disabledClass = '';
+              var inputAttrs = 'onchange="updateTotal()"';
+              ro.innerHTML += `<label class="opt-check ${disabledClass}"><input type="checkbox" data-price="${o.price}" data-per="${o.per}" ${inputAttrs}><span class="oci"><span style="display:flex; align-items:center;"><span class="oc-radio"></span><span class="ocn">${gi(o.name)} ${t(o.name)}</span></span><span class="ocp">+${o.price} CHF${pl}</span></span></label>`;
+            });
+          }
         }
       }
     }
