@@ -56,8 +56,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "Location Voilier Suisse — Lac de Neuchâtel (Yacht & Segelschiff mieten)",
-  "description": "Location de voilier et yacht habitable Northman Maxus 21 (6.5m) au harbour de Cheyres sur le lac de Neuchâtel, Suisse. Segelschiff mieten. Carburant inclus, nuitées au harbour gratuites.",
+  "name": "Sailboat Rental Neuchâtel",
+  "description": "Rent a habitable Northman Maxus 21 sailboat on Lake Neuchâtel, Switzerland. Gasoline included, free overnight stays.",
   "brand": {"@type": "Brand", "name": "Northman Maxus 21"},
   "offers": {
     "@type": "AggregateOffer",
@@ -79,7 +79,7 @@
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Location Voilier Suisse",
-  "description": "Location de voilier et yacht sur le lac de Neuchâtel. Segelschiff mieten.",
+  "description": "Rent a sailboat on Lake Neuchâtel.",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Harbour de Cheyres",
@@ -262,9 +262,9 @@
           <!-- TOTAL VISIBLE ICI -->
           <div id="total-bar-wrap">
             <div class="total-bar">
-              <span style="display:flex; flex-direction:column;">
-                <span style="font-family: 'Cormorant Garamond', serif; font-size: 22px;">Total amount VAT incl.</span>
-                <span id="resa-inclus-text" style="font-family: 'Cormorant Garamond', serif; font-size: 18px; opacity:0.9; font-style: italic; margin-top: 2px;">(Final cleaning and gasoline included)</span>
+              <span style="display:flex; align-items:baseline; gap:8px;">
+                <span style="font-family: 'Cormorant Garamond', serif; font-size: 22px;">Total amount</span>
+                <span id="resa-inclus-text" style="font-family: 'Cormorant Garamond', serif; font-size: 18px; opacity:0.9; font-style: italic;">(final cleaning and gasoline included)</span>
               </span>
               <span class="total-val" id="resa-total">— CHF</span>
             </div>
@@ -659,7 +659,7 @@
               var pl = o.per === 'jour' ? (lang==='de'? ' <span style="text-transform:none;">/ Tag</span>' : lang==='en'? ' <span style="text-transform:none;">/ day</span>' : ' <span style="text-transform:none;">/ jour</span>') : o.per === 'forfait' ? '' : ' <span style="text-transform:none;">/ ' + o.per + '</span>';
               var disabledClass = 'opt-disabled';
               var inputAttrs = 'checked onclick="return false;"';
-              ro.innerHTML += `<label class="opt-check ${disabledClass}"><input type="checkbox" data-price="${o.price}" data-per="${o.per}" ${inputAttrs}><span class="oci"><span style="display:flex; align-items:center;"><span class="oc-radio"></span><span class="ocn">${gi(o.name)} ${t(o.name)}</span></span><span class="ocp">+${o.price} CHF${pl}</span></span></label>`;
+              ro.innerHTML += `<label class="opt-check ${disabledClass}"><input type="checkbox" data-price="${o.price}" data-per="${o.per}" ${inputAttrs}><span class="oci"><span style="display:flex; align-items:center;"><span class="ocn">${gi(o.name)} ${t(o.name)}</span></span><span class="ocp">+${o.price} CHF${pl}</span></span></label>`;
             });
           }
           if (opt.length) {
@@ -882,9 +882,9 @@
       var incText = document.getElementById('resa-inclus-text');
       if (incText) {
          if (isPass) {
-            incText.textContent = (lang === 'de') ? '(Benzin inklusive)' : ((lang === 'en') ? '(Gasoline included)' : '(Essence incluse)');
+            incText.textContent = (lang === 'de') ? '(Benzin inklusive)' : ((lang === 'en') ? '(gasoline included)' : '(essence incluse)');
          } else {
-            incText.textContent = (lang === 'de') ? '(Endreinigung und Benzin inklusive)' : ((lang === 'en') ? '(Final cleaning and gasoline included)' : '(Nettoyage et essence inclus)');
+            incText.textContent = (lang === 'de') ? '(Endreinigung und Benzin inklusive)' : ((lang === 'en') ? '(final cleaning and gasoline included)' : '(nettoyage et essence inclus)');
          }
       }
 
