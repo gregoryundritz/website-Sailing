@@ -1429,6 +1429,13 @@
 @media (max-width: 900px) {
   .wind-section { grid-template-columns: 1fr; gap: 40px; }
 }
+
+@media(max-width:900px) {
+  .desktop-only { display: none !important; }
+}
+@media(min-width:901px) {
+  .mobile-only { display: none !important; }
+}
 .wind-graphic-wrap {
   background: var(--navy);
   border-radius: var(--r);
