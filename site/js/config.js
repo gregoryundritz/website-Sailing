@@ -36,7 +36,8 @@ window.VOILIER_CONFIG = {
   options: [
     { name: "Paddle", price: 15, per: "jour", required: false },
     { name: "Gennaker", price: 15, per: "jour", required: false },
-    { name: "Nettoyage final (obligatoire)", price: 50, per: "forfait", required: true }
+    { name: "Nettoyage final (obligatoire)", price: 50, per: "forfait", required: true },
+    { name: "Essence (obligatoire)", price: 15, per: "jour", required: true }
   ],
 
   // Paramètres Skipper Pass
@@ -49,7 +50,9 @@ window.VOILIER_TRANSLATIONS = {
   'Nettoyage final (obligatoire)': { 'de': 'Endreinigung (obligatorisch)', 'en': 'Final cleaning (mandatory)' },
   'Nettoyage final': { 'de': 'Endreinigung', 'en': 'Final cleaning' },
   'Paddle': { 'de': 'Stand-Up Paddle', 'en': 'Paddleboard' },
-  'Gennaker': { 'de': 'Gennaker', 'en': 'Gennaker' }
+  'Gennaker': { 'de': 'Gennaker', 'en': 'Gennaker' },
+  'Essence (obligatoire)': { 'de': 'Benzin (obligatorisch)', 'en': 'Gasoline (mandatory)' },
+  'Essence': { 'de': 'Benzin', 'en': 'Gasoline' }
 };
 
 document.addEventListener('DOMContentLoaded', function () {

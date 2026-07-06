@@ -244,6 +244,9 @@
                   onchange="updateTotal()" checked onclick="return false;"
                   style="pointer-events:none;opacity:0.8;"><span class="oci" style="background: #fff8ee; border: 2px solid var(--gold);"><span class="ocn" style="color: var(--navy); font-weight: 700; font-size: 14px;">🧹 Endreinigung (obligatorisch)</span><span class="ocp">+50 CHF</span></span></label>
               <label class="opt-check"><input type="checkbox" data-price="15" data-per="jour"
+                  onchange="updateTotal()" checked onclick="return false;"
+                  style="pointer-events:none;opacity:0.8;"><span class="oci"><span class="ocn">⛽ Benzin (obligatorisch)</span><span class="ocp">+15 CHF/Tag</span></span></label>
+              <label class="opt-check"><input type="checkbox" data-price="15" data-per="jour"
                   onchange="updateTotal()"><span class="oci"><span class="ocn">🎏 Gennaker</span><span class="ocp">+15
                     CHF/Tag</span></span></label>
               <label class="opt-check"><input type="checkbox" data-price="15" data-per="jour"
@@ -627,7 +630,7 @@
            }
            return str;
         }
-        var icons = { paddle: '🏄', nettoyage: '🧹', briefing: '🧭', caution: '🛡️', barbecue: '🍖', gilet: '🦺', 'apéro': '🥂', gps: '🗺️', photo: '📸', 'vélo': '🚲' };
+        var icons = { paddle: '🏄', nettoyage: '🧹', briefing: '🧭', caution: '🛡️', barbecue: '🍖', gilet: '🦺', 'apéro': '🥂', gps: '🗺️', photo: '📸', 'vélo': '🚲', essence: '⛽' };
         function gi(n) { var k = n.toLowerCase(); for (var x in icons) { if (k.includes(x)) return icons[x] } return '✦'; }
         var tg = document.getElementById('opts-tarifs');
         if (tg) {

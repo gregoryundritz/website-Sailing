@@ -216,6 +216,10 @@
             <div class="opt-card-price">+60 CHF</div>
           </div>
           <div class="opt-card">
+            <div class="opt-card-name">⛽ Essence (obligatoire)</div>
+            <div class="opt-card-price">+15 CHF/j</div>
+          </div>
+          <div class="opt-card">
             <div class="opt-card-name">🎏 Gennaker</div>
             <div class="opt-card-price">+15 CHF/j</div>
           </div>
@@ -437,7 +441,7 @@
            }
            return str;
         }
-        var icons = { paddle: '🏄', nettoyage: '🧹', briefing: '🧭', caution: '🛡️', barbecue: '🍖', gilet: '🦺', 'apéro': '🥂', gps: '🗺️', photo: '📸', 'vélo': '🚲' };
+        var icons = { paddle: '🏄', nettoyage: '🧹', briefing: '🧭', caution: '🛡️', barbecue: '🍖', gilet: '🦺', 'apéro': '🥂', gps: '🗺️', photo: '📸', 'vélo': '🚲', essence: '⛽' };
         function gi(n) { var k = n.toLowerCase(); for (var x in icons) { if (k.includes(x)) return icons[x] } return '✦'; }
         var tg = document.getElementById('opts-tarifs');
         if (tg) {
