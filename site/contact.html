@@ -228,7 +228,7 @@
                   required style="cursor:pointer"></div>
             </div>
             
-            <div id="resa-duration-display" style="padding:15px 20px; background:var(--white, #fff); border-radius:var(--r, 8px); border:1px solid rgba(13,38,59,0.15); margin-top:15px; margin-bottom:25px; font-weight:600; font-size:14px; color:var(--navy, #0d263b); display:none; justify-content:space-between; align-items:center;"></div>
+            <div id="resa-duration-display" style="padding:15px 20px; background:var(--white, #fff); border-radius:var(--r, 8px); border:1px solid rgba(13,38,59,0.15); margin-top:10px; margin-bottom:0; font-weight:500; font-size:14px; color:var(--navy, #0d263b); display:none; justify-content:space-between; align-items:center;"></div>
             
           </div>
 
@@ -260,8 +260,7 @@
           <div id="total-bar-wrap">
             <div class="total-bar">
               <span style="display:flex; align-items:baseline; gap:8px;">
-                <span style="font-family: 'Cormorant Garamond', serif; font-size: 22px;">Montant total</span>
-                <span id="resa-inclus-text" style="font-family: 'Cormorant Garamond', serif; font-size: 18px; opacity:0.9; font-style: italic;">(nettoyage et essence inclus)</span>
+                <span style="font-family: 'DM Sans', sans-serif; font-size: 18px; font-weight: 600; text-transform: uppercase;">Total</span>
               </span>
               <span class="total-val" id="resa-total">— CHF</span>
             </div>
@@ -539,9 +538,7 @@
 
         <div
           style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;padding:12px 16px;background:rgba(26,98,120,0.06);border-radius:var(--r);border:1px solid rgba(26,98,120,0.15);">
-          <span style="font-size:18px;">🔒</span>
-          <span style="font-size:13px;color:var(--teal);font-weight:500;">Aucun paiement aujourd'hui — confirmation
-            sous 24h, lien de paiement ensuite.</span>
+          <span style="font-size:13px;color:var(--teal);font-weight:500;">Aucun paiement maintenant - confirmation de réservation sous 24h</span>
         </div>
 
 
@@ -642,16 +639,19 @@
           var opt = c.options.filter(o => !o.required && !o.name.toLowerCase().includes('linge'));
           
           if (mand.length) {
-            ro.innerHTML += `<div style="font-size:13px;font-weight:600;color:var(--navy);margin:0 0 10px 0;letter-spacing:0.05em;text-transform:uppercase;">${lang==='de'?'Obligatorische Optionen':lang==='en'?'Mandatory options':'Options obligatoires'}</div>`;
-            mand.forEach(o => {
+            var mandWrapper = `<div style="display:flex; flex-direction:column; gap:6px; padding:12px 0; border:1px solid rgba(13,38,59,0.15); border-radius:var(--r, 8px); background:var(--white, #fff); margin-bottom:10px; overflow:hidden;">`;
+            var mandItems = '';
+            mand.forEach((o, idx) => {
               var pl = o.per === 'jour' ? (lang==='de'? ' <span style="text-transform:none;">/ Tag</span>' : lang==='en'? ' <span style="text-transform:none;">/ day</span>' : ' <span style="text-transform:none;">/ jour</span>') : o.per === 'forfait' ? '' : ' <span style="text-transform:none;">/ ' + o.per + '</span>';
-              var disabledClass = 'opt-disabled';
               var inputAttrs = 'checked onclick="return false;"';
-              ro.innerHTML += `<label class="opt-check ${disabledClass}"><input type="checkbox" data-price="${o.price}" data-per="${o.per}" ${inputAttrs}><span class="oci"><span style="display:flex; align-items:center;"><span class="ocn">${gi(o.name)} ${t(o.name)}</span></span><span class="ocp">+${o.price} CHF${pl}</span></span></label>`;
+              
+              var cardStyle = `padding:4px 20px; background:transparent; border:none; margin:0; font-weight:500; font-size:14px; color:var(--navy, #0d263b); display:flex; justify-content:space-between; align-items:center; cursor:default; letter-spacing:0.02em; text-transform:none;`;
+              mandItems += `<label style="${cardStyle}"><input type="checkbox" data-price="${o.price}" data-per="${o.per}" ${inputAttrs} style="display:none;"><span style="display:flex; align-items:center;"><span class="ocn">${gi(o.name)} ${t(o.name)}</span></span><span class="ocp" style="color:var(--navy);">+${o.price} CHF${pl}</span></label>`;
             });
+            ro.innerHTML += mandWrapper + mandItems + '</div>';
           }
           if (opt.length) {
-            ro.innerHTML += `<div style="font-size:13px;font-weight:600;color:var(--navy);margin:16px 0 10px 0;letter-spacing:0.05em;text-transform:uppercase;">${lang==='de'?'Zusätzliche Optionen':lang==='en'?'Additional options':'Options supplémentaires'}</div>`;
+            ro.innerHTML += `<div class="resa-step-title">${lang==='de'?'Optionen':lang==='en'?'Options':'Options'} :</div>`;
             opt.forEach(o => {
               var pl = o.per === 'jour' ? (lang==='de'? ' <span style="text-transform:none;">/ Tag</span>' : lang==='en'? ' <span style="text-transform:none;">/ day</span>' : ' <span style="text-transform:none;">/ jour</span>') : o.per === 'forfait' ? '' : ' <span style="text-transform:none;">/ ' + o.per + '</span>';
               var disabledClass = '';
@@ -867,15 +867,6 @@
       var isPass = (typeof currentTab !== 'undefined' && currentTab === 'pass');
       var lang = document.documentElement.lang || 'fr';
       
-      var incText = document.getElementById('resa-inclus-text');
-      if (incText) {
-         if (isPass) {
-            incText.textContent = (lang === 'de') ? '(Benzin inklusive)' : ((lang === 'en') ? '(gasoline included)' : '(essence incluse)');
-         } else {
-            incText.textContent = (lang === 'de') ? '(Endreinigung und Benzin inklusive)' : ((lang === 'en') ? '(final cleaning and gasoline included)' : '(nettoyage et essence inclus)');
-         }
-      }
-
       var s = fpS && fpS.selectedDates[0], e = fpE && fpE.selectedDates[0];
       var dd = document.getElementById('resa-duration-display');
       var tt = document.getElementById('resa-total');
@@ -894,7 +885,7 @@
       if (!s || !e) { 
         if (dd) {
           var t_loc = (lang === 'de') ? 'Preis Segelboot' : ((lang === 'en') ? 'Boat price' : 'Prix voilier');
-          dd.innerHTML = '<span>⛵ ' + t_loc + '</span><span>— CHF</span>';
+          dd.innerHTML = '<span>⛵ ' + t_loc + '</span><span style="font-weight:400;">— CHF</span>';
           dd.style.display = 'flex';
         }
         if (tt) tt.textContent = '— CHF'; 
@@ -904,7 +895,7 @@
       if (days <= 0 || days > 14) { 
         if (dd) {
           var t_loc = (lang === 'de') ? 'Preis Segelboot' : ((lang === 'en') ? 'Boat price' : 'Prix voilier');
-          dd.innerHTML = '<span>⛵ ' + t_loc + '</span><span>— CHF</span>';
+          dd.innerHTML = '<span>⛵ ' + t_loc + '</span><span style="font-weight:400;">— CHF</span>';
           dd.style.display = 'flex';
         }
         if (tt) tt.textContent = days > 14 ? ((lang === 'de') ? 'Max 14 Tage' : ((lang === 'en') ? 'Max 14 days' : 'Max 14 jours')) : '— CHF'; 
@@ -923,7 +914,7 @@
          var t_loc = (lang === 'de') ? 'Preis Segelboot' : ((lang === 'en') ? 'Boat price' : 'Prix voilier');
          var pricePerDay = Math.round(basePrice / days);
          var perDayStr = days >= 2 ? '<div style="font-size:12px; font-weight:400; opacity:0.6; margin-top:2px;">(' + pricePerDay + ' CHF / ' + t_jour.trim() + ')</div>' : '';
-         dd.innerHTML = '<span>⛵ ' + t_loc + ' <span style="opacity:0.6;font-weight:400;margin-left:4px;">(' + days + (days > 1 ? t_jours : t_jour) + ')</span></span><div style="display:flex; flex-direction:column; align-items:flex-end;"><span>' + basePrice + ' CHF</span>' + perDayStr + '</div>';
+         dd.innerHTML = '<span>⛵ ' + t_loc + ' <span style="opacity:0.6;font-weight:400;margin-left:4px;">(' + days + (days > 1 ? t_jours : t_jour) + ')</span></span><div style="display:flex; flex-direction:column; align-items:flex-end;"><span style="font-weight:400;">' + basePrice + ' CHF</span>' + perDayStr + '</div>';
          dd.style.display = 'flex';
       }
       if (tt) tt.textContent = total.toLocaleString('fr-CH') + ' CHF';

@@ -771,7 +771,7 @@
     }
 
     .resa-step {
-      margin-bottom: 0;
+      margin-bottom: 10px;
       padding-bottom: 0;
       border-bottom: none;
     }
@@ -789,8 +789,8 @@
       font-family: 'DM Sans', sans-serif;
       font-size: 14px;
       font-weight: 500;
-      margin-bottom: 12px;
       color: var(--navy);
+      margin-bottom: 10px;
     }
 
     input[type="file"] {
@@ -851,14 +851,14 @@
     .fr {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 14px
+      gap: 10px
     }
 
     .fg {
       display: flex;
       flex-direction: column;
       gap: 5px;
-      margin-bottom: 14px
+      margin-bottom: 10px
     }
 
     label {
@@ -918,8 +918,8 @@
     .opts-checks {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 8px;
-      margin-bottom: 14px
+      gap: 10px;
+      margin-bottom: 0
     }
 
     .opt-check {
@@ -940,7 +940,8 @@
       border: 1.5px solid var(--sand2);
       border-radius: var(--r);
       transition: all .15s;
-      font-size: 13px
+      font-size: 13px;
+      text-transform: none;
     }
 
     @media (hover: hover) {
@@ -980,8 +981,8 @@
 
     .ocp {
       font-size: 14px;
-      color: var(--gold);
-      font-weight: 500;
+      color: var(--navy);
+      font-weight: 400;
       white-space: nowrap
     }
 
@@ -993,13 +994,15 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 12px
+      margin-bottom: 10px
     }
 
     .total-bar span:first-child {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
       font-size: 18px;
-      color: rgba(255, 255, 255, .8)
+      color: rgba(255, 255, 255, .9);
+      text-transform: none;
     }
 
     .total-val {
@@ -1007,7 +1010,7 @@
       font-size: 16px;
       font-weight: 600;
       letter-spacing: .05em;
-      text-transform: uppercase
+      text-transform: none
     }
 
     .f-sub {

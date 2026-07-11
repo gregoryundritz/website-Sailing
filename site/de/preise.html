@@ -211,16 +211,15 @@
       <!-- Options -->
       <div class="rv" style="margin-top:36px;">
 
-        <div class="opts-grid" id="opts-tarifs">
+        <p
+          style="font-size:14px; color:var(--white); margin-bottom:32px; text-align:center; font-weight:300; opacity:0.8;">
+          Endreinigung (+50 CHF) und Benzin (+15 CHF/Tag) sind obligatorisch und nicht inbegriffen.<br>
+          Eine Kaution in Höhe von <span id="caution-display3">1&#x27;000</span> CHF wird vor
+          dem Aufenthalt per Kreditkartenabdruck reserviert.
+        </p>
 
-          <div class="opt-card">
-            <div class="opt-card-name">🧹 Endreinigung (obligatorisch)</div>
-            <div class="opt-card-price">+60 CHF</div>
-          </div>
-          <div class="opt-card">
-            <div class="opt-card-name">⛽ Benzin (obligatorisch)</div>
-            <div class="opt-card-price">+15 CHF/Tag</div>
-          </div>
+        <div class="opts-grid" id="opts-tarifs" style="max-width: 400px; margin: 0 auto; grid-template-columns: 1fr 1fr;">
+
           <div class="opt-card">
             <div class="opt-card-name">🎏 Gennaker</div>
             <div class="opt-card-price">+15 CHF/Tag</div>
@@ -231,11 +230,6 @@
           </div>
 
         </div>
-        <p
-          style="font-size:13px; color:var(--white); margin-top:32px; text-align:center; font-weight:300; opacity:0.8;">
-          Eine Kaution in Höhe von <span id="caution-display3">1&#x27;000</span> CHF wird vor
-          dem Aufenthalt per Kreditkartenabdruck reserviert.
-        </p>
         <div style="text-align:center; margin-top:36px;">
           <a href="kontakt.html#reservation"
             style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy);padding:14px 32px;border-radius:var(--r);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .2s;"
@@ -471,6 +465,7 @@
         if (tg) {
           tg.innerHTML = '';
           c.options.forEach(o => {
+            if (o.required) return;
             var pl = o.per === 'jour' ? (lang==='de'? '/Tag' : lang==='en'? '/day' : '/j') : o.per === 'forfait' ? '' : '/' + o.per;
             tg.innerHTML += `<div class="opt-card"><div class="opt-card-name">${gi(o.name)} ${t(o.name)}</div><div class="opt-card-price">+${o.price} CHF${pl}</div></div>`;
           });
