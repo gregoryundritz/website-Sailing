@@ -1139,7 +1139,24 @@
       user-select: none;
     }
 
-    @media(max-width:900px) {
+    @media (min-width: 1081px) and (max-width: 1280px) {
+      nav {
+        padding: 14px 28px;
+      }
+      nav ul {
+        gap: 16px;
+        align-items: center;
+      }
+      nav a {
+        font-size: 12px;
+      }
+      .nav-btn {
+        padding: 8px 14px;
+        font-size: 12px;
+      }
+    }
+
+    @media(max-width:1080px) {
       nav {
         padding: 16px 20px;
       }
@@ -1367,7 +1384,7 @@
 .lang-sel span { color: rgba(255,255,255,0.2); font-size: 12px; }
 
     .mob-actions { display: flex; align-items: center; gap: 16px; }
-    @media(max-width:900px) {
+    @media(max-width:1080px) {
       nav ul .lang-sel {
         display: flex !important;
         justify-content: center;
